@@ -122,9 +122,9 @@ def train_sbert(run_path, df_train, df_val, df_test, answer_column="Antwort", ta
 
         df_subsample = df_train.sample(num_epochs * num_pairs_per_example, random_state=random_state)
 
-            for _, example_2 in df_subsample.iterrows():
+        for _, example_2 in df_subsample.iterrows():
 
-                if not example_1[id_column] == example_2[id_column]:
+            if not example_1[id_column] == example_2[id_column]:
 
                 label = 0
                 if example_1[target_column] == example_2[target_column]:
