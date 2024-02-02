@@ -117,32 +117,36 @@ def train_sbert(run_path, df_train, df_val, df_test, answer_column="Antwort", ta
     model_path = os.path.join(run_path, "finetuned_model")
 
     # Define list of training pairs: Create only as many as needed
-    train_examples = []
-    for _, example_1 in tqdm(df_train.iterrows(), total=len(df_train)):
+    if num_epochs * num_pairs_per_example < len(df_train):
 
-        df_subsample = df_train.sample(num_epochs * num_pairs_per_example, random_state=random_state)
+        train_examples = []
+        for _, example_1 in tqdm(df_train.iterrows(), total=len(df_train)):
 
-        for _, example_2 in df_subsample.iterrows():
+            df_subsample = df_train.sample(num_epochs * num_pairs_per_example, random_state=random_state)
 
-            if not example_1[id_column] == example_2[id_column]:
+            for _, example_2 in df_subsample.iterrows():
 
-                label = 0
-                if example_1[target_column] == example_2[target_column]:
-                    label = 1
+                if not example_1[id_column] == example_2[id_column]:
 
-                train_examples.append(InputExample(texts=[example_1[answer_column], example_2[answer_column]], label=label*1.0))
-    # # Define list of training pairs: Create as many as possible
-    # train_examples = []
-    # for _, example_1 in tqdm(df_train.iterrows(), total=len(df_train)):
-    #     for _, example_2 in df_train.iterrows():
+                    label = 0
+                    if example_1[target_column] == example_2[target_column]:
+                        label = 1
 
-    #         if not example_1[id_column] == example_2[id_column]:
+                    train_examples.append(InputExample(texts=[example_1[answer_column], example_2[answer_column]], label=label*1.0))
+    
+    # Define list of training pairs: Create as many as possible
+    else:
+        train_examples = []
+        for _, example_1 in tqdm(df_train.iterrows(), total=len(df_train)):
+            for _, example_2 in df_train.iterrows():
 
-    #             label = 0
-    #             if example_1[target_column] == example_2[target_column]:
-    #                 label = 1
+                if not example_1[id_column] == example_2[id_column]:
 
-    #             train_examples.append(InputExample(texts=[example_1[answer_column], example_2[answer_column]], label=label*1.0))
+                    label = 0
+                    if example_1[target_column] == example_2[target_column]:
+                        label = 1
+
+                    train_examples.append(InputExample(texts=[example_1[answer_column], example_2[answer_column]], label=label*1.0))
 
     # Define validation pairs: Create as many as possible
     val_example_dict = {}
