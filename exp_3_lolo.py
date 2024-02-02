@@ -24,6 +24,7 @@ sbert_num_val_pairs = 1000
 
 bert_batch_size = 32
 # bert_batch_size = 64
+# bert_num_epochs = 10
 bert_num_epochs = 20
 
 random_state = 3456786544
@@ -88,9 +89,9 @@ def full_data(run_xlmr=True, run_sbert=True):
                     gold, pred_max, pred_avg = train_sbert(run_path_sbert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, base_model=sbert_model_name, num_epochs=sbert_num_epochs, batch_size=sbert_batch_size, do_warmup=False, save_model=False, num_pairs_per_example=sbert_num_pairs, num_val_pairs=sbert_num_val_pairs)
                     write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_avg, suffix='')
                     write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_max, suffix='_max')
-                    df_train.to_csv(os.path.join(result_dir, condition, prompt,language, 'XLMR', 'train.csv'))
-                    df_val.to_csv(os.path.join(result_dir, condition, prompt,language, 'XLMR', 'val.csv'))
-                    df_test.to_csv(os.path.join(result_dir, condition, prompt,language, 'XLMR', 'test.csv'))
+                    df_train.to_csv(os.path.join(result_dir, condition, prompt,language, 'SBERT', 'train.csv'))
+                    df_val.to_csv(os.path.join(result_dir, condition, prompt,language, 'SBERT', 'val.csv'))
+                    df_test.to_csv(os.path.join(result_dir, condition, prompt,language, 'SBERT', 'test.csv'))
 
 
 
@@ -160,10 +161,10 @@ def downsampled_data(run_xlmr=True, run_sbert=True):
                     gold, pred_max, pred_avg = train_sbert(run_path_sbert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, base_model=sbert_model_name, num_epochs=sbert_num_epochs, batch_size=sbert_batch_size, do_warmup=False, save_model=False, num_pairs_per_example=sbert_num_pairs, num_val_pairs=sbert_num_val_pairs)
                     write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_avg, suffix='')
                     write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_max, suffix='_max')
-                    df_train.to_csv(os.path.join(result_dir, condition, prompt,language, 'XLMR', 'train.csv'))
-                    df_val.to_csv(os.path.join(result_dir, condition, prompt,language, 'XLMR', 'val.csv'))
-                    df_test.to_csv(os.path.join(result_dir, condition, prompt,language, 'XLMR', 'test.csv'))
+                    df_train.to_csv(os.path.join(result_dir, condition, prompt,language, 'SBERT', 'train.csv'))
+                    df_val.to_csv(os.path.join(result_dir, condition, prompt,language, 'SBERT', 'val.csv'))
+                    df_test.to_csv(os.path.join(result_dir, condition, prompt,language, 'SBERT', 'test.csv'))
 
 
-# downsampled_data(run_sbert=False)
-full_data(run_xlmr=False)
+# downsampled_data(run_xlmr=False)
+full_data(run_sbert=False)
