@@ -42,7 +42,16 @@ amounts = [35, 75, 150, 300]
 
 def run_exp(run_xlmr=True, run_sbert=True):
 
-    for prompt in os.listdir(data_path):
+    for prompt in ['E011B14C', 'E011R02C']: # Wika:0 // DONE
+    # for prompt in ['E011B03C', 'E011B12C', 'E011M03C', 'E011M11C', 'E011R05C']: # Wika:1
+    # for prompt in ['E011B09C','E011T05C', 'E011T17C', 'E011Z12C', 'E011B04C']: # Wika:2
+    # for prompt in ['E011M13C', 'E011R08C', 'E011R15C', 'E011T08C']: # Limba:1
+    # for prompt in ['E011B08C', 'E011M08C', 'E011M15C', 'E011R09C', 'E011R16C']: # Limba:2
+    # for prompt in ['E011Z04C', 'E011M02C', 'E011M09C', 'E011R11C', 'E011T02C']: # Limba:3
+    # for prompt in ['E011Z09C', 'E011R14C', 'E011Z14C', 'E011T10C']: # Lovelace:0
+    # for prompt in ['E011M04C', 'E011B13C', 'E011T09C', 'E011Z02C']: # Lovelace:1
+
+    # for prompt in os.listdir(data_path):
 
         # This is the base language
         for base_language in languages:
@@ -164,11 +173,14 @@ def run_exp(run_xlmr=True, run_sbert=True):
                             df_test_target.to_csv(os.path.join(run_path_sbert_finetune, 'test.csv'))
                             
                 if run_xlmr:
-                    shutil.rmtree(os.path.join(run_path_bert, 'best_model'))
+                    if os.path.exists(os.path.join(run_path_bert, 'best_model')):
+                        shutil.rmtree(os.path.join(run_path_bert, 'best_model'))
 
                 if run_sbert:
-                    shutil.rmtree(os.path.join(run_path_sbert, 'finetuned_model'))
+                    if os.path.exists(os.path.join(run_path_sbert, 'finetuned_model')):
+                        shutil.rmtree(os.path.join(run_path_sbert, 'finetuned_model'))
 
 
-run_exp(run_xlmr=False)
+run_exp()
+# run_exp(run_xlmr=False)
 # run_exp(run_sbert=False)
