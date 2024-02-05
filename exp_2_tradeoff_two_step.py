@@ -16,7 +16,8 @@ if torch.cuda.is_available():
     device = 'cuda'
 
 sbert_model_name = 'paraphrase-multilingual-MiniLM-L12-v2'
-sbert_num_epochs = 15
+sbert_num_epochs = 7
+# sbert_num_epochs = 15
 sbert_batch_size = 64
 # sbert_batch_size = 128
 sbert_num_pairs = 25
@@ -24,7 +25,8 @@ sbert_num_val_pairs = 1000
 
 bert_batch_size = 32
 # bert_batch_size = 64
-bert_num_epochs = 20
+bert_num_epochs = 10
+# bert_num_epochs = 20
 
 languages = ['ar', 'da', 'en', 'he', 'it', 'ka', 'nb', 'pt', 'sl', 'sv', 'zh']
 
@@ -32,7 +34,7 @@ id_column = 'id'
 answer_column = 'Value'
 target_column = 'score'
 
-result_dir = '/results/exp_2_tradeoff_two_step'
+result_dir = '/results/exp_2_tradeoff_two_step_epochs-halved'
 data_path = '/data/exp'
 
 random_state = 56398
@@ -42,7 +44,29 @@ amounts = [35, 75, 150, 300]
 
 def run_exp(run_xlmr=True, run_sbert=True):
 
-    for prompt in ['E011B14C', 'E011R02C']: # Wika:0 // DONE
+    # Wika 1: LXMERT
+    # Wika 2: SBERT
+    for prompt in ['E011B14C', 'E011R02C', 'E011B03C', 'E011B12C', 'E011M03C', 'E011M11C', 'E011R05C', 'E011B04C']:
+
+    # Limba: 1
+    # for prompt in ['E011B09C','E011T05C', 'E011T17C', 'E011Z12C']:
+    # Limba: 2
+    # for prompt in ['E011M13C', 'E011R08C', 'E011R15C', 'E011T08C']: 
+    # Limba: 3
+    # for prompt in ['E011B08C', 'E011M08C', 'E011M15C', 'E011R09C']:
+
+    # Lovelace: 0
+    # for prompt in ['E011Z04C', 'E011M02C', 'E011M09C', 'E011R11C']:
+    # Lovelace: 1
+    # for prompt in ['E011Z09C', 'E011R14C', 'E011Z14C', 'E011T10C']:
+
+    # Turing: 0
+    # for prompt in ['E011M04C', 'E011B13C', 'E011T09C']:
+    # Turing: 1
+    # for prompt in ['E011R16C', 'E011T02C', 'E011T02C']:
+
+
+    ### OLD
     # for prompt in ['E011B03C', 'E011B12C', 'E011M03C', 'E011M11C', 'E011R05C']: # Wika:1
     # for prompt in ['E011B09C','E011T05C', 'E011T17C', 'E011Z12C', 'E011B04C']: # Wika:2
     # for prompt in ['E011M13C', 'E011R08C', 'E011R15C', 'E011T08C']: # Limba:1
@@ -181,6 +205,6 @@ def run_exp(run_xlmr=True, run_sbert=True):
                         shutil.rmtree(os.path.join(run_path_sbert, 'finetuned_model'))
 
 
-run_exp()
-# run_exp(run_xlmr=False)
+# run_exp()
+run_exp(run_xlmr=False)
 # run_exp(run_sbert=False)

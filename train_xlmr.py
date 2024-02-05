@@ -121,20 +121,36 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", targe
     model = XLMRobertaForSequenceClassification.from_pretrained(base_model, num_labels=len(label_set)).to(device)
     model.train()
 
-    training_args = TrainingArguments(
-        output_dir=os.path.join(run_path, 'checkpoints'),   # Output directory to save model, will be deleted after evaluation
-        num_train_epochs=num_epochs,             
-        per_device_train_batch_size=batch_size,
-        per_device_eval_batch_size=batch_size,  
-        warmup_steps=num_warm_steps,
-        load_best_model_at_end=True,                        # Load the best model when finished training (default metric is loss)
-        evaluation_strategy="epoch",
-        logging_strategy="epoch",
-        save_strategy="epoch",
-        save_total_limit=5,
-        #weight_decay=0.01,
-        #learning_rate=2e-5,
-    )
+    if save_model:
+        training_args = TrainingArguments(
+            output_dir=os.path.join(run_path, 'checkpoints'),   # Output directory to save model, will be deleted after evaluation
+            num_train_epochs=num_epochs,             
+            per_device_train_batch_size=batch_size,
+            per_device_eval_batch_size=batch_size,  
+            warmup_steps=num_warm_steps,
+            load_best_model_at_end=True,                        # Load the best model when finished training (default metric is loss)
+            evaluation_strategy="epoch",
+            logging_strategy="epoch",
+            save_strategy="epoch",
+            save_total_limit=5,
+            #weight_decay=0.01,
+            #learning_rate=2e-5,
+        )
+    else:
+        training_args = TrainingArguments(
+            output_dir=os.path.join(run_path, 'checkpoints'),   # Output directory to save model, will be deleted after evaluation
+            num_train_epochs=num_epochs,             
+            per_device_train_batch_size=batch_size,
+            per_device_eval_batch_size=batch_size,  
+            warmup_steps=num_warm_steps,
+            # load_best_model_at_end=True,                        # Load the best model when finished training (default metric is loss)
+            evaluation_strategy="epoch",
+            logging_strategy="epoch",
+            # save_strategy="epoch",
+            # save_total_limit=5,
+            #weight_decay=0.01,
+            #learning_rate=2e-5,
+        )
 
     trainer = Trainer(
         model=model,

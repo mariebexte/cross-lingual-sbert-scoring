@@ -151,7 +151,7 @@ def train_sbert(run_path, df_train, df_val, df_test, answer_column="Antwort", ta
     # Define validation pairs: Create as many as possible
     val_example_dict = {}
     val_example_index = 0
-    for _, example_1 in df_val.iterrows():
+    for _, example_1 in tqdm(df_val.iterrows(), total=len(df_val)):
         for _, example_2 in df_train.iterrows():
 
             if not example_1[id_column] == example_2[id_column]:
