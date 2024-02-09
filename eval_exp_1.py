@@ -19,19 +19,16 @@ def aggregate_results(result_dir, languages=['ar', 'da', 'en', 'he', 'it', 'ka',
             # for train_lang in os.listdir(os.path.join(result_dir, prompt)):
             for train_lang in languages:
 
-                for model in os.listdir(os.path.join(result_dir, prompt, train_lang)):
-                # for model in ['SBERT', 'MBERT']:
+                for model in [('XLMR', ''), ('SBERT', '_avg'), ('SBERT', '_max')]:
 
                     for test_lang in languages:
 
                         print(prompt, model, train_lang, test_lang)
 
-                        df_preds = pd.read_csv(os.path.join(result_dir, prompt, train_lang, model, test_lang, 'preds.csv')) 
+                        df_preds = pd.read_csv(os.path.join(result_dir, prompt, train_lang, model[0], test_lang, 'preds.csv')) 
                         gold=list(df_preds['score'])
-                        try:
-                            pred=list(df_preds['pred'])
-                        except:
-                            pred=list(df_preds['pred_avg'])
+
+                        pred=list(df_preds['pred'+model[1]])
 
                         acc = accuracy_score(y_true=gold, y_pred=pred)
                         qwk = cohen_kappa_score(y1=gold, y2=pred, weights='quadratic')
@@ -39,18 +36,16 @@ def aggregate_results(result_dir, languages=['ar', 'da', 'en', 'he', 'it', 'ka',
                         acc_within_val = -1
                         qwk_within_val = -1
                     
-                        if model == 'SBERT':
+                        if model[0] == 'SBERT':
 
                             test_lang_val_within = test_lang + '_target_val'
 
                             print("SBERT CONDITION", prompt, model, train_lang, test_lang_val_within)
 
-                            df_preds = pd.read_csv(os.path.join(result_dir, prompt, train_lang, model, test_lang_val_within, 'preds.csv')) 
+                            df_preds = pd.read_csv(os.path.join(result_dir, prompt, train_lang, model[0], test_lang_val_within, 'preds.csv')) 
                             gold=list(df_preds['score'])
-                            try:
-                                pred=list(df_preds['pred'])
-                            except:
-                                pred=list(df_preds['pred_avg'])
+
+                            pred=list(df_preds['pred'+model[1]])
 
                             acc_within_val = accuracy_score(y_true=gold, y_pred=pred)
                             qwk_within_val = cohen_kappa_score(y1=gold, y2=pred, weights='quadratic')
@@ -59,7 +54,7 @@ def aggregate_results(result_dir, languages=['ar', 'da', 'en', 'he', 'it', 'ka',
                             'prompt': prompt,
                             'train_lang': train_lang,
                             'test_lang': test_lang,
-                            'model': model,
+                            'model': model[0] + model[1],
                             'acc': acc,
                             'qwk': qwk,
                             'qwk_within_val': qwk_within_val,
@@ -119,6 +114,6 @@ def calculate_model_matrixes(result_df_path):
         plot_heat(df_matrix=df_acc_within_val, target_path=dir_for_results, model=model, metric="acc_within_val")
 
 
-aggregate_results('/results/exp_1_zero_shot')
-calculate_model_matrixes('/results/exp_1_zero_shot/overall.csv')
+aggregate_results('/Users/mariebexte/Coding/Projects/cross-lingual/exp_1_zero_shot')
+calculate_model_matrixes('/Users/mariebexte/Coding/Projects/cross-lingual/exp_1_zero_shot/overall.csv')
 
