@@ -16,7 +16,8 @@ if torch.cuda.is_available():
     device = 'cuda'
 
 sbert_model_name = 'paraphrase-multilingual-MiniLM-L12-v2'
-sbert_num_epochs = 15
+sbert_num_epochs = 8
+# sbert_num_epochs = 15
 sbert_batch_size = 64
 # sbert_batch_size = 128
 sbert_num_pairs = 25
@@ -41,9 +42,31 @@ data_path = '/data/exp'
 
 def full_data(run_xlmr=True, run_sbert=True):
 
-    condition = 'combine_all_other'
+    condition = 'combine_all_other-sbert_pairs'
 
-    for prompt in os.listdir(data_path):
+    # LOVELACE 0
+    # for prompt in ['E011B03C', 'E011B12C', 'E011M03C', 'E011M11C']: 
+    # LOVELACE 1
+    # for prompt in ['E011R08C', 'E011R15C', 'E011T08C', 'E011B08C']:
+    
+    # TURING 0
+    # for prompt in ['E011M13C', 'E011R14C', 'E011Z14C', 'E011M04C']:
+    # TURING 1
+    # for prompt in ['E011B13C', 'E011R05C']
+
+    # WIKA 1
+    for prompt in ['E011M09C', 'E011R11C', 'E011T02C', 'E011Z09C']:
+    # WIKA 2
+    # for prompt in ['E011T10C', 'E011B14C', 'E011Z04C', 'E011M02C']:
+
+    # LIMBA 1
+    # for prompt in ['E011Z12C', 'E011B04C', 'E011T17C', 'E011R16C']:
+    # LIMBA 2
+    # for prompt in ['E011R02C', 'E011T05C', 'E011R09C', 'E011Z02C']:
+    # LIMBA 3
+    # for prompt in ['E011B09C', 'E011M15C', 'E011T09C', 'E011M08C']:
+
+    # for prompt in os.listdir(data_path):
 
         # For each prompt - language pair, train a model
         # for language in os.listdir(os.path.join(data_path, prompt)):
@@ -97,7 +120,7 @@ def full_data(run_xlmr=True, run_sbert=True):
 
 def downsampled_data(run_xlmr=True, run_sbert=True):
 
-    condition = 'combine_downsampled_other'
+    condition = 'combine_downsampled_other-sbert_pairs'
 
     for prompt in os.listdir(data_path):
 
@@ -167,4 +190,4 @@ def downsampled_data(run_xlmr=True, run_sbert=True):
 
 
 # downsampled_data(run_xlmr=False)
-full_data(run_sbert=False)
+full_data(run_xlmr=False)
