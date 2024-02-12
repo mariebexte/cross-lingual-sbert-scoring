@@ -1,5 +1,6 @@
 from sklearn.metrics import classification_report, accuracy_score, cohen_kappa_score, f1_score
 import pandas as pd
+import numpy as np
 import torch
 from transformers import TrainerCallback, Trainer
 import os
@@ -7,6 +8,22 @@ import os
 id_column = 'id'
 answer_column = 'Value'
 target_column = 'score'
+
+
+def average_qwk(df):
+
+    high = 0.999
+    try:
+        df['qwk_smooth'] = df['qwk'].apply(lambda x: x if x < high else high)
+    except:
+        df['qwk_smooth'] = df['qwk_within_val'].apply(lambda x: x if x < high else high)
+    # Arctanh == FISHER
+    df_preds_fisher = np.arctanh(df)
+    # print(df_preds_fisher)
+    test_scores_mean_fisher = np.nanmean(df_preds_fisher, axis=0)
+    # Tanh == FISHERINV
+    test_scores_mean = np.tanh(test_scores_mean_fisher)
+    return test_scores_mean
 
 ## Write classification statistics to specified output directory, if desired provide suffix for filename
 def write_classification_statistics(filepath, y_true, y_pred, suffix=''):
