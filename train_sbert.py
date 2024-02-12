@@ -12,6 +12,7 @@ import logging
 from utils import encode_labels
 from datetime import datetime
 from tqdm import tqdm
+import random
 
 random_state = 3456478
 
@@ -119,10 +120,12 @@ def train_sbert(run_path, df_train, df_val, df_test, answer_column="Antwort", ta
     # Define list of training pairs: Create only as many as needed
     if num_epochs * num_pairs_per_example < len(df_train):
 
-        train_examples = []
-        for _, example_1 in tqdm(df_train.iterrows(), total=len(df_train)):
+        seeds = random.Random(random_state).sample(range(1, 100000), len(df_train))
 
-            df_subsample = df_train.sample(num_epochs * num_pairs_per_example, random_state=random_state)
+        train_examples = []
+        for idx_1, example_1 in tqdm(df_train.iterrows(), total=len(df_train)):
+
+            df_subsample = df_train.sample(num_epochs * num_pairs_per_example, random_state=seeds[idx_1])
 
             for _, example_2 in df_subsample.iterrows():
 
