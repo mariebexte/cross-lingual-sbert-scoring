@@ -19,11 +19,16 @@ def aggregate_results(result_dir, languages=['ar', 'da', 'en', 'he', 'it', 'ka',
             # for train_lang in os.listdir(os.path.join(result_dir, prompt)):
             for train_lang in languages:
 
+                # for model in [('SBERT', '_avg'), ('SBERT', '_max')]:
                 for model in [('XLMR', ''), ('SBERT', '_avg'), ('SBERT', '_max')]:
 
                     for test_lang in languages:
 
-                        print(prompt, model, train_lang, test_lang)
+                        # print(prompt, model, train_lang, test_lang)
+
+                        # try:
+
+                        print(os.path.join(result_dir, prompt, train_lang, model[0], test_lang, 'preds.csv'))
 
                         df_preds = pd.read_csv(os.path.join(result_dir, prompt, train_lang, model[0], test_lang, 'preds.csv')) 
                         gold=list(df_preds['score'])
@@ -33,22 +38,22 @@ def aggregate_results(result_dir, languages=['ar', 'da', 'en', 'he', 'it', 'ka',
                         acc = accuracy_score(y_true=gold, y_pred=pred)
                         qwk = cohen_kappa_score(y1=gold, y2=pred, weights='quadratic')
 
-                        acc_within_val = -1
+                        acc_within_val = -1  
                         qwk_within_val = -1
                     
-                        if model[0] == 'SBERT':
+                        # if model[0] == 'SBERT':
 
-                            test_lang_val_within = test_lang + '_target_val'
+                        #     test_lang_val_within = test_lang + '_target_val'
 
-                            print("SBERT CONDITION", prompt, model, train_lang, test_lang_val_within)
+                        #     print("SBERT CONDITION", prompt, model, train_lang, test_lang_val_within)
 
-                            df_preds = pd.read_csv(os.path.join(result_dir, prompt, train_lang, model[0], test_lang_val_within, 'preds.csv')) 
-                            gold=list(df_preds['score'])
+                        #     df_preds = pd.read_csv(os.path.join(result_dir, prompt, train_lang, model[0], test_lang_val_within, 'preds.csv')) 
+                        #     gold=list(df_preds['score'])
 
-                            pred=list(df_preds['pred'+model[1]])
+                        #     pred=list(df_preds['pred'+model[1]])
 
-                            acc_within_val = accuracy_score(y_true=gold, y_pred=pred)
-                            qwk_within_val = cohen_kappa_score(y1=gold, y2=pred, weights='quadratic')
+                        #     acc_within_val = accuracy_score(y_true=gold, y_pred=pred)
+                        #     qwk_within_val = cohen_kappa_score(y1=gold, y2=pred, weights='quadratic')
 
                         results[results_idx] = {
                             'prompt': prompt,
@@ -62,6 +67,9 @@ def aggregate_results(result_dir, languages=['ar', 'da', 'en', 'he', 'it', 'ka',
                         }
 
                         results_idx += 1
+                        
+                        # except:
+                        #     print('MISSING', prompt, model, train_lang, test_lang)
 
 
     df_results = pd.DataFrame.from_dict(results, orient='index')
@@ -106,6 +114,9 @@ def calculate_model_matrixes(result_df_path):
         df_qwk_within_val.to_csv(os.path.join(dir_for_results, model + '_qwk_within_val.csv'))
         df_acc_within_val.to_csv(os.path.join(dir_for_results, model + '_acc_within_val.csv'))
 
+        df_qwk_fisher.index.names=['training language']
+        df_qwk_fisher.columns.names=['test language']
+
         plot_heat(df_matrix=df_qwk_fisher, target_path=dir_for_results, model=model, metric="qwk_fisher")
         plot_heat(df_matrix=df_qwk, target_path=dir_for_results, model=model, metric="qwk")
         plot_heat(df_matrix=df_acc, target_path=dir_for_results, model=model, metric="acc")
@@ -114,6 +125,11 @@ def calculate_model_matrixes(result_df_path):
         plot_heat(df_matrix=df_acc_within_val, target_path=dir_for_results, model=model, metric="acc_within_val")
 
 
-aggregate_results('/Users/mariebexte/Coding/Projects/cross-lingual/exp_1_zero_shot')
-calculate_model_matrixes('/Users/mariebexte/Coding/Projects/cross-lingual/exp_1_zero_shot/overall.csv')
+# aggregate_results('/Users/mariebexte/Coding/Projects/cross-lingual/exp_1_zero_shot')
+# calculate_model_matrixes('/Users/mariebexte/Coding/Projects/cross-lingual/exp_1_zero_shot/overall.csv')
 
+# aggregate_results('/Users/mariebexte/Coding/Projects/cross-lingual/exp_1_zero_shot_epochs-halved')
+# calculate_model_matrixes('/Users/mariebexte/Coding/Projects/cross-lingual/exp_1_zero_shot_epochs-halved/overall.csv')
+
+aggregate_results('/Users/mariebexte/Coding/Projects/cross-lingual/exp_1_zero_shot_FINAL')
+calculate_model_matrixes('/Users/mariebexte/Coding/Projects/cross-lingual/exp_1_zero_shot_FINAL/overall.csv')

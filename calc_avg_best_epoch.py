@@ -4,7 +4,8 @@ import sys
 from nltk.probability import FreqDist as FD
 
 
-def calc_xlmr(result_path='/results/exp_1_zero_shot'):
+# def calc_xlmr(result_path='/results/exp_1_zero_shot'):
+def calc_xlmr(result_path='/Users/mariebexte/Coding/Projects/cross-lingual/exp_3_lolo/combine_all_other'):
 
     avg_e = 0
     num_runs = 0
@@ -16,15 +17,17 @@ def calc_xlmr(result_path='/results/exp_1_zero_shot'):
 
             for lang in os.listdir(os.path.join(result_path, prompt)):
 
-                result_file = os.path.join(result_path, prompt, lang, 'XLMR', 'eval_stats.csv')
-                df_results = pd.read_csv(result_file)
+                if len(lang) == 2:
 
-                best = list(df_results['best_model_checkpoint'])[-1]
-                best_e = int(best[best.index('-')+1:])
-                
-                avg_e += best_e
-                list_e.append(best_e)
-                num_runs += 1
+                    result_file = os.path.join(result_path, prompt, lang, 'XLMR', 'eval_stats.csv')
+                    df_results = pd.read_csv(result_file)
+
+                    best = list(df_results['best_model_checkpoint'])[-1]
+                    best_e = int(best[best.index('-')+1:])
+                    
+                    avg_e += best_e
+                    list_e.append(best_e)
+                    num_runs += 1
 
     print(avg_e)
     print(num_runs)
@@ -38,7 +41,7 @@ def calc_xlmr(result_path='/results/exp_1_zero_shot'):
         print(freq, amount)
 
 
-def calc_sbert(result_path='/results/exp_1_zero_shot'):
+def calc_sbert(result_path='/Users/mariebexte/Coding/Projects/cross-lingual/exp_3_lolo/combine_all_other'):
 
     avg_e = 0
     num_runs = 0
@@ -50,30 +53,32 @@ def calc_sbert(result_path='/results/exp_1_zero_shot'):
 
             for lang in os.listdir(os.path.join(result_path, prompt)):
 
-                best_e = 0
-                current_e = 0
+                if len(lang) == 2:
 
-                for log in os.listdir(os.path.join(result_path, prompt, lang, 'SBERT')):
+                    best_e = 0
+                    current_e = 0
 
-                    if log.startswith('log'):
+                    for log in os.listdir(os.path.join(result_path, prompt, lang, 'SBERT')):
 
-                        df_log = pd.read_csv(os.path.join(result_path, prompt, lang, 'SBERT', log))
-                        
-                        for idx, line in df_log.iterrows():
+                        if log.startswith('log'):
 
-                            line = line.iloc[0]
+                            df_log = pd.read_csv(os.path.join(result_path, prompt, lang, 'SBERT', log))
                             
-                            if 'Evaluating the model on' in line:
+                            for idx, line in df_log.iterrows():
+
+                                line = line.iloc[0]
                                 
-                                current_e = int(line[line.index('epoch ')+6:-1])
-                            
-                            if 'Save model to' in line:
+                                if 'Evaluating the model on' in line:
+                                    
+                                    current_e = int(line[line.index('epoch ')+6:-1])
+                                
+                                if 'Save model to' in line:
 
-                                best_e = current_e
+                                    best_e = current_e
                         
-                avg_e += best_e
-                list_e.append(best_e)
-                num_runs += 1
+                    avg_e += best_e
+                    list_e.append(best_e)
+                    num_runs += 1
             
 
     print(avg_e)
@@ -88,5 +93,5 @@ def calc_sbert(result_path='/results/exp_1_zero_shot'):
         print(freq, amount)
 
 
-# calc_xlmr()
+calc_xlmr()
 calc_sbert()

@@ -16,23 +16,29 @@ def eval_condition(results_path='/Users/mariebexte/Coding/Projects/cross-lingual
 
             for language in os.listdir(os.path.join(results_path, prompt)):
 
-                for model in [('XLMR', ''), ('SBERT', '_avg'), ('SBERT', '_max')]:
+                if len(language) == 2:
 
-                    try:
-                        preds = pd.read_csv(os.path.join(results_path, prompt, language, model[0], 'preds.csv'))
-                        qwk = cohen_kappa_score(list(preds['score']), list(preds['pred'+model[1]]), weights='quadratic')
+                    for model in [('SBERT', '_avg'), ('SBERT', '_max')]:
+                    # for model in [('XLMR', ''), ('SBERT', '_avg'), ('SBERT', '_max')]:
 
-                    except:
-                        qwk = -1
+                        try:
+                            preds = pd.read_csv(os.path.join(results_path, prompt, language, model[0], 'preds.csv'))
+                            qwk = cohen_kappa_score(list(preds['score']), list(preds['pred'+model[1]]), weights='quadratic')
 
-                    results[results_idx] = {
-                        'prompt': prompt,
-                        'test_lang': language,
-                        'model': model[0] + model[1],
-                        'qwk': qwk,
-                    }
+                            results[results_idx] = {
+                                'prompt': prompt,
+                                'test_lang': language,
+                                'model': model[0] + model[1],
+                                'qwk': qwk,
+                            }
 
-                    results_idx += 1
+                            results_idx += 1
+
+                        except:
+                            print(prompt, model, language)
+                            print('HERE')
+                            # sys.exit(0)
+                            qwk = -1
 
 
     df_results = pd.DataFrame.from_dict(results, orient='index')
@@ -55,5 +61,9 @@ def eval_condition(results_path='/Users/mariebexte/Coding/Projects/cross-lingual
 
 
 
-eval_condition()
+eval_condition(results_path='/Users/mariebexte/Coding/Projects/cross-lingual/exp_3_lolo/combine_all_other-sbert_pairs')
+eval_condition(results_path='/Users/mariebexte/Coding/Projects/cross-lingual/exp_3_lolo/combine_downsampled_other-sbert_pairs')
+# eval_condition(results_path='/Users/mariebexte/Coding/Projects/cross-lingual/exp_3_lolo/combine_all_other-sbert-3')
+# eval_condition(results_path='/Users/mariebexte/Coding/Projects/cross-lingual/exp_3_lolo/combine_all_other-sbert-5')
 # eval_condition(results_path='/Users/mariebexte/Coding/Projects/cross-lingual/exp_3_lolo/combine_downsampled_other')
+# eval_condition(results_path='/Users/mariebexte/Coding/Projects/cross-lingual/exp_3_lolo/combine_downsampled_other_epochs-halved')
