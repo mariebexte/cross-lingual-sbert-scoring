@@ -16,7 +16,7 @@ if torch.cuda.is_available():
     device = 'cuda'
 
 sbert_model_name = 'paraphrase-multilingual-MiniLM-L12-v2'
-sbert_num_epochs = 7
+sbert_num_epochs = 8
 # sbert_num_epochs = 15
 sbert_batch_size = 64
 # sbert_batch_size = 128
@@ -34,7 +34,7 @@ id_column = 'id'
 answer_column = 'Value'
 target_column = 'score'
 
-result_dir = '/results/exp_2_tradeoff_two_step_epochs-halved'
+result_dir = '/results/exp_2_tradeoff_two_step_epochs-halved-FINAL'
 data_path = '/data/exp'
 
 random_state = 56398
@@ -44,26 +44,30 @@ amounts = [35, 75, 150, 300]
 
 def run_exp(run_xlmr=True, run_sbert=True):
 
-    # Wika 1: LXMERT
-    # Wika 2: SBERT
-    for prompt in ['E011B14C', 'E011R02C', 'E011B03C', 'E011B12C', 'E011M03C', 'E011M11C', 'E011R05C', 'E011B04C']:
-
-    # Limba: 1
-    # for prompt in ['E011B09C','E011T05C', 'E011T17C', 'E011Z12C']:
-    # Limba: 2
-    # for prompt in ['E011M13C', 'E011R08C', 'E011R15C', 'E011T08C']: 
-    # Limba: 3
-    # for prompt in ['E011B08C', 'E011M08C', 'E011M15C', 'E011R09C']:
-
     # Lovelace: 0
-    # for prompt in ['E011Z04C', 'E011M02C', 'E011M09C', 'E011R11C']:
+    # for prompt in ['E011Z04C', 'E011M02C', 'E011M09C', 'E011R09C']:
     # Lovelace: 1
-    # for prompt in ['E011Z09C', 'E011R14C', 'E011Z14C', 'E011T10C']:
+    # for prompt in ['E011Z09C', 'E011R14C', 'E011Z14C', 'E011M15C']:
 
     # Turing: 0
-    # for prompt in ['E011M04C', 'E011B13C', 'E011T09C']:
+    # for prompt in ['E011M04C', 'E011B13C', 'E011T09C', 'E011M13C']:
     # Turing: 1
-    # for prompt in ['E011R16C', 'E011T02C', 'E011T02C']:
+    # for prompt in ['E011R16C', 'E011T02C', 'E011R05C', 'E011Z02C']:
+
+    # Limba 1:
+    # for prompt in ['E011R02C', 'E011B03C', 'E011B08C']:
+    # Limba 2:
+    # for prompt in ['E011M03C', 'E011M11C', 'E011M08C']:
+    # Limba 3:
+    for prompt in ['E011B09C','E011T05C', 'E011T17C']:
+
+    # Wika 0:
+    # for prompt in ['E011R08C', 'E011R15C', 'E011T08C']:
+    # Wika 1:
+    # for prompt in ['E011B12C', 'E011B14C', 'E011R11C']:
+    # Wika 2:
+    # for prompt in ['E011Z12C', 'E011T10C', 'E011B04C']:
+
 
 
     ### OLD
@@ -131,6 +135,7 @@ def run_exp(run_xlmr=True, run_sbert=True):
                     run_path_sbert = os.path.join(result_dir, 'base_models', prompt, base_language, str(num_target), 'SBERT')
                     if not os.path.exists(os.path.join(run_path_sbert, 'preds.csv')):
 
+                        df_train_base_reduced = df_train_base_reduced.reset_index()
                         gold, pred_max, pred_avg = train_sbert(run_path_sbert, df_train=df_train_base_reduced, df_val=df_val_base, df_test=df_test_base, answer_column=answer_column, target_column=target_column, base_model=sbert_model_name, num_epochs=sbert_num_epochs, batch_size=sbert_batch_size, do_warmup=False, save_model=True, num_pairs_per_example=sbert_num_pairs, num_val_pairs=sbert_num_val_pairs)
                         # Eval trained model on within-language data
                         write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_avg, suffix='')
@@ -187,6 +192,7 @@ def run_exp(run_xlmr=True, run_sbert=True):
 
                             base_model_sbert = os.path.join(run_path_sbert, 'finetuned_model')
 
+                            df_train_target_sample = df_train_target_sample.reset_index()
                             gold, pred_max, pred_avg = train_sbert(run_path_sbert_finetune, df_train=df_train_target_sample, df_val=df_val_target, df_test=df_test_target, answer_column=answer_column, target_column=target_column, base_model=base_model_sbert, num_epochs=sbert_num_epochs, batch_size=sbert_batch_size, do_warmup=False, save_model=False, num_pairs_per_example=sbert_num_pairs, num_val_pairs=sbert_num_val_pairs)
                             # Eval trained model on within-language data
                             write_classification_statistics(filepath=run_path_sbert_finetune, y_true=gold, y_pred=pred_avg, suffix='')
