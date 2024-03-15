@@ -12,7 +12,6 @@ import logging
 from utils import encode_labels
 from datetime import datetime
 from tqdm import tqdm
-import random
 
 random_state = 3456478
 
@@ -120,12 +119,10 @@ def train_sbert(run_path, df_train, df_val, df_test, answer_column="Antwort", ta
     # Define list of training pairs: Create only as many as needed
     if num_epochs * num_pairs_per_example < len(df_train):
 
-        seeds = random.Random(random_state).sample(range(1, 100000), len(df_train))
-
         train_examples = []
-        for idx_1, example_1 in tqdm(df_train.iterrows(), total=len(df_train)):
+        for _, example_1 in tqdm(df_train.iterrows(), total=len(df_train)):
 
-            df_subsample = df_train.sample(num_epochs * num_pairs_per_example, random_state=seeds[idx_1])
+            df_subsample = df_train.sample(num_epochs * num_pairs_per_example, random_state=random_state)
 
             for _, example_2 in df_subsample.iterrows():
 
@@ -188,9 +185,9 @@ def train_sbert(run_path, df_train, df_val, df_test, answer_column="Antwort", ta
 
     # Tune the model
     if num_pairs_per_example is not None:
-        model.fit(train_objectives=[(train_dataloader, train_loss)], epochs=num_epochs, warmup_steps=num_warm_steps, evaluator=evaluator, output_path=model_path, save_best_model=True, show_progress_bar=True, steps_per_epoch=num_batches_per_round)
+        model.fit(train_objectives=[(train_dataloader, train_loss)], epochs=num_epochs, warmup_steps=num_warm_steps, evaluator=evaluator, output_path=model_path, save_best_model=True, show_progress_bar=True, steps_per_epoch=num_batches_per_round, evaluation_steps=234)
     else:
-        model.fit(train_objectives=[(train_dataloader, train_loss)], epochs=num_epochs, warmup_steps=num_warm_steps, evaluator=evaluator, output_path=model_path, save_best_model=True, show_progress_bar=True)
+        model.fit(train_objectives=[(train_dataloader, train_loss)], epochs=num_epochs, warmup_steps=num_warm_steps, evaluator=evaluator, output_path=model_path, save_best_model=True, show_progress_bar=True, evaluation_steps=234)
 
     logging.info("SBERT number of epochs: "+str(num_epochs))
     logging.info("SBERT batch size: "+str(batch_size))

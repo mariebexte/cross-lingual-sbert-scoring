@@ -136,7 +136,8 @@ class WriteCsvCallback(TrainerCallback):
             df_log["best_model_checkpoint"] = best_model
             self.df_eval = pd.concat([self.df_eval, df_log])
             if 'eval_loss' in logs:
-                self.dict_val_loss[int(logs['epoch'])] = logs['eval_loss']
+                self.dict_val_loss[logs['epoch']] = logs['eval_loss']
+                # self.dict_val_loss[int(logs['epoch'])] = logs['eval_loss']
 
     def on_train_end(self, args, state, control, **kwargs):
         self.df_eval.to_csv(self.csv_eval_path)

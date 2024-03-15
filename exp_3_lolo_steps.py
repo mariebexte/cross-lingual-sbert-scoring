@@ -1,7 +1,7 @@
 import pandas as pd
 from train_mbert import train_mbert
-from train_xlmr import train_xlmr
-from train_sbert import train_sbert, eval_sbert
+from train_xlmr_steps import train_xlmr
+from train_sbert_steps import train_sbert, eval_sbert
 from transformers import BertForSequenceClassification, BertTokenizer, XLMRobertaTokenizer, XLMRobertaForSequenceClassification
 from sentence_transformers import SentenceTransformer
 from utils import eval_bert, write_classification_statistics, read_data
@@ -20,13 +20,14 @@ sbert_num_epochs = 8
 # sbert_num_epochs = 15
 sbert_batch_size = 64
 # sbert_batch_size = 128
+# sbert_num_pairs = 10
 sbert_num_pairs = 25
 sbert_num_val_pairs = 1000
 
 bert_batch_size = 32
 # bert_batch_size = 64
-# bert_num_epochs = 10
-bert_num_epochs = 20
+bert_num_epochs = 10
+# bert_num_epochs = 20
 
 random_state = 3456786544
 
@@ -42,20 +43,18 @@ data_path = '/data/exp'
 
 def full_data(run_xlmr=True, run_sbert=True):
 
-    condition = 'combine_all_other-sbert_pairs'
+    condition = 'combine_all_other-fixed_steps'
 
     # LOVELACE 0
-    # for prompt in ['E011B03C', 'E011B12C', 'E011M03C', 'E011M11C']: 
+    # for prompt in ['E011B03C', 'E011B12C', 'E011M03C', 'E011M11C', 'E011R05C']: 
     # LOVELACE 1
     # for prompt in ['E011R08C', 'E011R15C', 'E011T08C', 'E011B08C']:
     
     # TURING 0
-    # for prompt in ['E011M13C', 'E011R14C', 'E011Z14C', 'E011M04C']:
-    # TURING 1
-    # for prompt in ['E011B13C', 'E011R05C']
+    # for prompt in ['E011M13C', 'E011R14C', 'E011Z14C', 'E011M04C', 'E011B13C']:
 
     # WIKA 1
-    for prompt in ['E011M09C', 'E011R11C', 'E011T02C', 'E011Z09C']:
+    # for prompt in ['E011M09C', 'E011R11C', 'E011T02C', 'E011Z09C']:
     # WIKA 2
     # for prompt in ['E011T10C', 'E011B14C', 'E011Z04C', 'E011M02C']:
 
@@ -66,7 +65,8 @@ def full_data(run_xlmr=True, run_sbert=True):
     # LIMBA 3
     # for prompt in ['E011B09C', 'E011M15C', 'E011T09C', 'E011M08C']:
 
-    # for prompt in os.listdir(data_path):
+
+    for prompt in os.listdir(data_path):
 
         # For each prompt - language pair, train a model
         # for language in os.listdir(os.path.join(data_path, prompt)):
@@ -120,7 +120,7 @@ def full_data(run_xlmr=True, run_sbert=True):
 
 def downsampled_data(run_xlmr=True, run_sbert=True):
 
-    condition = 'combine_downsampled_other-sbert_pairs'
+    condition = 'combine_downsampled_other'
 
     for prompt in os.listdir(data_path):
 
@@ -190,4 +190,5 @@ def downsampled_data(run_xlmr=True, run_sbert=True):
 
 
 # downsampled_data(run_xlmr=False)
+# full_data(run_sbert=False)
 full_data(run_xlmr=False)
