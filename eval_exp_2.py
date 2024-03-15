@@ -10,10 +10,51 @@ languages = ['ar', 'da', 'en', 'he', 'it', 'ka', 'nb', 'pt', 'sl', 'sv', 'zh']
 sizes = [0, 35, 75, 150, 300, 600]
 
 
-def eval(cross_results_path='/Users/mariebexte/Coding/Projects/cross-lingual/exp_1_zero_shot', results_path='/Users/mariebexte/Coding/Projects/cross-lingual/exp_2_tradeoff_two_step_epochs-halved'):
+def eval(cross_results_path='/Users/mariebexte/Coding/Projects/cross-lingual/exp_1_zero_shot_epochs-halved', results_path='/Users/mariebexte/Coding/Projects/cross-lingual/exp_2_tradeoff_two_step_epochs-halved'):
 
     # results = {}
     # results_idx = 0
+
+
+    # for prompt in os.listdir(results_path):
+    
+    #     if (not '.' in prompt) and len(prompt)==8:
+
+    #         # print('tradeoff', prompt)
+
+    #         for target_language in languages:
+    #         # for target_language in os.listdir(os.path.join(results_path, prompt)):
+
+    #             for model in [('XLMR', ''), ('SBERT', '_avg'), ('SBERT', '_max')]:
+    #                 if os.path.isdir(os.path.join(results_path, prompt, target_language, model[0])):
+
+    #                     for base_language in languages:
+    #                     # for base_language in os.listdir(os.path.join(results_path, prompt, target_language, model[0])):
+    #                         if os.path.isdir(os.path.join(results_path, prompt, target_language, model[0], base_language)):
+
+    #                             for target_amount in [35,75,150,300]:
+    #                             # for target_amount in os.listdir(os.path.join(results_path, prompt, target_language, model[0], base_language)):
+
+    #                                 # try:
+    #                                 print(os.path.join(results_path, prompt, target_language, model[0], base_language, str(target_amount), 'preds.csv'))
+    #                                 preds = pd.read_csv(os.path.join(results_path, prompt, target_language, model[0], base_language, str(target_amount), 'preds.csv'))
+    #                                 qwk = cohen_kappa_score(list(preds['score']), list(preds['pred'+model[1]]), weights='quadratic')
+
+    #                                 results[results_idx] = {
+    #                                     'prompt': prompt,
+    #                                     'base_lang': base_language,
+    #                                     'target_lang': target_language,
+    #                                     'num_target': target_amount,
+    #                                     'model': model[0] + model[1],
+    #                                     'qwk': qwk,
+    #                                 }
+
+    #                                 results_idx += 1
+    #                             # except:
+    #                                 #     print('missing', prompt, model, base_language, target_language, target_amount)
+    #                                     # sys.exit(0)
+
+    # # sys.exit(0)
 
 
     # for prompt in os.listdir(cross_results_path):
@@ -22,12 +63,14 @@ def eval(cross_results_path='/Users/mariebexte/Coding/Projects/cross-lingual/exp
 
     #         print(prompt)
 
-    #         for training_language in os.listdir(os.path.join(cross_results_path, prompt)):
+    #         for training_language in languages:
+    #         # for training_language in os.listdir(os.path.join(cross_results_path, prompt)):
 
     #             for model in [('XLMR', ''), ('SBERT', '_avg'), ('SBERT', '_max')]:
     #                 if os.path.isdir(os.path.join(cross_results_path, prompt, training_language, model[0])):
 
-    #                     for test_language in os.listdir(os.path.join(cross_results_path, prompt, training_language, model[0])):
+    #                     for test_language in languages:
+    #                     # for test_language in os.listdir(os.path.join(cross_results_path, prompt, training_language, model[0])):
     #                         if os.path.isdir(os.path.join(cross_results_path, prompt, training_language, model[0], test_language)):
 
     #                             preds = pd.read_csv(os.path.join(cross_results_path, prompt, training_language, model[0], test_language, 'preds.csv'))
@@ -50,47 +93,15 @@ def eval(cross_results_path='/Users/mariebexte/Coding/Projects/cross-lingual/exp
     #                             results_idx += 1
 
 
-    # for prompt in os.listdir(results_path):
-    
-    #     if (not '.' in prompt) and len(prompt)==8:
-
-    #         print('tradeoff', prompt)
-
-    #         for target_language in os.listdir(os.path.join(results_path, prompt)):
-
-    #             for model in [('XLMR', ''), ('SBERT', '_avg'), ('SBERT', '_max')]:
-    #                 if os.path.isdir(os.path.join(results_path, prompt, target_language, model[0])):
-
-    #                     for base_language in os.listdir(os.path.join(results_path, prompt, target_language, model[0])):
-    #                         if os.path.isdir(os.path.join(results_path, prompt, target_language, model[0], base_language)):
-
-    #                             for target_amount in os.listdir(os.path.join(results_path, prompt, target_language, model[0], base_language)):
-
-    #                                 try:
-    #                                     preds = pd.read_csv(os.path.join(results_path, prompt, target_language, model[0], base_language, target_amount, 'preds.csv'))
-    #                                     qwk = cohen_kappa_score(list(preds['score']), list(preds['pred'+model[1]]), weights='quadratic')
-
-    #                                     results[results_idx] = {
-    #                                         'prompt': prompt,
-    #                                         'base_lang': base_language,
-    #                                         'target_lang': target_language,
-    #                                         'num_target': target_amount,
-    #                                         'model': model[0] + model[1],
-    #                                         'qwk': qwk,
-    #                                     }
-
-    #                                     results_idx += 1
-    #                                 except:
-    #                                     print('missing', model, base_language, target_language, target_amount)
-
-
     # df_results = pd.DataFrame.from_dict(results, orient='index')
-    df_results = pd.read_csv(os.path.join(results_path, 'overall.csv'))
 
+    df_results = pd.read_csv(os.path.join(results_path, 'overall.csv'))
     df_results = df_results[['target_lang', 'prompt', 'base_lang', 'model', 'num_target', 'qwk']]
     df_results = df_results.sort_values(['target_lang', 'prompt', 'base_lang', 'model', 'num_target'])
-    print(df_results)
-    df_results.to_csv(os.path.join(results_path, 'overall.csv'))
+    # print(df_results)
+    # df_results.to_csv(os.path.join(results_path, 'overall.csv'))
+    # sys.exit(0)
+
 
     if not os.path.exists(os.path.join(results_path, target_folder)):
         os.mkdir(os.path.join(results_path, target_folder))
@@ -156,7 +167,7 @@ def eval(cross_results_path='/Users/mariebexte/Coding/Projects/cross-lingual/exp
                 lang_dict[sizes[-1]] = avg_within_performance
                 target_dict[base_language] = lang_dict
 
-
+            # Need this column for easier processing
             target_lang_dict = {}
             for size in sizes:
                 target_lang_dict[size] = -1
@@ -165,7 +176,22 @@ def eval(cross_results_path='/Users/mariebexte/Coding/Projects/cross-lingual/exp
 
             df_target = pd.DataFrame.from_dict(target_dict) 
             df_target.index.name='n'
-            print(df_target)                  
+            print(df_target)
+
+            average_dict = {}
+            df_to_average = df_target[other_languages].T
+            for column in df_to_average.columns:
+                df_current = df_to_average[[column]]
+                df_current.columns = ['qwk']
+                # print(df_current)
+                this_result = average_qwk(df_current)[0]
+                average_dict[column] = this_result
+            print(average_dict)
+            df_average = pd.DataFrame.from_dict(average_dict, orient='index')
+            df_average.columns = ['average'] 
+            df_average.index.name='n'
+            print(df_average)
+            df_target = pd.merge(df_target, df_average, left_index=True, right_index=True)               
             df_target.to_csv(os.path.join(results_path, target_folder, model + '_' + target_language + '.csv'))
 
 
@@ -175,4 +201,4 @@ def eval(cross_results_path='/Users/mariebexte/Coding/Projects/cross-lingual/exp
 
 
 
-eval()
+eval(results_path='/Users/mariebexte/Coding/Projects/cross-lingual/exp_2_tradeoff_two_step_epochs-halved-FINAL')
