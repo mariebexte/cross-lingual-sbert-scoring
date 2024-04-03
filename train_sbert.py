@@ -45,8 +45,8 @@ def eval_sbert(run_path, df_test, df_ref, id_column, answer_column, target_colum
         max_row = copy_eval.iloc[[copy_eval["cos_sim"].argmax()]]
         max_sim = max_row.iloc[0]["cos_sim"]
         max_pred = max_row.iloc[0]["score2"]
-        max_sim_id = max_row.iloc[0]["id1"]
-        max_sim_answer = max_row.iloc[0]["text1"]
+        max_sim_id = max_row.iloc[0]["id2"]
+        max_sim_answer = max_row.iloc[0]["text2"]
 
         # Determine prediction: AVG
         label_avgs = {}

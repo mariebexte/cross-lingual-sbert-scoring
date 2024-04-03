@@ -37,16 +37,10 @@ def plot_heat(df_matrix, target_path, model, metric, show_cbar=True):
 
     plt.yticks(rotation=0, ha='right')
 
-<<<<<<< HEAD
-    if '_' in model:
-        model = model[:model.index('_')]
-    plt.title(model, y=-0.15)
-=======
     model_name = model
     if '_' in model:
         model_name = model[:model.index('_')]
     plt.title(model_name, y=-0.15)
->>>>>>> ee184f62781a943ca9a243aeb565f2cfef866e3d
     # plt.title(model + '('+metric+')', y=-0.15)
 
     plt.rcParams['savefig.dpi'] = 500
