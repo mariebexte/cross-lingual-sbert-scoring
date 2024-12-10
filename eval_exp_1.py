@@ -16,60 +16,61 @@ def aggregate_results(result_dir, languages=['ar', 'da', 'en', 'he', 'it', 'ka',
     for prompt in os.listdir(result_dir):
         if os.path.isdir(os.path.join(result_dir, prompt)):
 
-            # for train_lang in os.listdir(os.path.join(result_dir, prompt)):
-            for train_lang in languages:
+            for train_lang in os.listdir(os.path.join(result_dir, prompt)):
+            # for train_lang in languages:
 
+                # for model in [('XLMR', '')]:
                 # for model in [('SBERT', '_avg'), ('SBERT', '_max')]:
-                for model in [('XLMR', ''), ('SBERT', '_avg'), ('SBERT', '_max')]:
+                for model in [('XLMR', ''), ('SBERT', ''), ('SBERT', '_avg'), ('SBERT', '_max')]:
 
                     for test_lang in languages:
 
                         # print(prompt, model, train_lang, test_lang)
 
-                        # try:
+                        try:
 
-                        print(os.path.join(result_dir, prompt, train_lang, model[0], test_lang, 'preds.csv'))
+                            # print(os.path.join(result_dir, prompt, train_lang, model[0], test_lang, 'preds.csv'))
 
-                        df_preds = pd.read_csv(os.path.join(result_dir, prompt, train_lang, model[0], test_lang, 'preds.csv')) 
-                        gold=list(df_preds['score'])
+                            df_preds = pd.read_csv(os.path.join(result_dir, prompt, train_lang, model[0], test_lang, 'preds.csv')) 
+                            gold=list(df_preds['score'])
 
-                        pred=list(df_preds['pred'+model[1]])
+                            pred=list(df_preds['pred'+model[1]])
 
-                        acc = accuracy_score(y_true=gold, y_pred=pred)
-                        qwk = cohen_kappa_score(y1=gold, y2=pred, weights='quadratic')
+                            acc = accuracy_score(y_true=gold, y_pred=pred)
+                            qwk = cohen_kappa_score(y1=gold, y2=pred, weights='quadratic')
 
-                        acc_within_val = -1  
-                        qwk_within_val = -1
-                    
-                        # if model[0] == 'SBERT':
-
-                        #     test_lang_val_within = test_lang + '_target_val'
-
-                        #     print("SBERT CONDITION", prompt, model, train_lang, test_lang_val_within)
-
-                        #     df_preds = pd.read_csv(os.path.join(result_dir, prompt, train_lang, model[0], test_lang_val_within, 'preds.csv')) 
-                        #     gold=list(df_preds['score'])
-
-                        #     pred=list(df_preds['pred'+model[1]])
-
-                        #     acc_within_val = accuracy_score(y_true=gold, y_pred=pred)
-                        #     qwk_within_val = cohen_kappa_score(y1=gold, y2=pred, weights='quadratic')
-
-                        results[results_idx] = {
-                            'prompt': prompt,
-                            'train_lang': train_lang,
-                            'test_lang': test_lang,
-                            'model': model[0] + model[1],
-                            'acc': acc,
-                            'qwk': qwk,
-                            'qwk_within_val': qwk_within_val,
-                            'acc_within_val': acc_within_val
-                        }
-
-                        results_idx += 1
+                            acc_within_val = -1  
+                            qwk_within_val = -1
                         
-                        # except:
-                        #     print('MISSING', prompt, model, train_lang, test_lang)
+                            # if model[0] == 'SBERT':
+
+                            #     test_lang_val_within = test_lang + '_target_val'
+
+                            #     print("SBERT CONDITION", prompt, model, train_lang, test_lang_val_within)
+
+                            #     df_preds = pd.read_csv(os.path.join(result_dir, prompt, train_lang, model[0], test_lang_val_within, 'preds.csv')) 
+                            #     gold=list(df_preds['score'])
+
+                            #     pred=list(df_preds['pred'+model[1]])
+
+                            #     acc_within_val = accuracy_score(y_true=gold, y_pred=pred)
+                            #     qwk_within_val = cohen_kappa_score(y1=gold, y2=pred, weights='quadratic')
+
+                            results[results_idx] = {
+                                'prompt': prompt,
+                                'train_lang': train_lang,
+                                'test_lang': test_lang,
+                                'model': model[0] + model[1],
+                                'acc': acc,
+                                'qwk': qwk,
+                                'qwk_within_val': qwk_within_val,
+                                'acc_within_val': acc_within_val
+                            }
+
+                            results_idx += 1
+                        
+                        except:
+                            print('MISSING', prompt, model, train_lang, test_lang)
 
 
     df_results = pd.DataFrame.from_dict(results, orient='index')
@@ -131,5 +132,14 @@ def calculate_model_matrixes(result_df_path):
 # aggregate_results('/Users/mariebexte/Coding/Projects/cross-lingual/exp_1_zero_shot_epochs-halved')
 # calculate_model_matrixes('/Users/mariebexte/Coding/Projects/cross-lingual/exp_1_zero_shot_epochs-halved/overall.csv')
 
-aggregate_results('/Users/mariebexte/Coding/Projects/cross-lingual/exp_1_zero_shot_FINAL')
-calculate_model_matrixes('/Users/mariebexte/Coding/Projects/cross-lingual/exp_1_zero_shot_FINAL/overall.csv')
+# aggregate_results('/Users/mariebexte/Coding/Projects/cross-lingual/exp_1_zero_shot_FINAL')
+# calculate_model_matrixes('/Users/mariebexte/Coding/Projects/cross-lingual/exp_1_zero_shot_FINAL/overall.csv')
+
+# aggregate_results('/results/exp_1_zero_shot_XLMR_but_SBERT_script')
+# calculate_model_matrixes('/results/exp_1_zero_shot_XLMR_but_SBERT_script/overall.csv')
+
+aggregate_results('/results/exp_1_zero_shot_model_swap')
+calculate_model_matrixes('/results/exp_1_zero_shot_model_swap/overall.csv')
+
+aggregate_results('/results/exp_1_zero_shot_NPCR')
+calculate_model_matrixes('/results/exp_1_zero_shot_NPCR/overall.csv')

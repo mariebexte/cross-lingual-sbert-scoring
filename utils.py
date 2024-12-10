@@ -56,6 +56,24 @@ def eval_bert(model, tokenizer, df_test, answer_column='Value', target_column='s
     return test_labels, predictions
 
 
+## Evaluate provided pretrained BERT model on a dataframe with test data
+def eval_sbert_classification(model, df_test, answer_column='Value', target_column='score'):
+    
+    model.eval()
+
+    test_texts = list(df_test.loc[:, answer_column])
+    test_labels = encode_labels(df_test, label_column=target_column)
+    test_encodings = model.sbert.tokenize(test_texts)
+    test_dataset = Dataset(test_encodings, test_labels)
+
+    trainer = Trainer(model=model)
+
+    preds = trainer.predict(test_dataset) 
+    predictions = preds.predictions.argmax(axis=1)
+
+    return test_labels, predictions
+
+
 ## Strip labels from dataframe and return list of integers
 def encode_labels(df, label_column):
     labels = list(df.loc[:, label_column])
@@ -79,8 +97,10 @@ class Dataset(torch.utils.data.Dataset):
         self.labels = labels
 
     def __getitem__(self, idx):
-        item = {k: torch.tensor(v[idx]) for k, v in self.encodings.items()}
+        item = {k: v[idx].clone().detach() for k, v in self.encodings.items()}
         item["labels"] = torch.tensor(self.labels[idx])
+        # item = {k: torch.tensor(v[idx]) for k, v in self.encodings.items()}
+        # item["labels"] = torch.tensor(self.labels[idx])
         return item
 
     def __len__(self):
@@ -161,9 +181,11 @@ def compute_metrics(pred):
       'qwk': qwk,
     }
 
-def read_data(path):
+
+def read_data(path, answer_column, target_column):
 
     df = pd.read_csv(path)
     df = df.fillna('')
     df[answer_column] = df[answer_column].astype(str)
+    df[target_column] = df[target_column].astype(int)
     return df

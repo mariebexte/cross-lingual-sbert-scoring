@@ -20,7 +20,7 @@ np.random.seed(100)
 logger = get_logger("Train...")
         
 
-def train_model(target_path, base_model, df_train, df_val, df_test, col_prompt, col_answer, col_score, val_example_size=15, example_size=25, min_label=None, max_label=None, max_num=1024, learning_rate=0.00001, batch_size=64, num_epochs=10, model_name='best_model', training_within_prompt=True, training_with_same_score=False, num_training_pairs=None):
+def train_model(target_path, base_model, df_train, df_val, df_test, col_prompt, col_answer, col_score, val_example_size=15, example_size=25, min_label=None, max_label=None, max_num=1024, learning_rate=0.00001, batch_size=64, num_epochs=1, model_name='best_model', training_within_prompt=True, training_with_same_score=False, num_training_pairs=None):
 
     start = datetime.now()
 
