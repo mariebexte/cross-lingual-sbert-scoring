@@ -33,7 +33,7 @@ id_column = 'id'
 answer_column = 'Value'
 target_column = 'score'
 
-result_dir = '/results/exp_1_translation'
+result_dir = '/results/exp_1_translation_pretrained'
 data_path = '/data/exp'
 translation_model = 'm2m_100_1.2B'
 
@@ -48,8 +48,8 @@ def read_data(path):
 # Limba 0
 # for prompt in ['E011B03C',  'E011B08C',  'E011B12C',  'E011B14C',  'E011M03C',  'E011M08C',  'E011M11C',  'E011M15C',  'E011R05C',  'E011R09C',  'E011R14C',  'E011R16C',  'E011T05C',  'E011T09C',  'E011T17C',  'E011Z04C',  'E011Z12C']:
 # Limba 1
-for prompt in ['E011B04C',  'E011B09C',  'E011B13C',  'E011M02C',  'E011M04C',  'E011M09C',  'E011M13C',  'E011R02C',  'E011R08C',  'E011R11C',  'E011R15C',  'E011T02C',  'E011T08C',  'E011T10C',  'E011Z02C',  'E011Z09C',  'E011Z14C']:
-# for prompt in os.listdir(data_path):
+# for prompt in ['E011B04C',  'E011B09C',  'E011B13C',  'E011M02C',  'E011M04C',  'E011M09C',  'E011M13C',  'E011R02C',  'E011R08C',  'E011R11C',  'E011R15C',  'E011T02C',  'E011T08C',  'E011T10C',  'E011Z02C',  'E011Z09C',  'E011Z14C']:
+for prompt in os.listdir(data_path):
 
 
     # For each prompt - language pair, train a model
@@ -67,16 +67,53 @@ for prompt in ['E011B04C',  'E011B09C',  'E011B13C',  'E011M02C',  'E011M04C',  
 
         
         #  ---------- Train SBERT ------------
+        # run_path_sbert = os.path.join(result_dir, prompt, language, 'SBERT')
+        # if not os.path.exists(os.path.join(run_path_sbert, 'preds.csv')):
+
+        #     gold, pred_max, pred_avg = train_sbert(run_path_sbert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, base_model=sbert_model_name, num_epochs=sbert_num_epochs, batch_size=sbert_batch_size, do_warmup=False, save_model=True, num_pairs_per_example=sbert_num_pairs, num_val_pairs=sbert_num_val_pairs)
+        #     # Eval trained model on within-language data
+        #     write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_avg, suffix='')
+        #     write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_max, suffix='_max')
+
+        #     # Load model that was just trained 
+        #     model = SentenceTransformer(os.path.join(run_path_sbert, 'finetuned_model'))
+        #     df_ref = pd.concat([df_train, df_val])
+        #     df_ref['embedding'] = df_ref[answer_column].apply(model.encode)
+            
+        #    # Evaluation of finetuned model on translated data from all **other** languages
+        #    # Translated language from other to target language
+        #     for test_lang in languages:
+
+        #         run_path_test_sbert = os.path.join(run_path_sbert, test_lang)
+        #         if not os.path.exists(run_path_test_sbert):
+        #             os.mkdir(run_path_test_sbert)
+                
+        #         if language == test_lang:
+        #             df_test_sbert = read_data(os.path.join(data_path, prompt, language, 'test.csv'))
+        #         else:
+        #             df_test_sbert = read_data(os.path.join(data_path, prompt, test_lang, 'test_translated_' + translation_model + '_' + language + '.csv'))
+
+
+        #         df_test_sbert['embedding'] = df_test_sbert[answer_column].apply(model.encode)
+        #         gold, pred_max, pred_avg = eval_sbert(run_path_test_sbert, df_test_sbert, df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
+
+        #         write_classification_statistics(filepath=run_path_test_sbert, y_true=gold, y_pred=pred_avg, suffix='')
+        #         write_classification_statistics(filepath=run_path_test_sbert, y_true=gold, y_pred=pred_max, suffix='_max')
+
+            
+        #     shutil.rmtree(os.path.join(run_path_sbert, 'finetuned_model'))
+
+
+
+        #  ---------- Run pretrained SBERT ------------
         run_path_sbert = os.path.join(result_dir, prompt, language, 'SBERT')
         if not os.path.exists(os.path.join(run_path_sbert, 'preds.csv')):
 
-            gold, pred_max, pred_avg = train_sbert(run_path_sbert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, base_model=sbert_model_name, num_epochs=sbert_num_epochs, batch_size=sbert_batch_size, do_warmup=False, save_model=True, num_pairs_per_example=sbert_num_pairs, num_val_pairs=sbert_num_val_pairs)
-            # Eval trained model on within-language data
-            write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_avg, suffix='')
-            write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_max, suffix='_max')
+            if not os.path.exists(run_path_sbert):
+                os.makedirs(run_path_sbert)
 
-            # Load model that was just trained 
-            model = SentenceTransformer(os.path.join(run_path_sbert, 'finetuned_model'))
+            # Load model
+            model = SentenceTransformer(sbert_model_name)
             df_ref = pd.concat([df_train, df_val])
             df_ref['embedding'] = df_ref[answer_column].apply(model.encode)
             
@@ -99,9 +136,6 @@ for prompt in ['E011B04C',  'E011B09C',  'E011B13C',  'E011M02C',  'E011M04C',  
 
                 write_classification_statistics(filepath=run_path_test_sbert, y_true=gold, y_pred=pred_avg, suffix='')
                 write_classification_statistics(filepath=run_path_test_sbert, y_true=gold, y_pred=pred_max, suffix='_max')
-
-            
-            shutil.rmtree(os.path.join(run_path_sbert, 'finetuned_model'))
 
 
         # ------------- Train XLMR -------------
@@ -136,3 +170,5 @@ for prompt in ['E011B04C',  'E011B09C',  'E011B13C',  'E011M02C',  'E011M04C',  
         #         write_classification_statistics(filepath=run_path_test_bert, y_true=gold, y_pred=xlmr_pred, suffix='')
             
         #     shutil.rmtree(os.path.join(run_path_bert, 'best_model'))
+
+
