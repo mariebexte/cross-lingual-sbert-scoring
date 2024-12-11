@@ -20,11 +20,12 @@ np.random.seed(100)
 logger = get_logger("Train...")
         
 
-def train_model(target_path, base_model, df_train, df_val, df_test, col_prompt, col_answer, col_score, val_example_size=15, example_size=25, min_label=None, max_label=None, max_num=1024, learning_rate=0.00001, batch_size=64, num_epochs=1, model_name='best_model', training_within_prompt=True, training_with_same_score=False, num_training_pairs=None):
+def train_model(target_path, base_model, df_train, df_val, df_test, col_prompt, col_answer, col_score, val_example_size=15, example_size=25, min_label=None, max_label=None, max_num=1024, learning_rate=0.00001, batch_size=64, num_epochs=10, model_name='best_model', training_within_prompt=True, training_with_same_score=False, num_training_pairs=None):
 
     start = datetime.now()
 
     if not os.path.exists(target_path):
+
         os.makedirs(target_path)
 
     logging.info('Training: min score is:\t' + str(min_label))
@@ -83,8 +84,10 @@ def train_model(target_path, base_model, df_train, df_val, df_test, col_prompt, 
     )
 
     for ii in tqdm(range(num_epochs)):
+
         logger.info('Epoch %s/%s' % (str(ii+1), num_epochs))
         start_time = time.time()
+
         for step, (batch_x0, batch_x1, batch_mask_x0, batch_mask_x1, batch_y) in tqdm(enumerate(loader), total=len(loader)):
 
             optimizer.zero_grad()
@@ -98,8 +101,11 @@ def train_model(target_path, base_model, df_train, df_val, df_test, col_prompt, 
         logger.info("Training one epoch in %.3f s" % tt_time)
 
         model.eval()
+
         with torch.no_grad():
+
             evl.evaluate(model, ii, val_example_size, True)
+
         model.train()
 
         ttt_time = time.time() - start_time - tt_time
@@ -108,7 +114,10 @@ def train_model(target_path, base_model, df_train, df_val, df_test, col_prompt, 
     logging.info('Full training took:\t' + str(datetime.now() - start))
 
     if df_test is not None:
+
         gold, pred = evaluate_finetuned_model(base_model=base_model, model_path=os.path.join(target_path, model_name), df_ref=df_train, df_test=df_test, col_prompt=col_prompt, col_answer=col_answer, col_score=col_score, min_label=min_label, max_label=max_label, target_path=target_path, max_num=max_num)
+        
         return gold, pred
 
     return None   
+    

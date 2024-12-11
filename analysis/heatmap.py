@@ -8,6 +8,9 @@ import matplotlib as mpl
 from matplotlib.transforms import TransformedBbox
 import copy
 
+
+# Plot cross-lingual results as heatmap
+
 mpl.rcParams.update({'font.size': 10})
 # plt.rcParams["font.family"] = "Times New Roman"
 # plt.rc('text', usetex=True)
@@ -19,6 +22,7 @@ def plot_heat(df_matrix, target_path, model, metric, show_cbar=True):
     df_matrix = df_matrix.reindex(lang_order)
 
     if not os.path.exists(target_path):
+
         os.makedirs(target_path)
 
     plt.rcParams['figure.figsize'] = 4, 3
@@ -26,8 +30,11 @@ def plot_heat(df_matrix, target_path, model, metric, show_cbar=True):
     df_annos = copy.deepcopy(df_matrix)
     annotations = df_annos.to_numpy()
     df_annos = pd.DataFrame(annotations)
+
     for col in df_annos.columns:
+
         df_annos[col] = df_annos[col].apply(lambda x: str(x)[1:4] if x>0 else '')
+
     annotations = df_annos.values.tolist()
 
     cmap = sns.color_palette("blend:#FFFFFF,#ebeb6e,#82D2D6,#0198A7", as_cmap=True)
@@ -38,8 +45,11 @@ def plot_heat(df_matrix, target_path, model, metric, show_cbar=True):
     plt.yticks(rotation=0, ha='right')
 
     model_name = model
+
     if '_' in model:
+
         model_name = model[:model.index('_')]
+        
     plt.title(model_name, y=-0.15)
     # plt.title(model + '('+metric+')', y=-0.15)
 

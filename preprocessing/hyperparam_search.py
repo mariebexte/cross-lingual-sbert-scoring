@@ -88,7 +88,6 @@ for prompt in ['E011B16C', 'E011M18C']:
         # sys.exit(0)
 
 
-
 ## Snippet for evaluation
 
 # device = 'cpu'

@@ -5,6 +5,9 @@ import sys
 from utils import average_qwk
 from copy import deepcopy
 
+
+## Plot curves for tradeoff between base and target language
+
 target_folder = 'curves'
 languages = ['ar', 'da', 'en', 'he', 'it', 'ka', 'nb', 'pt', 'sl', 'sv', 'zh']
 sizes = [0, 35, 75, 150, 300, 600]

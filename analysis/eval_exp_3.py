@@ -5,7 +5,7 @@ import sys
 from utils import average_qwk
 
 
-def eval_condition(results_path='/Users/mariebexte/Coding/Projects/cross-lingual/exp_3_lolo/combine_all_other'):
+def eval_condition(results_path):
 
     results = {}
     results_idx = 0
@@ -22,6 +22,7 @@ def eval_condition(results_path='/Users/mariebexte/Coding/Projects/cross-lingual
                     # for model in [('XLMR', ''), ('SBERT', '_avg'), ('SBERT', '_max')]:
 
                         try:
+
                             preds = pd.read_csv(os.path.join(results_path, prompt, language, model[0], 'preds.csv'))
                             qwk = cohen_kappa_score(list(preds['score']), list(preds['pred'+model[1]]), weights='quadratic')
 
@@ -35,8 +36,8 @@ def eval_condition(results_path='/Users/mariebexte/Coding/Projects/cross-lingual
                             results_idx += 1
 
                         except:
+
                             print(prompt, model, language)
-                            print('HERE')
                             # sys.exit(0)
                             qwk = -1
 
@@ -58,7 +59,6 @@ def eval_condition(results_path='/Users/mariebexte/Coding/Projects/cross-lingual
         
         df_model_results = pd.DataFrame.from_dict(aggregated_dict, orient='index')
         df_model_results.to_csv(os.path.join(results_path, model + '.csv'))
-
 
 
 eval_condition(results_path='/Users/mariebexte/Coding/Projects/cross-lingual/exp_3_lolo/combine_all_other-sbert_pairs')

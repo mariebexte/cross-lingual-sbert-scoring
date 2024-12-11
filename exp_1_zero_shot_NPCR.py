@@ -1,14 +1,16 @@
-import pandas as pd
-from train_NPCR import train_model
-from transformers import BertForSequenceClassification, BertTokenizer, XLMRobertaTokenizer, XLMRobertaForSequenceClassification
-from sentence_transformers import SentenceTransformer
-from utils import eval_bert, write_classification_statistics, read_data
-from npcr.evaluator_core import evaluate_finetuned_model
-from copy import deepcopy
 import os
+import shutil
 import sys
 import torch
-import shutil
+
+import pandas as pd
+
+from copy import deepcopy
+from model_training.train_NPCR import train_model
+from npcr.evaluator_core import evaluate_finetuned_model
+from sentence_transformers import SentenceTransformer
+from transformers import BertForSequenceClassification, BertTokenizer, XLMRobertaTokenizer, XLMRobertaForSequenceClassification
+from utils import eval_bert, write_classification_statistics, read_data
 
 
 def run_dataset(data_path, prompt_id_column, answer_column, target_column, languages, dataset, run_suffix='', translate_test=False):
@@ -29,16 +31,16 @@ def run_dataset(data_path, prompt_id_column, answer_column, target_column, langu
 
             torch.cuda.empty_cache()
 
-            print(prompt, language)
-
-            # Read data for training
-            df_train = read_data(os.path.join(data_path, prompt, language, 'train.csv'), answer_column=answer_column, target_column=target_column)
-            # Must shuffle! Otherwise training pairs are built to form almost exclusively with similarity label 0
-            df_train = df_train.sample(frac=1, random_state=7542).reset_index(drop=True)
-            df_val = read_data(os.path.join(data_path, prompt, language, 'val.csv'), answer_column=answer_column, target_column=target_column)
-            df_test = read_data(os.path.join(data_path, prompt, language, 'test.csv'), answer_column=answer_column, target_column=target_column)
-
             for model in [(sbert_model_name, 'SBERT'), (bert_model_name, 'XLMR')]:
+                
+                print(prompt, language, model)
+
+                # Read data for training
+                df_train = read_data(os.path.join(data_path, prompt, language, 'train.csv'), answer_column=answer_column, target_column=target_column)
+                # Must shuffle! Otherwise training pairs are built to form almost exclusively with similarity label 0
+                df_train = df_train.sample(frac=1, random_state=7542).reset_index(drop=True)
+                df_val = read_data(os.path.join(data_path, prompt, language, 'val.csv'), answer_column=answer_column, target_column=target_column)
+                df_test = read_data(os.path.join(data_path, prompt, language, 'test.csv'), answer_column=answer_column, target_column=target_column)
 
                 base_model = model[0]
                 model_name = model[1]
@@ -67,7 +69,7 @@ def run_dataset(data_path, prompt_id_column, answer_column, target_column, langu
 
                         if translate_test and (test_lang != language):
 
-                            run_path_test_translated = os.path.join(run_path, test_lang + 'translated')
+                            run_path_test_translated = os.path.join(run_path, test_lang + '_translated')
                             if not os.path.exists(run_path_test_translated):
                                 os.mkdir(run_path_test_translated)
 
@@ -135,7 +137,7 @@ def run_dataset_folds(data_path, prompt_id_column, answer_column, target_column,
                     base_model = model[0]
                     model_name = model[1]
 
-                    run_path = os.path.join(result_dir, prompt, language, model_name, str(test_fold))
+                    run_path = os.path.join(result_dir, prompt, language, model_name, 'fold_' + str(test_fold))
                     if not os.path.exists(os.path.join(run_path, 'preds.csv')):
                         
                         gold, pred = train_model(target_path=run_path, df_train=df_train, df_val=df_val, df_test=df_test, col_prompt=prompt_id_column, col_answer=answer_column, col_score=target_column, base_model=base_model, max_num=128, training_with_same_score=True)
@@ -156,10 +158,7 @@ def run_dataset_folds(data_path, prompt_id_column, answer_column, target_column,
                                 df_test_other_list.append(read_data(os.path.join(data_path, prompt, test_lang, 'fold_' + str(test_fold) + '.csv'), answer_column=answer_column, target_column=target_column))
 
                             df_test_other = pd.concat(df_test_other_list)
-                            print(list(df_test_other.index))
-                            print('++++')
-                            print('++++ Evaluatiion', str(prompt), str(language), str(test_fold), str(test_lang))
-                            print('++++')
+                            df_test_other.reset_index(inplace=True)
                             gold, pred_test = evaluate_finetuned_model(model_path=os.path.join(run_path, 'best_model'), base_model=base_model, df_ref=df_train, df_test=df_test_other, col_prompt=prompt_id_column, col_answer=answer_column, col_score=target_column, target_path=run_path_test, max_num=128, suffix='_' + str(test_lang))
 
                             df_test_copy = deepcopy(df_test_other)
@@ -170,7 +169,7 @@ def run_dataset_folds(data_path, prompt_id_column, answer_column, target_column,
 
                             if translate_test and (test_lang != language):
 
-                                run_path_test_translated = os.path.join(run_path, test_lang + 'translated')
+                                run_path_test_translated = os.path.join(run_path, test_lang + '_translated')
                                 if not os.path.exists(run_path_test_translated):
                                     os.mkdir(run_path_test_translated)
 
@@ -179,6 +178,7 @@ def run_dataset_folds(data_path, prompt_id_column, answer_column, target_column,
                                     df_test_other_translated_list.append(read_data(os.path.join(data_path, prompt, test_lang, 'fold_' + str(fold) + '_translated_' + language + '.csv'), answer_column=answer_column, target_column=target_column))
                                                                 
                                 df_test_other_translated = pd.concat(df_test_other_translated_list)
+                                df_test_other_translated.reset_index(inplace=True)
                                 gold, pred_test_translated = evaluate_finetuned_model(model_path=os.path.join(run_path, 'best_model'), base_model=base_model, df_ref=df_train, df_test=df_test_other_translated, col_prompt=prompt_id_column, col_answer=answer_column, col_score=target_column, target_path=run_path_test_translated, max_num=128, suffix='_' + str(test_lang) + '_translated')
 
                                 df_test_translated_copy = deepcopy(df_test_other_translated)
@@ -197,13 +197,13 @@ def run_dataset_folds(data_path, prompt_id_column, answer_column, target_column,
 
 
 ## Run ePIRLS
-# languages = ['ar', 'da', 'en', 'he', 'it', 'ka', 'nb', 'pt', 'sl', 'sv', 'zh']
-# run_dataset(data_path='/data/exp', prompt_id_column='Variable', answer_column='Value', target_column='score', languages=languages, dataset='ePIRLS', run_suffix='', translate_test=True)
+languages = ['ar', 'da', 'en', 'he', 'it', 'ka', 'nb', 'pt', 'sl', 'sv', 'zh']
+run_dataset(data_path='/data/exp', prompt_id_column='Variable', answer_column='Value', target_column='score', languages=languages, dataset='ePIRLS', run_suffix='_test', translate_test=True)
 
 ## Run ASAP (translated)
 # languages = ['ar', 'da', 'en', 'he', 'it', 'ka', 'nb', 'pt', 'sl', 'sv', 'zh']
-# run_dataset(data_path='/data/ASAP/split', prompt_id_column='PromptId', answer_column='AnswerText', target_column='Score1', languages=languages, dataset='ASAP_translated', run_suffix='_test')
+# run_dataset(data_path='/data/ASAP/split', prompt_id_column='PromptId', answer_column='AnswerText', target_column='Score1', languages=languages, dataset='ASAP_translated', run_suffix='_RUN1')
 
 ## Run ASAP (multilingual)
-languages = ['de', 'en', 'es', 'fr', 'zh']
-run_dataset_folds(data_path='/data/ASAP_crosslingual/split', prompt_id_column='prompt', answer_column='text', target_column='score', languages=languages, num_folds=7, dataset='ASAP_crosslingual', run_suffix='_test')
+# languages = ['de', 'en', 'es', 'fr', 'zh']
+# run_dataset_folds(data_path='/data/ASAP_crosslingual/split', prompt_id_column='prompt', answer_column='text', target_column='score', languages=languages, num_folds=7, dataset='ASAP_crosslingual', run_suffix='_RUN1')

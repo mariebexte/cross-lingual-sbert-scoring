@@ -1,39 +1,44 @@
 import sys
 import os
-
 import shutil
 import logging
-from datetime import datetime
+import torch
 
 import pandas as pd
 import numpy as np
 
-from transformers import XLMRobertaTokenizer, XLMRobertaForSequenceClassification, Trainer, TrainingArguments
+from transformers import Trainer, TrainingArguments, AutoConfig
+from model_training.sbert_for_classification import SbertForSequenceClassification
 
-import torch
+from datetime import datetime
 
 from utils import encode_labels, Dataset, compute_metrics, WriteCsvCallback, GetTestPredictionsCallback, eval_bert
 
 import gc
 
-def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", target_column="score", base_model="xlm-roberta-base", num_epochs=20, batch_size=16, do_warmup=False, save_model=True):
+def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", target_column="score", base_model="paraphrase-multilingual-MiniLM-L12-v2", num_epochs=20, batch_size=16, do_warmup=False, save_model=True):
 
     gc.collect()
 
     # Clear logger from previous runs
     log = logging.getLogger()
     handlers = log.handlers[:]
+
     for handler in handlers:
+
         log.removeHandler(handler)
         handler.close()
 
     device = 'cpu'
+
     if torch.cuda.is_available():
+
         device = 'cuda'
 
     print('**** Running XLMR on:', device)
 
     if not os.path.exists(run_path):
+
         os.makedirs(run_path)
 
     logging.basicConfig(filename=os.path.join(run_path, datetime.now().strftime('logs_%H_%M_%d_%m_%Y.log')), filemode='w', level=logging.DEBUG)
@@ -50,9 +55,11 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", targe
 
     # If all training instances have the same label: Return this label as prediction for all testing instances
     if len(df_train[target_column].unique()) == 1:
+
         target_label = list(df_train[target_column].unique())
         logging.warn("All training instances have the same label '"+str(target_label[0])+"'. Predicting this label for all testing instances!")
         print("All training instances have the same label '"+str(target_label[0])+"'. Predicting this label for all testing instances!")
+        
         return target_label*len(df_test)
 
     # Model evaluation throws error if val/test data contains more labels than train
@@ -62,16 +69,22 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", targe
 
     label_set = set(labels_in_training + labels_in_validation + labels_in_test)
 
+    # print(labels_in_training, labels_in_validation, labels_in_test)
+    # print(label_set)
+
     # If the labels are not integers: Map them to integers
     labels_are_string = False
+
     if(df_train[target_column].dtype == object):
 
         labels_are_string = True
 
         int_to_label = {}
         label_index = 0
+
         # Assign each label its designated integer
         for label in label_set:
+
             int_to_label[label_index] = label
             label_index += 1
                     
@@ -96,13 +109,21 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", targe
     test_texts = list(df_test.loc[:, answer_column])
     test_labels = encode_labels(df_test, label_column=target_column)
 
-    tokenizer = XLMRobertaTokenizer.from_pretrained(base_model)
+    # tokenizer = XLMRobertaTokenizer.from_pretrained(base_model)
+    # Load model and pass to device
+    config = AutoConfig.from_pretrained(base_model)
+    config.num_labels=len(label_set)
+    config.sbert_path = base_model
+    model = SbertForSequenceClassification(config).to(device)
 
     # Tokenize the dataset, truncate if longer than max_length, pad with 0's when less than `max_length`
     # train_encodings = tokenizer(train_texts, truncation=True, padding=True)
-    train_encodings = tokenizer(train_texts, truncation=True, padding=True)
-    valid_encodings = tokenizer(valid_texts, truncation=True, padding=True)
-    test_encodings = tokenizer(test_texts, truncation=True, padding=True)
+    train_encodings = model.sbert.tokenize(train_texts)
+    valid_encodings = model.sbert.tokenize(valid_texts)
+    test_encodings = model.sbert.tokenize(test_texts)
+    # train_encodings = model.sbert.tokenize(train_texts, truncation=True, padding=True)
+    # valid_encodings = model.sbert.tokenize(valid_texts, truncation=True, padding=True)
+    # test_encodings = model.sbert.tokenize(test_texts, truncation=True, padding=True)
 
     # Convert tokenized data into a torch Dataset
     train_dataset = Dataset(train_encodings, train_labels)
@@ -110,18 +131,19 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", targe
     test_dataset = Dataset(test_encodings, test_labels)
 
     num_warm_steps = 0
+
     if do_warmup == True:
+
         steps_per_epoch = len(df_train)/batch_size
         total_num_steps = steps_per_epoch * num_epochs
         num_warm_steps = round(0.1*total_num_steps)
 
     logging.info('Labels: ' + str(label_set))
 
-    # Load model and pass to device
-    model = XLMRobertaForSequenceClassification.from_pretrained(base_model, num_labels=len(label_set)).to(device)
     model.train()
 
     if save_model:
+
         training_args = TrainingArguments(
             output_dir=os.path.join(run_path, 'checkpoints'),   # Output directory to save model, will be deleted after evaluation
             num_train_epochs=num_epochs,             
@@ -136,7 +158,9 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", targe
             #weight_decay=0.01,
             #learning_rate=2e-5,
         )
+
     else:
+
         training_args = TrainingArguments(
             output_dir=os.path.join(run_path, 'checkpoints'),   # Output directory to save model, will be deleted after evaluation
             num_train_epochs=num_epochs,             
@@ -175,14 +199,17 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", targe
     predictions = dict_test_preds[best_epoch]
 
     if labels_are_string:
+
         predictions = [int_to_label[pred] for pred in predictions]
 
     if save_model == True:
+
         trainer.save_model(os.path.join(run_path, "best_model"))
-        tokenizer.save_pretrained(os.path.join(run_path, "best_model"))
+        # tokenizer.save_pretrained(os.path.join(run_path, "best_model"))
 
     # Delete model checkpoints to save space
     if os.path.exists(os.path.join(run_path, "checkpoints")):
+
         shutil.rmtree(os.path.join(run_path, "checkpoints"), ignore_errors=True)
 
     # pred_from_loop = predictions

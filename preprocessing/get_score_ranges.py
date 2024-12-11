@@ -2,6 +2,7 @@ import os
 import pandas as pd
 
 
+## Prints score ranges of ePIRLS data
 data_path = '/data/exp'
 score_ranges = {}
 
@@ -28,7 +29,3 @@ for prompt in os.listdir(data_path):
         score_ranges[prompt] = [int(min_score), int(max_score)]
 
 print(score_ranges)
-
-
-
-

@@ -8,32 +8,34 @@ from datetime import datetime
 import pandas as pd
 import numpy as np
 
-from transformers import XLMRobertaTokenizer, XLMRobertaForSequenceClassification, Trainer, TrainingArguments
+from transformers import BertTokenizer, BertForSequenceClassification, Trainer, TrainingArguments
 
 import torch
 
 from utils import encode_labels, Dataset, compute_metrics, WriteCsvCallback, GetTestPredictionsCallback, eval_bert
 
-import gc
 
-def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", target_column="score", base_model="xlm-roberta-base", num_epochs=20, batch_size=16, do_warmup=False, save_model=True):
-
-    gc.collect()
+def train_mbert(run_path, df_train, df_val, df_test, answer_column="Value", target_column="score", base_model="bert-base-multilingual-cased", num_epochs=20, batch_size=16, do_warmup=False, save_model=True):
 
     # Clear logger from previous runs
     log = logging.getLogger()
     handlers = log.handlers[:]
+
     for handler in handlers:
+
         log.removeHandler(handler)
         handler.close()
 
     device = 'cpu'
+
     if torch.cuda.is_available():
+
         device = 'cuda'
 
-    print('**** Running XLMR on:', device)
+    print('**** Running MBERT on:', device)
 
     if not os.path.exists(run_path):
+
         os.makedirs(run_path)
 
     logging.basicConfig(filename=os.path.join(run_path, datetime.now().strftime('logs_%H_%M_%d_%m_%Y.log')), filemode='w', level=logging.DEBUG)
@@ -45,15 +47,16 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", targe
     logging.info('num train:\t' + str(len(df_train)))
     logging.info('num val:\t' + str(len(df_val)))
     logging.info('num test:\t' + str(len(df_test)))
-    
+
     start_time = datetime.now()
 
     # If all training instances have the same label: Return this label as prediction for all testing instances
     if len(df_train[target_column].unique()) == 1:
+
         target_label = list(df_train[target_column].unique())
         logging.warn("All training instances have the same label '"+str(target_label[0])+"'. Predicting this label for all testing instances!")
         print("All training instances have the same label '"+str(target_label[0])+"'. Predicting this label for all testing instances!")
-        return target_label*len(df_test)
+        return encode_labels(df_test, label_column=target_column), target_label*len(df_test)
 
     # Model evaluation throws error if val/test data contains more labels than train
     labels_in_training = df_train[target_column].unique().tolist()
@@ -64,14 +67,17 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", targe
 
     # If the labels are not integers: Map them to integers
     labels_are_string = False
+
     if(df_train[target_column].dtype == object):
 
         labels_are_string = True
 
         int_to_label = {}
         label_index = 0
+
         # Assign each label its designated integer
         for label in label_set:
+
             int_to_label[label_index] = label
             label_index += 1
                     
@@ -96,7 +102,7 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", targe
     test_texts = list(df_test.loc[:, answer_column])
     test_labels = encode_labels(df_test, label_column=target_column)
 
-    tokenizer = XLMRobertaTokenizer.from_pretrained(base_model)
+    tokenizer = BertTokenizer.from_pretrained(base_model)
 
     # Tokenize the dataset, truncate if longer than max_length, pad with 0's when less than `max_length`
     # train_encodings = tokenizer(train_texts, truncation=True, padding=True)
@@ -110,49 +116,32 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", targe
     test_dataset = Dataset(test_encodings, test_labels)
 
     num_warm_steps = 0
+
     if do_warmup == True:
+
         steps_per_epoch = len(df_train)/batch_size
         total_num_steps = steps_per_epoch * num_epochs
         num_warm_steps = round(0.1*total_num_steps)
 
-    logging.info('Labels: ' + str(label_set))
 
     # Load model and pass to device
-    model = XLMRobertaForSequenceClassification.from_pretrained(base_model, num_labels=len(label_set)).to(device)
+    model = BertForSequenceClassification.from_pretrained(base_model, num_labels=len(label_set)).to(device)
     model.train()
 
-    if save_model:
-        training_args = TrainingArguments(
-            output_dir=os.path.join(run_path, 'checkpoints'),   # Output directory to save model, will be deleted after evaluation
-            num_train_epochs=num_epochs,             
-            per_device_train_batch_size=batch_size,
-            per_device_eval_batch_size=batch_size,  
-            warmup_steps=num_warm_steps,
-            load_best_model_at_end=True,                        # Load the best model when finished training (default metric is loss)
-            evaluation_strategy="steps",
-            logging_strategy="steps",
-            save_strategy="steps",
-            eval_steps=19,
-            save_total_limit=5,
-            #weight_decay=0.01,
-            #learning_rate=2e-5,
-        )
-    else:
-        training_args = TrainingArguments(
-            output_dir=os.path.join(run_path, 'checkpoints'),   # Output directory to save model, will be deleted after evaluation
-            num_train_epochs=num_epochs,             
-            per_device_train_batch_size=batch_size,
-            per_device_eval_batch_size=batch_size,  
-            warmup_steps=num_warm_steps,
-            # load_best_model_at_end=True,                        # Load the best model when finished training (default metric is loss)
-            evaluation_strategy="steps",
-            logging_strategy="steps",
-            eval_steps=19,
-            # save_strategy="epoch",
-            # save_total_limit=5,
-            #weight_decay=0.01,
-            #learning_rate=2e-5,
-        )
+    training_args = TrainingArguments(
+        output_dir=os.path.join(run_path, 'checkpoints'),   # Output directory to save model, will be deleted after evaluation
+        num_train_epochs=num_epochs,             
+        per_device_train_batch_size=batch_size,
+        per_device_eval_batch_size=batch_size,  
+        warmup_steps=num_warm_steps,
+        load_best_model_at_end=True,                        # Load the best model when finished training (default metric is loss)
+        evaluation_strategy="epoch",
+        logging_strategy="epoch",
+        save_strategy="epoch",
+        save_total_limit=5,
+        #weight_decay=0.01,
+        #learning_rate=2e-5,
+    )
 
     trainer = Trainer(
         model=model,
@@ -170,9 +159,6 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", targe
     trainer.add_callback(GetTestPredictionsCallback(dict_test_preds=dict_test_preds, save_path=os.path.join(run_path, "test_stats.csv"), trainer=trainer, test_data=test_dataset))
     trainer.train()
 
-    print('VAL', dict_val_loss)
-    print('TEST', dict_test_preds)
-
     # Determine epoch with lowest validation loss
     best_epoch = min(dict_val_loss, key=dict_val_loss.get)
 
@@ -180,14 +166,17 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", targe
     predictions = dict_test_preds[best_epoch]
 
     if labels_are_string:
+
         predictions = [int_to_label[pred] for pred in predictions]
 
     if save_model == True:
+
         trainer.save_model(os.path.join(run_path, "best_model"))
         tokenizer.save_pretrained(os.path.join(run_path, "best_model"))
 
     # Delete model checkpoints to save space
     if os.path.exists(os.path.join(run_path, "checkpoints")):
+        
         shutil.rmtree(os.path.join(run_path, "checkpoints"), ignore_errors=True)
 
     # pred_from_loop = predictions
@@ -206,7 +195,5 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", targe
     df_test.to_csv(os.path.join(run_path, 'preds.csv'))
 
     logging.info('Training duration:\t' + str(datetime.now() - start_time))
-
-    del model
 
     return test_labels, predictions

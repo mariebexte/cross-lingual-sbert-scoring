@@ -9,6 +9,8 @@ from torch.cuda import OutOfMemoryError
 import torch
 
 
+## Translate ePIRLS test data
+
 nltk.download('punkt')
 
 data_path = '/data/exp'

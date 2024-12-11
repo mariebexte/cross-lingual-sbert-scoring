@@ -14,6 +14,7 @@ def aggregate_results(result_dir, languages=['ar', 'da', 'en', 'he', 'it', 'ka',
     results_idx = 0
 
     for prompt in os.listdir(result_dir):
+        
         if os.path.isdir(os.path.join(result_dir, prompt)):
 
             for train_lang in os.listdir(os.path.join(result_dir, prompt)):

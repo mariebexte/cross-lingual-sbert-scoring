@@ -3,9 +3,13 @@ import sys
 import copy
 import os
 
+
+## Explore ePIRLS data
+
 output_folder = '/results/data-analysis'
 
 if not os.path.exists(output_folder):
+
     os.mkdir(output_folder)
 
 
@@ -18,11 +22,14 @@ def get_stats(df_clean, out_name, remove_duplicates=True):
 
         # Store for which prompt there are how many answers
         lang_dict = {}
+
         for prompt, df_prompt in df_lang.groupby('Variable'):
 
             # Reduce to unique answers, if an answer occurs with different labels: Keep both
             if remove_duplicates:
+
                 df_prompt = df_prompt.drop_duplicates(subset=['score', 'Value'], keep='first')
+
             lang_dict[prompt] = len(df_prompt)
 
         df_lang_dict = pd.DataFrame.from_dict(lang_dict, orient='index').T
@@ -34,12 +41,15 @@ def get_stats(df_clean, out_name, remove_duplicates=True):
     # Sum these counts up to the highest possible number of answers with constant label distribution
     languages = df_overview.index
     max_answer_counts = {}
+
     for prompt, df_prompt in df_clean.groupby('Variable'):
 
         answer_count = 0
+
         for label, df_label in df_prompt.groupby('score'):
 
             if remove_duplicates:
+                
                 df_label = df_label.drop_duplicates(subset=['Language', 'Value'], keep="first")
 
             fewest = df_label['Language'].value_counts().min() 

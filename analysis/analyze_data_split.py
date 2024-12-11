@@ -2,6 +2,7 @@ import pandas as pd
 import os
 
 
+# Analyze data split of ePIRLS data
 data_folder = '/data/exp'
 
 results = {} 
@@ -46,6 +47,7 @@ for prompt in os.listdir(data_folder):
 
 df_results = pd.DataFrame.from_dict(results, orient='index')
 print(df_results)
+
 for lang, df_lang in df_results.groupby('lang'):
 
     print(lang, df_lang['avg_len'].mean(), df_lang['ratio_unique'].mean(), len(df_lang))

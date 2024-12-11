@@ -6,10 +6,13 @@ import math
 
 seed = 59348605
 
+## Split ePIRLS data
+
 ## Make a folder for each prompt, containing train/val/test csvs
 output_folder = '/data'
 
 if not os.path.exists(output_folder):
+    
     os.mkdir(output_folder)
 
 
@@ -23,6 +26,7 @@ def split_data(prompt, df_prompt):
     ## Dict to hold data as {label: count}
     ## Count is max achievable number of answers with same label distribution across all languages
     max_answer_counts = {}
+
     for label, df_label in df_prompt.groupby('score'):
 
         fewest = df_label['Language'].value_counts().min() 
@@ -57,11 +61,13 @@ def split_data(prompt, df_prompt):
             # If it has enough answers this is a prompt to be used in experiments:
             # Sample train
             if total >= 800:
+
                 df_lang_train_sample = df_label.sample(round(max_answer_counts_normalized[label]*600), random_state=seed)
                 df_lang_train = pd.concat([df_lang_train, df_lang_train_sample])
             
             # Other prompts are used for hyperparameter search: grab as many as possible, while keeping equal amount across languages
             else:
+
                 df_lang_train_sample = df_label.sample(math.floor(max_answer_counts_normalized[label]*(total-200)), random_state=seed)
                 df_lang_train = pd.concat([df_lang_train, df_lang_train_sample])
 
@@ -79,14 +85,14 @@ def split_data(prompt, df_prompt):
 
         
         target_folder = os.path.join(output_folder, target_folder, prompt, language)
+
         if not os.path.exists(target_folder):
+
             os.makedirs(target_folder)
 
         df_lang_train.to_csv(os.path.join(target_folder, 'train.csv'))
         df_lang_val.to_csv(os.path.join(target_folder, 'val.csv'))
         df_lang_test.to_csv(os.path.join(target_folder, 'test.csv'))
-
-
 
 
 ### Read data, discard what we do not need, process into splits prompt-wise

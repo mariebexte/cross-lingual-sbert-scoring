@@ -12,6 +12,8 @@ from copy import deepcopy
 from tqdm import tqdm
 
 
+## Visualize embedding space
+
 def plot_embeddings_scatterplot(df_overall, target_path, model_name):
 
     fig = sns.scatterplot(data=df_overall, x="x", y="y", hue="Language", style='score')
@@ -35,6 +37,7 @@ def get_df_with_embeddings_xlmr(df_overall, model_name='xlm-roberta-base'):
 
     # inputs = tokenizer(list(df_overall['Value']), return_tensors='pt', padding=True, truncation=True)
     embeddings = []
+
     for idx, row in tqdm(df_overall.iterrows(), total=len(df_overall)):
 
         answer = row['Value']
@@ -60,6 +63,7 @@ def get_df_with_embeddings_xlmr(df_overall, model_name='xlm-roberta-base'):
     embeddings = np.array(embeddings)
     print(embeddings.shape)
     df_overall['x'], df_overall['y'] = zip(*TSNE(n_components=2).fit_transform(np.array(embeddings)))
+
     return df_overall
 
 
@@ -77,12 +81,15 @@ def get_df_with_embeddings_sbert(df_overall, model_name='paraphrase-multilingual
 def plot_embeddings(prompt, data_path='/data/exp', answer_col='', target_path='/results/emb_vis'):
 
     target_path = os.path.join(target_path, prompt)
+
     if not os.path.exists(target_path):
+
         os.makedirs(target_path)
 
     dfs = []
 
     for lang in ['ar', 'da', 'en', 'he', 'it', 'ka', 'nb', 'pt', 'sl', 'sv', 'zh']:
+
         df_test = read_data(os.path.join(data_path, prompt, lang, 'test.csv'))
         dfs.append(df_test)
     
@@ -93,8 +100,6 @@ def plot_embeddings(prompt, data_path='/data/exp', answer_col='', target_path='/
     plot_embeddings_scatterplot(df_overall=df_overall_sbert, target_path=target_path, model_name='SBERT')
     plot_embeddings_scatterplot(df_overall=df_overall_xlmr, target_path=target_path, model_name='XLMR')
 
-
-# plot_embeddings('E011R15C')
 
 for prompt in os.listdir('/data/exp'):
 

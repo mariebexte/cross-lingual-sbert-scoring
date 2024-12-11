@@ -1,15 +1,17 @@
-import pandas as pd
-from train_mbert import train_mbert
-from train_xlmr import train_xlmr
-from train_sbert import train_sbert, eval_sbert
-from transformers import BertForSequenceClassification, BertTokenizer, XLMRobertaTokenizer, XLMRobertaForSequenceClassification
-from sentence_transformers import SentenceTransformer
-from utils import eval_bert, write_classification_statistics, read_data
-from copy import deepcopy
 import os
+import shutil
 import sys
 import torch
-import shutil
+
+import pandas as pd
+
+from copy import deepcopy
+from model_training.train_mbert import train_mbert
+from model_training.train_xlmr import train_xlmr
+from model_training.train_sbert import train_sbert
+from sentence_transformers import SentenceTransformer
+from transformers import BertForSequenceClassification, BertTokenizer, XLMRobertaTokenizer, XLMRobertaForSequenceClassification
+from utils import eval_bert, write_classification_statistics, read_data, eval_sbert
 
 device = 'cpu'
 if torch.cuda.is_available():

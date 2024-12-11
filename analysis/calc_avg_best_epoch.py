@@ -4,6 +4,8 @@ import sys
 from nltk.probability import FreqDist as FD
 
 
+## Analyse average best epoch across runs
+
 # def calc_xlmr(result_path='/results/exp_1_zero_shot'):
 def calc_xlmr(result_path='/Users/mariebexte/Coding/Projects/cross-lingual/exp_3_lolo/combine_all_other'):
 

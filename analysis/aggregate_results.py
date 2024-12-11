@@ -2,7 +2,7 @@ import pandas as pd
 import os
 from sklearn.metrics import accuracy_score, cohen_kappa_score
 
-## Build dataframe that aggregates results from entire directory
+## Build dataframe that aggregates results from entire directory (for hyperparam search results)
 ## Columns: Prompt, train_lang, test_lang, model, acc, qwk
 
 def aggregate_results(result_dir):
@@ -45,4 +45,3 @@ def aggregate_results(result_dir):
 
 
 aggregate_results('/results/results_dev/dev')
-

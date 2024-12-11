@@ -1,15 +1,18 @@
-import pandas as pd
-from train_mbert import train_mbert
-from train_xlmr import train_xlmr
-from train_sbert import train_sbert, eval_sbert
-from transformers import BertForSequenceClassification, BertTokenizer, XLMRobertaTokenizer, XLMRobertaForSequenceClassification
-from sentence_transformers import SentenceTransformer
-from utils import eval_bert, write_classification_statistics, read_data
-from copy import deepcopy
 import os
+import shutil
 import sys
 import torch
-import shutil
+
+import pandas as pd
+
+from copy import deepcopy
+from model_training.train_mbert import train_mbert
+from model_training.train_xlmr import train_xlmr
+from model_training.train_sbert import train_sbert
+from sentence_transformers import SentenceTransformer
+from transformers import BertForSequenceClassification, BertTokenizer, XLMRobertaTokenizer, XLMRobertaForSequenceClassification
+from utils import eval_bert, write_classification_statistics, read_data, eval_sbert
+
 
 device = 'cpu'
 if torch.cuda.is_available():
@@ -25,13 +28,6 @@ target_column = 'score'
 result_dir = '/results/exp_1_zero_shot_pretrained_TEST'
 data_path = '/data/exp'
 
-
-def read_data(path):
-
-    df = pd.read_csv(path)
-    df = df.fillna('')
-    df[answer_column] = df[answer_column].astype(str)
-    return df
 
 # Limba 0
 # for prompt in ['E011B03C',  'E011B08C',  'E011B12C',  'E011B14C',  'E011M03C',  'E011B04C',  'E011B09C',  'E011B13C',  'E011M02C', 'E011T17C', 'E011Z09C',  'E011Z14C']:
@@ -51,9 +47,9 @@ for prompt in ['E011M04C',  'E011M09C',  'E011M13C',  'E011R02C',  'E011R08C',  
         print(prompt, language)
 
         # Read data for training
-        df_train = read_data(os.path.join(data_path, prompt, language, 'train.csv'))
-        df_val = read_data(os.path.join(data_path, prompt, language, 'val.csv'))
-        df_test = read_data(os.path.join(data_path, prompt, language, 'test.csv'))
+        df_train = read_data(os.path.join(data_path, prompt, language, 'train.csv'), target_column=target_column, answer_column=answer_column)
+        df_val = read_data(os.path.join(data_path, prompt, language, 'val.csv'), target_column=target_column, answer_column=answer_column)
+        df_test = read_data(os.path.join(data_path, prompt, language, 'test.csv'), target_column=target_column, answer_column=answer_column)
 
         
         #  ---------- Train SBERT ------------
@@ -77,7 +73,7 @@ for prompt in ['E011M04C',  'E011M09C',  'E011M13C',  'E011R02C',  'E011R08C',  
                 if not os.path.exists(run_path_test_sbert):
                     os.mkdir(run_path_test_sbert)
                 
-                df_test_sbert = read_data(os.path.join(data_path, prompt, test_lang, 'test.csv'))
+                df_test_sbert = read_data(os.path.join(data_path, prompt, test_lang, 'test.csv'), target_column=target_column, answer_column=answer_column)
                 df_test_sbert['embedding'] = df_test_sbert[answer_column].apply(model.encode)
                 gold, pred_max, pred_avg = eval_sbert(run_path_test_sbert, df_test_sbert, df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
 
