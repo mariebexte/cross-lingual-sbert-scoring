@@ -11,6 +11,7 @@ from sentence_transformers import SentenceTransformer
 
 ## Add classification head to SBERT model
 class SbertForSequenceClassification(BertPreTrainedModel):
+
     def __init__(self, config):
 
         super().__init__(config)
@@ -20,9 +21,7 @@ class SbertForSequenceClassification(BertPreTrainedModel):
 
         self.sbert = SentenceTransformer(config.sbert_path)
 
-        classifier_dropout = (
-            config.classifier_dropout if config.classifier_dropout is not None else config.hidden_dropout_prob
-        )
+        classifier_dropout = (config.classifier_dropout if config.classifier_dropout is not None else config.hidden_dropout_prob)
         self.dropout = nn.Dropout(classifier_dropout)
         self.classifier = nn.Linear(config.hidden_size, config.num_labels)
 
@@ -67,6 +66,7 @@ class SbertForSequenceClassification(BertPreTrainedModel):
         logits = self.classifier(pooled_output)
 
         loss = None
+        
         if labels is not None:
 
             # move labels to correct device to enable model parallelism

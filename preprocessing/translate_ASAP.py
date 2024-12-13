@@ -15,12 +15,13 @@ nltk.download('punkt')
 
 data_path = '/data/ASAP/split'
 other_languages = ['ar', 'da', 'he', 'it', 'ka', 'nb', 'pt', 'sl', 'sv', 'zh']
+
+# Language codes for translation model
 language_codes = {'ar': 'ar', 'da': 'da', 'en': 'en', 'he': 'he', 'it': 'it', 'ka': 'ka', 'nb': 'no', 'pt': 'pt', 'sl': 'sl', 'sv': 'sv', 'zh': 'zh'}
 
 translation_model = EasyNMT('m2m_100_1.2B', max_loaded_models=1)
 
 for prompt in ['1','2','3','4','5','6','7','8','9','10']:
-# for prompt in os.listdir(data_path):
 
     print(prompt)
 
@@ -39,17 +40,12 @@ for prompt in ['1','2','3','4','5','6','7','8','9','10']:
 
                 df_copy = copy.deepcopy(df)
                 df_copy['AnswerText'] = df_copy['AnswerText'].apply(str)
-
-                # df_test_copy['Value'] = translation_model.translate(df_test_copy['Value'], source_lang=language_codes[language], target_lang=language_codes[other_language])
-                # df_copy['AnswerText'] = [translation_model.translate(sentence, source_lang=language_codes['en'], target_lang=language_codes[other_language]) for sentence in list(df_copy['AnswerText'])]
                 
                 ### to debug
                 translated_texts = []
                 original_texts = list(df_copy['AnswerText'])
 
                 for text in original_texts:
-
-                    print(len(text), text)
 
                     if text == 'Paul is a student that has trouble reading and he takes part in a remedial reading program that allows him to get help on reading a couple of times a week.  he would leave english early to go to this program and every time Mr. Leonard saw him he would ask were he was going and check his hall pass so that he could make sure that he was going to the right place.     When Mr. Leonard asked Paul to stay after school one day and meet him in the gym Paul said ok becuase he would take any route that didnt lead to doing homework.  Once Paul got to the Gym he was asked by Mr. Leonard whether he enjoyed basketball and he nodded his head not so he took him outside to the track and had him jump over some hurdles.  When he was finished he said that was aweful but Mr. Leonard said that it was good and he would get better as he practiced so he told Paul to show up tommorow with running shows and a pair of shorts.     I began to wonder why Mr. Leonard was helping him like this and once he met the high school track coach and he told him to look Mr. Leonard up he found out that he was a very accomplished track runner back in college and he fluncked out of college becuase the scouts did not care about grades and so he had to do harder work and couldnt do it even with the tutors help.       Paul began to realize that Mr. Leonard and himself are alot alike and he wanted to help a child reach his potential athletically, since Paul and already sawt help in his learning troubles.':
                         

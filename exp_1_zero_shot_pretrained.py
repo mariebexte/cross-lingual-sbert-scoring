@@ -1,81 +1,210 @@
 import os
-import shutil
 import sys
 import torch
 
 import pandas as pd
 
+from datetime import datetime
+from config import EPIRLS, ASAP_T, ASAP_M, SBERT_BASE_MODEL, RESULT_PATH_EXP_1
 from copy import deepcopy
-from model_training.train_mbert import train_mbert
-from model_training.train_xlmr import train_xlmr
-from model_training.train_sbert import train_sbert
+from model_training.utils import read_data, get_device, eval_sbert, write_classification_statistics
 from sentence_transformers import SentenceTransformer
-from transformers import BertForSequenceClassification, BertTokenizer, XLMRobertaTokenizer, XLMRobertaForSequenceClassification
-from utils import eval_bert, write_classification_statistics, read_data, eval_sbert
 
 
-device = 'cpu'
-if torch.cuda.is_available():
-    device = 'cuda'
+def run_pretrained(dataset_path, dataset_name, id_column, answer_column, target_column, languages, translate_test, run_suffix=''):
 
-sbert_model_name = 'paraphrase-multilingual-MiniLM-L12-v2'
-languages = ['ar', 'da', 'en', 'he', 'it', 'ka', 'nb', 'pt', 'sl', 'sv', 'zh']
+    device = get_device()
 
-id_column = 'id'
-answer_column = 'Value'
-target_column = 'score'
+    for prompt in os.listdir(dataset_path):
 
-result_dir = '/results/exp_1_zero_shot_pretrained_TEST'
-data_path = '/data/exp'
+        # For each prompt - language pair, train a model
+        for language in languages:
 
+            start = datetime.now()
 
-# Limba 0
-# for prompt in ['E011B03C',  'E011B08C',  'E011B12C',  'E011B14C',  'E011M03C',  'E011B04C',  'E011B09C',  'E011B13C',  'E011M02C', 'E011T17C', 'E011Z09C',  'E011Z14C']:
-# Limba 1
-# for prompt in ['E011M08C',  'E011M11C',  'E011M15C',  'E011R05C',  'E011R09C',  'E011R14C',  'E011R16C',  'E011T05C',  'E011T09C',  'E011Z04C',  'E011Z12C']:
-# Limba 3
-for prompt in ['E011M04C',  'E011M09C',  'E011M13C',  'E011R02C',  'E011R08C',  'E011R11C',  'E011R15C',  'E011T02C',  'E011T08C',  'E011T10C',  'E011Z02C']:
-# for prompt in os.listdir(data_path):
+            torch.cuda.empty_cache()
 
+            print(prompt, language)
 
-    # For each prompt - language pair, train a model
-    # for language in os.listdir(os.path.join(data_path, prompt)):
-    for language in languages:
+            df_train = read_data(os.path.join(dataset_path, prompt, language, 'train.csv'), target_column=target_column, answer_column=answer_column)
+            df_val = read_data(os.path.join(dataset_path, prompt, language, 'val.csv'), target_column=target_column, answer_column=answer_column)
+            df_test = read_data(os.path.join(dataset_path, prompt, language, 'test.csv'), target_column=target_column, answer_column=answer_column)
+            
+            run_path_sbert = os.path.join(RESULT_PATH_EXP_1 + run_suffix, dataset_name, prompt, language, 'pretrained')
 
-        torch.cuda.empty_cache()
+            if not os.path.exists(os.path.join(run_path_sbert)):
 
-        print(prompt, language)
-
-        # Read data for training
-        df_train = read_data(os.path.join(data_path, prompt, language, 'train.csv'), target_column=target_column, answer_column=answer_column)
-        df_val = read_data(os.path.join(data_path, prompt, language, 'val.csv'), target_column=target_column, answer_column=answer_column)
-        df_test = read_data(os.path.join(data_path, prompt, language, 'test.csv'), target_column=target_column, answer_column=answer_column)
-
-        
-        #  ---------- Train SBERT ------------
-        run_path_sbert = os.path.join(result_dir, prompt, language, 'SBERT')
-        if not os.path.exists(os.path.join(run_path_sbert)):
-
-            if not os.path.exists(run_path_sbert):
                 os.makedirs(run_path_sbert)
 
-            # Load model
-            model = SentenceTransformer(sbert_model_name)
-            df_ref = pd.concat([df_train, df_val])
-            df_ref['embedding'] = df_ref[answer_column].apply(model.encode)
-
-            print(len(df_ref))
-            
-            # Zero-shot evaluation of model on all languages
-            for test_lang in languages:
-
-                run_path_test_sbert = os.path.join(run_path_sbert, test_lang)
-                if not os.path.exists(run_path_test_sbert):
-                    os.mkdir(run_path_test_sbert)
+                # Load model
+                model = SentenceTransformer(SBERT_BASE_MODEL)
+                df_ref = pd.concat([df_train, df_val])
+                df_ref['embedding'] = df_ref[answer_column].apply(model.encode)
                 
-                df_test_sbert = read_data(os.path.join(data_path, prompt, test_lang, 'test.csv'), target_column=target_column, answer_column=answer_column)
-                df_test_sbert['embedding'] = df_test_sbert[answer_column].apply(model.encode)
-                gold, pred_max, pred_avg = eval_sbert(run_path_test_sbert, df_test_sbert, df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
+                # Zero-shot evaluation of model on all languages
+                for test_lang in languages:
 
-                write_classification_statistics(filepath=run_path_test_sbert, y_true=gold, y_pred=pred_avg, suffix='')
-                write_classification_statistics(filepath=run_path_test_sbert, y_true=gold, y_pred=pred_max, suffix='_max')
+                    run_path_test_sbert = os.path.join(run_path_sbert, test_lang)
+
+                    if not os.path.exists(run_path_test_sbert):
+
+                        os.mkdir(run_path_test_sbert)
+                    
+                    df_test_sbert = read_data(os.path.join(dataset_path, prompt, test_lang, 'test.csv'), target_column=target_column, answer_column=answer_column)
+                    df_test_sbert['embedding'] = df_test_sbert[answer_column].apply(model.encode)
+                    gold, pred_max, pred_avg = eval_sbert(run_path_test_sbert, df_test=df_test_sbert, df_ref=df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
+
+                    write_classification_statistics(filepath=run_path_test_sbert, y_true=gold, y_pred=pred_avg, suffix='')
+                    write_classification_statistics(filepath=run_path_test_sbert, y_true=gold, y_pred=pred_max, suffix='_max')
+
+                    if translate_test and test_lang != language:
+
+                        run_path_test_sbert_translated = os.path.join(run_path_sbert, test_lang + '_translated')
+
+                        if not os.path.exists(run_path_test_sbert_translated):
+
+                            os.mkdir(run_path_test_sbert_translated)
+                        
+                        df_test_sbert_translated = read_data(os.path.join(dataset_path, prompt, test_lang, 'test_translated_m2m_100_1.2B_' + language + '.csv'), target_column=target_column, answer_column=answer_column)
+                        df_test_sbert_translated['embedding'] = df_test_sbert_translated[answer_column].apply(model.encode)
+                        gold, pred_max_translated, pred_avg_translated = eval_sbert(run_path_test_sbert_translated, df_test=df_test_sbert_translated, df_ref=df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
+
+                        write_classification_statistics(filepath=run_path_test_sbert_translated, y_true=gold, y_pred=pred_avg_translated, suffix='')
+                        write_classification_statistics(filepath=run_path_test_sbert_translated, y_true=gold, y_pred=pred_max_translated, suffix='_max')
+                    
+                end = datetime.now()
+
+                with open(os.path.join(run_path_sbert, datetime.now().strftime('logs_%H_%M_%d_%m_%Y.log')), 'w') as out_file:
+
+                    out_file.write('Total duration:\t' + str(end - start))
+
+
+def run_pretrained_cross_validated(dataset_path, dataset_name, id_column, answer_column, target_column, languages, translate_test, num_folds, run_suffix=''):
+
+    device = get_device()
+
+    for prompt in os.listdir(dataset_path):
+
+        # For each prompt - language pair, train a model
+        for language in languages:
+
+            for test_fold in range(1, num_folds+1):
+
+                start = datetime.now()
+
+                torch.cuda.empty_cache()
+
+                print(prompt, language, test_fold)
+
+                ref_folds = list(range(1, num_folds+1))
+                ref_folds.remove(test_fold)
+
+                df_ref_list = []
+
+                for ref_fold in ref_folds:
+
+                    df_ref_list.append(read_data(os.path.join(dataset_path, prompt, language, 'fold_' + str(ref_fold) + '.csv'), target_column=target_column, answer_column=answer_column))
+                
+                df_ref = pd.concat(df_ref_list)
+                df_ref.reset_index(inplace=True)
+                df_test = read_data(os.path.join(dataset_path, prompt, language, 'fold_' + str(test_fold)+ '.csv'), target_column=target_column, answer_column=answer_column)
+                
+                run_path_sbert = os.path.join(RESULT_PATH_EXP_1 + run_suffix, dataset_name, prompt, language, 'pretrained', 'fold_' + str(test_fold))
+
+                if not os.path.exists(os.path.join(run_path_sbert)):
+
+                    os.makedirs(run_path_sbert)
+
+                    # Load model
+                    model = SentenceTransformer(SBERT_BASE_MODEL)
+                    df_ref['embedding'] = df_ref[answer_column].apply(model.encode)
+                    
+                    # Zero-shot evaluation of model on all languages
+                    for test_lang in languages:
+
+                        run_path_test_sbert = os.path.join(run_path_sbert, test_lang)
+
+                        if not os.path.exists(run_path_test_sbert):
+
+                            os.mkdir(run_path_test_sbert)
+                        
+                        df_test_sbert_list = []
+
+                        if test_lang != language:
+
+                            for fold in range(1, num_folds+1):
+
+                                df_test_sbert_list.append(read_data(os.path.join(dataset_path, prompt, test_lang, 'fold_' + str(fold) + '.csv'), target_column=target_column, answer_column=answer_column))
+                        
+                        else:
+
+                            df_test_sbert_list.append(read_data(os.path.join(dataset_path, prompt, test_lang, 'fold_' + str(test_fold) + '.csv'), target_column=target_column, answer_column=answer_column))
+                        
+                        df_test_sbert=pd.concat(df_test_sbert_list)
+                        df_test_sbert.reset_index(inplace=True)
+                        df_test_sbert['embedding'] = df_test_sbert[answer_column].apply(model.encode)
+                        gold, pred_max, pred_avg = eval_sbert(run_path_test_sbert, df_test=df_test_sbert, df_ref=df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
+
+                        write_classification_statistics(filepath=run_path_test_sbert, y_true=gold, y_pred=pred_avg, suffix='')
+                        write_classification_statistics(filepath=run_path_test_sbert, y_true=gold, y_pred=pred_max, suffix='_max')
+
+                        if translate_test and test_lang != language:
+
+                            run_path_test_sbert_translated = os.path.join(run_path_sbert, test_lang + '_translated')
+
+                            if not os.path.exists(run_path_test_sbert_translated):
+
+                                os.mkdir(run_path_test_sbert_translated)
+                            
+                            df_test_sbert_translated_list = []
+
+                            for fold in (range(1, num_folds+1)):
+
+                                df_test_sbert_translated_list.append(read_data(os.path.join(dataset_path, prompt, test_lang, 'fold_' + str(fold) + '_translated_' + language + '.csv'), target_column=target_column, answer_column=answer_column))
+                            
+                            df_test_sbert_translated = pd.concat(df_test_sbert_translated_list)
+                            df_test_sbert_translated.reset_index(inplace=True)
+                            df_test_sbert_translated['embedding'] = df_test_sbert_translated[answer_column].apply(model.encode)
+                            gold, pred_max_translated, pred_avg_translated = eval_sbert(run_path_test_sbert_translated, df_test=df_test_sbert_translated, df_ref=df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
+
+                            write_classification_statistics(filepath=run_path_test_sbert_translated, y_true=gold, y_pred=pred_avg_translated, suffix='')
+                            write_classification_statistics(filepath=run_path_test_sbert_translated, y_true=gold, y_pred=pred_max_translated, suffix='_max')
+                        
+                    end = datetime.now()
+
+                    with open(os.path.join(run_path_sbert, datetime.now().strftime('logs_%H_%M_%d_%m_%Y.log')), 'w') as out_file:
+
+                        out_file.write('Total duration:\t' + str(end - start))
+
+
+for run in ['_RUN1', '_RUN2', '_RUN3']:
+
+    for dataset in [EPIRLS, ASAP_T]:
+
+        run_pretrained(
+            dataset_path=dataset['dataset_path'],
+            dataset_name=dataset['dataset_name'], 
+            id_column=dataset['id_column'], 
+            answer_column=dataset['answer_column'], 
+            target_column=dataset['target_column'],
+            languages=dataset['languages'],
+            translate_test=dataset['translate_test'], 
+            run_suffix=run
+        )
+
+
+for run in ['_RUN1', '_RUN2', '_RUN3']:
+
+    for dataset in [ASAP_M]:
+
+        run_pretrained_cross_validated(
+            dataset_path=dataset['dataset_path'],
+            dataset_name=dataset['dataset_name'], 
+            id_column=dataset['id_column'], 
+            answer_column=dataset['answer_column'], 
+            target_column=dataset['target_column'],
+            languages=dataset['languages'],
+            translate_test=dataset['translate_test'], 
+            run_suffix=run,
+            num_folds=dataset['num_folds']
+        )

@@ -16,6 +16,8 @@ nltk.download('punkt')
 
 data_path = '/data/ASAP_crosslingual/split'
 languages = ['de', 'en', 'es', 'fr', 'zh']
+
+# Language codes for translation model
 language_codes = {'de': 'de', 'es': 'es', 'fr': 'fr', 'ar': 'ar', 'da': 'da', 'en': 'en', 'he': 'he', 'it': 'it', 'ka': 'ka', 'nb': 'no', 'pt': 'pt', 'sl': 'sl', 'sv': 'sv', 'zh': 'zh'}
 
 num_folds = 7
@@ -24,7 +26,6 @@ translation_model_name = 'm2m_100_1.2B'
 translation_model = EasyNMT(translation_model_name, max_loaded_models=1)
 
 for prompt in ['1','2','10']:
-# for prompt in os.listdir(data_path):
 
     print(prompt)
 
@@ -48,16 +49,11 @@ for prompt in ['1','2','10']:
                     df_copy = copy.deepcopy(df)
                     df_copy['text'] = df_copy['text'].apply(str)
 
-                    # df_test_copy['Value'] = translation_model.translate(df_test_copy['Value'], source_lang=language_codes[language], target_lang=language_codes[other_language])
-                    # df_copy['text'] = [translation_model.translate(sentence, source_lang=language_codes[language], target_lang=language_codes[other_language]) for sentence in list(df_copy['text'])]
-
                     ### to debug
                     translated_texts = []
                     original_texts = list(df_copy['text'])
 
                     for text in original_texts:
-
-                        print(len(text), text)
 
                         if other_language=='de' and text == 'Lluvia ácidanLa lluvia ácida es una forma de contaminación ácida, que hace referencia a la caída (deposición) de ácidos presentes en la atmósfera a través de la lluvia, niebla y nieve (también conocida como deposición húmeda).nLos principales precursores de los ácidos, son los óxidos de azufre (SOx) y los óxidos de nitrógeno (NOx), que son emitidos por las termoeléctricas, los motores de combustión interna de coches y aviones y algunas otras industrias, como producto de la combustión de combustibles que contienen pequeños porcentajes de azufre (S) y nitrógeno (N), como el carbón, gas natural, gas oil, petróleo, etc.nLos ácidos, principalmente ácido sulfúrico y ácido nítrico, se disuelven en las gotas de agua que forman las nubes y en las propias gotas de agua de lluvia, depositándose en el suelo. Ambos ácidos se originan en la atmósfera al reaccionar el trióxido de azufre (SO3) y el dióxido de nitrógeno (NO2) con agua, oxígeno y otras sustancias químicas presentes. En presencia de luz solar aumenta la velocidad de la mayoría de estas reacciones.nExiste también otra forma de contaminación ácida conocida como deposición seca, y hace referencia a gases y partículas ácidos que son arrastrados por el viento, chocando contra edificios, coches, casas y árboles. Otra vía de arrastre son las lluvias fuertes. En este caso las sustancias ácidas se incorporan a la lluvia ácida, lo que contribuye a aumentar su acidez.nAproximadamente la mitad de las sustancias ácidas en la atmósfera caen al suelo por procesos de deposición seca.n¿Cómo se mide la lluvia ácida?nLa lluvia ácida se mide según la escala de "pH", potencial hidrógeno. Cuanto más bajo sea el pH de una sustancia, es más ácida.nEl agua pura tiene un pH de 7.0 y normalmente la lluvia tiene un pH entre 5 y 6, es decir, es ligeramente ácida, por llevar ácido carbónico que se forma cuando el dióxido de carbono del aire se disuelve en el agua que cae. En cambio, en zonas con la atmósfera contaminada por estas sustancias acidificantes, la lluvia tiene valores de pH de hasta 4 ó 3 y, en algunas zonas en que la niebla es ácida, el pH puede llegar a ser de 2 ó 3, es decir similar al del zumo del limón o al del vinagre.n¿Cuáles son los efectos de la lluvia ácida?nLos efectos ocasionados por el agua ácida dependerán de diversos factores, como el grado de acidez del agua, la composición química del suelo y su capacidad de "amortiguación" (buffering), así como de las características de los organismos vivos afectados.nLa deposición ácida contribuye a la reducción del pH en ecosistemas terrestres y acuáticos y permite la movilización de metales tóxicos, especialmente del aluminio. Esto ocasiona una variedad de efectos, como son daños a bosques y suelos, peces y otros seres vivos, materiales de construcción y a la salud humana. Asimismo, la lluvia ácida actúa reduciendo la visibilidad.nEn los bosques, la lluvia ácida produce daños al descomponer los nutrientes del suelo, dificultando el crecimiento natural de los árboles. El daño se puede extender a los pastos de las praderas, perjudicando al ganado, y a los lagos, pudiendo ocasionar la muerte de gran cantidad de peces.nLos efectos de la lluvia ácida en el suelo pueden verse incrementados en bosques de zonas de alta montaña, donde la niebla contribuye a aportar cantidades importantes de los contaminantes ácidos.nLa lluvia ácida contribuye a la degradación de los materiales de construcción y artísticos (mal de piedra) y la corrosión metálica. Los monumentos y edificios son sensibles a la acción de la lluvia ácida. Muchas ruinas han desaparecido o están por de hacerlo, a causa de este factor.nEl daño que produce a las personas es principalmente indirecto, mediante el consumo de peces y agua potable contaminados por la lluvia ácida.n¿Cómo se puede reducir la lluvia ácida?nPara reducir la lluvia ácida es necesario disminuir la emisión de los compuestos químicos que dan origen a los ácidos, es decir, de los precursores de los ácidos, los cuales son principalmente el bióxido de azufre (SO2) y los óxidos de nitrógeno (monóxido de nitrógeno, NO, y bióxido de nitrógeno, NO2).nEn la actualidad se puede disminuir la formación de SO2 eliminando el azufre de los combustibles fósiles o atrapando los SOx antes que se emitan a la atmósfera, mediante reacciones químicas que los transforman en especies químicas menos reactivas. La utilización de convertidores catalíticos disminuye la formación de NO y NO2, puesto que reducen dichos óxidos a N2 y O2.':
                             

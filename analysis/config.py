@@ -34,18 +34,3 @@ ASAP_M = {
     'num_folds': 7,
     'language_column': None
 }
-
-SBERT_BASE_MODEL = 'paraphrase-multilingual-MiniLM-L12-v2'
-XLMR_BASE_MODEL = 'xlm-roberta-base'
-
-RESULT_PATH_EXP_1 = '/results/exp_1_zero_shot'
-RESULT_PATH_EXP_2 = '/results/exp_2_tradeoff'
-RESULT_PATH_EXP_3 = '/results/exp_3_lolo'
-
-SBERT_NUM_EPOCHS = 8
-BERT_NUM_EPOCHS = 10
-
-SBERT_NUM_PAIRS = 25
-SBERT_NUM_VAL_PAIRS = 1000
-
-NPCR_ANSWER_LENGTH = 128

@@ -1,22 +1,25 @@
 import os
-import pandas as pd
-from sklearn.manifold import TSNE
-from utils import read_data
-from sentence_transformers import SentenceTransformer
-import seaborn as sns
+import sys
+
 import matplotlib.pyplot as plt
 import numpy as np
-import sys
-from transformers import XLMRobertaForSequenceClassification, XLMRobertaTokenizer
+import pandas as pd
+import seaborn as sns
+
+from config import EPIRLS, ASAP_M, ASAP_T
 from copy import deepcopy
+from sentence_transformers import SentenceTransformer
+from sklearn.manifold import TSNE
 from tqdm import tqdm
+from transformers import XLMRobertaForSequenceClassification, XLMRobertaTokenizer
+from utils import read_data
 
 
 ## Visualize embedding space
 
-def plot_embeddings_scatterplot(df_overall, target_path, model_name):
+def plot_embeddings_scatterplot(df_overall, target_path, target_column, language_column, model_name):
 
-    fig = sns.scatterplot(data=df_overall, x="x", y="y", hue="Language", style='score')
+    fig = sns.scatterplot(data=df_overall, x="x", y="y", hue=language_column, style=target_column)
     sns.move_legend(fig, "upper left", bbox_to_anchor=(1, 1))
 
     plt.rcParams['savefig.dpi'] = 500
@@ -28,14 +31,13 @@ def plot_embeddings_scatterplot(df_overall, target_path, model_name):
     plt.close()
 
 
-def get_df_with_embeddings_xlmr(df_overall, model_name='xlm-roberta-base'):
+def get_df_with_embeddings_xlmr(df_overall, answer_col, model_name='xlm-roberta-base'):
 
     df_overall = deepcopy(df_overall)
     tokenizer = XLMRobertaTokenizer.from_pretrained('xlm-roberta-base')
     bert_model = XLMRobertaForSequenceClassification.from_pretrained('xlm-roberta-base')
     bert_model.eval()
 
-    # inputs = tokenizer(list(df_overall['Value']), return_tensors='pt', padding=True, truncation=True)
     embeddings = []
 
     for idx, row in tqdm(df_overall.iterrows(), total=len(df_overall)):
@@ -44,20 +46,7 @@ def get_df_with_embeddings_xlmr(df_overall, model_name='xlm-roberta-base'):
         inputs = tokenizer(answer, return_tensors='pt', padding=True, truncation=True)
         outputs = bert_model.roberta(**inputs)
         embedding = outputs[0][:, 0, :]
-        # print(type(embedding.detach()))
         embeddings.append(embedding.detach().numpy().squeeze())
-        # print(embedding.detach().numpy().squeeze().shape)
-
-    # inputs = tokenizer("Hello, my dog is cute", return_tensors='pt', padding=True, truncation=True)
-    # print(inputs)
-    # sys.exit(0)
-    # outputs = bert_model.roberta(**inputs, output_hidden_states=True)
-    # # print(outputs[0].shape)
-    # # print(outputs[0])
-    # embedding = outputs[0][:, 0, :]
-    # print(embedding)
-    # print(embedding.shape)
-    # sys.exit(0)
 
     df_overall['embedding_xmlr'] = embeddings
     embeddings = np.array(embeddings)
@@ -67,20 +56,21 @@ def get_df_with_embeddings_xlmr(df_overall, model_name='xlm-roberta-base'):
     return df_overall
 
 
-def get_df_with_embeddings_sbert(df_overall, model_name='paraphrase-multilingual-MiniLM-L12-v2'):
+def get_df_with_embeddings_sbert(df_overall, answer_col, model_name='paraphrase-multilingual-MiniLM-L12-v2'):
 
     df_overall = deepcopy(df_overall)
     model = SentenceTransformer(model_name)
-    sbert_embeddings = model.encode(list(df_overall['Value']))
+    sbert_embeddings = model.encode(list(df_overall[answer_col]))
     print(sbert_embeddings.shape)
     df_overall['sbert_embedding'] = list(sbert_embeddings)
     df_overall['x'], df_overall['y'] = zip(*TSNE(n_components=2).fit_transform(sbert_embeddings))
+
     return df_overall
 
 
-def plot_embeddings(prompt, data_path='/data/exp', answer_col='', target_path='/results/emb_vis'):
+def plot_embeddings(prompt, dataset_path, dataset_name, answer_column, target_column, language_column, target_path='/results/emb_vis'):
 
-    target_path = os.path.join(target_path, prompt)
+    target_path = os.path.join(target_path, dataset_name, prompt)
 
     if not os.path.exists(target_path):
 
@@ -90,17 +80,29 @@ def plot_embeddings(prompt, data_path='/data/exp', answer_col='', target_path='/
 
     for lang in ['ar', 'da', 'en', 'he', 'it', 'ka', 'nb', 'pt', 'sl', 'sv', 'zh']:
 
-        df_test = read_data(os.path.join(data_path, prompt, lang, 'test.csv'))
+        df_test = read_data(os.path.join(dataset_path, prompt, lang, 'test.csv'), answer_column=answer_column, target_column=target_column)
+
+        if language_column is None:
+
+            df_test['Language'] = lang
+
         dfs.append(df_test)
     
     df_overall = pd.concat(dfs).reset_index()
-    df_overall_sbert = get_df_with_embeddings_sbert(df_overall=df_overall)
-    df_overall_xlmr = get_df_with_embeddings_xlmr(df_overall=df_overall)
+    df_overall_sbert = get_df_with_embeddings_sbert(df_overall=df_overall, answer_col=answer_column)
+    df_overall_xlmr = get_df_with_embeddings_xlmr(df_overall=df_overall, answer_col=answer_column)
 
-    plot_embeddings_scatterplot(df_overall=df_overall_sbert, target_path=target_path, model_name='SBERT')
-    plot_embeddings_scatterplot(df_overall=df_overall_xlmr, target_path=target_path, model_name='XLMR')
+    if language_column is None:
+
+        language_column = 'Language'
+
+    plot_embeddings_scatterplot(df_overall=df_overall_sbert, target_path=target_path, target_column=target_column, language_column=language_column, model_name='SBERT')
+    plot_embeddings_scatterplot(df_overall=df_overall_xlmr, target_path=target_path, target_column=target_column, language_column=language_column, model_name='XLMR')
 
 
-for prompt in os.listdir('/data/exp'):
+for dataset in [ASAP_T]:
+# for dataset in [EPIRLS, ASAP_T]:
 
-    plot_embeddings(prompt)
+    for prompt in os.listdir(dataset['dataset_path']):
+
+        plot_embeddings(dataset_path=dataset['dataset_path'], dataset_name=dataset['dataset_name'], prompt=prompt, answer_column=dataset['answer_column'], target_column=dataset['target_column'], language_column=dataset['language_column'])

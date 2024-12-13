@@ -8,7 +8,7 @@ seed = 59348605
 
 ## Split ePIRLS data
 
-## Make a folder for each prompt, containing train/val/test csvs
+# Make a folder for each prompt, containing train/val/test csvs
 output_folder = '/data'
 
 if not os.path.exists(output_folder):

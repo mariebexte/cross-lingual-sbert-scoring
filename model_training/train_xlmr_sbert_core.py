@@ -1,22 +1,20 @@
-import sys
+import gc
+import logging
 import os
 import shutil
-import logging
+import sys
 import torch
 
 import pandas as pd
 import numpy as np
 
+from datetime import datetime
 from transformers import Trainer, TrainingArguments, AutoConfig
 from model_training.sbert_for_classification import SbertForSequenceClassification
+from utils import encode_labels, get_device, Dataset, compute_metrics, WriteCsvCallback, GetTestPredictionsCallback
 
-from datetime import datetime
 
-from utils import encode_labels, Dataset, compute_metrics, WriteCsvCallback, GetTestPredictionsCallback, eval_bert
-
-import gc
-
-def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", target_column="score", base_model="paraphrase-multilingual-MiniLM-L12-v2", num_epochs=20, batch_size=16, do_warmup=False, save_model=True):
+def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column, base_model="paraphrase-multilingual-MiniLM-L12-v2", num_epochs=20, batch_size=16, do_warmup=False, save_model=False, from_pretrained=False):
 
     gc.collect()
 
@@ -29,11 +27,7 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", targe
         log.removeHandler(handler)
         handler.close()
 
-    device = 'cpu'
-
-    if torch.cuda.is_available():
-
-        device = 'cuda'
+    device = get_device()
 
     print('**** Running XLMR on:', device)
 
@@ -66,11 +60,7 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", targe
     labels_in_training = df_train[target_column].unique().tolist()
     labels_in_validation = df_val[target_column].unique().tolist()
     labels_in_test = df_test[target_column].unique().tolist()
-
     label_set = set(labels_in_training + labels_in_validation + labels_in_test)
-
-    # print(labels_in_training, labels_in_validation, labels_in_test)
-    # print(label_set)
 
     # If the labels are not integers: Map them to integers
     labels_are_string = False
@@ -109,21 +99,27 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", targe
     test_texts = list(df_test.loc[:, answer_column])
     test_labels = encode_labels(df_test, label_column=target_column)
 
-    # tokenizer = XLMRobertaTokenizer.from_pretrained(base_model)
     # Load model and pass to device
-    config = AutoConfig.from_pretrained(base_model)
-    config.num_labels=len(label_set)
-    config.sbert_path = base_model
-    model = SbertForSequenceClassification(config).to(device)
+    if from_pretrained:
+
+        config = AutoConfig.from_pretrained('/models/'+SBERT_BASE_MODEL)
+        config.sbert_path = '/models/'+SBERT_BASE_MODEL
+        config.num_labels = len(df_train[target_column].unique())
+        model = SbertForSequenceClassification(config).to(device)
+        model.load_state_dict(torch.load(base_model))
+    
+    else:
+
+        config = AutoConfig.from_pretrained(base_model)
+        config.num_labels=len(label_set)
+        config.sbert_path = base_model
+        model = SbertForSequenceClassification(config).to(device)
+
 
     # Tokenize the dataset, truncate if longer than max_length, pad with 0's when less than `max_length`
-    # train_encodings = tokenizer(train_texts, truncation=True, padding=True)
     train_encodings = model.sbert.tokenize(train_texts)
     valid_encodings = model.sbert.tokenize(valid_texts)
     test_encodings = model.sbert.tokenize(test_texts)
-    # train_encodings = model.sbert.tokenize(train_texts, truncation=True, padding=True)
-    # valid_encodings = model.sbert.tokenize(valid_texts, truncation=True, padding=True)
-    # test_encodings = model.sbert.tokenize(test_texts, truncation=True, padding=True)
 
     # Convert tokenized data into a torch Dataset
     train_dataset = Dataset(train_encodings, train_labels)
@@ -145,35 +141,28 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", targe
     if save_model:
 
         training_args = TrainingArguments(
-            output_dir=os.path.join(run_path, 'checkpoints'),   # Output directory to save model, will be deleted after evaluation
+            output_dir=os.path.join(run_path, 'checkpoints'),
             num_train_epochs=num_epochs,             
             per_device_train_batch_size=batch_size,
             per_device_eval_batch_size=batch_size,  
             warmup_steps=num_warm_steps,
-            load_best_model_at_end=True,                        # Load the best model when finished training (default metric is loss)
+            load_best_model_at_end=True,
             evaluation_strategy="epoch",
             logging_strategy="epoch",
             save_strategy="epoch",
             save_total_limit=5,
-            #weight_decay=0.01,
-            #learning_rate=2e-5,
         )
 
     else:
 
         training_args = TrainingArguments(
-            output_dir=os.path.join(run_path, 'checkpoints'),   # Output directory to save model, will be deleted after evaluation
+            output_dir=os.path.join(run_path, 'checkpoints'),
             num_train_epochs=num_epochs,             
             per_device_train_batch_size=batch_size,
             per_device_eval_batch_size=batch_size,  
             warmup_steps=num_warm_steps,
-            # load_best_model_at_end=True,                        # Load the best model when finished training (default metric is loss)
             evaluation_strategy="epoch",
             logging_strategy="epoch",
-            # save_strategy="epoch",
-            # save_total_limit=5,
-            #weight_decay=0.01,
-            #learning_rate=2e-5,
         )
 
     trainer = Trainer(
@@ -181,8 +170,7 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", targe
         args=training_args,
         train_dataset=train_dataset,
         eval_dataset=valid_dataset,
-        compute_metrics=compute_metrics,                    # Callback that computes metrics of interest
-        # callbacks=[]                                      # Callback to log loss during training
+        compute_metrics=compute_metrics,
     )
 
     dict_val_loss = {}
@@ -205,24 +193,11 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column="Value", targe
     if save_model == True:
 
         trainer.save_model(os.path.join(run_path, "best_model"))
-        # tokenizer.save_pretrained(os.path.join(run_path, "best_model"))
 
     # Delete model checkpoints to save space
     if os.path.exists(os.path.join(run_path, "checkpoints")):
 
         shutil.rmtree(os.path.join(run_path, "checkpoints"), ignore_errors=True)
-
-    # pred_from_loop = predictions
-    # gold, pred_from_model = eval_bert(model, tokenizer, df_test)
-
-    # tokenizer = XLMRobertaTokenizer.from_pretrained(os.path.join(run_path, 'best_model'))
-    # model = XLMRobertaForSequenceClassification.from_pretrained(os.path.join(run_path, 'best_model')).to(device)
-
-    # gold, pred_from_loaded_model = eval_bert(model, tokenizer, df_test)
-
-    # print('from loop', pred_from_loop)
-    # print('from eval', pred_from_model)
-    # print('from loaded model', pred_from_loaded_model)
 
     df_test['pred'] = predictions
     df_test.to_csv(os.path.join(run_path, 'preds.csv'))

@@ -9,7 +9,9 @@ from transformers import BertModel
 
 
 class npcr_model(nn.Module):
+
     def __init__(self, base_model):
+
         super(npcr_model, self).__init__()
 
         if base_model == 'paraphrase-multilingual-MiniLM-L12-v2':
@@ -42,24 +44,34 @@ class npcr_model(nn.Module):
         """
         Here we reproduce Keras default initialization weights for consistency with Keras version
         """
+
         ih = (param.data for name, param in self.named_parameters() if 'weight_ih' in name)
         hh = (param.data for name, param in self.named_parameters() if 'weight_hh' in name)
         b = (param.data for name, param in self.named_parameters() if 'bias_ih' in name or 'bias_hh' in name)
+        
         # nn.init.uniform(self.embed.weight.data, a=-0.5, b=0.5)
         for t in ih:
+
             nn.init.xavier_uniform_(t)
+
         for t in hh:
+
             nn.init.orthogonal_(t)
+
         for t in b:
+
             nn.init.constant_(t, 0)
+
 
     def forward(self, x0, x1, mask_x0, mask_x1):
 
         if isinstance(self.embedding, SentenceTransformer):
+
             x0_embed = self.embedding({'input_ids':x0, 'attention_mask':mask_x0})['sentence_embedding']
             x1_embed = self.embedding({'input_ids':x1, 'attention_mask':mask_x1})['sentence_embedding']
 
         else:
+
             x0_embed = self.embedding(input_ids=x0, attention_mask=mask_x0)[1]
             x1_embed = self.embedding(input_ids=x1, attention_mask=mask_x1)[1]
 
@@ -75,3 +87,4 @@ class npcr_model(nn.Module):
         y = torch.sigmoid(y)
 
         return y
+        

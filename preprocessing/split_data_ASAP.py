@@ -8,7 +8,7 @@ seed = 59348605
 
 ## To split ASAP data into train/val/test
 
-## Make a folder for each prompt, containing train/val/test csvs
+# Make a folder for each prompt, containing train/val/test csvs
 output_folder = '/data/ASAP/split'
 target_column = 'Score1'
 
@@ -32,7 +32,7 @@ def split_data(prompt, df_prompt):
     df_lang_val = pd.DataFrame()
     df_lang_test = pd.DataFrame()
 
-    if len(df_prompt)< 800:    
+    if len(df_prompt) < 800:    
 
         print('Not enough anwers for prompt', prompt)
         sys.exit(0)
@@ -63,8 +63,6 @@ def split_data(prompt, df_prompt):
 
         os.makedirs(target_folder)
 
-    print(target_folder)
-
     df_lang_train.to_csv(os.path.join(target_folder, 'train.csv'))
     df_lang_val.to_csv(os.path.join(target_folder, 'val.csv'))
     df_lang_test.to_csv(os.path.join(target_folder, 'test.csv'))
@@ -80,5 +78,4 @@ for prompt in os.listdir(data_path):
         df_prompt = pd.read_csv(os.path.join(data_path, prompt), sep='\t')
         prompt = prompt[22:prompt.index('.')]
 
-        # print(prompt, df_prompt)
         split_data(prompt, df_prompt)

@@ -17,15 +17,23 @@ def prepare_sentence_data_adversarial(df_train, df_val, df_test, max_num, base_m
 
     logger.info('Statistics:')
     logger.info('  train X shape: ' + str(np.array(df_train[col_embedding]).shape))
+
     if df_val is not None:
+
         logger.info('  dev X shape:   ' + str(np.array(df_val[col_embedding]).shape))
+
     if df_test is not None:
+
         logger.info('  test X shape:  ' + str(np.array(df_test[col_embedding]).shape))
 
     logger.info('  train Y shape: ' + str(np.array(df_train[col_score]).shape))
+
     if df_val is not None:
+
         logger.info('  dev Y shape:   ' + str(np.array(df_val[col_score]).shape))
+
     if df_test is not None:
+
         logger.info('  test Y shape:  ' + str(np.array(df_test[col_score]).shape))
 
     return df_train, df_val, df_test
@@ -57,11 +65,15 @@ def get_training_pairs(df_train, col_prompt, col_score, num_training_pairs=None,
                 for j in range(1, 4):
 
                     if training_with_same_score:
+
                         features_train.append((df_train[col_embedding].iloc[i], df_train[col_embedding].iloc[i+j]))
                         masks_train.append((df_train[col_mask].iloc[i], df_train[col_mask].iloc[i+j]))
                         y_train.append(df_train[col_score_scaled].iloc[i] - df_train[col_score_scaled].iloc[i+j])
+                    
                     else:
+
                         if not (df_train[col_score_scaled].iloc[i] == df_train[col_score_scaled].iloc[i+j]):
+
                             features_train.append((df_train[col_embedding].iloc[i], df_train[col_embedding].iloc[i+j]))
                             masks_train.append((df_train[col_mask].iloc[i], df_train[col_mask].iloc[i+j]))
                             y_train.append(df_train[col_score_scaled].iloc[i] - df_train[col_score_scaled].iloc[i+j])
@@ -76,17 +88,22 @@ def get_training_pairs(df_train, col_prompt, col_score, num_training_pairs=None,
 
         # Build resource to pick reference examples from
         prompt_dict = {}
+
         for prompt, df_prompt in df_train.groupby(col_prompt):
+
             # Need at least three examples for one pairing step
             if len(df_prompt) > 2:
+
                 prompt_dict[prompt] = deepcopy(df_prompt).reset_index()
 
         for idx, row in df_train.iterrows():
 
             current_prompt = row[col_prompt]
             all_prompts = deepcopy(list(prompt_dict.keys()))
+
             # Might already be deleted from previous pairings
             if current_prompt in all_prompts:
+
                 all_prompts.remove(current_prompt)
 
             if len(all_prompts) > 0:
@@ -102,18 +119,25 @@ def get_training_pairs(df_train, col_prompt, col_score, num_training_pairs=None,
 
                     # Remove first object
                     if j==0:
+
                         row_pair = dict(df_pair.pop(0))
+
                     # But keep 2nd and 3rd (for analogy with how pairs are built within-prompt)
                     else:
+
                         # Have to subtract one, because first element was popped
                         row_pair = dict(df_pair.iloc[:, j-1])
 
                     if training_with_same_score:
+
                         features_train.append((row[col_embedding], row_pair[col_embedding]))
                         masks_train.append((row[col_mask], row_pair[col_mask]))
                         y_train.append(row[col_score_scaled] - row_pair[col_score_scaled])
+
                     else:
+
                         if not (row[col_score_scaled] == row_pair[col_score_scaled]):
+
                             features_train.append((row[col_embedding], row_pair[col_embedding]))
                             masks_train.append((row[col_mask], row_pair[col_mask]))
                             y_train.append(row[col_score_scaled] - row_pair[col_score_scaled])                            
@@ -121,15 +145,20 @@ def get_training_pairs(df_train, col_prompt, col_score, num_training_pairs=None,
                 ## Check if there are enough items still left for another round of reference example pairing
                 # Re-transpose
                 df_pair = df_pair.T
+
                 if len(df_pair) > 2:
+
                     # Otherwise index will build up over time
                     df_pair.pop('index')
                     prompt_dict[pairing_prompt] = df_pair.reset_index()
+
                 else:
+
                     print('removing prompt', pairing_prompt)
                     prompt_dict.pop(pairing_prompt)
             
             else:
+
                 # print('No more prompts to pair for this index! ', idx)
                 train_without_partner += 1
 
@@ -147,6 +176,7 @@ def get_training_pairs(df_train, col_prompt, col_score, num_training_pairs=None,
     if num_training_pairs is not None:
 
         if len(features_train) < num_training_pairs:
+
             logging.info("Stopping, because " + str(num_training_pairs) + ' were requested, but there are only ' + str(len(features_train)) + '!')
             sys.exit(0)
         
@@ -179,14 +209,19 @@ def get_inference_pairs(df, df_ref, col_prompt, col_score, example_size, force_c
 
         # We should take examples from the same prompt!
         if len(df_ref_prompt) > 0 and (not force_cross_prompt):
+
             logging.info('Pairing prompt ' + str(current_prompt) + ' with examples from same prompt for inference!')
+
             if len(df_ref_prompt) < example_size:
+                
                 logging.info('Not enough samples of target prompt in training data!')
                 sys.exit(0)
 
             df_ref_sample = df_ref_prompt.sample(example_size, random_state=random_state)
+
         # Prompt not shared with training, take randomly from other prompts
         else:
+
             logging.info('Pairing prompt ' + str(current_prompt) + ' with examples from other prompts for inference!')
             df_ref_without_current = df_ref[df_ref[col_prompt] != current_prompt]
             df_ref_sample = df_ref_without_current.sample(example_size, random_state=random_state)
@@ -197,10 +232,10 @@ def get_inference_pairs(df, df_ref, col_prompt, col_score, example_size, force_c
         features = features + list(df_cartesian.apply(lambda row: (row[col_embedding], row[col_embedding+'_ref']), axis='columns'))
         masks = masks + list(df_cartesian.apply(lambda row: (row[col_mask], row[col_mask+'_ref']), axis='columns'))
         y_goal = y_goal + list(df_prompt[col_score])
+
         # Rescale reference labels to label range of test/val instance
         y_example_prompt = utils.rescale_tointscore_adversarial(df_cartesian[col_scaled_score], min_label=min_label, max_label=max_label, prompts_array=df_cartesian[col_prompt])
         y_example = y_example + list(y_example_prompt)
-
 
     # Restructure for compatibility
     y_goal = [[value] for value in y_goal]

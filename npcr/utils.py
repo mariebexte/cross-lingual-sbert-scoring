@@ -24,8 +24,7 @@ SCORES = {
     }
 
 
-def get_logger(name, level=logging.INFO, handler=sys.stdout,
-        formatter='%(name)s - %(levelname)s - %(message)s'):
+def get_logger(name, level=logging.INFO, handler=sys.stdout, formatter='%(name)s - %(levelname)s - %(message)s'):
 
     logger = logging.getLogger(name)
     logger.setLevel(logging.INFO)
@@ -41,34 +40,44 @@ def get_logger(name, level=logging.INFO, handler=sys.stdout,
 def rescale_tointscore_adversarial(scaled_scores, min_label=None, max_label=None, prompts_array=None, differences=False):
 
     if (min_label is None) and (max_label is None) and (prompts_array is None):
+
         logging.info('Cannot get model friendly scores: Neither min score, nor max score or prompts array was set!')
         sys.exit(0)
 
     if (min_label is not None) and (max_label is not None):
+
         # Scale to range of DEVIATION instead of pure scores
         if differences:
+
             min_label_copy = min_label
             max_label_copy = max_label
             min_label = min_label_copy - max_label_copy
             max_label = max_label_copy - min_label_copy
+
         # logging.info('Using min and max score to rescale labels! ' + str(min_label) + ' ' + str(max_label))
         int_scores = scaled_scores * (max_label - min_label) + min_label
+
         return int_scores
     
     else:
+
         # logging.info('Using prompt information to rescale labels! ' + str(prompts_array))    
         rescaled_scores = []
+
         for i in range(len(scaled_scores)):
             current_score = scaled_scores[i]
             current_prompt = prompts_array[i]
             min_label = SCORES[current_prompt][0]
             max_label = SCORES[current_prompt][1]
+
             # Scale to range of DEVIATION instead of pure scores
             if differences:
+
                 min_label_copy = min_label
                 max_label_copy = max_label
                 min_label = min_label_copy - max_label_copy
                 max_label = max_label_copy - min_label_copy
+
             rescaled_scores.append(current_score * (max_label - min_label) + min_label)
         
         return np.array(rescaled_scores)
@@ -89,6 +98,7 @@ def write_classification_stats(output_dir, y_true, y_pred, y_true_diff=None, y_p
 
         # Partly for sanity (to compare against rmse in best validation epoch)
         if (y_true_diff is not None) and (y_pred_diff is not None):
+
             out_file.write('\n\nStats on raw predictions (on invididual reference examples):')
             out_file.write('\nRMSE:\t' + str(mean_squared_error(y_true = y_true_diff, y_pred = y_pred_diff, squared=False)))
             pearson_r, pearson_p = pearsonr(y_true_diff, y_pred_diff)
@@ -97,4 +107,3 @@ def write_classification_stats(output_dir, y_true, y_pred, y_true_diff=None, y_p
             out_file.write('\nRMSE (smoothed):\t' + str(mean_squared_error(y_true = y_true_diff, y_pred = y_pred_diff, squared=False)))
             pearson_r, pearson_p = pearsonr(y_true_diff, y_pred_diff)
             out_file.write('\nPearson (smoothed):\t' + str(pearson_r) + '\t(' + str(pearson_p) + ')')
-    

@@ -20,13 +20,24 @@ np.random.seed(100)
 logger = get_logger("Train...")
         
 
-def train_model(target_path, base_model, df_train, df_val, df_test, col_prompt, col_answer, col_score, val_example_size=15, example_size=25, min_label=None, max_label=None, max_num=1024, learning_rate=0.00001, batch_size=64, num_epochs=10, model_name='best_model', training_within_prompt=True, training_with_same_score=False, num_training_pairs=None):
+def train_npcr(target_path, base_model, df_train, df_val, df_test, col_prompt, col_answer, col_score, val_example_size=15, example_size=25, min_label=None, max_label=None, max_num=1024, learning_rate=0.00001, batch_size=64, num_epochs=10, model_name='best_model', training_within_prompt=True, training_with_same_score=False, num_training_pairs=None, finetuned_model=None, save_model=False):
 
+    # Clear logger from previous runs
+    log = logging.getLogger()
+    handlers = log.handlers[:]
+
+    for handler in handlers:
+
+        log.removeHandler(handler)
+        handler.close()
+    
     start = datetime.now()
 
     if not os.path.exists(target_path):
 
         os.makedirs(target_path)
+
+    logging.basicConfig(filename=os.path.join(target_path, datetime.now().strftime('logs_%H_%M_%d_%m_%Y.log')), filemode='w', level=logging.DEBUG)
 
     logging.info('Training: min score is:\t' + str(min_label))
     logging.info('Training: max score is:\t' + str(max_label))
@@ -45,15 +56,17 @@ def train_model(target_path, base_model, df_train, df_val, df_test, col_prompt, 
 
     logging.info('number of train examples:\t' + str(len(features_train)))
     logging.info('number of val examples:\t' + str(len(features_dev)))
-    print('number of train examples:\t' + str(len(features_train)))
-    print('number of val examples:\t' + str(len(features_dev)))
-
-    print('batch size', batch_size)
-    print('learning rate', learning_rate)
-
     logger.info("----------------------------------------------------")
 
-    model = npcr_model(base_model=base_model)
+    # Initialize new model from pretrained base model
+    if finetuned_model is None:
+
+        model = npcr_model(base_model=base_model)
+
+    else:
+
+        model = torch.load(finetuned_model)
+
     model.cuda()
 
     evl = Evaluator_opti_adversarial(out_dir=target_path, model_name=model_name, features_dev=features_dev, masks_dev=masks_dev,\
@@ -113,11 +126,22 @@ def train_model(target_path, base_model, df_train, df_val, df_test, col_prompt, 
 
     logging.info('Full training took:\t' + str(datetime.now() - start))
 
+    gold=None
+    pred=None
+
     if df_test is not None:
 
         gold, pred = evaluate_finetuned_model(base_model=base_model, model_path=os.path.join(target_path, model_name), df_ref=df_train, df_test=df_test, col_prompt=col_prompt, col_answer=col_answer, col_score=col_score, min_label=min_label, max_label=max_label, target_path=target_path, max_num=max_num)
         
-        return gold, pred
+    # Delete model to save space
+    if os.path.exists(os.path.join(target_path, model_name)) and save_model==False:
 
-    return None   
+        shutil.rmtree(os.path.join(target_path, model_name))
+
+    if pred is None:
     
+        return None 
+
+    else:
+
+        return gold, pred
