@@ -11,7 +11,7 @@ import numpy as np
 from datetime import datetime
 from transformers import Trainer, TrainingArguments, AutoConfig
 from model_training.sbert_for_classification import SbertForSequenceClassification
-from utils import encode_labels, get_device, Dataset, compute_metrics, WriteCsvCallback, GetTestPredictionsCallback
+from model_training.utils import encode_labels, get_device, Dataset, compute_metrics, WriteCsvCallback, GetTestPredictionsCallback
 
 
 def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column, base_model="paraphrase-multilingual-MiniLM-L12-v2", num_epochs=20, batch_size=16, do_warmup=False, save_model=False, from_pretrained=False):

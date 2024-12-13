@@ -350,7 +350,7 @@ def run_model_swap_cross_validated(dataset_path, dataset_name, languages, id_col
 
 for run in ['_RUN1', '_RUN2', '_RUN3']:
 
-    for dataset in EPIRLS, ASAP_T:
+    for dataset in [EPIRLS, ASAP_T]:
 
         sbert_batch_size = 64
         bert_batch_size = 32
@@ -378,7 +378,7 @@ for run in ['_RUN1', '_RUN2', '_RUN3']:
 
 for run in ['_RUN1', '_RUN2', '_RUN3']:
 
-    for dataset in ASAP_M:
+    for dataset in [ASAP_M]:
 
         run_model_swap_cross_validated(
             dataset_path=dataset['dataset_path'], 

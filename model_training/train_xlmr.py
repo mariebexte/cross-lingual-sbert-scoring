@@ -9,8 +9,8 @@ import pandas as pd
 import numpy as np
 
 from datetime import datetime
+from model_training.utils import encode_labels, get_device, Dataset, compute_metrics, WriteCsvCallback, GetTestPredictionsCallback, eval_bert
 from transformers import XLMRobertaTokenizer, XLMRobertaForSequenceClassification, Trainer, TrainingArguments
-from utils import encode_labels, get_device, Dataset, compute_metrics, WriteCsvCallback, GetTestPredictionsCallback, eval_bert
 
 
 def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column, base_model="xlm-roberta-base", num_epochs=20, batch_size=16, do_warmup=False, save_model=False):

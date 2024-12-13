@@ -207,23 +207,26 @@ def run_dataset_folds(dataset_path, dataset_name, prompt_column, answer_column, 
                         print('Skipping prompt ' + str(prompt) + ' because it already ran!')
 
 
-for run in ['_RUN1', '_RUN2', '_RUN3']:
+# for run in ['_RUN1']:
+# # for run in ['_RUN1', '_RUN2', '_RUN3']:
 
-    for dataset in [EPIRLS, ASAP_T]:
+#     for dataset in [ASAP_T]:
+#     # for dataset in [EPIRLS, ASAP_T]:
 
-        run_dataset(
-            dataset_path=dataset['dataset_path'], 
-            dataset_name=dataset['dataset_name'], 
-            prompt_column=dataset['prompt_column'], 
-            answer_column=dataset['answer_column'], 
-            target_column=dataset['target_column'], 
-            languages=dataset['languages'], 
-            run_suffix=run, 
-            translate_test=dataset['translate_test']
-            )
+#         run_dataset(
+#             dataset_path=dataset['dataset_path'], 
+#             dataset_name=dataset['dataset_name'], 
+#             prompt_column=dataset['prompt_column'], 
+#             answer_column=dataset['answer_column'], 
+#             target_column=dataset['target_column'], 
+#             languages=dataset['languages'], 
+#             run_suffix=run, 
+#             translate_test=dataset['translate_test']
+#             )
 
 
-for run in ['_RUN1', '_RUN2', '_RUN3']:
+for run in ['_RUN1']:
+# for run in ['_RUN1', '_RUN2', '_RUN3']:
 
     for dataset in [ASAP_M]:
 

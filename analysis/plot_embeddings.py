@@ -17,14 +17,16 @@ from utils import read_data
 
 ## Visualize embedding space
 
-def plot_embeddings_scatterplot(df_overall, target_path, target_column, language_column, model_name):
+def plot_embeddings_scatterplot(df_overall, target_path, vis_column, model_name, prompt_name, suffix):
 
-    fig = sns.scatterplot(data=df_overall, x="x", y="y", hue=language_column, style=target_column)
+    fig = sns.scatterplot(data=df_overall, x="x", y="y", hue=vis_column)
     sns.move_legend(fig, "upper left", bbox_to_anchor=(1, 1))
+
+    plt.title(model_name + '(' + prompt_name + ')')
 
     plt.rcParams['savefig.dpi'] = 500
     plt.tight_layout()
-    plt.savefig(os.path.join(target_path, model_name + ".pdf"), transparent=True)
+    plt.savefig(os.path.join(target_path, model_name + suffix + ".pdf"), transparent=True)
 
     plt.clf()
     plt.cla()
@@ -42,7 +44,7 @@ def get_df_with_embeddings_xlmr(df_overall, answer_col, model_name='xlm-roberta-
 
     for idx, row in tqdm(df_overall.iterrows(), total=len(df_overall)):
 
-        answer = row['Value']
+        answer = row[answer_col]
         inputs = tokenizer(answer, return_tensors='pt', padding=True, truncation=True)
         outputs = bert_model.roberta(**inputs)
         embedding = outputs[0][:, 0, :]
@@ -96,12 +98,14 @@ def plot_embeddings(prompt, dataset_path, dataset_name, answer_column, target_co
 
         language_column = 'Language'
 
-    plot_embeddings_scatterplot(df_overall=df_overall_sbert, target_path=target_path, target_column=target_column, language_column=language_column, model_name='SBERT')
-    plot_embeddings_scatterplot(df_overall=df_overall_xlmr, target_path=target_path, target_column=target_column, language_column=language_column, model_name='XLMR')
+    plot_embeddings_scatterplot(df_overall=df_overall_sbert, target_path=target_path, vis_column=language_column, model_name='SBERT', prompt_name=prompt, suffix='_lang')
+    plot_embeddings_scatterplot(df_overall=df_overall_xlmr, target_path=target_path, vis_column=language_column, model_name='XLMR', prompt_name=prompt, suffix='_lang')
+
+    plot_embeddings_scatterplot(df_overall=df_overall_sbert, target_path=target_path, vis_column=target_column, model_name='SBERT', prompt_name=prompt, suffix='_score')
+    plot_embeddings_scatterplot(df_overall=df_overall_xlmr, target_path=target_path, vis_column=target_column, model_name='XLMR', prompt_name=prompt, suffix='_score')
 
 
-for dataset in [ASAP_T]:
-# for dataset in [EPIRLS, ASAP_T]:
+for dataset in [EPIRLS, ASAP_T]:
 
     for prompt in os.listdir(dataset['dataset_path']):
 

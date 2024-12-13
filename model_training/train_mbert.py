@@ -1,18 +1,15 @@
-import sys
-import os
-
-import shutil
 import logging
-from datetime import datetime
+import os
+import shutil
+import sys
+import torch
 
 import pandas as pd
 import numpy as np
 
+from datetime import datetime
+from model_training.utils import encode_labels, get_device, Dataset, compute_metrics, WriteCsvCallback, GetTestPredictionsCallback, eval_bert
 from transformers import BertTokenizer, BertForSequenceClassification, Trainer, TrainingArguments
-
-import torch
-
-from utils import encode_labels, get_device, Dataset, compute_metrics, WriteCsvCallback, GetTestPredictionsCallback, eval_bert
 
 
 def train_mbert(run_path, df_train, df_val, df_test, answer_column, target_column, base_model="bert-base-multilingual-cased", num_epochs=20, batch_size=16, do_warmup=False, save_model=True):
