@@ -348,9 +348,11 @@ def run_model_swap_cross_validated(dataset_path, dataset_name, languages, id_col
                         shutil.rmtree(os.path.join(run_path_bert, 'best_model'))
         
 
-for run in ['_RUN1', '_RUN2', '_RUN3']:
+for run in ['_RUN1']:
+# for run in ['_RUN1', '_RUN2', '_RUN3']:
 
-    for dataset in [EPIRLS, ASAP_T]:
+    for dataset in [ASAP_T]:
+    # for dataset in [EPIRLS, ASAP_T]:
 
         sbert_batch_size = 64
         bert_batch_size = 32
@@ -367,7 +369,7 @@ for run in ['_RUN1', '_RUN2', '_RUN3']:
             answer_column=dataset['answer_column'], 
             target_column=dataset['target_column'], 
             languages=dataset['languages'], 
-            run_sbert=True, 
+            run_sbert=False, 
             run_xlmr=True, 
             run_suffix=run, 
             translate_test=dataset['translate_test'],
@@ -376,22 +378,22 @@ for run in ['_RUN1', '_RUN2', '_RUN3']:
             )
 
 
-for run in ['_RUN1', '_RUN2', '_RUN3']:
+# for run in ['_RUN1', '_RUN2', '_RUN3']:
 
-    for dataset in [ASAP_M]:
+#     for dataset in [ASAP_M]:
 
-        run_model_swap_cross_validated(
-            dataset_path=dataset['dataset_path'], 
-            dataset_name=dataset['dataset_name'], 
-            id_column=dataset['id_column'], 
-            answer_column=dataset['answer_column'], 
-            target_column=dataset['target_column'], 
-            languages=dataset['languages'], 
-            run_sbert=True, 
-            run_xlmr=True, 
-            run_suffix=run, 
-            translate_test=dataset['translate_test'],
-            num_folds=dataset['num_folds'],
-            sbert_batch_size=64,
-            bert_batch_size=32
-            )
+#         run_model_swap_cross_validated(
+#             dataset_path=dataset['dataset_path'], 
+#             dataset_name=dataset['dataset_name'], 
+#             id_column=dataset['id_column'], 
+#             answer_column=dataset['answer_column'], 
+#             target_column=dataset['target_column'], 
+#             languages=dataset['languages'], 
+#             run_sbert=True, 
+#             run_xlmr=True, 
+#             run_suffix=run, 
+#             translate_test=dataset['translate_test'],
+#             num_folds=dataset['num_folds'],
+#             sbert_batch_size=64,
+#             bert_batch_size=32
+#             )

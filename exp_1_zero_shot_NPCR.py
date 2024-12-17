@@ -6,7 +6,7 @@ import pandas as pd
 
 from config import EPIRLS, ASAP_T, ASAP_M, SBERT_BASE_MODEL, XLMR_BASE_MODEL, RESULT_PATH_EXP_1, NPCR_ANSWER_LENGTH
 from copy import deepcopy
-from model_training.train_NPCR import train_npcr
+from model_training.train_npcr import train_npcr
 from model_training.utils import read_data, get_device, write_classification_statistics
 from npcr.evaluator_core import evaluate_finetuned_model
 
@@ -207,37 +207,37 @@ def run_dataset_folds(dataset_path, dataset_name, prompt_column, answer_column, 
                         print('Skipping prompt ' + str(prompt) + ' because it already ran!')
 
 
-# for run in ['_RUN1']:
-# # for run in ['_RUN1', '_RUN2', '_RUN3']:
-
-#     for dataset in [ASAP_T]:
-#     # for dataset in [EPIRLS, ASAP_T]:
-
-#         run_dataset(
-#             dataset_path=dataset['dataset_path'], 
-#             dataset_name=dataset['dataset_name'], 
-#             prompt_column=dataset['prompt_column'], 
-#             answer_column=dataset['answer_column'], 
-#             target_column=dataset['target_column'], 
-#             languages=dataset['languages'], 
-#             run_suffix=run, 
-#             translate_test=dataset['translate_test']
-#             )
-
-
-for run in ['_RUN1']:
+for run in ['_RUN2']:
 # for run in ['_RUN1', '_RUN2', '_RUN3']:
 
-    for dataset in [ASAP_M]:
+    for dataset in [ASAP_T]:
+    # for dataset in [EPIRLS, ASAP_T]:
 
-        run_dataset_folds(
-            dataset_path=dataset['dataset_path'],
+        run_dataset(
+            dataset_path=dataset['dataset_path'], 
             dataset_name=dataset['dataset_name'], 
-            prompt_column=dataset['prompt_column'],
+            prompt_column=dataset['prompt_column'], 
             answer_column=dataset['answer_column'], 
-            target_column=dataset['target_column'],
+            target_column=dataset['target_column'], 
             languages=dataset['languages'], 
             run_suffix=run, 
-            translate_test=dataset['translate_test'], 
-            num_folds=dataset['num_folds']
+            translate_test=dataset['translate_test']
             )
+
+
+# for run in ['_RUN2']:
+# # for run in ['_RUN1', '_RUN2', '_RUN3']:
+
+#     for dataset in [ASAP_M]:
+
+#         run_dataset_folds(
+#             dataset_path=dataset['dataset_path'],
+#             dataset_name=dataset['dataset_name'], 
+#             prompt_column=dataset['prompt_column'],
+#             answer_column=dataset['answer_column'], 
+#             target_column=dataset['target_column'],
+#             languages=dataset['languages'], 
+#             run_suffix=run, 
+#             translate_test=dataset['translate_test'], 
+#             num_folds=dataset['num_folds']
+#             )

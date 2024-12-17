@@ -18,7 +18,7 @@ from sentence_transformers import SentenceTransformer
 random_state = 3456786544
 
 
-def full_data(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, run_suffix='', run_xlmr=True, run_sbert=True, run_pretrained=True, run_npcr_sbert=True, run_npcr_xlmr=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, bert_batch_size=32, sbert_batch_size=64):
+def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, run_suffix='', run_xlmr=True, run_sbert=True, run_pretrained=True, run_npcr_sbert=True, run_npcr_xlmr=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, bert_batch_size=32, sbert_batch_size=64):
 
     device = get_device()
 
@@ -158,7 +158,7 @@ def full_data(dataset_path, dataset_name, id_column, prompt_column, answer_colum
                     df_test.to_csv(os.path.join(run_path_pretrained, 'test.csv'))
 
 
-def downsampled_data(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, run_suffix='', run_xlmr=True, run_sbert=True, run_pretrained=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, bert_batch_size=32, sbert_batch_size=64):
+def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, run_suffix='', run_xlmr=True, run_sbert=True, run_pretrained=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, run_npcr_xlmr=True, run_npcr_sbert=True, bert_batch_size=32, sbert_batch_size=64):
 
     condition = 'combine_downsampled'
 
