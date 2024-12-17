@@ -4,7 +4,7 @@ import os
 from config import EPIRLS, ASAP_T, ASAP_M
 
 
-def process_dataset(data_folder, dataset_name, languages, answer_column):
+def process_dataset(data_folder, dataset_name, languages, answer_column, target_column, filenames):
 
     results = {} 
     results_idx = 0
@@ -15,11 +15,12 @@ def process_dataset(data_folder, dataset_name, languages, answer_column):
 
         for language in languages:
 
-            df_train = pd.read_csv(os.path.join(data_folder, prompt, language, 'train.csv'))
-            df_val = pd.read_csv(os.path.join(data_folder, prompt, language, 'val.csv'))
-            df_test = pd.read_csv(os.path.join(data_folder, prompt, language, 'test.csv'))
+            df_full_list = []
 
-            df_full = pd.concat([df_train, df_val, df_test])
+            for filename in filenames:
+                df_full_list.append(pd.read_csv(os.path.join(data_folder, prompt, language, filename)))
+
+            df_full = pd.concat(df_full_list)
 
             avg_len = 0
             all_answers = list(df_full[answer_column])
@@ -40,7 +41,7 @@ def process_dataset(data_folder, dataset_name, languages, answer_column):
             # Exemplary processing of first language (score distributions are balanced)
             if language == languages[0]:
 
-                score_dist = dict(df_full['score'].value_counts())
+                score_dist = dict(df_full[target_column].value_counts())
                 total = sum(list(score_dist.values()))
                 score_dist_percentage = {score: freq/total for score, freq in score_dist.items()}
                 # print(prompt, language, dict(df_full['score'].value_counts()), score_dist_percentage)
@@ -65,4 +66,10 @@ def process_dataset(data_folder, dataset_name, languages, answer_column):
 # ePIRLS
 for dataset in [EPIRLS, ASAP_T, ASAP_M]:
 
-    process_dataset(data_folder=dataset['dataset_path'], dataset_name=dataset['dataset_name'], languages=dataset['languages'], answer_column=dataset['answer_column'])
+    filenames = ['train.csv', 'val.csv', 'test.csv']
+
+    if dataset['dataset_name'] == 'ASAP_multilingual':
+
+        filenames = ['fold_1.csv', 'fold_2,csv', 'fold_3.csv', 'fold_4.csv', 'fold_5.csv']
+
+    process_dataset(data_folder=dataset['dataset_path'], dataset_name=dataset['dataset_name'], languages=dataset['languages'], answer_column=dataset['answer_column'], target_column=dataset['target_column'], filenames=filenames)
