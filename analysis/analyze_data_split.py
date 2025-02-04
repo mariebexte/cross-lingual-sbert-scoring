@@ -12,40 +12,41 @@ def process_dataset(data_folder, dataset_name, languages, answer_column, target_
     frequencies = {}
 
     for prompt in os.listdir(data_folder):
+        if os.path.isdir(os.path.join(data_folder, prompt)):
 
-        for language in languages:
+            for language in languages:
 
-            df_full_list = []
+                df_full_list = []
 
-            for filename in filenames:
-                df_full_list.append(pd.read_csv(os.path.join(data_folder, prompt, language, filename)))
+                for filename in filenames:
+                    df_full_list.append(pd.read_csv(os.path.join(data_folder, prompt, language, filename)))
 
-            df_full = pd.concat(df_full_list)
+                df_full = pd.concat(df_full_list)
 
-            avg_len = 0
-            all_answers = list(df_full[answer_column])
+                avg_len = 0
+                all_answers = list(df_full[answer_column])
 
-            for answer in all_answers:
+                for answer in all_answers:
 
-                avg_len += len(str(answer))
-            
-            avg_len = avg_len/len(df_full)
+                    avg_len += len(str(answer))
+                
+                avg_len = avg_len/len(df_full)
 
-            all_answers_set = set(all_answers)
+                all_answers_set = set(all_answers)
 
-            ratio_unique = len(all_answers_set)/len(all_answers)
+                ratio_unique = len(all_answers_set)/len(all_answers)
 
-            results[results_idx] = {'prompt': prompt, 'lang': language, 'avg_len': avg_len, 'ratio_unique': ratio_unique}
-            results_idx += 1
+                results[results_idx] = {'prompt': prompt, 'lang': language, 'avg_len': avg_len, 'ratio_unique': ratio_unique}
+                results_idx += 1
 
-            # Exemplary processing of first language (score distributions are balanced)
-            if language == languages[0]:
+                # Exemplary processing of first language (score distributions are balanced)
+                if language == languages[0]:
 
-                score_dist = dict(df_full[target_column].value_counts())
-                total = sum(list(score_dist.values()))
-                score_dist_percentage = {score: freq/total for score, freq in score_dist.items()}
-                # print(prompt, language, dict(df_full['score'].value_counts()), score_dist_percentage)
-                frequencies[prompt] = score_dist_percentage
+                    score_dist = dict(df_full[target_column].value_counts())
+                    total = sum(list(score_dist.values()))
+                    score_dist_percentage = {score: freq/total for score, freq in score_dist.items()}
+                    # print(prompt, language, dict(df_full['score'].value_counts()), score_dist_percentage)
+                    frequencies[prompt] = score_dist_percentage
 
 
     df_results = pd.DataFrame.from_dict(results, orient='index')
@@ -70,6 +71,6 @@ for dataset in [EPIRLS, ASAP_T, ASAP_M]:
 
     if dataset['dataset_name'] == 'ASAP_multilingual':
 
-        filenames = ['fold_1.csv', 'fold_2,csv', 'fold_3.csv', 'fold_4.csv', 'fold_5.csv']
+        filenames = ['fold_1.csv', 'fold_2.csv', 'fold_3.csv', 'fold_4.csv', 'fold_5.csv']
 
     process_dataset(data_folder=dataset['dataset_path'], dataset_name=dataset['dataset_name'], languages=dataset['languages'], answer_column=dataset['answer_column'], target_column=dataset['target_column'], filenames=filenames)

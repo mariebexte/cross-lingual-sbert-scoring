@@ -15,6 +15,9 @@ def read_data(path, answer_column, target_column):
     df[answer_column] = df[answer_column].astype(str)
     df[target_column] = df[target_column].astype(int)
 
+    # Shuffle dataframe
+    df = df.sample(frac = 1)
+
     return df
 
 
@@ -183,7 +186,8 @@ class Dataset(torch.utils.data.Dataset):
 
     def __getitem__(self, idx):
 
-        item = {k: v[idx].clone().detach() for k, v in self.encodings.items()}
+        item = {k: v[idx] for k, v in self.encodings.items()}
+        # item = {k: v[idx].clone().detach() for k, v in self.encodings.items()}
         item["labels"] = torch.tensor(self.labels[idx])
 
         return item
