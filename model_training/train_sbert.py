@@ -3,16 +3,10 @@ import os
 import random
 import shutil
 import sys
-<<<<<<< HEAD
-import shutil
-import logging
-from model_training.utils import encode_labels, eval_sbert, get_device
-=======
 import torch
 
 import pandas as pd
 
->>>>>>> 4837b6ecd4a5fe22a253296be3c2cf7b6646afc1
 from datetime import datetime
 from model_training.utils import encode_labels, eval_sbert, get_device
 from sentence_transformers import SentenceTransformer, InputExample, losses, evaluation, models
