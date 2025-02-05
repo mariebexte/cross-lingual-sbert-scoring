@@ -1,17 +1,18 @@
+import logging
 import os
-from sentence_transformers import SentenceTransformer, InputExample, losses, evaluation, models
-from sentence_transformers.evaluation import SimilarityFunction
-import pandas as pd
-from torch.utils.data import DataLoader
-import torch
+import random
 import shutil
 import sys
-import shutil
-import logging
-from utils import encode_labels, eval_sbert, get_device
+import torch
+
+import pandas as pd
+
 from datetime import datetime
+from model_training.utils import encode_labels, eval_sbert, get_device
+from sentence_transformers import SentenceTransformer, InputExample, losses, evaluation, models
+from sentence_transformers.evaluation import SimilarityFunction
+from torch.utils.data import DataLoader
 from tqdm import tqdm
-import random
 
 
 random_state = 3456478

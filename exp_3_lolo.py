@@ -165,10 +165,6 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
 
     condition = 'combine_downsampled'
 
-    # prompts = list(os.listdir(dataset_path))
-    # #if '9' in prompts:
-    #  #   prompts.remove('9')
-    # for prompt in ['9']:
     for prompt in os.listdir(dataset_path):
 
         # For each prompt - language pair, train a model
@@ -210,7 +206,10 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
                     df_train = pd.concat([df_train, df_sample])
 
             df_train.reset_index(inplace=True)
-
+            
+            print(len(df_train))
+            print(len(df_val))
+            print(len(df_test))
 
             if run_xlmr:
 
@@ -320,35 +319,34 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
                     df_test.to_csv(os.path.join(run_path_pretrained, 'test.csv'))
 
 
-# ## Downsampled
-# for run in ['_RUN2']:
-# # for run in ['_RUN1', '_RUN2', '_RUN3']:
+# Downsampled
+for run in ['_RUN1', '_RUN2', '_RUN3']:
 
-#     for dataset in [EPIRLS]:
+     for dataset in [EPIRLS, ASAP_T]:
 
-#         run_downsampled(
-#             dataset_path=dataset['dataset_path'], 
-#             dataset_name=dataset['dataset_name'], 
-#             id_column=dataset['id_column'], 
-#             prompt_column=dataset['prompt_column'],
-#             answer_column=dataset['answer_column'], 
-#             target_column=dataset['target_column'], 
-#             languages=dataset['languages'], 
-#             run_suffix=run,
-#             run_xlmr=False,
-#             run_sbert=False,
-#             run_pretrained=False,
-#             run_npcr_xlmr=True,
-#             run_npcr_sbert=False,
-#             run_xlmr_swap_sbert=False,
-#             run_sbert_swap_xlmr=False,
-#             )
+        run_downsampled(
+            dataset_path=dataset['dataset_path'], 
+            dataset_name=dataset['dataset_name'], 
+            id_column=dataset['id_column'], 
+            prompt_column=dataset['prompt_column'],
+            answer_column=dataset['answer_column'], 
+            target_column=dataset['target_column'], 
+            languages=dataset['languages'], 
+            run_suffix=run,
+            run_xlmr=False, 
+            run_sbert=True, 
+            run_pretrained=False, 
+            run_npcr_sbert=False, 
+            run_npcr_xlmr=False, 
+            run_xlmr_swap_sbert=False, 
+            run_sbert_swap_xlmr=False 
+            )
 
 
 # Full
 for run in ['_RUN1', '_RUN2', '_RUN3']:
     
-    for dataset in [ASAP_T]:
+    for dataset in [EPIRLS, ASAP_T]:
 
         run_full(
             dataset_path=dataset['dataset_path'], 
