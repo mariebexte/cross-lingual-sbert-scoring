@@ -18,7 +18,7 @@ from sentence_transformers import SentenceTransformer
 random_state = 3456786544
 
 
-def full_data(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, run_suffix='', run_xlmr=True, run_sbert=True, run_pretrained=True, run_npcr_sbert=True, run_npcr_xlmr=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, bert_batch_size=32, sbert_batch_size=64):
+def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, run_suffix='', run_xlmr=True, run_sbert=True, run_pretrained=True, run_npcr_sbert=True, run_npcr_xlmr=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, bert_batch_size=32, sbert_batch_size=64):
 
     device = get_device()
 
@@ -158,7 +158,7 @@ def full_data(dataset_path, dataset_name, id_column, prompt_column, answer_colum
                     df_test.to_csv(os.path.join(run_path_pretrained, 'test.csv'))
 
 
-def downsampled_data(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, run_suffix='', run_xlmr=True, run_sbert=True, run_pretrained=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, bert_batch_size=32, sbert_batch_size=64):
+def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, run_suffix='', run_xlmr=True, run_sbert=True, run_pretrained=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, run_npcr_xlmr=True, run_npcr_sbert=True, bert_batch_size=32, sbert_batch_size=64):
 
     condition = 'combine_downsampled'
 
@@ -202,7 +202,10 @@ def downsampled_data(dataset_path, dataset_name, id_column, prompt_column, answe
                     df_train = pd.concat([df_train, df_sample])
 
             df_train.reset_index(inplace=True)
-
+            
+            print(len(df_train))
+            print(len(df_val))
+            print(len(df_test))
 
             if run_xlmr:
 
@@ -325,22 +328,36 @@ for run in ['_RUN1', '_RUN2', '_RUN3']:
             answer_column=dataset['answer_column'], 
             target_column=dataset['target_column'], 
             languages=dataset['languages'], 
-            run_suffix=run, 
+            run_suffix=run,
+            run_xlmr=False, 
+            run_sbert=True, 
+            run_pretrained=False, 
+            run_npcr_sbert=False, 
+            run_npcr_xlmr=False, 
+            run_xlmr_swap_sbert=False, 
+            run_sbert_swap_xlmr=False 
             )
 
 
-## Full
-for run in ['_RUN1', '_RUN2', '_RUN3']:
+# ## Full
+#  for run in ['_RUN1', '_RUN2', '_RUN3']:
     
-    for dataset in [EPIRLS, ASAP_T]:
+#     for dataset in [EPIRLS, ASAP_T]:
 
-        run_full(
-            dataset_path=dataset['dataset_path'], 
-            dataset_name=dataset['dataset_name'], 
-            id_column=dataset['id_column'], 
-            prompt_column=dataset['prompt_column'],
-            answer_column=dataset['answer_column'], 
-            target_column=dataset['target_column'], 
-            languages=dataset['languages'], 
-            run_suffix=run, 
-            )
+#         run_full(
+#             dataset_path=dataset['dataset_path'], 
+#             dataset_name=dataset['dataset_name'], 
+#             id_column=dataset['id_column'], 
+#             prompt_column=dataset['prompt_column'],
+#             answer_column=dataset['answer_column'], 
+#             target_column=dataset['target_column'], 
+#             languages=dataset['languages'], 
+#             run_suffix=run, 
+#             run_xlmr=False, 
+#             run_sbert=True, 
+#             run_pretrained=False, 
+#             run_npcr_sbert=False, 
+#             run_npcr_xlmr=False, 
+#             run_xlmr_swap_sbert=False, 
+#             run_sbert_swap_xlmr=False 
+#             )
