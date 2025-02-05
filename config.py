@@ -35,6 +35,7 @@ ASAP_M = {
     'language_column': None
 }
 
+#SBERT_BASE_MODEL = 'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2'
 SBERT_BASE_MODEL = 'paraphrase-multilingual-MiniLM-L12-v2'
 XLMR_BASE_MODEL = 'xlm-roberta-base'
 

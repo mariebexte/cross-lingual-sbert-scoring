@@ -8,7 +8,7 @@ import shutil
 import sys
 import shutil
 import logging
-from utils import encode_labels, eval_sbert, get_device
+from model_training.utils import encode_labels, eval_sbert, get_device
 from datetime import datetime
 from tqdm import tqdm
 import random
