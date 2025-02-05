@@ -315,7 +315,8 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
 ## Downsampled
 for run in ['_RUN1', '_RUN2', '_RUN3']:
 
-    for dataset in [EPIRLS, ASAP_T]:
+    for dataset in [ASAP_T]:
+    # for dataset in [EPIRLS, ASAP_T]:
 
         run_downsampled(
             dataset_path=dataset['dataset_path'], 
@@ -325,22 +326,38 @@ for run in ['_RUN1', '_RUN2', '_RUN3']:
             answer_column=dataset['answer_column'], 
             target_column=dataset['target_column'], 
             languages=dataset['languages'], 
-            run_suffix=run, 
+            run_suffix=run,
+            run_xlmr=True, 
+            run_sbert=False, 
+            run_pretrained=False, 
+            run_npcr_sbert=False, 
+            run_npcr_xlmr=False, 
+            run_xlmr_swap_sbert=False, 
+            run_sbert_swap_xlmr=False 
             )
 
 
-## Full
-for run in ['_RUN1', '_RUN2', '_RUN3']:
+# Full
+# for run in ['_RUN1']:
+# # for run in ['_RUN1', '_RUN2', '_RUN3']:
     
-    for dataset in [EPIRLS, ASAP_T]:
+#     for dataset in [EPIRLS]:
+#     # for dataset in [EPIRLS, ASAP_T]:
 
-        run_full(
-            dataset_path=dataset['dataset_path'], 
-            dataset_name=dataset['dataset_name'], 
-            id_column=dataset['id_column'], 
-            prompt_column=dataset['prompt_column'],
-            answer_column=dataset['answer_column'], 
-            target_column=dataset['target_column'], 
-            languages=dataset['languages'], 
-            run_suffix=run, 
-            )
+#         run_full(
+#             dataset_path=dataset['dataset_path'], 
+#             dataset_name=dataset['dataset_name'], 
+#             id_column=dataset['id_column'], 
+#             prompt_column=dataset['prompt_column'],
+#             answer_column=dataset['answer_column'], 
+#             target_column=dataset['target_column'], 
+#             languages=dataset['languages'], 
+#             run_suffix=run, 
+#             run_xlmr=True, 
+#             run_sbert=False, 
+#             run_pretrained=False, 
+#             run_npcr_sbert=False, 
+#             run_npcr_xlmr=False, 
+#             run_xlmr_swap_sbert=False, 
+#             run_sbert_swap_xlmr=False 
+#             )

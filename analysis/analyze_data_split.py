@@ -60,6 +60,12 @@ def process_dataset(data_folder, dataset_name, languages, answer_column, target_
             out_file.write(lang+'\t'+str(df_lang['avg_len'].mean())+'\t'+str(df_lang['ratio_unique'].mean())+'\t'+str(len(df_lang)))
 
     df_frequencies = pd.DataFrame(frequencies).T
+    cols = df_frequencies.columns
+    new_cols = [int(col_name) for col_name in cols]
+    df_frequencies.columns = new_cols
+    new_cols.sort()
+    df_frequencies = df_frequencies[new_cols]
+    df_frequencies.index.rename('prompt', inplace=True)
     df_frequencies.to_csv('/data/' + dataset_name + '_scores.csv')
 
 
@@ -70,6 +76,7 @@ for dataset in [EPIRLS, ASAP_T, ASAP_M]:
 
     if dataset['dataset_name'] == 'ASAP_multilingual':
 
-        filenames = ['fold_1.csv', 'fold_2,csv', 'fold_3.csv', 'fold_4.csv', 'fold_5.csv']
+        filenames = ['fold_1.csv', 'fold_2.csv', 'fold_3.csv', 'fold_4.csv', 'fold_5.csv']
 
+    print('PROCESSING', dataset['dataset_name'])
     process_dataset(data_folder=dataset['dataset_path'], dataset_name=dataset['dataset_name'], languages=dataset['languages'], answer_column=dataset['answer_column'], target_column=dataset['target_column'], filenames=filenames)
