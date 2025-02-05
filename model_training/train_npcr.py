@@ -137,7 +137,7 @@ def train_npcr(target_path, base_model, df_train, df_val, df_test, col_prompt, c
     # Delete model to save space
     if os.path.exists(os.path.join(target_path, model_name)) and save_model==False:
 
-        shutil.rmtree(os.path.join(target_path, model_name))
+        os.remove(os.path.join(target_path, model_name))
 
     if pred is None:
     

@@ -296,6 +296,8 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
                 # Combine data of all *other* languages as training data
                 other_languages = deepcopy(languages)
                 other_languages.remove(test_language)
+
+                dfs = []
                 
                 for other_language in other_languages:
 
@@ -327,8 +329,10 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
                     
                     num_to_sample = len(df_other)/len(other_languages)
                     df_sample = df_rest.sample(int(num_to_sample), random_state=random_state)
-                    df_train = pd.concat([df_other, df_sample])
-
+                    dfs.append(df_other)
+                    dfs.append(df_sample)
+                    
+                df_train = pd.concat(dfs)
                 df_train.reset_index(inplace=True)
                 print('train', len(df_train))
                 print('val', len(df_val))
@@ -535,7 +539,7 @@ for run in ['_RUN1', '_RUN2', '_RUN3']:
 for run in ['_RUN1', '_RUN2', '_RUN3']:
 
     for dataset in [ASAP_M]:
-
+        
         for translate_train in [True, False]:
 
             run_full(
