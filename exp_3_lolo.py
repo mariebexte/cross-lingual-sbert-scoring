@@ -14,11 +14,14 @@ from model_training.train_npcr import train_npcr
 from model_training.utils import read_data, get_device, eval_sbert, write_classification_statistics
 from sentence_transformers import SentenceTransformer
 
+#import nltk
+#nltk.download('punkt')
+#nltl.download('punkt_tab')
 
 random_state = 3456786544
 
 
-def full_data(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, run_suffix='', run_xlmr=True, run_sbert=True, run_pretrained=True, run_npcr_sbert=True, run_npcr_xlmr=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, bert_batch_size=32, sbert_batch_size=64):
+def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, run_suffix='', run_xlmr=True, run_sbert=True, run_pretrained=True, run_npcr_sbert=True, run_npcr_xlmr=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, bert_batch_size=32, sbert_batch_size=64):
 
     device = get_device()
 
@@ -158,14 +161,19 @@ def full_data(dataset_path, dataset_name, id_column, prompt_column, answer_colum
                     df_test.to_csv(os.path.join(run_path_pretrained, 'test.csv'))
 
 
-def downsampled_data(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, run_suffix='', run_xlmr=True, run_sbert=True, run_pretrained=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, bert_batch_size=32, sbert_batch_size=64):
+def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, run_suffix='', run_xlmr=True, run_sbert=True, run_pretrained=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, run_npcr_xlmr=True, run_npcr_sbert=True, bert_batch_size=32, sbert_batch_size=64):
 
     condition = 'combine_downsampled'
 
+    # prompts = list(os.listdir(dataset_path))
+    # #if '9' in prompts:
+    #  #   prompts.remove('9')
+    # for prompt in ['9']:
     for prompt in os.listdir(dataset_path):
 
         # For each prompt - language pair, train a model
         for language in languages:
+        #for language in ['en', 'he', 'it', 'ka', 'nb', 'pt', 'sl', 'sv', 'zh']:
 
             torch.cuda.empty_cache()
 
@@ -312,27 +320,35 @@ def downsampled_data(dataset_path, dataset_name, id_column, prompt_column, answe
                     df_test.to_csv(os.path.join(run_path_pretrained, 'test.csv'))
 
 
-## Downsampled
-for run in ['_RUN1', '_RUN2', '_RUN3']:
+# ## Downsampled
+# for run in ['_RUN2']:
+# # for run in ['_RUN1', '_RUN2', '_RUN3']:
 
-    for dataset in [EPIRLS, ASAP_T]:
+#     for dataset in [EPIRLS]:
 
-        run_downsampled(
-            dataset_path=dataset['dataset_path'], 
-            dataset_name=dataset['dataset_name'], 
-            id_column=dataset['id_column'], 
-            prompt_column=dataset['prompt_column'],
-            answer_column=dataset['answer_column'], 
-            target_column=dataset['target_column'], 
-            languages=dataset['languages'], 
-            run_suffix=run, 
-            )
+#         run_downsampled(
+#             dataset_path=dataset['dataset_path'], 
+#             dataset_name=dataset['dataset_name'], 
+#             id_column=dataset['id_column'], 
+#             prompt_column=dataset['prompt_column'],
+#             answer_column=dataset['answer_column'], 
+#             target_column=dataset['target_column'], 
+#             languages=dataset['languages'], 
+#             run_suffix=run,
+#             run_xlmr=False,
+#             run_sbert=False,
+#             run_pretrained=False,
+#             run_npcr_xlmr=True,
+#             run_npcr_sbert=False,
+#             run_xlmr_swap_sbert=False,
+#             run_sbert_swap_xlmr=False,
+#             )
 
 
-## Full
+# Full
 for run in ['_RUN1', '_RUN2', '_RUN3']:
     
-    for dataset in [EPIRLS, ASAP_T]:
+    for dataset in [ASAP_T]:
 
         run_full(
             dataset_path=dataset['dataset_path'], 
@@ -343,4 +359,11 @@ for run in ['_RUN1', '_RUN2', '_RUN3']:
             target_column=dataset['target_column'], 
             languages=dataset['languages'], 
             run_suffix=run, 
+            run_xlmr=False,
+            run_sbert=True,
+            run_pretrained=False,
+            run_npcr_xlmr=False,
+            run_npcr_sbert=False,
+            run_xlmr_swap_sbert=False,
+            run_sbert_swap_xlmr=False,
             )
