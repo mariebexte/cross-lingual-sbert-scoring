@@ -348,11 +348,9 @@ def run_model_swap_cross_validated(dataset_path, dataset_name, languages, id_col
                         shutil.rmtree(os.path.join(run_path_bert, 'best_model'))
         
 
-for run in ['_RUN1']:
-# for run in ['_RUN1', '_RUN2', '_RUN3']:
+for run in ['_RUN1', '_RUN2', '_RUN3']:
 
-    for dataset in [ASAP_T]:
-    # for dataset in [EPIRLS, ASAP_T]:
+    for dataset in [EPIRLS, ASAP_T]:
 
         sbert_batch_size = 64
         bert_batch_size = 32
@@ -390,7 +388,7 @@ for run in ['_RUN1']:
 #             target_column=dataset['target_column'], 
 #             languages=dataset['languages'], 
 #             run_sbert=True, 
-#             run_xlmr=True, 
+#             run_xlmr=False, 
 #             run_suffix=run, 
 #             translate_test=dataset['translate_test'],
 #             num_folds=dataset['num_folds'],

@@ -207,10 +207,10 @@ def run_dataset_folds(dataset_path, dataset_name, prompt_column, answer_column, 
                         print('Skipping prompt ' + str(prompt) + ' because it already ran!')
 
 
-for run in ['_RUN2']:
+for run in ['_RUN1']:
 # for run in ['_RUN1', '_RUN2', '_RUN3']:
 
-    for dataset in [ASAP_T]:
+    for dataset in [EPIRLS]:
     # for dataset in [EPIRLS, ASAP_T]:
 
         run_dataset(
