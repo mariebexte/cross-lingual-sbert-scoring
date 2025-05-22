@@ -486,30 +486,27 @@ def run_exp_1_cross_validated(dataset_path, dataset_name, languages, id_column, 
                         shutil.rmtree(os.path.join(run_path_bert, 'best_model'))
 
 
-# for run in ['_RUN1', '_RUN2']:
-# # for run in ['_RUN1', '_RUN2', '_RUN3']:
+for run in ['_RUN1', '_RUN2', '_RUN3']:
 
-#     for dataset in [EPIRLS]:
-#     # for dataset in [EPIRLS, ASAP_T]:
+    for dataset in [EPIRLS, ASAP_T]:
 
-#         run_exp_1(
-#             dataset_path=dataset['dataset_path'], 
-#             dataset_name=dataset['dataset_name'], 
-#             id_column=dataset['id_column'], 
-#             answer_column=dataset['answer_column'], 
-#             target_column=dataset['target_column'], 
-#             languages=dataset['languages'], 
-#             run_sbert=False, 
-#             run_xlmr=True, 
-#             run_suffix=run, 
-#             translate_test=dataset['translate_test'],
-#             )
+        run_exp_1(
+            dataset_path=dataset['dataset_path'], 
+            dataset_name=dataset['dataset_name'], 
+            id_column=dataset['id_column'], 
+            answer_column=dataset['answer_column'], 
+            target_column=dataset['target_column'], 
+            languages=dataset['languages'], 
+            run_sbert=True, 
+            run_xlmr=True, 
+            run_suffix=run, 
+            translate_test=dataset['translate_test'],
+            )
 
 
 for dataset in [ASAP_M]:
 
-    for run in ['_RUN1', '_RUN2']:
-    # for run in ['_RUN1', '_RUN2', '_RUN3']:
+    for run in ['_RUN1', '_RUN2', '_RUN3']:
 
         run_exp_1_cross_validated(
             dataset_path=dataset['dataset_path'], 
@@ -520,7 +517,6 @@ for dataset in [ASAP_M]:
             languages=dataset['languages'], 
             run_sbert=False, 
             run_xlmr=True, 
-            # bert_batch_size=16,
             run_suffix=run, 
             translate_test=dataset['translate_test'],
             num_folds=dataset['num_folds'],

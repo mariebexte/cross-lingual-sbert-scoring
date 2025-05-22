@@ -342,27 +342,27 @@ res_name = '/results/FINAL_PAPER/exp_1_zero_shot'
 
 for dataset in [EPIRLS, ASAP_T]:
 
-    # for run in ['_RUN1', '_RUN2', '_RUN3']:
+    for run in ['_RUN1', '_RUN2', '_RUN3']:
 
-    #     aggregate_results(result_dir=os.path.join(res_name + run, dataset['dataset_name']), target_column=dataset['target_column'], languages=dataset['languages'], translate_test=dataset['translate_test'])
-    #     calculate_model_matrixes(os.path.join(res_name + run, dataset['dataset_name'], 'overall.csv'), lang_order=dataset['languages'])
+         aggregate_results(result_dir=os.path.join(res_name + run, dataset['dataset_name']), target_column=dataset['target_column'], languages=dataset['languages'], translate_test=dataset['translate_test'])
+         calculate_model_matrixes(os.path.join(res_name + run, dataset['dataset_name'], 'overall.csv'), lang_order=dataset['languages'])
 
-    # average_runs_exp1(result_file_list=[os.path.join(res_name+'_RUN1', dataset['dataset_name'], 'overall.csv'),
-    # os.path.join(res_name+'_RUN2', dataset['dataset_name'], 'overall.csv'),
-    # os.path.join(res_name+'_RUN3', dataset['dataset_name'], 'overall.csv')], target_folder=os.path.join(res_name+'_AVG', dataset['dataset_name']))
+    average_runs_exp1(result_file_list=[os.path.join(res_name+'_RUN1', dataset['dataset_name'], 'overall.csv'),
+    os.path.join(res_name+'_RUN2', dataset['dataset_name'], 'overall.csv'),
+    os.path.join(res_name+'_RUN3', dataset['dataset_name'], 'overall.csv')], target_folder=os.path.join(res_name+'_AVG', dataset['dataset_name']))
 
     calculate_model_matrixes(os.path.join(res_name+'_AVG', dataset['dataset_name'], 'overall.csv'), lang_order=dataset['languages'], translate_test=dataset['translate_test'])
 
 
 for dataset in [ASAP_M]:
 
-    # for run in ['_RUN1', '_RUN2', '_RUN3']:
+    for run in ['_RUN1', '_RUN2', '_RUN3']:
 
-    #     aggregate_results_cv(result_dir=os.path.join(res_name + run, dataset['dataset_name']), target_column=dataset['target_column'], languages=dataset['languages'], num_folds=dataset['num_folds'], translate_test=dataset['translate_test'])
-    #     calculate_model_matrixes(os.path.join(res_name + run, dataset['dataset_name'], 'overall.csv'), lang_order=dataset['languages'])
+         aggregate_results_cv(result_dir=os.path.join(res_name + run, dataset['dataset_name']), target_column=dataset['target_column'], languages=dataset['languages'], num_folds=dataset['num_folds'], translate_test=dataset['translate_test'])
+         calculate_model_matrixes(os.path.join(res_name + run, dataset['dataset_name'], 'overall.csv'), lang_order=dataset['languages'])
 
-    # average_runs_exp1(result_file_list=[os.path.join(res_name+'_RUN1', dataset['dataset_name'], 'overall.csv'),
-    # os.path.join(res_name+'_RUN2', dataset['dataset_name'], 'overall.csv'),
-    # os.path.join(res_name+'_RUN3', dataset['dataset_name'], 'overall.csv')], target_folder=os.path.join(res_name+'_AVG', dataset['dataset_name']))
+    average_runs_exp1(result_file_list=[os.path.join(res_name+'_RUN1', dataset['dataset_name'], 'overall.csv'),
+    os.path.join(res_name+'_RUN2', dataset['dataset_name'], 'overall.csv'),
+    os.path.join(res_name+'_RUN3', dataset['dataset_name'], 'overall.csv')], target_folder=os.path.join(res_name+'_AVG', dataset['dataset_name']))
 
     calculate_model_matrixes(os.path.join(res_name+'_AVG', dataset['dataset_name'], 'overall.csv'), lang_order=dataset['languages'], translate_test=dataset['translate_test'])

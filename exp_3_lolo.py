@@ -21,7 +21,7 @@ from sentence_transformers import SentenceTransformer
 random_state = 3456786544
 
 
-def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, run_suffix='', run_xlmr=True, run_sbert=True, run_pretrained=True, run_npcr_sbert=True, run_npcr_xlmr=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, bert_batch_size=32, sbert_batch_size=64):
+def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, run_suffix='', run_xlmr=True, run_sbert=True, run_pretrained=True, run_npcr_sbert=True, run_npcr_xlmr=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, bert_batch_size=32, sbert_batch_size=64, npcr_batch_size=64):
 
     device = get_device()
 
@@ -114,7 +114,7 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
 
                 if not os.path.exists(os.path.join(run_path_npcr_xlmr, 'preds.csv')):
   
-                    gold, npcr_xlmr_pred = train_npcr(target_path=run_path_npcr_xlmr, df_train=df_train, df_val=df_val, df_test=df_test, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=XLMR_BASE_MODEL, max_num=NPCR_ANSWER_LENGTH, training_with_same_score=True, save_model=False)
+                    gold, npcr_xlmr_pred = train_npcr(target_path=run_path_npcr_xlmr, df_train=df_train, df_val=df_val, df_test=df_test, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=XLMR_BASE_MODEL, max_num=NPCR_ANSWER_LENGTH, training_with_same_score=True, save_model=False, batch_size=npcr_batch_size)
 
                     write_classification_statistics(filepath=run_path_npcr_xlmr, y_true=gold, y_pred=npcr_xlmr_pred)
                     df_train.to_csv(os.path.join(run_path_npcr_xlmr, 'train.csv'))
@@ -128,7 +128,7 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
 
                 if not os.path.exists(os.path.join(run_path_npcr_sbert, 'preds.csv')):
   
-                    gold, npcr_sbert_pred = train_npcr(target_path=run_path_npcr_sbert, df_train=df_train, df_val=df_val, df_test=df_test, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=SBERT_BASE_MODEL, max_num=NPCR_ANSWER_LENGTH, training_with_same_score=True, save_model=False)
+                    gold, npcr_sbert_pred = train_npcr(target_path=run_path_npcr_sbert, df_train=df_train, df_val=df_val, df_test=df_test, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=SBERT_BASE_MODEL, max_num=NPCR_ANSWER_LENGTH, training_with_same_score=True, save_model=False, batch_size=npcr_batch_size)
 
                     write_classification_statistics(filepath=run_path_npcr_sbert, y_true=gold, y_pred=npcr_sbert_pred)
                     df_train.to_csv(os.path.join(run_path_npcr_sbert, 'train.csv'))
@@ -169,7 +169,6 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
 
         # For each prompt - language pair, train a model
         for language in languages:
-        #for language in ['en', 'he', 'it', 'ka', 'nb', 'pt', 'sl', 'sv', 'zh']:
 
             torch.cuda.empty_cache()
 
@@ -206,7 +205,6 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
                     df_train = pd.concat([df_train, df_sample])
 
             df_train.reset_index(inplace=True)
-            
 
             if run_xlmr:
 
