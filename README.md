@@ -9,8 +9,8 @@
 
 ### Data
 - ePIRLS
-- ASAP_Translated: [ASAP short answer scoring dataset](https://www.kaggle.com/competitions/asap-sas) translated using [EasyNMT](https://github.com/UKPLab/EasyNMT)
-- ASAP_Multilingual: [Horbach et al., 2023](https://link.springer.com/article/10.1007/s40593-023-00370-1)
+- ASAP_Translated: [ASAP short answer scoring dataset](https://www.kaggle.com/competitions/asap-sas) translated using [EasyNMT](https://github.com/UKPLab/EasyNMT) (in `data/ASAP`)
+- ASAP_Multilingual: [Horbach et al., 2023](https://link.springer.com/article/10.1007/s40593-023-00370-1) (in `data/ASAP_crosslingual`)
 
 ### Languages
 - Danish, Norwegian Bokmål, Swedish, English, German, Italian, Portuguese, Spanish, French, Arabic, Hebrew, Georgian, Slovenian, Chinese
