@@ -30,33 +30,33 @@ def aggregate_results(result_dir, prompts, target_column, languages):
                 # for model in os.listdir(os.path.join(result_dir, prompt, train_lang))
                 for model in [('XLMR', ''), ('SBERT', '_avg'), ('SBERT', '_max'), ('XLMR_SBERTcore', ''), ('SBERT_XLMRcore', '_avg'), ('SBERT_XLMRcore', '_max'), ('NPCR_XLMR', ''), ('NPCR_SBERT', ''), ('pretrained', '_avg'), ('pretrained', '_max')]:
 
-                    # try:
+                    try:
 
-                    df_preds = pd.read_csv(os.path.join(result_dir, prompt, test_lang, model[0], 'preds.csv')) 
+                        df_preds = pd.read_csv(os.path.join(result_dir, prompt, test_lang, model[0], 'preds.csv')) 
 
-                    gold=list(df_preds[target_column])
-                    pred=list(df_preds['pred'+model[1]])
+                        gold=list(df_preds[target_column])
+                        pred=list(df_preds['pred'+model[1]])
 
-                    acc = accuracy_score(y_true=gold, y_pred=pred)
-                    qwk = cohen_kappa_score(y1=gold, y2=pred, weights='quadratic')
+                        acc = accuracy_score(y_true=gold, y_pred=pred)
+                        qwk = cohen_kappa_score(y1=gold, y2=pred, weights='quadratic')
 
-                    results[results_idx] = {
-                        'prompt': prompt,
-                        'test_lang': test_lang,
-                        'model': model[0] + model[1],
-                        'acc': acc,
-                        'qwk': qwk
-                    }
+                        results[results_idx] = {
+                            'prompt': prompt,
+                            'test_lang': test_lang,
+                            'model': model[0] + model[1],
+                            'acc': acc,
+                            'qwk': qwk
+                        }
 
-                    results_idx += 1
+                        results_idx += 1
 
-                    if qwk < .05:
+                        if qwk < .05:
 
-                        print('Concerningly low qwk', qwk, prompt, model, test_lang)
+                            print('Concerningly low qwk', qwk, prompt, model, test_lang)
                     
-                    # except:
+                    except:
 
-                    #     print('MISSING RESULTS', prompt, model, test_lang, result_dir)
+                        print('MISSING RESULTS', prompt, model, test_lang, result_dir)
 
         else:
 
@@ -84,39 +84,39 @@ def aggregate_results_cv(result_dir, prompts, target_column, languages, num_fold
                 # for model in os.listdir(os.path.join(result_dir, prompt, train_lang))
                 for model in [('XLMR', ''), ('SBERT', '_avg'), ('SBERT', '_max'), ('XLMR_SBERTcore', ''), ('SBERT_XLMRcore', '_avg'), ('SBERT_XLMRcore', '_max'), ('NPCR_XLMR', ''), ('NPCR_SBERT', ''), ('pretrained', '_avg'), ('pretrained', '_max')]:
 
-                    # try:
+                    try:
 
-                    df_preds_list = []
+                        df_preds_list = []
 
-                    for fold in range(1, num_folds+1):
+                        for fold in range(1, num_folds+1):
 
-                        df_preds_list.append(pd.read_csv(os.path.join(result_dir, prompt, test_lang, model[0], 'fold_'+str(fold), 'preds.csv')))
-                    
-                    df_preds = pd.concat(df_preds_list)
+                            df_preds_list.append(pd.read_csv(os.path.join(result_dir, prompt, test_lang, model[0], 'fold_'+str(fold), 'preds.csv')))
+                        
+                        df_preds = pd.concat(df_preds_list)
 
-                    gold=list(df_preds[target_column])
-                    pred=list(df_preds['pred'+model[1]])
+                        gold=list(df_preds[target_column])
+                        pred=list(df_preds['pred'+model[1]])
 
-                    acc = accuracy_score(y_true=gold, y_pred=pred)
-                    qwk = cohen_kappa_score(y1=gold, y2=pred, weights='quadratic')
+                        acc = accuracy_score(y_true=gold, y_pred=pred)
+                        qwk = cohen_kappa_score(y1=gold, y2=pred, weights='quadratic')
 
-                    results[results_idx] = {
-                        'prompt': prompt,
-                        'test_lang': test_lang,
-                        'model': model[0] + model[1],
-                        'acc': acc,
-                        'qwk': qwk
-                    }
+                        results[results_idx] = {
+                            'prompt': prompt,
+                            'test_lang': test_lang,
+                            'model': model[0] + model[1],
+                            'acc': acc,
+                            'qwk': qwk
+                        }
 
-                    results_idx += 1
+                        results_idx += 1
 
-                    if qwk < .1:
+                        if qwk < .1:
 
-                        print('Concerningly low qwk', qwk, prompt, model, test_lang)
+                            print('Concerningly low qwk', qwk, prompt, model, test_lang)
 
-                    # except:
+                    except:
 
-                    #     print('MISSING', prompt, model, test_lang, result_dir)
+                        print('MISSING', prompt, model, test_lang, result_dir)
 
         else:
 
@@ -167,35 +167,34 @@ def get_translated_avg(row):
 
 
 
-# res_name = '/results/exp_3_lolo'
 res_name = '/results/FINAL_PAPER/exp_3_lolo'
 
 for dataset in [EPIRLS, ASAP_T]:
 
-    for condition in ['combine_downsampled']:
+    for condition in ['combine_all_other', 'combine_downsampled']:
         
-#         for run in ['_RUN1', '_RUN2', '_RUN3']:
+        for run in ['_RUN1', '_RUN2', '_RUN3']:
 
-#             aggregate_results(result_dir=os.path.join(res_name + run, condition, dataset['dataset_name']), prompts=dataset['prompts'], target_column=dataset['target_column'], languages=dataset['languages'])
-#             split_results(os.path.join(res_name + run, condition, dataset['dataset_name'], 'overall.csv'))
+            aggregate_results(result_dir=os.path.join(res_name + run, condition, dataset['dataset_name']), prompts=dataset['prompts'], target_column=dataset['target_column'], languages=dataset['languages'])
+            split_results(os.path.join(res_name + run, condition, dataset['dataset_name'], 'overall.csv'))
 
-#         average_runs_exp3(result_file_list=[os.path.join(res_name+'_RUN1', condition, dataset['dataset_name'], 'overall.csv'),
-#         os.path.join(res_name+'_RUN2', condition, dataset['dataset_name'], 'overall.csv'),
-#         os.path.join(res_name+'_RUN3', condition, dataset['dataset_name'], 'overall.csv')],
-#         target_folder=os.path.join(res_name+'_AVG', condition, dataset['dataset_name']))
+        average_runs_exp3(result_file_list=[os.path.join(res_name+'_RUN1', condition, dataset['dataset_name'], 'overall.csv'),
+        os.path.join(res_name+'_RUN2', condition, dataset['dataset_name'], 'overall.csv'),
+        os.path.join(res_name+'_RUN3', condition, dataset['dataset_name'], 'overall.csv')],
+        target_folder=os.path.join(res_name+'_AVG', condition, dataset['dataset_name']))
         split_results(os.path.join(res_name + '_AVG', condition, dataset['dataset_name'], 'overall.csv'))
 
 
 for dataset in [ASAP_M]:
 
-    for condition in ['combine_downsampled', 'combine_downsampled_translated']:
+    for condition in ['combine_all_other', 'combine_all_other_translated', 'combine_downsampled', 'combine_downsampled_translated']:
 
-        # for run in ['_RUN1', '_RUN2', '_RUN3']:
+        for run in ['_RUN1', '_RUN2', '_RUN3']:
 
-        #     aggregate_results_cv(result_dir=os.path.join(res_name + run, condition, dataset['dataset_name']), prompts=dataset['prompts'], target_column=dataset['target_column'], languages=dataset['languages'], num_folds=dataset['num_folds'])
-        #     split_results(os.path.join(res_name + run, condition, dataset['dataset_name'], 'overall.csv'))
+            aggregate_results_cv(result_dir=os.path.join(res_name + run, condition, dataset['dataset_name']), prompts=dataset['prompts'], target_column=dataset['target_column'], languages=dataset['languages'], num_folds=dataset['num_folds'])
+            split_results(os.path.join(res_name + run, condition, dataset['dataset_name'], 'overall.csv'))
             
-        # average_runs_exp3(result_file_list=[os.path.join(res_name+'_RUN1', condition, dataset['dataset_name'], 'overall.csv'),
-        # os.path.join(res_name+'_RUN2', condition, dataset['dataset_name'], 'overall.csv'),
-        # os.path.join(res_name+'_RUN3', condition, dataset['dataset_name'], 'overall.csv')], target_folder=os.path.join(res_name+'_AVG',  condition, dataset['dataset_name']))
+        average_runs_exp3(result_file_list=[os.path.join(res_name+'_RUN1', condition, dataset['dataset_name'], 'overall.csv'),
+        os.path.join(res_name+'_RUN2', condition, dataset['dataset_name'], 'overall.csv'),
+        os.path.join(res_name+'_RUN3', condition, dataset['dataset_name'], 'overall.csv')], target_folder=os.path.join(res_name+'_AVG',  condition, dataset['dataset_name']))
         split_results(os.path.join(res_name + '_AVG', condition, dataset['dataset_name'], 'overall.csv'))

@@ -5,7 +5,7 @@ import torch
 
 import pandas as pd
 
-from config import ASAP_M, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_NUM_PAIRS, SBERT_NUM_VAL_PAIRS, RESULT_PATH_EXP_3
+from config import NPCR_ANSWER_LENGTH, ASAP_M, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_NUM_PAIRS, SBERT_NUM_VAL_PAIRS, RESULT_PATH_EXP_3
 from copy import deepcopy
 from model_training.train_xlmr import train_xlmr
 from model_training.train_xlmr_sbert_core import train_xlmr as train_xlmr_sbert_core
@@ -18,7 +18,7 @@ from sentence_transformers import SentenceTransformer
 random_state = 3456786544
 
 
-def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, translate_train, num_folds, run_suffix='', run_xlmr=True, run_sbert=True, run_npcr_xlmr=True, run_npcr_sbert=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, run_pretrained=True, bert_batch_size=32, sbert_batch_size=64):
+def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, translate_train, num_folds, run_suffix='', run_xlmr=True, run_sbert=True, run_npcr_xlmr=True, run_npcr_sbert=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, run_pretrained=True, bert_batch_size=32, sbert_batch_size=64, npcr_batch_size=64):
 
     device = get_device()
 
@@ -135,7 +135,7 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
                 
                 if run_xlmr_swap_sbert:
 
-                    run_path_bert_swap_sbert = os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, language, 'XLMR_SBERTcore', 'fold_' + str(val_fold))
+                    run_path_bert_swap_sbert = os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, test_language, 'XLMR_SBERTcore', 'fold_' + str(val_fold))
 
                     if not os.path.exists(os.path.join(run_path_bert_swap_sbert, 'preds.csv')):
 
@@ -153,7 +153,7 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
                 
                 if run_sbert_swap_xlmr:
 
-                    run_path_sbert_swap_xlmr = os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, language, 'SBERT_XLMRcore', 'fold_' + str(val_fold))
+                    run_path_sbert_swap_xlmr = os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, test_language, 'SBERT_XLMRcore', 'fold_' + str(val_fold))
 
                     if not os.path.exists(os.path.join(run_path_sbert_swap_xlmr, 'preds.csv')):
 
@@ -179,7 +179,7 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
 
                             os.makedirs(run_path_npcr_xlmr)
 
-                        gold, npcr_xlmr_pred = train_npcr(target_path=run_path_npcr_xlmr, df_train=df_train, df_val=df_val, df_test=df_test, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=XLMR_BASE_MODEL, max_num=NPCR_ANSWER_LENGTH, training_with_same_score=True, save_model=False)
+                        gold, npcr_xlmr_pred = train_npcr(target_path=run_path_npcr_xlmr, df_train=df_train, df_val=df_val, df_test=df_test, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=XLMR_BASE_MODEL, max_num=NPCR_ANSWER_LENGTH, training_with_same_score=True, save_model=False, batch_size=npcr_batch_size)
                         write_classification_statistics(filepath=run_path_npcr_xlmr, y_true=gold, y_pred=npcr_xlmr_pred)
                         df_train.to_csv(os.path.join(run_path_npcr_xlmr, 'train.csv'))
                         df_val.to_csv(os.path.join(run_path_npcr_xlmr, 'val.csv'))
@@ -200,7 +200,7 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
 
                             os.makedirs(run_path_npcr_sbert)
 
-                        gold, npcr_sbert_pred = train_npcr(target_path=run_path_npcr_sbert, df_train=df_train, df_val=df_val, df_test=df_test, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=SBERT_BASE_MODEL, max_num=NPCR_ANSWER_LENGTH, training_with_same_score=True, save_model=False)
+                        gold, npcr_sbert_pred = train_npcr(target_path=run_path_npcr_sbert, df_train=df_train, df_val=df_val, df_test=df_test, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=SBERT_BASE_MODEL, max_num=NPCR_ANSWER_LENGTH, training_with_same_score=True, save_model=False, batch_size=npcr_batch_size)
                         write_classification_statistics(filepath=run_path_npcr_sbert, y_true=gold, y_pred=npcr_sbert_pred)
                         df_train.to_csv(os.path.join(run_path_npcr_sbert, 'train.csv'))
                         df_val.to_csv(os.path.join(run_path_npcr_sbert, 'val.csv'))
@@ -383,7 +383,7 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
                 
                 if run_xlmr_swap_sbert:
 
-                    run_path_bert_swap_sbert = os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, language, 'XLMR_SBERTcore', 'fold_' + str(val_fold))
+                    run_path_bert_swap_sbert = os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, test_language, 'XLMR_SBERTcore', 'fold_' + str(val_fold))
 
                     if not os.path.exists(os.path.join(run_path_bert_swap_sbert, 'preds.csv')):
 
@@ -401,7 +401,7 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
                 
                 if run_sbert_swap_xlmr:
 
-                    run_path_sbert_swap_xlmr = os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, language, 'SBERT_XLMRcore', 'fold_' + str(val_fold))
+                    run_path_sbert_swap_xlmr = os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, test_language, 'SBERT_XLMRcore', 'fold_' + str(val_fold))
 
                     if not os.path.exists(os.path.join(run_path_sbert_swap_xlmr, 'preds.csv')):
 
@@ -525,12 +525,12 @@ for run in ['_RUN1', '_RUN2', '_RUN3']:
                 run_suffix=run, 
                 num_folds=dataset['num_folds'],
                 translate_train=translate_train,
-                run_xlmr=False,
-                run_sbert=False,
-                run_npcr_xlmr=False,
-                run_npcr_sbert=False,
-                run_xlmr_swap_sbert=False,
-                run_sbert_swap_xlmr=False,
+                run_xlmr=True,
+                run_sbert=True,
+                run_npcr_xlmr=True,
+                run_npcr_sbert=True,
+                run_xlmr_swap_sbert=True,
+                run_sbert_swap_xlmr=True,
                 run_pretrained=True
                 )
 
@@ -553,11 +553,11 @@ for run in ['_RUN1', '_RUN2', '_RUN3']:
                 run_suffix=run, 
                 num_folds=dataset['num_folds'],
                 translate_train=translate_train,
-                run_xlmr=False,
-                run_sbert=False,
-                run_npcr_xlmr=False,
-                run_npcr_sbert=False,
-                run_xlmr_swap_sbert=False,
-                run_sbert_swap_xlmr=False,
-                run_pretrained=True
+                run_xlmr=True,
+                run_sbert=True,
+                run_npcr_xlmr=True,
+                run_npcr_sbert=True,
+                run_xlmr_swap_sbert=True,
+                run_sbert_swap_xlmr=True,
+                run_pretrained=True,
                 )
