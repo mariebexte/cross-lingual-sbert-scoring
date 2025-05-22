@@ -209,7 +209,7 @@ def run_exp_1_cross_validated(dataset_path, dataset_name, languages, id_column, 
 
             if run_sbert:
 
-                for test_fold in range(num_folds+1):
+                for test_fold in range(1, num_folds+1):
 
                     val_fold = test_fold+1
                     if val_fold > num_folds:
@@ -224,12 +224,12 @@ def run_exp_1_cross_validated(dataset_path, dataset_name, languages, id_column, 
 
                     for train_fold in train_folds:
 
-                        df_train_list.append(read_data(os.path.join(dataset_path, prompt, language, 'fold_' + str(train_fold) + '.csv')), target_column=target_column, answer_column=answer_column)
+                        df_train_list.append(read_data(os.path.join(dataset_path, prompt, language, 'fold_' + str(train_fold) + '.csv'), target_column=target_column, answer_column=answer_column))
 
                     df_train = pd.concat(df_train_list)
                     df_train.reset_index(inplace=True)
-                    df_val = read_data(os.path.join(dataset_path, prompt, language, 'val.csv'), target_column=target_column, answer_column=answer_column)
-                    df_test = read_data(os.path.join(dataset_path, prompt, language, 'test.csv'), target_column=target_column, answer_column=answer_column)
+                    df_val = read_data(os.path.join(dataset_path, prompt, language, 'fold_' + str(val_fold) + '.csv'), target_column=target_column, answer_column=answer_column)
+                    df_test = read_data(os.path.join(dataset_path, prompt, language, 'fold_' + str(test_fold) + '.csv'), target_column=target_column, answer_column=answer_column)
 
                     run_path_sbert = os.path.join(RESULT_PATH_EXP_1 + run_suffix, dataset_name, prompt, language, 'SBERT', 'fold_' + str(test_fold))
 
@@ -322,8 +322,8 @@ def run_exp_1_cross_validated(dataset_path, dataset_name, languages, id_column, 
 
                     df_train = pd.concat(df_train_list)
                     df_train.reset_index(inplace=True)
-                    df_val = read_data(os.path.join(dataset_path, prompt, language, 'val.csv'), target_column=target_column, answer_column=answer_column)
-                    df_test = read_data(os.path.join(dataset_path, prompt, language, 'test.csv'), target_column=target_column, answer_column=answer_column)
+                    df_val = read_data(os.path.join(dataset_path, prompt, language, 'fold_' + str(val_fold) + '.csv'), target_column=target_column, answer_column=answer_column)
+                    df_test = read_data(os.path.join(dataset_path, prompt, language, 'fold_' + str(test_fold) + '.csv'), target_column=target_column, answer_column=answer_column)
 
                     run_path_bert = os.path.join(RESULT_PATH_EXP_1 + run_suffix, dataset_name, prompt, language, 'MBERT', 'fold_' + str(test_fold))
 
@@ -410,12 +410,12 @@ def run_exp_1_cross_validated(dataset_path, dataset_name, languages, id_column, 
 
                     for train_fold in train_folds:
 
-                        df_train_list.append(read_data(os.path.join(dataset_path, prompt, language, 'fold_' + str(train_fold) + '.csv')), target_column=target_column, answer_column=answer_column)
+                        df_train_list.append(read_data(os.path.join(dataset_path, prompt, language, 'fold_' + str(train_fold) + '.csv'), target_column=target_column, answer_column=answer_column))
 
                     df_train = pd.concat(df_train_list)
                     df_train.reset_index(inplace=True)
-                    df_val = read_data(os.path.join(dataset_path, prompt, language, 'val.csv'), target_column=target_column, answer_column=answer_column)
-                    df_test = read_data(os.path.join(dataset_path, prompt, language, 'test.csv'), target_column=target_column, answer_column=answer_column)
+                    df_val = read_data(os.path.join(dataset_path, prompt, language, 'fold_' + str(val_fold) + '.csv'), target_column=target_column, answer_column=answer_column)
+                    df_test = read_data(os.path.join(dataset_path, prompt, language, 'fold_' + str(test_fold) + '.csv'), target_column=target_column, answer_column=answer_column)
 
                     run_path_bert = os.path.join(RESULT_PATH_EXP_1 + run_suffix, dataset_name, prompt, language, 'XLMR', 'fold_' + str(test_fold))
 
@@ -435,17 +435,17 @@ def run_exp_1_cross_validated(dataset_path, dataset_name, languages, id_column, 
 
                             if test_lang != language:
 
-                                for fold in range(num_folds):
+                                for fold in range(1, num_folds):
 
-                                    df_test_bert_list.append(read_data(os.path.join(dataset_path, prompt, test_lang, 'fold_' + str(fold) + '.csv')), target_column=target_column, answer_column=answer_column)
+                                    df_test_bert_list.append(read_data(os.path.join(dataset_path, prompt, test_lang, 'fold_' + str(fold) + '.csv'), target_column=target_column, answer_column=answer_column))
                                 
                             else:
 
-                                df_test_bert_list.append(read_data(os.path.join(dataset_path, prompt, test_lang, 'fold_' + str(test_fold) + '.csv')), target_column=target_column, answer_column=answer_column)
+                                df_test_bert_list.append(read_data(os.path.join(dataset_path, prompt, test_lang, 'fold_' + str(test_fold) + '.csv'), target_column=target_column, answer_column=answer_column))
 
                             df_test_bert = pd.concat(df_test_bert_list)
                             df_test_bert.reset_index(inplace=True)
-                            gold, xlmr_pred = eval_bert(bert_model, bert_tokenizer, df_test_bert, answer_column=answer_column, target_column=target_column)
+                            gold, xlmr_pred_test = eval_bert(bert_model, bert_tokenizer, df_test_bert, answer_column=answer_column, target_column=target_column)
 
                             run_path_test_bert = os.path.join(run_path_bert, test_lang)
 
@@ -454,7 +454,7 @@ def run_exp_1_cross_validated(dataset_path, dataset_name, languages, id_column, 
                                 os.mkdir(run_path_test_bert)
 
                             df_test_copy = deepcopy(df_test_bert)
-                            df_test_copy['pred'] = xlmr_pred
+                            df_test_copy['pred'] = xlmr_pred_test
                             df_test_copy.to_csv(os.path.join(run_path_test_bert, 'preds.csv'))
 
                             write_classification_statistics(filepath=run_path_test_bert, y_true=gold, y_pred=xlmr_pred_test, suffix='')
@@ -465,7 +465,7 @@ def run_exp_1_cross_validated(dataset_path, dataset_name, languages, id_column, 
 
                                 for fold in range(1, num_folds+1):
 
-                                    df_test_bert_translated_list.append(read_data(os.path.join(dataset_path, prompt, test_lang, 'fold_' + str(fold) + '_translated_' + language + '.csv')), target_column=target_column, answer_column=answer_column)
+                                    df_test_bert_translated_list.append(read_data(os.path.join(dataset_path, prompt, test_lang, 'fold_' + str(fold) + '_translated_' + language + '.csv'), target_column=target_column, answer_column=answer_column))
                                 
                                 df_test_bert_translated = pd.concat(df_test_bert_translated_list)
                                 df_test_bert_translated.reset_index(inplace=True)
@@ -486,9 +486,9 @@ def run_exp_1_cross_validated(dataset_path, dataset_name, languages, id_column, 
                         shutil.rmtree(os.path.join(run_path_bert, 'best_model'))
 
 
-for dataset in EPIRLS, ASAP_T:
+for run in ['_RUN1', '_RUN2', '_RUN3']:
 
-    for run in ['_RUN1', '_RUN2', '_RUN3']:
+    for dataset in [EPIRLS, ASAP_T]:
 
         run_exp_1(
             dataset_path=dataset['dataset_path'], 
@@ -504,7 +504,7 @@ for dataset in EPIRLS, ASAP_T:
             )
 
 
-for dataset in ASAP_M:
+for dataset in [ASAP_M]:
 
     for run in ['_RUN1', '_RUN2', '_RUN3']:
 
@@ -515,7 +515,7 @@ for dataset in ASAP_M:
             answer_column=dataset['answer_column'], 
             target_column=dataset['target_column'], 
             languages=dataset['languages'], 
-            run_sbert=True, 
+            run_sbert=False, 
             run_xlmr=True, 
             run_suffix=run, 
             translate_test=dataset['translate_test'],

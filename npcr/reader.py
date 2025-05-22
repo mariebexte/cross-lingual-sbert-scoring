@@ -124,7 +124,7 @@ def read_dataset_adversarial(df, base_model, col_score, col_answer, max_length=1
 
     else:
 
-        print('Unknown model name!', model_name)
+        print('Unknown model name!', base_model)
         sys.exit(0)
 
     if df is not None:

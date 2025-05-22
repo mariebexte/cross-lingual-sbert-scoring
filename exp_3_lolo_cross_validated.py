@@ -5,7 +5,7 @@ import torch
 
 import pandas as pd
 
-from config import ASAP_M, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_NUM_PAIRS, SBERT_NUM_VAL_PAIRS, RESULT_PATH_EXP_3
+from config import NPCR_ANSWER_LENGTH, ASAP_M, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_NUM_PAIRS, SBERT_NUM_VAL_PAIRS, RESULT_PATH_EXP_3
 from copy import deepcopy
 from model_training.train_xlmr import train_xlmr
 from model_training.train_xlmr_sbert_core import train_xlmr as train_xlmr_sbert_core
@@ -18,17 +18,17 @@ from sentence_transformers import SentenceTransformer
 random_state = 3456786544
 
 
-def full_data(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, translate_train, num_folds, run_suffix='', run_xlmr=True, run_sbert=True, run_npcr_xlmr=True, run_npcr_sbert=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, run_pretrained=True, bert_batch_size=32, sbert_batch_size=64):
+def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, translate_train, num_folds, run_suffix='', run_xlmr=True, run_sbert=True, run_npcr_xlmr=True, run_npcr_sbert=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, run_pretrained=True, bert_batch_size=32, sbert_batch_size=64, npcr_batch_size=64):
 
     device = get_device()
 
     condition = 'combine_all_other'
 
-    if translated:
+    if translate_train:
 
         condition = condition + '_translated'
 
-    for prompt in os.listdir(data_path):
+    for prompt in os.listdir(dataset_path):
 
         # For each prompt - language pair, train a model
         for test_language in languages:
@@ -41,21 +41,21 @@ def full_data(dataset_path, dataset_name, id_column, prompt_column, answer_colum
 
                 # Read test, val data
                 # Training is combination of data in other languages
-                df_val = read_data(os.path.join(dataset_path, prompt, test_language, 'fold_' + str(val_fold) + '.csv'), answer_column=answer_column)
+                df_val = read_data(os.path.join(dataset_path, prompt, test_language, 'fold_' + str(val_fold) + '.csv'), answer_column=answer_column, target_column=target_column)
                 df_test = pd.DataFrame()
 
                 test_folds = list(range(1, num_folds + 1))
                 test_folds.remove(val_fold)
 
                 for test_fold in test_folds:
-                    df_temp = read_data(os.path.join(dataset_path, prompt, test_language, 'fold_' + str(test_fold) + '.csv'), answer_column=answer_column)
+                    df_temp = read_data(os.path.join(dataset_path, prompt, test_language, 'fold_' + str(test_fold) + '.csv'), answer_column=answer_column, target_column=target_column)
                     df_test = pd.concat([df_test, df_temp])
 
-                df_rest.reset_index(inplace=True)
+                df_test.reset_index(inplace=True)
 
                 # Combine data of all *other* languages as training data
                 df_train = pd.DataFrame()
-                other_languages = deepcopy(all_languages)
+                other_languages = deepcopy(languages)
                 other_languages.remove(test_language)
                 
                 for other_language in other_languages:
@@ -75,7 +75,7 @@ def full_data(dataset_path, dataset_name, id_column, prompt_column, answer_colum
 
                         df_other = pd.DataFrame()
 
-                        if translated:   
+                        if translate_train:   
 
                             df_other = read_data(os.path.join(dataset_path, prompt, other_language, 'fold_' + str(train_fold) + '_translated_' + test_language + '.csv'), answer_column=answer_column, target_column=target_column)
                         
@@ -86,9 +86,6 @@ def full_data(dataset_path, dataset_name, id_column, prompt_column, answer_colum
                         df_train = pd.concat([df_train, df_other])
                 
                 df_train.reset_index(inplace=True)
-                print('train', len(df_train))
-                print('val', len(df_val))
-                print('test', len(df_test))
 
                 if run_xlmr:
 
@@ -135,7 +132,7 @@ def full_data(dataset_path, dataset_name, id_column, prompt_column, answer_colum
                 
                 if run_xlmr_swap_sbert:
 
-                    run_path_bert_swap_sbert = os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, language, 'XLMR_SBERTcore', 'fold_' + str(val_fold))
+                    run_path_bert_swap_sbert = os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, test_language, 'XLMR_SBERTcore', 'fold_' + str(val_fold))
 
                     if not os.path.exists(os.path.join(run_path_bert_swap_sbert, 'preds.csv')):
 
@@ -153,7 +150,7 @@ def full_data(dataset_path, dataset_name, id_column, prompt_column, answer_colum
                 
                 if run_sbert_swap_xlmr:
 
-                    run_path_sbert_swap_xlmr = os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, language, 'SBERT_XLMRcore', 'fold_' + str(val_fold))
+                    run_path_sbert_swap_xlmr = os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, test_language, 'SBERT_XLMRcore', 'fold_' + str(val_fold))
 
                     if not os.path.exists(os.path.join(run_path_sbert_swap_xlmr, 'preds.csv')):
 
@@ -179,7 +176,7 @@ def full_data(dataset_path, dataset_name, id_column, prompt_column, answer_colum
 
                             os.makedirs(run_path_npcr_xlmr)
 
-                        gold, npcr_xlmr_pred = train_npcr(target_path=run_path_npcr_xlmr, df_train=df_train, df_val=df_val, df_test=df_test, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=XLMR_BASE_MODEL, max_num=NPCR_ANSWER_LENGTH, training_with_same_score=True, save_model=False)
+                        gold, npcr_xlmr_pred = train_npcr(target_path=run_path_npcr_xlmr, df_train=df_train, df_val=df_val, df_test=df_test, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=XLMR_BASE_MODEL, max_num=NPCR_ANSWER_LENGTH, training_with_same_score=True, save_model=False, batch_size=npcr_batch_size)
                         write_classification_statistics(filepath=run_path_npcr_xlmr, y_true=gold, y_pred=npcr_xlmr_pred)
                         df_train.to_csv(os.path.join(run_path_npcr_xlmr, 'train.csv'))
                         df_val.to_csv(os.path.join(run_path_npcr_xlmr, 'val.csv'))
@@ -200,7 +197,7 @@ def full_data(dataset_path, dataset_name, id_column, prompt_column, answer_colum
 
                             os.makedirs(run_path_npcr_sbert)
 
-                        gold, npcr_sbert_pred = train_npcr(target_path=run_path_npcr_sbert, df_train=df_train, df_val=df_val, df_test=df_test, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=SBERT_BASE_MODEL, max_num=NPCR_ANSWER_LENGTH, training_with_same_score=True, save_model=False)
+                        gold, npcr_sbert_pred = train_npcr(target_path=run_path_npcr_sbert, df_train=df_train, df_val=df_val, df_test=df_test, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=SBERT_BASE_MODEL, max_num=NPCR_ANSWER_LENGTH, training_with_same_score=True, save_model=False, batch_size=npcr_batch_size)
                         write_classification_statistics(filepath=run_path_npcr_sbert, y_true=gold, y_pred=npcr_sbert_pred)
                         df_train.to_csv(os.path.join(run_path_npcr_sbert, 'train.csv'))
                         df_val.to_csv(os.path.join(run_path_npcr_sbert, 'val.csv'))
@@ -260,16 +257,16 @@ def full_data(dataset_path, dataset_name, id_column, prompt_column, answer_colum
                     write_classification_statistics(filepath=os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, test_language, model), y_true=gold, y_pred=pred, suffix='')
 
 
-def downsampled_data(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, translate_train, num_folds, run_suffix='', run_xlmr=True, run_sbert=True, run_npcr_xlmr=True, run_npcr_sbert=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, run_pretrained=True, bert_batch_size=32, sbert_batch_size=64):
+def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, translate_train, num_folds, run_suffix='', run_xlmr=True, run_sbert=True, run_npcr_xlmr=True, run_npcr_sbert=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, run_pretrained=True, bert_batch_size=32, sbert_batch_size=64):
 
     device = get_device()
     condition = 'combine_downsampled'
 
-    if translated:
+    if translate_train:
 
         condition = condition + '_translated'
 
-    for prompt in os.listdir(data_path):
+    for prompt in os.listdir(dataset_path):
 
         # For each prompt - language pair, train a model
         for test_language in languages:
@@ -296,6 +293,8 @@ def downsampled_data(dataset_path, dataset_name, id_column, prompt_column, answe
                 # Combine data of all *other* languages as training data
                 other_languages = deepcopy(languages)
                 other_languages.remove(test_language)
+
+                dfs = []
                 
                 for other_language in other_languages:
 
@@ -307,32 +306,31 @@ def downsampled_data(dataset_path, dataset_name, id_column, prompt_column, answe
                     # Take all of the first fold, and a quarter of the second
                     df_other = pd.DataFrame()
 
-                    if translated:   
+                    if translate_train:   
 
-                        df_other = read_data(os.path.join(data_path, prompt, other_language, 'fold_' + str(train_folds[0]) + '_translated_' + test_language + '.csv'), answer_column=answer_column)
+                        df_other = read_data(os.path.join(dataset_path, prompt, other_language, 'fold_' + str(train_folds[0]) + '_translated_' + test_language + '.csv'), answer_column=answer_column, target_column=target_column)
                     
                     else:
 
-                        df_other = read_data(os.path.join(data_path, prompt, other_language, 'fold_' + str(train_folds[0]) + '.csv'), answer_column=answer_column)
+                        df_other = read_data(os.path.join(dataset_path, prompt, other_language, 'fold_' + str(train_folds[0]) + '.csv'), answer_column=answer_column, target_column=target_column)
 
                     df_rest = pd.DataFrame()
 
-                    if translated:  
+                    if translate_train:  
 
-                        df_rest = read_data(os.path.join(data_path, prompt, other_language, 'fold_' + str(train_folds[1]) + '_translated_' + test_language + '.csv'), answer_column=answer_column)
+                        df_rest = read_data(os.path.join(dataset_path, prompt, other_language, 'fold_' + str(train_folds[1]) + '_translated_' + test_language + '.csv'), answer_column=answer_column, target_column=target_column)
                     
                     else:
 
-                        df_rest = read_data(os.path.join(data_path, prompt, other_language, 'fold_' + str(train_folds[1]) + '.csv'), answer_column=answer_column)
+                        df_rest = read_data(os.path.join(dataset_path, prompt, other_language, 'fold_' + str(train_folds[1]) + '.csv'), answer_column=answer_column, target_column=target_column)
                     
                     num_to_sample = len(df_other)/len(other_languages)
                     df_sample = df_rest.sample(int(num_to_sample), random_state=random_state)
-                    df_train = pd.concat([df_other, df_sample])
-
+                    dfs.append(df_other)
+                    dfs.append(df_sample)
+                    
+                df_train = pd.concat(dfs)
                 df_train.reset_index(inplace=True)
-                print('train', len(df_train))
-                print('val', len(df_val))
-                print('test', len(df_test))
 
                 if run_xlmr:
 
@@ -379,7 +377,7 @@ def downsampled_data(dataset_path, dataset_name, id_column, prompt_column, answe
                 
                 if run_xlmr_swap_sbert:
 
-                    run_path_bert_swap_sbert = os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, language, 'XLMR_SBERTcore', 'fold_' + str(val_fold))
+                    run_path_bert_swap_sbert = os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, test_language, 'XLMR_SBERTcore', 'fold_' + str(val_fold))
 
                     if not os.path.exists(os.path.join(run_path_bert_swap_sbert, 'preds.csv')):
 
@@ -397,7 +395,7 @@ def downsampled_data(dataset_path, dataset_name, id_column, prompt_column, answe
                 
                 if run_sbert_swap_xlmr:
 
-                    run_path_sbert_swap_xlmr = os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, language, 'SBERT_XLMRcore', 'fold_' + str(val_fold))
+                    run_path_sbert_swap_xlmr = os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, test_language, 'SBERT_XLMRcore', 'fold_' + str(val_fold))
 
                     if not os.path.exists(os.path.join(run_path_sbert_swap_xlmr, 'preds.csv')):
 
@@ -508,7 +506,7 @@ for run in ['_RUN1', '_RUN2', '_RUN3']:
     
     for dataset in [ASAP_M]:
 
-        for tanslate_train in [True, False]:
+        for translate_train in [True, False]:
 
             run_downsampled(
                 dataset_path=dataset['dataset_path'], 
@@ -520,15 +518,22 @@ for run in ['_RUN1', '_RUN2', '_RUN3']:
                 languages=dataset['languages'], 
                 run_suffix=run, 
                 num_folds=dataset['num_folds'],
-                translate_train=translate_train
+                translate_train=translate_train,
+                run_xlmr=True,
+                run_sbert=True,
+                run_npcr_xlmr=True,
+                run_npcr_sbert=True,
+                run_xlmr_swap_sbert=True,
+                run_sbert_swap_xlmr=True,
+                run_pretrained=True
                 )
 
 
-## Full
+## Full:
 for run in ['_RUN1', '_RUN2', '_RUN3']:
 
     for dataset in [ASAP_M]:
-
+        
         for translate_train in [True, False]:
 
             run_full(
@@ -541,5 +546,12 @@ for run in ['_RUN1', '_RUN2', '_RUN3']:
                 languages=dataset['languages'], 
                 run_suffix=run, 
                 num_folds=dataset['num_folds'],
-                translate_train=translate_train
+                translate_train=translate_train,
+                run_xlmr=True,
+                run_sbert=True,
+                run_npcr_xlmr=True,
+                run_npcr_sbert=True,
+                run_xlmr_swap_sbert=True,
+                run_sbert_swap_xlmr=True,
+                run_pretrained=True,
                 )
