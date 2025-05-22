@@ -141,7 +141,7 @@ def run_dataset_folds(dataset_path, dataset_name, prompt_column, answer_column, 
 
                         # Zero-shot evaluation of finetuned model on all **other** languages
                         for test_lang in languages:
-
+ 
                             run_path_test = os.path.join(run_path, test_lang)
 
                             if not os.path.exists(run_path_test):
@@ -207,11 +207,9 @@ def run_dataset_folds(dataset_path, dataset_name, prompt_column, answer_column, 
                         print('Skipping prompt ' + str(prompt) + ' because it already ran!')
 
 
-for run in ['_RUN1']:
-# for run in ['_RUN1', '_RUN2', '_RUN3']:
+for run in ['_RUN1', '_RUN2', '_RUN3']:
 
-    for dataset in [EPIRLS]:
-    # for dataset in [EPIRLS, ASAP_T]:
+    for dataset in [EPIRLS, ASAP_T]:
 
         run_dataset(
             dataset_path=dataset['dataset_path'], 
@@ -225,19 +223,18 @@ for run in ['_RUN1']:
             )
 
 
-# for run in ['_RUN2']:
-# # for run in ['_RUN1', '_RUN2', '_RUN3']:
+for run in ['_RUN1', '_RUN2', '_RUN3']:
+    
+    for dataset in [ASAP_M]:
 
-#     for dataset in [ASAP_M]:
-
-#         run_dataset_folds(
-#             dataset_path=dataset['dataset_path'],
-#             dataset_name=dataset['dataset_name'], 
-#             prompt_column=dataset['prompt_column'],
-#             answer_column=dataset['answer_column'], 
-#             target_column=dataset['target_column'],
-#             languages=dataset['languages'], 
-#             run_suffix=run, 
-#             translate_test=dataset['translate_test'], 
-#             num_folds=dataset['num_folds']
-#             )
+        run_dataset_folds(
+            dataset_path=dataset['dataset_path'],
+            dataset_name=dataset['dataset_name'], 
+            prompt_column=dataset['prompt_column'],
+            answer_column=dataset['answer_column'], 
+            target_column=dataset['target_column'],
+            languages=dataset['languages'], 
+            run_suffix=run, 
+            translate_test=dataset['translate_test'], 
+            num_folds=dataset['num_folds']
+            )

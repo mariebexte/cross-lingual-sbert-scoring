@@ -5,7 +5,7 @@ import torch
 
 import pandas as pd
 
-from config import ASAP_M, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_NUM_PAIRS, SBERT_NUM_VAL_PAIRS, RESULT_PATH_EXP_3
+from config import NPCR_ANSWER_LENGTH, ASAP_M, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_NUM_PAIRS, SBERT_NUM_VAL_PAIRS, RESULT_PATH_EXP_3
 from copy import deepcopy
 from model_training.train_xlmr import train_xlmr
 from model_training.train_xlmr_sbert_core import train_xlmr as train_xlmr_sbert_core
@@ -86,9 +86,6 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
                         df_train = pd.concat([df_train, df_other])
                 
                 df_train.reset_index(inplace=True)
-                print('train', len(df_train))
-                print('val', len(df_val))
-                print('test', len(df_test))
 
                 if run_xlmr:
 
@@ -153,7 +150,7 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
                 
                 if run_sbert_swap_xlmr:
 
-                    run_path_sbert_swap_xlmr = os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, language, 'SBERT_XLMRcore', 'fold_' + str(val_fold))
+                    run_path_sbert_swap_xlmr = os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, test_language, 'SBERT_XLMRcore', 'fold_' + str(val_fold))
 
                     if not os.path.exists(os.path.join(run_path_sbert_swap_xlmr, 'preds.csv')):
 
@@ -334,9 +331,6 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
                     
                 df_train = pd.concat(dfs)
                 df_train.reset_index(inplace=True)
-                print('train', len(df_train))
-                print('val', len(df_val))
-                print('test', len(df_test))
 
                 if run_xlmr:
 
@@ -401,7 +395,7 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
                 
                 if run_sbert_swap_xlmr:
 
-                    run_path_sbert_swap_xlmr = os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, language, 'SBERT_XLMRcore', 'fold_' + str(val_fold))
+                    run_path_sbert_swap_xlmr = os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, test_language, 'SBERT_XLMRcore', 'fold_' + str(val_fold))
 
                     if not os.path.exists(os.path.join(run_path_sbert_swap_xlmr, 'preds.csv')):
 
@@ -525,17 +519,17 @@ for run in ['_RUN1', '_RUN2', '_RUN3']:
                 run_suffix=run, 
                 num_folds=dataset['num_folds'],
                 translate_train=translate_train,
-                run_xlmr=False,
-                run_sbert=False,
-                run_npcr_xlmr=False,
-                run_npcr_sbert=False,
-                run_xlmr_swap_sbert=False,
-                run_sbert_swap_xlmr=False,
-                run_pretrained=True
+                run_xlmr=True,
+                run_sbert=True,
+                run_npcr_xlmr=True,
+                run_npcr_sbert=True,
+                run_xlmr_swap_sbert=True,
+                run_sbert_swap_xlmr=True,
+                run_pretrained=True,
                 )
 
 
-## Full
+## Full:
 for run in ['_RUN1', '_RUN2', '_RUN3']:
 
     for dataset in [ASAP_M]:
@@ -553,11 +547,11 @@ for run in ['_RUN1', '_RUN2', '_RUN3']:
                 run_suffix=run, 
                 num_folds=dataset['num_folds'],
                 translate_train=translate_train,
-                run_xlmr=False,
-                run_sbert=False,
-                run_npcr_xlmr=False,
-                run_npcr_sbert=False,
-                run_xlmr_swap_sbert=False,
-                run_sbert_swap_xlmr=False,
-                run_pretrained=True
+                run_xlmr=True,
+                run_sbert=True,
+                run_npcr_xlmr=True,
+                run_npcr_sbert=True,
+                run_xlmr_swap_sbert=True,
+                run_sbert_swap_xlmr=True,
+                run_pretrained=True,
                 )
