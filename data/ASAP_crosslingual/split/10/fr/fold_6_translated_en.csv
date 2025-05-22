@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+22,22,fr_100023,White::The lighter the color the lower the temperature. In a temperate climate and depending on the exposure of the kennel it may be desirable to compensate for the heat of the sun by painting the kennel white.,10,1
+29,29,fr_100030,Dark gray::Don't get in the way of anything,10,0
+42,42,fr_100043,"Light gray::So that you don't have to limit yourself to painting the kennel in colors that camouflage dirt, I chose to make the paint with super washable and stain resistant paint. So no matter what color you choose, cleaning can be done with a damp cloth or sponge, without damaging the paint, believing that it will not harm the health of the pet.",10,0
+48,48,fr_100049,"White::White can reflect light away from the interior of the structure. Therefore, the interior should be cooler. The graph shows that white was the color that achieved the coolest result.",10,2
+81,81,fr_100082,White::its color is really beautiful.,10,0
+86,86,fr_100087,"White::The darker the color, the more heat is retained in the color. The lighter the color, the cooler the temperature.",10,1
+91,91,fr_100092,"White::The white cover gave the smallest temperature increase compared to the other colors. Thus, the white paint on the outside of the niche keeps the inside cool.",10,2
+92,92,fr_100093,"Dark gray::Based on the results, the color is based on the temperature that is safe for the dog.",10,0
+125,125,fr_100126,"White::Looking at the experiment, white has the lowest temperature, which makes it more practical for a dog house",10,1
+136,136,fr_100137,"Dark gray::In cold climates, darker colors will absorb the sun's heat and keep the dog house warmer inside. Lighter colors work well in warmer climates, as they reflect the sun and keep the interior of the home cooler.",10,1
+137,137,fr_100138,White::Reaching cracks,10,0
+143,143,fr_100144,"White::The color white absorbs less energy. This was confirmed by the temperature measurement shown in the table. The white air had an average of _41 degrees, while the other colors had an average temperature above 45 degrees.",10,2
+159,159,fr_100160,"White::The effect of the color white is weak compared to the other colors. It only passes the least amount of heat into the object. Therefore, white is the best choice to paint the niche according to the results.",10,1
+164,164,fr_100165,Black::Black and other dark colors will attract and absorb the sun's heat to help keep the dog warm. Use white or light colored paint on your dog house if you live in a warm climate.,10,1
+183,183,fr_100184,::it depends if I build my kennel in the Sahara or in the polar circle. if I build in a warm country I take a light roof if on the contrary I want to warm up my kennel I take a dark roof,10,1
+185,185,fr_100186,Black::This color is very high quality.,10,0
+191,191,fr_100192,Light gray::This color matches the niche best.,10,0
+192,192,fr_100193,Black::The color can affect the interior of the niche because it absorbs more heat,10,1
+204,204,fr_100205,"Black::The black color will warm up the environment more, making the dog warmer during the nights",10,1

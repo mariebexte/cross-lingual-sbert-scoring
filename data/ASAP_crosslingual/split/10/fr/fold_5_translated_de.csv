@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+0,0,fr_100001,"Schwarz::Die Farbe Schwarz hilft, die Lufttemperatur in der Nische zu erhöhen, da dunklere Farben mehr Energie absorbieren.",10,1
+17,17,fr_100018,"Schwarz::Dunkle Farben absorbieren viel mehr Wärme als leichtere, da sie mehr Lichtenergie aufnehmen. Helle Farben reflektieren mehr Licht.",10,1
+57,57,fr_100058,"Weiß::Bei einem Glas mit weißem Deckel beträgt die durchschnittliche Temperatur im Inneren des Glases _42 °C, das sind 3 Grad weniger als bei einem hellgrauen Deckel und 11 Grad weniger als bei einem hellen Deckel. Die Erfahrung zeigt, dass die Temperatur in einem geschlossenen Raum direkt mit der Farbe der Oberfläche korreliert, die der Wärmequelle ausgesetzt ist: Je heller das Dach der Hundehütte ist, desto weniger wird der Hund im Inneren unter der Hitze leiden. Es ist daher besser, die Hundehütte weiß zu streichen.",10,2
+62,62,fr_100063,Hellgrau::Diese Farbe sollte für Schwarz sehr attraktiv sein.,10,0
+63,63,fr_100064,Weiß::Weiß reflektiert die Wärme der Sonne und sorgt für eine niedrigere und angenehmere Temperatur in der Hundehütte.,10,1
+85,85,fr_100086,"Weiß::Die Wirkung der Farbe Weiß ist im Vergleich zu den anderen Farben geringer. Sie lässt nur eine geringe Menge an Wärme durch den Gegenstand hindurchfließen. Weiß ist daher die beste Wahl zum Malen, wenn es um die Ergebnisse geht.",10,2
+90,90,fr_100091,"Schwarz::Je dunkler die Farbe, desto höher die Temperatur, die gemessen wird. Diese Funktion kann verwendet werden, wenn Sie versuchen, in einer bestimmten Umgebung eine höhere oder niedrigere Temperatur zu erreichen.",10,1
+95,95,fr_100096,"Weiß::Ich habe diese Farbe auf der Grundlage von Daten gewählt, die ich aus Erfahrungen gesammelt habe.",10,0
+97,97,fr_100098,Dunkelgrau::Geben Sie die richtigen Informationen und erhalten Sie die richtigen Details.,10,0
+106,106,fr_100107,"Weiß::Da Weiß weniger Wärme absorbiert, ist es eine gute Idee, die Hundehütte in Weiß zu gestalten.",10,1
+109,109,fr_100110,"Hellgrau::Wir können mehrfarbige Farben verwenden ... und auch attraktive Muster verwenden, um schön auszusehen.",10,0
+111,111,fr_100112,"Hellgrau::Das Innere bleibt in den heißen Sommermonaten kühler, aber nicht zu kalt. In den Wintermonaten kann es etwas wärmer sein.",10,1
+118,118,fr_100119,Schwarz::Berechnen und speichern Sie die durchschnittliche Lufttemperatur für jede Farbe des Deckels.,10,0
+119,119,fr_100120,"Hellgrau::Hellgrau hat im Gegensatz zu Schwarz und Dunkelgrau eine der niedrigsten Lufttemperaturen, was gut ist, da es weniger wahrscheinlich ist, dass sich die Nische überhitzt, vor allem im Sommer. Hellgrau wird die Lufttemperatur in der Hundehütte höher sein als bei Weiß, was in der Wintersaison nützlich ist, damit das Innere der Hundehütte nicht zu kalt wird.",10,2
+140,140,fr_100141,"Weiß::Da die Temperatur von Weiß im Bereich von _40-43 Grad liegt, werden sich die Hunde in der Hundehütte umso wohler fühlen, je höher die Temperatur ist und je kühler es ist.",10,1
+165,165,fr_100166,Weiß::Weiß absorbiert Feuchtigkeit und wirkt sich auf die Inneneinrichtung aus.,10,0
+179,179,fr_100180,"Weiß::Die dunklere Farbe lässt den Hund heller erscheinen. Sie hat genug Kraft, um Energie zu absorbieren, das Experiment wird dunkle Farben in der vorgegebenen Zeit stark vertragen, daher habe ich Schwarz gewählt.",10,1
+187,187,fr_100188,"Weiß::Die weiße Farbe wird die Temperatur nicht beeinflussen, da sie niedrig ist.",10,0
+189,189,fr_100190,"Weiß::Wenn sie die Farbe Weiß wählen, wird das Haus kühler sein und weniger Wärme abgeben. Wenn sie dunklere Farben wählen, wird das Haus heißer und an Sommertagen wird es für den Hund unerträglich, sich im Haus aufzuhalten.",10,1

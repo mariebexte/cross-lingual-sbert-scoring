@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+14,14,zh_010015,(_1) la quantité de pluies acides (2) la quantité de pluies acides doit être suffisante pour que la quantité reflète de manière adéquate,1,1
+53,53,zh_010054,(_1) Corrosion superficielle de ces articles par les pluies acides (2) Mesure de la valeur du pH des articles individuels,1,0
+68,68,zh_010069,(_1) La quantité de vinaigre a-t-elle diminué ? (2) Le vinaigre a-t-il produit des gaz nocifs en réagissant avec les réactifs ? (3) Y a-t-il eu un danger tout au long de l'expérience ?,1,0
+89,89,zh_010090,(_1) Valeur du pH du vinaigre (2) Quantité de vinaigre ajoutée (3) Zone de contact,1,3
+106,106,zh_010107,(_1) Chaque échantillon a-t-il subi un changement chimique ? (2) Quelle était la valeur du pH ? (3) Quelle est la différence exacte entre le vinaigre et les pluies acides sur le matériau ?,1,1
+130,130,zh_010131,(_1) La température ambiante doit être la même (2) L'exposition au soleil doit être la même (3) Les quatre matériaux doivent recevoir la même quantité de vinaigre versé,1,2
+152,152,zh_010153,(_1) Teneur en acide acétique du vinaigre (2) Quantité de vinaigre (3) PH initial,1,2
+157,157,zh_010158,Masse initiale Masse post-expérimentale Différence de masse ,1,0
+163,163,zh_010164,(_1) Des échantillons séparés ont été placés dans de l'eau pure pour former un contrôle (2) Augmenter la concentration de vinaigre lorsque la masse de l'échantillon est constante (3) Augmenter la masse de vinaigre lorsque la masse de l'échantillon est constante,1,0
+179,179,zh_010180,(_1) Re-préparation de 4 échantillons de qualité différente mais identique (2) Re-traitement des échantillons de qualité expérimentalement différente en échantillons de qualité identique (3) Valeur pH du vinaigre (4) Surface de l'échantillon en contact avec le vinaigre,1,2
+184,184,zh_010185,Concentration du vinaigre et quantité,1,1
+186,186,zh_010187,Effet minime des pluies acides sur le bois,1,0
+204,204,zh_010205,"(_1) Le degré d'infiltration de l'objet mesuré (2) La température au moment de la mesure, le taux d'humidité",1,2
+213,213,zh_010214,Il faut également savoir (_1) si la température ambiante au moment du traitement de l'échantillon est constante (2) si la valeur du pH du vinaigre est trop différente de celle des pluies acides (3) si le changement de température a un effet excessif sur le test.,1,1
+221,221,zh_010222,(_1) Tenir compte du changement de température avant et après l'essai (2) si les articles se décolorent (3) si une déformation se produit,1,0
+245,245,zh_010246,Effet des pluies acides sur différents matériaux,1,0
+250,250,zh_010251,(_1) Déterminer la masse de 4 échantillons différents (2) Verser du vinaigre dans 4 récipients identiques (3) Placer un échantillon d'une des matières dans un récipient et l'étiqueter avec les instructions appropriées et faire de même pour les autres échantillons,1,0
+283,283,zh_010284,(_1) Nouveau matériel expérimental choisi pour chaque expérience (2) Observer la couleur de la solution dans le récipient et mesurer la masse (3) Calculer si la concentration de la solution a changé,1,0
+286,286,zh_010287,(_1) L'état de l'échantillon (2) La température au moment de l'expérience (3) La concentration de vinaigre PH,1,3

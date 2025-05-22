@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+24,24,zh_100025,White:: white can reflect light so that the temperature inside the bottle is not too hot The temperature rise in the white bottle is the lowest,10,1
+32,32,zh_100033,"White:: White absorbs less heat and does not cause high temperatures in the kennel, making the dog feel uncomfortable, white absorbs the least heat of the four colors",10,1
+59,59,zh_100060,"White:: white is light in color and has a poor ability to absorb light, which makes the temperature inside the kennel mild and not too hot to affect the dog's sleep. The above data shows that white has the lowest average temperature and is most suitable for dogs.",10,1
+61,61,zh_100062,White:: makes the internal temperature of the kennel lower White has an average temperature of _42°C,10,2
+67,67,zh_100068,Light gray:: summer daytime kennel warming but the temperature rise is not large inside the kennel is not hot winter daytime kennel warming temperature rise is not small kennel warmer _3 experiments in the light gray warming moderate degree,10,2
+74,74,zh_100075,"White:: white absorbs less heat, reflective and beautiful From the above experimental table can be observed that the temperature of white is lower close to the human body temperature, will not cause too much discomfort to the dog.",10,1
+86,86,zh_100087,"White :: white three experiments temperature below _45 ℃ is good for dog survival white kennel does not absorb heat, the internal temperature of the kennel is not high three times the time temperature were 42 ℃, 43 ℃, 41 ℃ average temperature of 42 ℃ in 45 ℃ below the white best",10,1
+93,93,zh_100094,"White:: light shines on the white cover, it absorbs light to make the internal temperature rise, and the reflection makes it cool down.  White average temperature is the lowest and does not fluctuate much, between the biological tolerable range",10,1
+133,133,zh_100134,Dark grey:: stabilizes the air temperature and absorbs more energy to make the kennel more comfortable,10,0
+155,155,zh_100156,White:: The temperature change is smooth and not large,10,0
+178,178,zh_100179,White:: White does not overheat the room when the temperature is high and can make the dog less hot. Paint the kennel white and set the room temperature to _24°C. Turn on the lights in the room and measure the temperature after 10 minutes and record.,10,1
+202,202,zh_100203,"White::The color is applied inside the kennel, the temperature tends to be smooth. Keep the dog kennel dry and cool.",10,0
+208,208,zh_100209,"Dark gray:: the color of the air temperature affected by a certain temperature to remain unchanged, the darker the color the higher the temperature, the light gray temperature change rate is the lowest.",10,0
+216,216,zh_100217,Dark grey:: change the temperature inside the kennel and maintain it at the same temperature Dark grey in test _123 the temperature rises by 24°C and remains at 48°C,10,0
+237,237,zh_100238,"Choose black::Black in winter can make the kennel temperature higher and warmer, the average temperature of black is _53℃.",10,2
+254,254,zh_100255,Black::Place the black lid with the thermometer fixed on the glass bottle to ensure that the temperature inside the bottle is actually _24°C.,10,0
+275,275,zh_100276,Light gray:: the most suitable,10,0
+286,286,zh_100287,White:: White is the lightest color and absorbs the least amount of energy and transmits the least amount of energy to the kennel. White makes the average temperature inside the kennel rise the least.,10,1
+291,291,zh_100292,"White:: White can make the temperature of the kennel is about _42°C. Dogs are constant temperature animals, if the temperature is too high, it will make the dog uncomfortable, so 42°C is the best temperature.",10,1

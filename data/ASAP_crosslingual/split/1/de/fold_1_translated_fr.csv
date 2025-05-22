@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+35,35,de_000036,masse début masse fin matériau,1,0
+49,49,de_000050,"Les matériaux à étudier sont le *marbre, le calcaire, le bois et le plastique*. Indiquez la masse en *grammes*. Indiquez la *différence* de masse entre le début et la fin de l'expérience.",1,0
+50,50,de_000051,La quantité de vinaigre versée dans chaque récipient. Les dimensions exactes des récipients utilisés. La quantité d'eau distillée utilisée pour rincer les échantillons.,1,3
+68,68,de_000069,"pour répéter l'expérience, il faut augmenter la masse. des récipients supplémentaires sont nécessaires.",1,0
+79,79,de_000080,"Déterminer la masse des échantillons, placer les échantillons dans des récipients remplis de vinaigre, après _24 h, retirer et sécher les échantillons et déterminer à nouveau leur masse.",1,0
+95,95,de_000096,"Il me manquait la quantité de vinaigre utilisée dans chaque échantillon, la température à laquelle il a été exposé pendant _40 heures et les types de récipients que j'ai utilisés.",1,2
+107,107,de_000108,"Pesez les _4 échantillons, placez-les individuellement dans des récipients étiquetés contenant du vinaigre. Après 24 heures, retire les échantillons, rince-les et laisse-les sécher pendant 30 minutes, puis pèse-les à nouveau.",1,0
+109,109,de_000110,Comment déterminer la masse ? Comment déterminer le poids final ? Faut-il sécher les échantillons à l'extérieur ou à l'intérieur ?,1,0
+128,128,de_000129,"Il est nécessaire de déterminer : la concentration de vinaigre dans l'expérience, la concentration possible d'acide dans la pluie acide et le changement de masse de chaque échantillon répété après un séchage supplémentaire pendant une heure.",1,1
+141,141,de_000142,Quelle quantité de vinaigre est utilisée ? Quelle est la taille des récipients ?,1,2
+144,144,de_000145,"La teneur réelle en acide acétique du vinaigre utilisé n'est pas prise en compte. Elle varie en fonction de la marque commerciale.  On ne tient pas non plus compte du fait que la teneur en acide est de toute façon beaucoup plus élevée que celle de la pluie acide. L'une des ""erreurs"" de l'expérience réside dans la phase de séchage. Comme les échantillons utilisés ont des capacités d'absorption différentes, le bois, par exemple, mettra beaucoup plus de temps à sécher que le plastique.",1,1
+165,165,de_000166,La température serait peut-être intéressante.,1,0
+192,192,de_000193,"- L'acidité du vinaigre - Les caractéristiques exactes des matériaux, le bois n'est pas le même, etc. - La surface d'attaque de l'acide, le matériau est-il fin et large ou une sphère.",1,3
+204,204,de_000205,Il est nécessaire de connaître la quantité de vinaigre et la taille des récipients et des échantillons de matériaux pour arriver aux mêmes résultats. Il pourrait également être important de savoir si une certaine température est nécessaire pour réaliser l'expérience.,1,2
+226,226,de_000227,"Pour pouvoir répéter l'expérience, il faut connaître les quantités des composants à utiliser. Sans indication de quantité, il n'est pas possible de répéter l'expérience à l'identique.",1,0
+248,248,de_000249,"La surface des matériaux doit être décrite.  Ensuite, il faut encore déterminer l'âge des matériaux. Et il doit y avoir une information sur la personne qui a fait l'expérience.",1,1
+273,273,de_000274,"- Quelle est la quantité de vinaigre utilisée ? - L'échantillon est-il fermé ? - Quelles sont les caractéristiques de l'environnement ? Température, rayonnement solaire, etc.",1,1
+276,276,de_000277,La masse au début de l'échantillon. Le temps pendant lequel ces échantillons ont été placés dans le récipient contenant du vinaigre. La masse à la fin,1,0
+280,280,de_000281,"La forme et la nature des échantillons sont également nécessaires, ainsi que la quantité et le type de vinaigre utilisé (par ex. concentration de l'acide).",1,2

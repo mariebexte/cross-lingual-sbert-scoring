@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+18,18,de_000019,Longer drying times Additional samples: mud/clay Weather,1,0
+20,20,de_000021,-The surface area of the samples -The temperature under which the test was performed -The acidity of the vinegar (specify exactly which vinegar),1,2
+22,22,de_000023,"- how long should the samples be in the container for the second test? - how long should the drying take place, more/less than 30 minutes? - do we use the same type of vinegar?",1,1
+29,29,de_000030,The masses must be determined again. The weight difference should be calculated as a percentage.,1,0
+45,45,de_000046,"The mass of the samples, vinegar, 4 identical containers are needed.",1,0
+67,67,de_000068,"the mass of the 4 different samples, pour vinegar over the samples, determine the weight at the end of the samples",1,0
+111,111,de_000112,"Determine the mass of the four samples. Pour vinegar into each of the four separate, but identical, containers. Remove the samples from the containers after 24 hours and rinse each sample with distilled water. Determine the weight of each sample again.",1,0
+112,112,de_000113,"To repeat the experiment, you need different materials suitable for the experiment and a balance that can accurately determine the weight of the materials. The experiment must be performed in exactly the same time as in the first run.",1,0
+138,138,de_000139,"Marble, limestone, wood, plastic - Mass at the beginning (g) - Vinegar - 24 hours -Leave the samples for 30 minutes to dry - Mass at the end (g) - Difference in mass (g).",1,0
+142,142,de_000143,what was the concentration of the acetic acid? were the samples completely covered with vinegar? how was the humidity in the room?,1,2
+156,156,de_000157,- how to determine the mass - how much vinegar to pour - At what temperature should wait the containers 24 hours.,1,1
+180,180,de_000181,"Type of sample, mass at start, mass at end",1,1
+187,187,de_000188,- Amount of vinegar poured into each container - Type of vinegar used - Difference in mass as a percentage - How containers should be labeled.,1,2
+189,189,de_000190,"1. the mass of the four samples is to be compared before and after the experiment by means of weight determination. 2. four equally sized beakers are filled with the same amount of vinegar, then each beaker is labeled and the respective material is added to it and the sample is left to rest for 24 hours. 3. 3. remove the tested material and let it dry for 30 minutes before determining their weight.",1,0
+223,223,de_000224,what kind of vinegar was used? were the samples completely covered by the vinegar? what are the dimensions of the samples?,1,3
+250,250,de_000251,"Sample, mass at start, mass at end",1,0
+282,282,de_000283,"In addition, samples of the same consistency and size would need to be placed in distilled water/no acid rain in parallel for 24 hours to obtain comparative values. The exact size and surface area of the samples must also be specified.",1,1
+285,285,de_000286,How much vinegar do I need to take Are the samples placed in the container with the vinegar How much distilled water may I use to wash off the sample,1,2
+298,298,de_000299,"Quantity and variety of vinegar, size of samples, size of containers.",1,3

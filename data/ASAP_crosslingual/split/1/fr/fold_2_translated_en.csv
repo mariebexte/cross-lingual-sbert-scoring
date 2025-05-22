@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+15,15,fr_010016,This is the correct procedure.,1,0
+24,24,fr_010025,Find the difference between the indication mass and the final mass for each sample. Which sample had a large mass deviation after _24 hours? Which sample had a small deviation in mass? What conclusion can you draw based on the observations?,1,0
+45,45,fr_010046,Pour vinegar into each of four separate but identical containers.,1,0
+51,51,fr_010052,"- Which vinegar to use (wine, white, cider...)? - At what temperature should the samples be stored and where? - Can we use any type of container (glass, plastic, transparent, opaque,...) ?",1,3
+73,73,fr_010074,I realized that the same amount that was put in the jar was taken away with a minimal difference.,1,0
+87,87,fr_010088,"The question does not make sense, I apologize.  I think you gave us everything we needed except the name of the material?  In that case, I would need a chemistry textbook, or a mass spectrometer to know what the sample material is, right?",1,0
+93,93,fr_010094,"determine the material of the sample, the compatibility of materials with each other, melting point of each material",1,1
+95,95,fr_010096,negative value,1,0
+102,102,fr_010103,volume of vinegar added,1,1
+109,109,fr_010110,There is no additional information,1,0
+114,114,fr_010115,I would need other materials to test to see which materials lose weight when added to vinegar,1,0
+130,130,fr_010131,How much vinegar are they pouring into the containers? Why are the starting weights different? What about leaving the samples for a week?,1,1
+135,135,fr_010136,"In what state should the material be included in the samples (molded, whole, pulverized)? In which container should the samples be dried for _30 minutes? At what temperature should the samples be stored? Where should the samples be weighed?",1,3
+159,159,fr_010160,why is this experiment being done? what is our hypothesis? what results are we looking for?,1,2
+182,182,fr_010183,"Determine what the objects are, see how porous the objects are, and also weigh the vinegar.",1,2
+195,195,fr_010196,"The samples are marble, limestone, wood and plastic. The starting mass of marble is _9.8 g, the mass of limestone is 10.4 g, the mass of wood is 11.2 g and the mass of plastic is 7.2 g",1,0
+200,200,fr_010201,Check the amount of vinegar sample.  Check the amount of material samples.  Clean the container well.,1,2
+235,235,fr_010236,I need to know the density.,1,1
+259,259,fr_010260,"Are the unknown samples solid, liquid or gas?  Are the unknown samples radioactive?  Is the experiment being performed outdoors or indoors?",1,2

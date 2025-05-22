@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+11,11,zh_100012,"Blanc :: : plus la couleur est claire, meilleure est la capacité de dissipation de la chaleur. La moyenne de l'expérience diminue du noir au blanc.",10,2
+19,19,zh_100020,"Gris foncé : il donne un aspect sombre à tout l'intérieur du chenil mais il augmente la température de façon régulière avec un très faible changement de température Après _10 minutes, le couvercle gris foncé est au nombre de trois mais la température expérimentale est la plus stable à 48°C",10,1
+50,50,zh_100051,"Gris foncé: : rend la température à l'intérieur du chenil plus stable et modérée Lorsque le soleil brille, la température correspond et est appropriée Les biomarqueurs du chien ont tendance à se stabiliser",10,1
+52,52,zh_100053,"Blanc : : Grâce à la température uniforme du blanc, l'intérieur du chenil est plus chaud et il y a moins de différence entre la température de départ et la température du chenil.",10,0
+68,68,zh_100069,"Gris foncé : : plus la couleur est foncée, plus l'effet est important",10,0
+81,81,zh_100082,"Blanc : : La température à l'intérieur du chenil augmente avec le temps d'exposition à la lumière, mais elle est relativement faible par rapport aux quatre autres couleurs. Idéal pour les chiots",10,1
+98,98,zh_100099,Noir : : augmente la température interne du chenil et le rend plus chaud. La température interne du chenil est mesurée et remesurée après l'application du noir.,10,1
+102,102,zh_100103,"Blanc : : pas trop chaud, convient aux chiens en raison de leur fourrure épaisse. La température moyenne du blanc est de _42°, ce qui est plus proche de la température quotidienne.",10,1
+140,140,zh_100141,Blanc : : La température à l'intérieur du chenil varie lentement et de façon minimale.,10,0
+142,142,zh_100143,"Blanc : : plus la couleur est claire, meilleure est la capacité de dissipation de la chaleur L'expérience ci-dessus montre que la température moyenne diminue du noir au blanc",10,2
+171,171,zh_100172,Blanc : : La température à l'intérieur du chenil est la plus basse après _10 minutes par rapport aux autres couleurs.,10,1
+180,180,zh_100181,Gris foncé : : cette couleur portera la température à une valeur constante convenant aux chiots Les expériences en gris foncé _1-3 ont abouti à une température de 48°C,10,0
+181,181,zh_100182,"Blanc : : Plus la couleur est claire, moins la différence d'élévation de température est importante. Plus la couleur est foncée, plus l'élévation de température est importante.",10,1
+206,206,zh_100207,"Blanc::augmente la température, mais la température augmente lentementComparer toutes les expériences, l'expérience avec la couverture blanche a mesuré la température la plus basse dans les mêmes _10 minutes.",10,1
+215,215,zh_100216,Gris foncé : : la température à l'intérieur du chenil reste constante pendant une période relativement longue après une petite augmentation de la température.,10,0
+218,218,zh_100219,"Gris clair : : on sait que la température de départ est de _24°C, ce qui signifie que le temps est plus frais et plus confortable à cette période, donc les deux couleurs du milieu semblent modérées, bien que la nuit soit plus fraîche mais le poil du chien est plus long et plus chaud, donc il est préférable d'avoir un gris clair plus frais.",10,0
+239,239,zh_100240,"Noir::Température élevée de l'air, le noir a la température moyenne la plus élevée",10,1
+281,281,zh_100282,"Noir : : Le noir absorbe toutes les ondes lumineuses et ne les reflète pas, ce qui augmente la température à l'intérieur du chenil.",10,2
+306,306,zh_100307,"Blanc : : maintiendra la température du chenil et de l'expérience ci-dessus, on peut conclure que",10,0

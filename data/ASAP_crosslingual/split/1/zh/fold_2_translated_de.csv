@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+26,26,zh_010027,"(_1) Reinigen Sie das Gefäß, das für den Versuch verwendet wird (2) Finden Sie ein Metallmaterial für die Versuchskontrolle (3) Die Menge des Essigs muss ausreichend sein",1,0
+31,31,zh_010032,(_1) Massenanteil der Essigsäure (2) Mittlere bis kurze Dauer des Versuchs (3) Sauberkeit und Unlöslichkeit der Probe selbst,1,1
+43,43,zh_010044,Die Kontaktfläche zwischen jeder Probe und dem Essig und die Menge des Spülwassers Die Temperatur und die Reservebedingungen des Experiments,1,2
+74,74,zh_010075,(_1) Konzentration des Essigs nach dem Experiment (2) ob die gleiche Menge Essig in die vier Becher gegossen wurde (3) Dauer des Eintauchens in den Essig,1,2
+92,92,zh_010093,(_1) die Menge des reduzierten Essigs (2) ob er mit destilliertem Wasser reagiert hat (3) ob er während des Trocknungsprozesses mit anderen Substanzen reagiert hat,1,0
+112,112,zh_010113,(_1) die Menge des Essigs (2) die für den Versuch benötigte Zeit (3) ob die Temperaturen in den vier Behältern gleich waren,1,2
+121,121,zh_010122,(_1) ob die Konzentration des Essigs im Behälter gleich ist (2) die Art des Gesteins (3) die Masse des Gesteins,1,2
+122,122,zh_010123,"Separate Proben wurden in reinem Wasser eingelegt, um eine Kontrolle zu bilden.",1,0
+129,129,zh_010130,(_1) Bestimmen Sie die Masse von vier verschiedenen Proben (2) Lassen Sie die Proben 30 Minuten lang trocknen (3) Bestimmen Sie jetzt erneut die Masse jeder Probe,1,0
+141,141,zh_010142,(_1) Konzentration des Essigs (2) Ob die vier Proben mit der Säure reagierten (3) Ob sich nach der Reaktion eine ausfällende Substanz auf der Oberfläche der Proben befand,1,1
+156,156,zh_010157,Saurer Regen hat fast keine Auswirkungen auf Holzwerkstoffe Größere Auswirkungen auf Steinwerkstoffe Geringere Auswirkungen auf Kunststoffe,1,0
+187,187,zh_010188,(_1) Saurer Regen hat größere Auswirkungen auf Kalkstein (2) Keine Auswirkungen auf Holz (3) Geringere Auswirkungen auf Kunststoff,1,0
+196,196,zh_010197,(_1) die gleiche Menge Essig einfüllen (2) die gleiche Masse der Probe einfüllen (3) das obige Experiment wiederholen,1,1
+208,208,zh_010209,(_1) pH-Wert des Essigs (2) Masse des in jedem Becher enthaltenen Essigs (3) Größe der mit dem Gegenstand in Berührung kommenden Fläche des Essigs,1,3
+233,233,zh_010234,(_1) ob das Volumen des Essigs das Material vollständig bedeckt (2) ob der Essig und der saure Regen chemisch identisch sind (3) ob die Behälter und der Essig sowie das Material vor dem Test vollständig versiegelt wurden,1,1
+242,242,zh_010243,(_1) Zeit (2) Saurer Regen PH (3) Unterschiede in der Beschaffenheit des Materials,1,0
+278,278,zh_010279,(_1) Saurer Regen wirkt am stärksten erosiv auf Kalkstein (2) Ob Holzstämme mit oder ohne Verarbeitung (3) Ob saurer Regen chemisch mit Material reagiert Qualitätskontrolle,1,0
+287,287,zh_010288,Zustand der Probe Konzentration der Säure Dichte der Probe Ob die Probe Verunreinigungen enthält Ob die Probe vollständig in der Säure ist,1,3
+305,305,zh_010306,(_1) Ursachen des sauren Regens (2) ob saurer Regen Holz angreift (3) zukünftige Anwendungen für sauren Regen,1,0

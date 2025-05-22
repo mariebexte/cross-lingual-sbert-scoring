@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+11,11,zh_100012,"Blanco:: cuanto más claro es el color, mejor es la capacidad de disipación del calor. La media del experimento disminuye del negro al blanco.",10,2
+19,19,zh_100020,Gris oscuro:: hace que todo el interior de la jaula parezca oscuro pero aumenta la temperatura de forma constante con muy poco cambio de temperatura Después de _10 minutos la tapa gris oscura es tres pero la temperatura experimental es más estable a 48°C,10,1
+50,50,zh_100051,"Gris oscuro:: hace que la temperatura dentro de la perrera sea más estable y moderada Cuando el sol brilla, la temperatura se ajusta y es adecuada El nivel de biomasa del perro se estabiliza",10,1
+52,52,zh_100053,"Blanco:: Debido a la temperatura uniforme del blanco, el interior de la perrera es más cálido y hay menos diferencia entre la temperatura inicial y la temperatura de la perrera.",10,0
+68,68,zh_100069,"Gris oscuro: cuanto más oscuro sea el color, mayor será el efecto",10,0
+81,81,zh_100082,"Blanco:: La temperatura en el interior de la jaula aumenta con el tiempo de luz, pero es relativamente baja en comparación con los otros cuatro colores. Ideal para cachorros",10,1
+98,98,zh_100099,Negro:: aumenta la temperatura interna de la perrera y la hace más cálida. La temperatura interna de la perrera se mide y se vuelve a medir después de aplicar el negro.,10,1
+102,102,zh_100103,"Blanco:: no es demasiado caluroso, es adecuado para los perros debido a su grueso pelaje. La temperatura media del blanco es de _42°, lo que se aproxima a la temperatura diaria.",10,1
+140,140,zh_100141,Blanco:: La temperatura dentro de la perrera varía lentamente y de forma mínima,10,0
+142,142,zh_100143,"Blanco: cuanto más claro es el color, mejor es la capacidad de disipación del calor El experimento anterior muestra que la temperatura media disminuye del negro al blanco",10,2
+171,171,zh_100172,Blanco:: La temperatura dentro de la perrera es más baja después de _10 minutos en comparación con otros colores,10,1
+180,180,zh_100181,Gris oscuro:: este color llevará la temperatura a un valor constante adecuado para los cachorros Los experimentos en gris oscuro _1-3 dieron como resultado una temperatura de 48°C,10,0
+181,181,zh_100182,"Blanco:: Cuanto más claro sea el color, menor será la diferencia de aumento de temperatura Cuanto más oscuro sea el color, mayor será el aumento de temperatura",10,1
+206,206,zh_100207,"Blanco::aumenta la temperatura, pero la temperatura sube lentamenteComparar cualquiera de los experimentos, el experimento con la cubierta blanca midió la temperatura más baja en los mismos _10 minutos",10,1
+215,215,zh_100216,Gris oscuro: la temperatura en el interior de la perrera se mantiene constante durante un periodo de tiempo relativamente largo tras un pequeño aumento de la temperatura,10,0
+218,218,zh_100219,"Gris claro:: se sabe que la temperatura inicial es de _24°C, lo que significa que el tiempo es más fresco y confortable en esta época, por lo que los dos colores del medio parecen moderados, aunque la noche es más fresca pero el pelo del perro es más largo y cálido, por lo que es mejor un gris claro más fresco",10,0
+239,239,zh_100240,"Negro::Temperatura del aire alta, el negro tiene la temperatura media más alta",10,1
+281,281,zh_100282,"Negro:: El negro absorbe todas las ondas de luz y no las refleja, por lo que aumenta la temperatura en el interior de la caseta.",10,2
+306,306,zh_100307,Blanco:: mantendrá la temperatura de la perrera y del experimento anterior se puede concluir que,10,0

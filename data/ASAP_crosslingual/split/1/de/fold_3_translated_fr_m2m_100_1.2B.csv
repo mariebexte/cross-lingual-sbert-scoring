@@ -1,0 +1,20 @@
+,Unnamed: 0.1,Unnamed: 0,id,text,prompt,score
+0,210,210,de_000211,"Quantité du vinaigre Teneur en acide du vinaigre/type de vinaigre Type précis du matériau (par exemple. bois de chêne, bois de figuier...) Taille du récipient / rapport de la taille du récipient à la quantité de vinaigre utilisée et le cas échéant. La quantité de matériel utilisée",1,3
+1,194,194,de_000195,"quantité de vinaigre, grandeur du récipient, quantité d'eau distillée",1,3
+2,183,183,de_000184,"on a besoin de la masse avant, une balance, un verre, du vinaigre. Ensuite, vous mettez le matériau dans le verre avec du vinaigre et, après une journée, pesez les choses.",1,0
+3,271,271,de_000272,"Quelle épreuve, masse à commencer",1,0
+4,72,72,de_000073,autres types de matériaux doivent être utilisés Moins de matière Moins de matériaux,1,0
+5,55,55,de_000056,Masse d'échantillon au début (g) Masse à la fin (g),1,0
+6,39,39,de_000040,"Lunettes de réactif, autocollants, balances",1,0
+7,78,78,de_000079,Répéter les échantillons à 35 degrés Celsius. Répéter l’essai à minus Celsius.,1,0
+8,209,209,de_000210,"Pour répéter l'expérience, il faut d'abord savoir si les matériaux ne sont pas solubles dans l'eau. ce qui provoque exactement la perte de poids dans la pluie acide et pourquoi cela ne fonctionne pas dans le bois",1,0
+9,191,191,de_000192,- Des données sur les pertes matérielles physiques sont nécessaires pour permettre une vérification préalable du matériau.  - Il est nécessaire d'évaluer l'expérience pendant une période plus longue pour détecter un effet plus prononcé.  - Des répétitions sont nécessaires pour chaque type de matériau (au moins trois) afin que les résultats soient plus précis.,1,0
+10,182,182,de_000183,Retournez le vinaigre dans le récipient. Retour pour attendre 24 heures. Vous devez sécher pendant 30 minutes.,1,0
+11,105,105,de_000106,- Température ambiante - Humidité ambiante - Taille des échantillons,1,1
+12,267,267,de_000268,Poids de départ Type de l'acide Quel type de matériaux nous avons,1,1
+13,224,224,de_000225,"Les types d'échantillons: marbre, calcaire, bois, plastique.",1,1
+14,87,87,de_000088,"Quel était le rinçage, la température à laquelle ils ont été exposés au cours des 24 heures, la quantité de vinaigre qu'ils ont utilisé.",1,1
+15,60,60,de_000061,Les épreuves ont-elles été entourées de vinaigre? A quelle température l’expérience a-t-elle été réalisée? Quelle était la forme des essais? (plus grande surface -> plus d’effet du vinaigre),1,2
+16,205,205,de_000206,"Quantité de vinaigre nécessaire; nature des échantillons de départ (poudre, masse brute, etc.)Est-ce que le vinaigre est synonyme de pluie acide?",1,2
+17,84,84,de_000085,dans combien de vinaigre doit être placé l'échantillon respectif avec combien d'eau détaillée est rincée dans quelles conditions il est séché la balance est séchée,1,2
+18,96,96,de_000097,"Pour effectuer l'expérience, il est nécessaire de savoir quelle est la quantité nécessaire de vinaigre le type de récipient et à quelle température il devrait être fait",1,2

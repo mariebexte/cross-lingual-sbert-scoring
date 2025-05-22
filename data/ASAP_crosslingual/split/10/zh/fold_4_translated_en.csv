@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+11,11,zh_100012,"White:: the lighter the color, the better the heat dissipation ability, the upper experiment from black to white average decreasing",10,2
+19,19,zh_100020,Dark gray:: it makes the whole kennel interior look dim but it raises the temperature steadily and rarely changes the temperature after _10 minutes.,10,1
+50,50,zh_100051,"Dark gray:: makes the temperature inside the kennel more stable and moderate When the sun shines, the temperature matches and is appropriate The dog's biological signs tend to stabilize",10,1
+52,52,zh_100053,"White:: Because of the average temperature of white, the interior of the kennel is warmer and there is not much difference between the starting temperature and the temperature of the kennel, so that there is not too much difference in temperature.",10,0
+68,68,zh_100069,"Dark gray:: the darker the color, the greater the effect",10,0
+81,81,zh_100082,"White:: the temperature inside the kennel will increase with the growth of light time, but compared to the other four colors, the white temperature is relatively low. Suitable for puppies to live",10,1
+98,98,zh_100099,Black:: increases the internal temperature of the kennel and makes it warmer Measure the internal temperature of the kennel and measure the temperature increase again after applying black.,10,1
+102,102,zh_100103,White:: the temperature is not too high for the dog is more suitable because the dog has a thick fur temperature is too high easily heat stroke white average temperature _42 ° closer to the daily temperature,10,1
+140,140,zh_100141,White:: The temperature inside the kennel varies slowly and slightly,10,0
+142,142,zh_100143,"White:: The lighter the color, the better the heat dissipation ability The above experiment, the average temperature decreases from black to white",10,2
+171,171,zh_100172,White:: The temperature inside the kennel is the lowest after _10 minutes compared to other colors,10,1
+180,180,zh_100181,Dark gray:: This color will make the temperature reach a fixed value suitable for puppy living Dark gray experiment _1-3 temperature of 48 ° C,10,0
+181,181,zh_100182,"White:: the lighter the color, the smaller the difference in temperature rise, the darker the color, the greater the temperature rise",10,1
+206,206,zh_100207,"White::raises the temperature, but the temperature rises slowly comparing any one experiment, the experiment with the white lid measured the lowest temperature in the same _10 minutes",10,1
+215,215,zh_100216,Dark gray:: the temperature inside the kennel remains unchanged after a relatively long period of not much temperature increase,10,0
+218,218,zh_100219,"Light gray:: known starting temperature of _24 ℃, it is known that the weather is cooler and more comfortable, choose the middle two colors are moderate, although the night is cooler can be longer dog hair more temperature, so it is better to be cooler light gray",10,0
+239,239,zh_100240,"Black::High air temperature, black average temperature is the highest",10,1
+281,281,zh_100282,"Black:: Black can absorb all the light waves and does not reflect them, thus increasing the temperature inside the kennel. The experimental results show that black is the highest temperature after three repetitions of _10 minutes of light exposure at a starting temperature of 24°C.",10,2
+306,306,zh_100307,"White:: can keep the temperature of the dog house, from the above experiments can be concluded",10,0

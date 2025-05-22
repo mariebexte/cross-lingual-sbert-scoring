@@ -1,0 +1,20 @@
+,Unnamed: 0.1,Unnamed: 0,id,text,prompt,score
+0,64,64,en_cw_000733,blanc : l’utilisation du blanc signifiera que la température de l’air à l’intérieur de la maison sera plus froide car sa température a augmenté le moins pendant l’expérience sous la lampe.,10,2
+1,186,186,en_cw_000862,"noir :: La couleur noire a significativement affecté la température interne dans l'expérience, ayant la plus haute augmentation de température parmi tous les échantillons, car la couleur noire est la plus sombre, par conséquent, il absorbe plus d'énergie et, de cette façon, il génère une plus grande accumulation de chaleur.",10,2
+2,78,78,en_cw_000747,"Une maison de couleur plus foncée sera plus chaude en moyenne qu'une maison de couleur claire, ce qui la rend plus inconfortable pour un chien dans des climats chauds. Ceci est tiré des résultats, qui montrent une diminution de la température de couleurs plus sombres à plus légères. Pour les climats plus froids, une couleur sombre pourrait être préférable.",10,2
+3,31,31,en_cw_000693,"La couleur qui serait la meilleure pour ce produit serait la couleur blanche, car elle donne une température plus basse que les couleurs gris et noir, gardant le corps du chien à une température cordée avec sa température corporelle",10,1
+4,181,181,en_cw_000857,"Noir : Il augmenterait la température en moyenne de 11 * C. Ceci est utile pour les régions plus froides car même avec une lumière solaire limitée, il fournira plus de chaleur. Bien sûr, si le résultat souhaité est de refroidir, alors le blanc doit être utilisé.",10,1
+5,237,237,en_cw_000919,"Selon l’étude, le blanc maintiendrait l’air à l’intérieur de la maison de chiens plus froid, car il refléterait plus d’énergie. Si l'effet souhaité était le contraire (faire la maison de chien plus chaude), alors la meilleure couleur serait le noir",10,1
+6,284,284,en_cw_000966,"blanc :: Selon les résultats, la couleur la plus appropriée serait le blanc, car elle garderait la maison moins chaude que avec le reste des couleurs, la chaleur qui maintient la couleur blanche serait supportable par le chien, les autres couleurs ne le rendraient pas confortable",10,1
+7,175,175,en_cw_000851,"dark_gray :: Les chiens ont une température corporelle plus élevée que les humains. En hiver, ils doivent être chauds, mais la couleur noire n'est pas pour l'été car il sera très chaud dans la maison.",10,1
+8,48,48,en_cw_000713,blanc :: Le blanc indique la température la plus basse dans la maison qui pourrait être plus appropriée pour la condition,10,1
+9,130,130,en_cw_000805,blanc :: Maison de chien peint blanc en été sera aussi cool que possible.,10,1
+10,18,18,en_cw_000677,noir :: noir absorbe toute la lumière de sorte qu'il augmente la température du verre. La lumière fonctionne selon le procédé VIBGYOR.,10,1
+11,52,52,en_cw_000720,"blanc :: Selon les résultats, la couleur blanche provoque moins d'augmentation de la température, c'est-à-dire qu'elle est meilleure pour la maison du chien",10,1
+12,286,286,en_cw_000969,"blanc :: Je choisirais une couleur blanche, car selon l'expérience c'est la couleur qui absorbe moins d'énergie. Mais gardez à l’esprit qu’une maison de chiens n’a pas de lampe et qu’un intérieur blanc va rapidement devenir sale.",10,0
+13,67,67,en_cw_000736,noir : la couleur noire donne le bon moyen de leur donner du repos.,10,0
+14,122,122,en_cw_000793,noir_gray : Oui,10,0
+15,197,197,en_cw_000875,noir :: la raison est lorsque la lampe surchauffe et cela signifie qu'elle devient noire,10,0
+16,290,290,en_cw_000973,light_gray :: Un abri pour le chien doit avoir une isolation adéquate pour protéger l'animal tant de l'humidité du sol que des températures extrêmes.,10,0
+17,75,75,en_cw_000744,blanc :: la couleur blanche rendra la maison plus lumineuse et donc plus spacieuse,10,0
+18,56,56,en_cw_000724,blanc :: blanc me semble la couleur la plus appropriée pour sa clarté,10,0

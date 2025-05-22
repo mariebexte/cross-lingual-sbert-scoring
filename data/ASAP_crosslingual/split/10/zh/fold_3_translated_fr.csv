@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+18,18,zh_100019,"Gris clair : : plus la couleur est foncée, plus l'augmentation de la température est importante Le noir présente la température moyenne la plus élevée et l'augmentation de température la plus importante dans chaque groupe de contrôle.",10,1
+63,63,zh_100064,Gris clair : : les couleurs claires sont lentes à monter en température les gris clairs sont moins susceptibles de monter en température de façon spectaculaire,10,0
+65,65,zh_100066,Noir : : Le noir absorbe la chaleur et est stable en même temps.,10,1
+77,77,zh_100078,"Blanc : : Le blanc rend le chenil beaucoup plus froid que les autres couleurs, ce qui en fait le chenil le plus cool. La température moyenne d'un chenil blanc est inférieure à la température de l'air dans un chenil de toute autre couleur.",10,1
+87,87,zh_100088,"Blanc : : Le blanc a un effet moindre sur la température interne du chenil et ne change pas trop brusquement. Les expériences ont prouvé qu'après un total de _3 expériences, les chenils passés de 24°C à 10 minutes après le changement de température étaient tous plus petits et de couleur plus claire",10,1
+89,89,zh_100090,"Noir ::Le noir absorbe toutes les couleurs de la lumière et la température à l'intérieur du chenil augmente rapidement Couvercle de couleur noire, la température moyenne à l'intérieur du chenil est de _53°C, c'est la plus élevée",10,2
+113,113,zh_100114,Gris foncé : : maintient une température plus constante à l'intérieur du chenil Le gris foncé présente la plus faible variance dans les résultats expérimentaux La température est constante et adaptée au chien.,10,0
+119,119,zh_100120,Blanc : : La température à l'intérieur du chenil ne devient pas trop élevée pendant la journée La température moyenne à l'intérieur de la bouteille blanche est la plus basse,10,2
+124,124,zh_100125,Noir : : Les données ci-dessus montrent la température la plus élevée en noir.  ,10,1
+135,135,zh_100136,Gris foncé : : stabilise la température de l'air et absorbe plus d'énergie pour rendre le chenil plus confortable,10,0
+153,153,zh_100154,Noir : : augmente la température La température en noir est toujours plus élevée,10,1
+166,166,zh_100167,Noir : : augmente la température Noir a la température moyenne la plus élevée,10,2
+179,179,zh_100180,"Gris foncé: : la quantité de chaleur absorbée affectera la température à l'intérieur du chenil, le gris foncé absorbe la chaleur de sorte que la température à l'intérieur du chenil est plus régulière et ne fluctue pas.",10,0
+182,182,zh_100183,Gris foncé : : température de l'air stable,10,0
+186,186,zh_100187,Blanc : : Reflète toute la lumière colorée Température moyenne à _42°C,10,1
+212,212,zh_100213,Blanc::peint en blanc La température à l'intérieur du chenil est relativement stable et modérée Les résultats du test : le chien est confortable et le propriétaire est à l'aise,10,0
+227,227,zh_100228,"Blanc :: : rend la température interne du chenil pas trop élevée, les deux peuvent absorber la préservation de l'énergie lumineuse et pas trop élevée, la température est trop élevée chien sera très chaud",10,1
+229,229,zh_100230,Gris foncé: : la chaleur absorbée par le gris foncé est relativement constante au cours des trois essais et n'est donc pas autant influencée par le monde extérieur.,10,0
+312,312,zh_100313,"Blanc::Parce que le blanc est une couleur claire, l'absorption de la chaleur est moindre par rapport aux autres couleurs foncées ; les autres couleurs sont trop foncées par rapport au blanc.",10,1

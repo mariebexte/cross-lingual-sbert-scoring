@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+49,49,en_cw_000057,no se,1,0
+88,88,en_cw_000099,"Necesitamos saber la masa del vinagre. Todos los demás materiales (mármol, madera, plástico y piedra caliza) se indican en la tabla.",1,0
+101,101,en_cw_000114,Tipo de recipientes para las muestras\nCantidad de vinagre para cada recipiente\nTemperatura media de secado de las muestras,1,2
+102,102,en_cw_000115,"Nunca se dice que la cantidad de vinagre puesta en cada recipiente sea igual. Habría que decirlo.\NTambién necesitaría la temperatura de la habitación, la himidez del aire y una pequeña descripción del material utilizado. Tal vez si el material es muy absorbente, una diferencia en la humedad y temperatura del aire podría influir en los resultados.",1,2
+112,112,en_cw_000127,El ph/concentración de la solución de vinagre.\N-La cantidad de vinagre añadida a los recipientes.\N-El tipo de plástico utilizado en el experimento.,1,1
+115,115,en_cw_000130,"Hay que saber la cantidad de vinagre que hay que añadir a cada muestra, hay que registrar la temperatura porque puede afectar a la acción del vinagre. También necesitas saber la cantidad de agua con la que se enjuagan las muestras.",1,1
+129,129,en_cw_000149,¿De qué tamaño deben ser los recipientes?\N¿Cuánto vinagre debo echar en los recipientes?\N¿Cuál debe ser el tamaño de las muestras de los diferentes materiales?,1,3
+131,131,en_cw_000151,¿Qué vinagre utilizar? ¿Cuál es el tamaño de cada recipiente? Se necesita una balanza digital para el pesaje?,1,2
+146,146,en_cw_000167,Otra muestra diferente\n vinagre\n tiempo adicional,1,0
+171,171,en_cw_000192,"en las muestras podemos observar que la madera mantuvo su misma masa, mientras que en las otras pruebas hubo una pequeña fracción de pérdida en algunos elementos.",1,0
+172,172,en_cw_000193,¿De qué tipo de árbol se trata? ¿Cuál es el grosor de las muestras? ¿Cuánto es el vinagre?,1,1
+186,186,en_cw_000208,aumentar el tamaño de la muestra\nVerificar que las muestras estén completamente cubiertas por el vinagre,1,0
+203,203,en_cw_000225,"Necesitaría saber qué tipo de vinagre se utiliza, ya que hay diferentes tipos con diferentes potencias que podrían afectar al resultado. Creo que hay que hacer hincapié en que las muestras sólo se enjuagan y no se limpian con una toalla, ya que eso también podría afectar al resultado, así como en el tiempo de enjuague de las muestras. Cuanto más largo sea el enjuague, más masa podría eliminarse.",1,2
+220,220,en_cw_000244,Madera,1,0
+229,229,en_cw_000257,Saber cuánto vinagre se utilizó en cada recipiente.\N-Saber qué tipo de vinagre se utilizó en cada recipiente.\N-Saber qué materiales probar.,1,3
+246,246,en_cw_000274,mármol,1,0
+263,263,en_cw_000291,"Coloque una muestra de un material en un recipiente y etiquételo. Repita con las muestras restantes, colocando una sola muestra en un solo recipiente\nDeje que las muestras se asienten y sequen durante 30 minutos.",1,0
+274,274,en_cw_000302,Tres termómetros idénticos: se suspenden en los contenedores para poder medir la temperatura del agua.,1,0
+291,291,en_cw_000321,Teoría sobre el deterioro de los materiales por la lluvia ácida y ritmo en que se producirá. Información previa sobre otros experimentos. El tamaño de las muestras.,1,1

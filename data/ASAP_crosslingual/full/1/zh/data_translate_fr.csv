@@ -1,0 +1,315 @@
+,id,text,prompt,score
+0,zh_010001,(_1) Echantillons de même masse initiale (2) Acide acétique de même pH (3) Précaution et responsabilité,1,1
+1,zh_010002,Assurez-vous que les quatre matériaux sont également secs et humides avant l'expérience Un certain volume de vinaigre est versé dans chaque récipient Les quatre matériaux sont dans le même environnement,1,3
+2,zh_010003,(_1) vous devez vous assurer que l'expérience est réalisée avec certaines variables (2) vous assurer que l'expérience n'est pas affectée par d'autres facteurs (3) considérer l'échantillon expérimental lui-même,1,0
+3,zh_010004,A : (_1) la température de l'air (2) le volume de vinaigre introduit (3) le temps d'écouvillonnage avec de l'eau distillée,1,3
+4,zh_010005,(_1) volume avant l'expérience volume après l'expérience (2) couleur et état avant l'expérience couleur et état après l'expérience,1,1
+5,zh_010006,(_1) si la quantité de vinaigre introduite était la même (2) si le dispositif expérimental était étanche (3) si le fonctionnement du processus posait des problèmes (4) si le choix des matériaux était typique (5) si le pH était légèrement différent entre le vinaigre et la pluie acide.,1,2
+6,zh_010007,(_1) la quantité de vinaigre introduite doit être la même (2) le matériel expérimental est choisi de manière à ce que la teneur en impuretés soit faible (3) le contrôle de l'environnement externe est maintenu constant.,1,3
+7,zh_010008,(_1) même masse de marbre calcaire plastique bois pour la première expérience (2) quatre autres récipients identiques à la première expérience (3) préparer du vinaigre et de l'eau distillée (4) volume des substances et surface de contact (5) quantité de vinaigre,1,3
+8,zh_010009,(_1) s'il a été dissous avec du vinaigre (2) s'il a été réchauffé (3) s'il y a eu précipitation,1,0
+9,zh_010010,(_1) Garder l'expérience comme une seule variable Choisir des objets de même volume et de même taille (2) L'environnement externe doit être le même,1,2
+10,zh_010011,(_1) Papier test PH Déterminer si le pH du vinaigre est le même (2) Corrosion de l'échantillon,1,1
+11,zh_010012,(_1) concentration de vinaigre (2) force de l'acidité (3) surface de la substance dans chaque récipient,1,2
+12,zh_010013,(_1) PH de l'échantillon de vinaigre,1,1
+13,zh_010014,(_1) Concentration suffisante de poudre alcaline d'acide à l'intérieur du matériau à polymériser,1,0
+14,zh_010015,(_1) la quantité de pluies acides (2) la quantité de pluies acides doit être suffisante pour que la quantité reflète de manière adéquate,1,1
+15,zh_010016,(_1) le pH de la solution (2) la concentration de la solution (3) la masse de la solution,1,2
+16,zh_010017,(_1) la masse du vinaigre après l'expérience (2) la taille du vinaigre absorbé par chaque masse (3) la présence d'impuretés,1,1
+17,zh_010018,(_1) pH du vinaigre (2) Surface de contact du matériau avec le vinaigre (3) Température ambiante,1,3
+18,zh_010019,(_1) pH du vinaigre (2) Surface du matériau d'essai (3) Masse du vinaigre ajouté à chaque fois,1,3
+19,zh_010020,(_1) pH taille du vinaigre (2) état de l'échantillon (3) densité de l'échantillon,1,1
+20,zh_010021,(_1) Température relative de l'air au moment des deux mesures Humidité Pression et autres facteurs (2) Présence d'une sorte de réaction d'acide acétique à la surface de l'objet Proche de donner naissance à une substance qui peut réagir avec le matériau mesuré (3) Si le matériau est aussi sec après le lavage qu'avant l'expérience,1,1
+21,zh_010022,(_1) si d'autres substances sont attachées à la bille (2) si le vinaigre réagit complètement avec les réactifs (3) si la mesure est faussée.,1,0
+22,zh_010023,"(_1) En mesurant l'échantillon avant l'expérience, assurez-vous qu'il n'y a pas d'impuretés à la surface de l'échantillon (2) Versez un volume égal de vinaigre et qu'il utilise la même fraction de masse (3) En mettant son échantillon à sécher, assurez-vous que l'échantillon ne réagit pas avec les ingrédients dans l'air Augmentation ou diminution de la masse",1,2
+23,zh_010024,si l'échantillon continuera à s'acidifier après l'expérience.,1,0
+24,zh_010025,(_1) il faut verser le même volume de vinaigre (2) le même volume d'échantillon et le laisser s'enfoncer complètement dans le vinaigre (3) la masse de l'échantillon avant qu'il ne sèche,1,2
+25,zh_010026,(_1) temps d'immersion (2) température de la solution (3) température ambiante à ce moment-là,1,2
+26,zh_010027,(_1) nettoyer le récipient utilisé pour l'expérience (2) trouver du matériel métallique pour le contrôle expérimental (3) la quantité de vinaigre doit être suffisante,1,0
+27,zh_010028,(_1) si la température ambiante a un effet sur l'expérience (2) si la quantité de vinaigre est la même dans chaque récipient (3) si du gaz est produit lorsque le vinaigre réagit avec le matériau (4) si des objets extérieurs réagissent avec le matériau pendant le processus de séchage et en augmentent la masse.,1,2
+28,zh_010029,(_1) la concentration du vinaigre (2) la densité de chaque élément (3) la consommation éventuelle de masse pendant le processus de séchage,1,1
+29,zh_010030,(_1) s'assurer que les 4 matériaux sont également secs et humides avant l'expérience (2) que le volume de vinaigre versé dans chaque récipient est une certaine quantité (3) que les quatre matériaux sont dans le même environnement lorsque l'expérience est réalisée.,1,3
+30,zh_010031,"(_1) surface de contact entre l'échantillon et le vinaigre (2) état physique de l'échantillon (poudre, grumeau, etc.) (3) méthode de brossage (outil de force)",1,3
+31,zh_010032,(_1) Fraction massique de l'acide acétique (2) Durée moyenne à courte de l'expérience (3) Propreté et insolubilité de l'échantillon lui-même,1,1
+32,zh_010033,(_1) Des volumes différents pour les quatre échantillons différents (2) La même concentration de contenu de vinaigre dans les quatre récipients (3) Le scellement des récipients,1,2
+33,zh_010034,(_1) la masse de vinaigre dans chaque récipient (2) la présence de substances dans les échantillons qui peuvent réagir avec l'acide acétique,1,1
+34,zh_010035,Principe de la corrosion des objets par le vinaigre Dureté des différents matériaux Valeur du pH du vinaigre,1,1
+35,zh_010036,(_1) Matériau du récipient (2) Quantité de vinaigre versée dans les quatre récipients (3) Si le résidu a été éliminé lors du nettoyage.,1,2
+36,zh_010037,(_1) valeur du pH des pluies acides (2) durée de la réaction (3) quantité de pluies acides,1,2
+37,zh_010038,Forme de l'échantillon Volume Température,1,2
+38,zh_010039,(_1) si l'acidité est du même degré (2) si l'air est isolé L'eau contenue dans l'air dilue le vinaigre (3) si la matière est authentique,1,1
+39,zh_010040,(_1) Le pH et la teneur de la solution de vinaigre (2) Si l'objet est sensible à la corrosion et à la réaction avec celle-ci (3) Si un groupe témoin est nécessaire,1,1
+40,zh_010041,(_1) Quelle est la masse de chaque échantillon après qu'il ait été laissé pendant (2) 4 heures dans des conditions normales (2) Quel est le pH de la pluie acide ?,1,1
+41,zh_010042,"(_1) pH du vinaigre utilisé dans l'expérience (2) volume de vinaigre versé dans le récipient (3) absence de collecte d'échantillons pour l'expérience, par exemple texture du marbre, matière plastique et couleur, type de bois, etc.",1,3
+42,zh_010043,(_1) si la même quantité de vinaigre a été versée dans chaque récipient (2) si l'échantillon qui a été rincé et séché contenait encore du vinaigre (3) la quantité d'acide dans le vinaigre,1,2
+43,zh_010044,La surface de contact entre chaque échantillon et le vinaigre et la quantité d'eau de rinçage La température et les conditions de réserve de l'expérience,1,2
+44,zh_010045,Le niveau de pH du vinaigre Ce qui affecte le plus les quatre échantillons Le fait de garder le matériel original intact devrait permettre de le reproduire.,1,1
+45,zh_010046,(_1) Nécessité de connaître le pH du vinaigre (2) Nécessité de savoir si la taille de la surface de contact avec le vinaigre est la même pour chaque matériau (3) Nécessité de savoir si l'une des substances individuelles a réagi en plus avec les composés du vinaigre avant et après la réaction.,1,2
+46,zh_010047,(_1) Le pH du vinaigre (2) La quantité de vinaigre dans les 4 récipients identiques (3) Le pH de chaque récipient lui-même,1,2
+47,zh_010048,(_1) si l'échantillon contient des impuretés (2) la concentration du vinaigre (3) si l'échantillon est complètement séché à l'air après avoir été laissé (4) s'il est remué,1,3
+48,zh_010049,(_1) CO2 KNO3 HCL Masse de vinaigre ajouté (2) Temps (3) Même température,1,1
+49,zh_010050,"(_1) si les 4 échantillons ont été brossés avant le début de l'expérience, s'ils étaient secs (2) le pH du vinaigre (3) si le vinaigre a submergé les 4 échantillons et si le volume des 4 échantillons était le même",1,3
+50,zh_010051,"(_1) la quantité de vinaigre à uniformiser (2) l'intensité de la lumière, le moment et le lieu (3) le degré de rinçage, qu'il soit brut ou fin",1,2
+51,zh_010052,(_1) Composition chimique de l'échantillon (2) Volume de vinaigre versé (3) Composition différente des pluies acides et du vinaigre,1,2
+52,zh_010053,(_1) Principaux constituants de l'échantillon (2) Valeur du pH de la pluie acide (3) Degré d'endommagement de l'article,1,2
+53,zh_010054,(_1) Corrosion superficielle de ces articles par les pluies acides (2) Mesure de la valeur du pH des articles individuels,1,0
+54,zh_010055,(_1) Contrôle de l'effet de la température sur l'expérience (2) Expériences multiples pour rendre les résultats plus fiables (3) Qualité des matériaux,1,1
+55,zh_010056,(_1) Si des impuretés sont produites,1,0
+56,zh_010057,(_1) La quantité de vinaigre dans la solution (2) La surface de l'article,1,2
+57,zh_010058,(_1) Ajuster le pH du matériau avec une solution alcaline (2) Ne pas attendre le séchage à l'air libre Séchage manuel,1,0
+58,zh_010059,(_1) Même masse d'échantillon à prélever à chaque fois (2) Même temps de rinçage à l'eau distillée (3) Si le processus de séchage nécessite un contact avec l'air,1,1
+59,zh_010060,(_1) Différents niveaux de vinaigre dans les béchers de l'expérience originale Plusieurs expériences requises (2) Différentes propriétés des matériaux (3) Changer le moment de l'expérience,1,1
+60,zh_010061,(_1) Le pH du vinaigre doit être proche de celui des pluies acides (2) L'eau distillée brosse le vinaigre pour qu'il soit complètement éliminé (3) L'opération n'est pas incorrecte lorsqu'on mesure la masse,1,0
+61,zh_010062,(_1) Avoir la même masse initiale de réactifs pour chaque matériel expérimental (2) La concentration de vinaigre utilisé PH doit être similaire à celle des pluies acides (3) Si le volume de vinaigre est le même ④ Quel est le PH du vinaigre,1,2
+62,zh_010063,"(_1) si les matériaux sont initialement mutilés, rouillés, etc. (2) si les autres conditions externes sont maintenues constantes lors de l'expérience (3) quelle est la valeur générale de l'effet des pluies acides sur les matériaux.",1,2
+63,zh_010064,"La corrosion causée par l'acide laisse-t-elle un nouveau matériau à la surface de l'échantillon ? Si le matériau produit se lie étroitement à l'échantillon, l'expérience est incorrecte et doit être améliorée.",1,0
+64,zh_010065,(_1) le pH du vinaigre versé (2) la quantité de vinaigre ajoutée goutte à goutte (3) la durée du brossage à l'eau distillée,1,3
+65,zh_010066,La concentration d'acide La présence d'autres substances dans l'échantillon Un groupe témoin doit être constitué pour les tests de comparaison.,1,2
+66,zh_010067,(_1) Concentration du vinaigre (2) Détermination de la quantité de vinaigre versée dans chaque récipient (3) Température de l'air de l'environnement d'essai,1,3
+67,zh_010068,(_1) La quantité de vinaigre dans chaque récipient est-elle égale (2) La surface de chaque échantillon en contact avec le vinaigre est-elle la même (3) Chaque échantillon sèche-t-il après 30 minutes (4) Le type de vinaigre est-il le même ?,1,3
+68,zh_010069,(_1) La quantité de vinaigre a-t-elle diminué ? (2) Le vinaigre a-t-il produit des gaz nocifs en réagissant avec les réactifs ? (3) Y a-t-il eu un danger tout au long de l'expérience ?,1,0
+69,zh_010070,(_1) La quantité de vinaigre dans l'échantillon (2) La dureté de l'échantillon avant et après l'expérience,1,1
+70,zh_010071,(_1) si la teneur en vinaigre était la même si l'effet était satisfaisant (2) si la matière contenait de nouvelles impuretés (3) si d'autres réactions étaient incluses dans le processus de réaction,1,2
+71,zh_010072,(_1) Volume de vinaigre (2) Concentration de vinaigre PH (3) Matériau du matériel à tester,1,3
+72,zh_010073,(_1) pH de l'acide (2) Qualité de l'acide,1,2
+73,zh_010074,(_1) Environnement propre et vide (2) Echantillon et équipement expérimental propres (3) Même masse de vinaigre mise sur différents échantillons,1,1
+74,zh_010075,(_1) concentration du vinaigre après l'expérience (2) si la même quantité de vinaigre a été versée dans les quatre béchers (3) temps passé immergé dans le vinaigre,1,2
+75,zh_010076,(_1) le pH du vinaigre (2) si l'échantillon contenait des impuretés (3) si l'échantillon a été exposé à l'oxygène et si de nouvelles substances se sont formées après avoir été abîmées (4) si la même quantité de vinaigre a été versée dans le récipient.,1,3
+76,zh_010077,(_1) Le pH du vinaigre (2) La quantité versée dans chaque récipient (3) La concentration du vinaigre versé dans le récipient,1,2
+77,zh_010078,PH du vinaigre Masse du vinaigre versé dans le récipient Concentration du vinaigre versé dans le récipient,1,2
+78,zh_010079,(_1) le pH du vinaigre (2) si le matériau a été immergé dans le vinaigre (3) si le vinaigre a été exposé à la lumière directe du soleil et si le récipient était couvert  ,1,2
+79,zh_010080,"(_1) la présence éventuelle d'adhérents à la surface du marbre, du calcaire et du plastique (2) le type et les caractéristiques du bois (3) la durée de vie du vinaigre et la production éventuelle de nouvelles substances",1,1
+80,zh_010081,(_1) Échantillonnage des pluies acides dans différentes régions (2) et conception d'expériences (3) et observation des effets des pluies acides sur le milieu biologique environnant.,1,0
+81,zh_010082,(_1) si le matériel expérimental est suffisant pour un usage multiple (2) pour déterminer si l'environnement expérimental est le même que la première fois (3) si l'acidité a un effet sérieux sur le matériel,1,2
+82,zh_010083,(_1) Les conditions de température pendant l'expérience doivent être des variables contrôlées (2) Il faut également savoir si chaque matériau est affecté pendant le processus de sortie pour le séchage (3) Le degré de résistance aux pluies acides de chaque matériau.,1,2
+83,zh_010084,(_1) la masse de vinaigre versée dans le récipient (2) la production ou non d'un produit après l'expérience (3) le volume de la capacité,1,1
+84,zh_010085,"(_1) Il faut choisir un échantillon approprié pour le contrôle (2) Il faut verser la masse de vinaigre dans l'échantillon, tous à la même concentration (3) Il faut placer l'objet dans le même environnement pendant 30 minutes pour le faire sécher",1,2
+85,zh_010086,(_1) quatre échantillons (2) vinaigre versé dans l'échantillon et la balance (3) eau distillée,1,2
+86,zh_010087,(_1) Un papier blanc sans taches a été obtenu (2) La masse du papier a été calculée (3) Le vinaigre a été versé sur le papier et la masse a été déterminée après 24h,1,0
+87,zh_010088,(_1) la concentration d'acide acétique dans la solution (2) la masse des principaux composants dans chaque type d'objet (3) le volume de vinaigre versé à chaque fois,1,3
+88,zh_010089,(_1) Type de vinaigre (2) Masse de vinaigre versée dans chaque récipient (3) Type et taille du récipient,1,3
+89,zh_010090,(_1) Valeur du pH du vinaigre (2) Quantité de vinaigre ajoutée (3) Zone de contact,1,3
+90,zh_010091,(_1) Contenu du vinaigre (dans l'échantillon) (2) Si le vinaigre contenu dans l'échantillon expérimental a été nettoyé ou non (3) Volume des différents échantillons,1,2
+91,zh_010092,(_1) à quel point les 4 échantillons étaient secs ou humides à l'origine (2) s'ils pouvaient tous être séchés à l'air libre en 30 minutes (3) si l'opération de shabbing avec de l'eau distillée avait un quelconque effet sur l'expérience.,1,2
+92,zh_010093,(_1) la quantité de vinaigre réduite (2) s'il a réagi avec l'eau distillée (3) s'il a réagi avec d'autres substances pendant le processus de séchage,1,0
+93,zh_010094,(_1) le rôle du vinaigre (2) la forme initiale (3) le rôle de l'eau distillée (4) si l'eau distillée a eu un effet sur le matériau (5) si le matériau a réagi avec le vinaigre,1,0
+94,zh_010095,(_1) Ajout de quantités égales de vinaigre (2) Triage (3) Rinçage répété à l'eau distillée (4) Passage à des substances d'acidité différente pour plusieurs expériences,1,1
+95,zh_010096,(_1) teneur en vinaigre de chaque récipient (2) surface de contact de chaque échantillon avec le vinaigre (3) si la masse initiale de chaque échantillon était une masse sèche (4) densité de chaque échantillon,1,3
+96,zh_010097,Informations supplémentaires (_1) la quantité de vinaigre consommée par chaque échantillon différent (2) si des impuretés seront produites,1,1
+97,zh_010098,(_1) Même température (2) État du plastique (3) Masse du matériau,1,1
+98,zh_010099,(_1) Masse de vinaigre versée (2) pH du vinaigre,1,2
+99,zh_010100,(_1) volume des pluies acides (2) si la surface du bois est couverte ou non (3) si le type de plastique est le même,1,2
+100,zh_010101,"(_1) Suivre la méthode de la variable contrôlée (2) Mêmes matériaux, mêmes étapes (3) Suivre les règles de l'expérience",1,0
+101,zh_010102,"(_1) Le bois ne sèche pas facilement et doit être pesé après s'être assuré qu'il est complètement sec, y compris du côté du grain. (2)Le volume des quatre matériaux, la surface, c'est-à-dire la forme et la taille, doivent de préférence être les mêmes (3)L'environnement de placement est le même pour éviter que la température ne soit trop élevée pour que le vinaigre joue.",1,3
+102,zh_010103,(_1) Prendre le même échantillon pour la même expérience (2) L'échantillon doit être le même que le précédent La procédure expérimentale est également la même que ci-dessus (3) Le récipient doit être brossé et nettoyé après usage pour réaliser l'expérience,1,1
+103,zh_010104,"Pesez la masse du liquide dans le récipient, puis pesez la masse du liquide dans le récipient après l'expérience, pour comparaison.",1,0
+104,zh_010105,(_1) La masse initiale de l'échantillon est contrôlée pour être la même (2) La concentration du vinaigre est la même (3) L'environnement interne et externe est maintenu identique lors de la mise en place.,1,2
+105,zh_010106,Les réactifs ne réagiront pas avec autre chose que le vinaigre Contrôle d'une seule variable afin que les substances des réactifs soient toutes de masse égale Le vinaigre est versé en quantités égales,1,1
+106,zh_010107,(_1) Chaque échantillon a-t-il subi un changement chimique ? (2) Quelle était la valeur du pH ? (3) Quelle est la différence exacte entre le vinaigre et les pluies acides sur le matériau ?,1,1
+107,zh_010108,"Le vinaigre de contrôle peut avoir la même concentration ; la masse après avoir été séchée, l'eau distillée a la même concentration.",1,1
+108,zh_010109,(_1) la forme des quatre échantillons et leurs surfaces (2) si les températures sont les mêmes (3) l'acidité du vinaigre,1,3
+109,zh_010110,Re-sélection et pesée des échantillons Re-remplacement de l'acide acétique,1,0
+110,zh_010111,(_1) Le degré d'endommagement de la surface (2) Le changement de couleur de la surface de la substance,1,1
+111,zh_010112,(_1) Le volume initial et la magnitude de la densité des quatre échantillons (2) Si le pH de la pluie acide était égal dans chaque expérience (3) Si la température dans les quatre récipients était la même,1,3
+112,zh_010113,(_1) la quantité de vinaigre (2) le temps consommé par l'expérience (3) si les températures dans les quatre récipients étaient identiques,1,2
+113,zh_010114,(_1) valeur du pH des pluies acides (2) composition des pluies acides (3) composition et densité des substances dans l'échantillon zone de contact entre l'échantillon et le vinaigre,1,3
+114,zh_010115,(_1) Valeur du pH de la pluie acide (2) Composition de la pluie acide (3) Composition du matériau,1,3
+115,zh_010116,(_1) La quantité de vinaigre versée dans les quatre récipients (2) La taille des particules des quatre matériaux (3) La différence entre le vinaigre et la composition des pluies acides,1,2
+116,zh_010117,(_1) pH de la pluie acide (2) Forme de l'échantillon (3) Température du récipient,1,3
+117,zh_010118,(_1) La masse du récipient (2) La masse de l'acide acétique (3) S'il y aura une réaction chimique qui entraînera un changement de masse,1,2
+118,zh_010119,(_1) choisir des matériaux différents (2) augmenter la masse initiale (3) augmenter le type d'échantillon,1,0
+119,zh_010120,Masse de vinaigre ajouté,1,1
+120,zh_010121,Quantité de pluie acide pH,1,2
+121,zh_010122,(_1) si la concentration de vinaigre dans le récipient est la même (2) le type de roche (3) la masse de la roche,1,2
+122,zh_010123,Des échantillons séparés ont été mis dans de l'eau pure pour former un contrôle.,1,0
+123,zh_010124,(_1) Comparer la différence de masse entre la masse de l'échantillon mesurée à nouveau et la masse initiale (2) la masse du marbre (3) le volume du calcaire,1,1
+124,zh_010125,Volume de l'échantillon Surface et valeur du pH,1,2
+125,zh_010126,(_1) eau distillée (2) bécher (3) vinaigre,1,0
+126,zh_010127,Eau distillée Bécher Vinaigre ,1,0
+127,zh_010128,PH des pluies acides Contenu des pluies acides Volume d'eau Durée d'exposition de l'échantillon au vent et au soleil   ,1,1
+128,zh_010129,(_1) Quantité de pluie acide ajoutée (2) Degré de corrosion du matériau (3) Temps de corrosion par la pluie acide,1,1
+129,zh_010130,(_1) Déterminez la masse de quatre échantillons différents (2) Laissez les échantillons sécher pendant 30 minutes (3) Déterminez à nouveau la masse de chaque échantillon maintenant.,1,0
+130,zh_010131,(_1) La température ambiante doit être la même (2) L'exposition au soleil doit être la même (3) Les quatre matériaux doivent recevoir la même quantité de vinaigre versé,1,2
+131,zh_010132,(_1) Le pH du vinaigre (2) La température du milieu (3) La durée de l'expérience,1,2
+132,zh_010133,(_1) Papier PH pour mesurer la valeur PH (2) Tube à essai (3) Fiole jaugée,1,0
+133,zh_010134,(_1) Contrôler l'effet de la température sur l'expérience (2) Multiplier les expériences pour rendre les résultats plus précis (3) Observer les résultats des différences de qualité toutes les quelques heures,1,1
+134,zh_010135,(_1) Type de vinaigre (2) Quantité de vinaigre versée (3) Outils pour le brossage,1,3
+135,zh_010136,(_1) Concentration et quantité de vinaigre versé Combien de litres exactement (2) Quel était le pH du vinaigre (3) Température de la pièce,1,3
+136,zh_010137,(_1) La masse de l'échantillon avant et après le lavage à l'eau distillée (2) L'évaporation des différents matériaux expérimentaux (3) L'effet de la masse sur l'expérience,1,0
+137,zh_010138,(_1) Masse de la solution de vinaigre versée (2) Densité de chaque échantillon de matériau (3) Temps de rinçage,1,2
+138,zh_010139,(_1) Densité (2) Masse du vinaigre ajouté et teneur en acide acétique dans celui-ci,1,2
+139,zh_010140,(_1) Changement de pH avant et après le vinaigre (2) Volume de l'objet Changement de,1,1
+140,zh_010141,(_1) Quantité de vinaigre (2) Présence de lie dans le vinaigre (3) Forme et taille de l'échantillon,1,2
+141,zh_010142,(_1) Concentration du vinaigre (2) Réaction des quatre échantillons à l'acide (3) Présence d'une substance précipitante à la surface des échantillons après la réaction,1,1
+142,zh_010143,(_1) Concentration du vinaigre (2) Force de l'acide (3) Surface de l'article,1,2
+143,zh_010144,(_1) La concentration d'acide acétique réagit de la même manière (2) Définir l'effet de différentes concentrations d'acide acétique sur la même masse de matériau ; même type de matériau,1,0
+144,zh_010145,(_1) Peser les mêmes quatre tasses de vinaigre Assurer la même quantité de vinaigre,1,1
+145,zh_010146,(_1) si l'échantillon contient des impuretés (2) si un catalyseur est ajouté (3) si la concentration de vinaigre est la même pour chaque expérience 4 si l'agitation est effectuée,1,2
+146,zh_010147,(_1) Le degré de séchage du matériau (2) La présence d'autres matériaux attachés au matériau après son séchage (3) L'isolement du matériau par rapport à l'air.,1,1
+147,zh_010148,(_1) Sceller la bouteille (2) Volume du marbre (3) Couleur du calcaire,1,1
+148,zh_010149,(_1) Quantité de pluies acides ajoutées (2) Degré de corrosion du matériau (3) Temps de corrosion par les pluies acides,1,1
+149,zh_010150,(_1) Degré massique de réduction du vinaigre respectivement (2) Concentration massique de chaque matériau (3) Concentration massique du vinaigre,1,2
+150,zh_010151,Volume de marbre Masse de calcaire Masse de plastique,1,1
+151,zh_010152,Masse originale de marbre Masse originale de calcaire Masse originale de bois,1,0
+152,zh_010153,(_1) Teneur en acide acétique du vinaigre (2) Quantité de vinaigre (3) PH initial,1,2
+153,zh_010154,PH initial Niveau de lumière initial Température initiale,1,2
+154,zh_010155,Volume de chaque échantillon Masse du vinaigre Concentration du vinaigre,1,3
+155,zh_010156,(_1) Concentration du vinaigre (2) Température du vinaigre (3) Temps de trempage,1,2
+156,zh_010157,Les pluies acides n'ont presque aucun effet sur les matériaux en bois Un effet plus important sur les matériaux en pierre Un effet moindre sur les plastiques,1,0
+157,zh_010158,Masse initiale Masse post-expérimentale Différence de masse ,1,0
+158,zh_010159,Même masse initiale Unité plus petite,1,0
+159,zh_010160,Besoin de surface de contact de chaque matériau avec les pluies acides Concentration des pluies acides Masse du matériau Volume ainsi que densité,1,3
+160,zh_010161,Variation de la concentration des pluies acides,1,0
+161,zh_010162,Humidité de l'air Température Pression atmosphérique La gravité de la Terre est-elle standard ?,1,1
+162,zh_010163,(_1) Différence entre le vinaigre et les pluies acides (2) PH du vinaigre et PH des pluies acides (3) Si les quatre matériaux sont les mêmes sauf que les matériaux sont différents,1,2
+163,zh_010164,(_1) Des échantillons séparés ont été placés dans de l'eau pure pour former un contrôle (2) Augmenter la concentration de vinaigre lorsque la masse de l'échantillon est constante (3) Augmenter la masse de vinaigre lorsque la masse de l'échantillon est constante,1,0
+164,zh_010165,(_1) Surface de l'échantillon (2) Volume de l'échantillon (3) Densité de l'échantillon,1,2
+165,zh_010166,(_1) si les masses des échantillons sont les mêmes (2) si les concentrations de vinaigre sont les mêmes (3) si la température est appropriée.,1,2
+166,zh_010167,(_1) Concentration des pluies acides (2) Masse des pluies acides (3) Température des pluies acides,1,3
+167,zh_010168,(_1) pH de la pluie acide (2) Quantité de pluie acide ajoutée par gouttes (3) Pour éliminer complètement l'eau,1,2
+168,zh_010169,(_1) pH des pluies acides (2) Concentration des pluies acides (3) Volume de vinaigre utilisé,1,2
+169,zh_010170,Prendre la même masse de substance et mesurer la masse après l'avoir trempée dans du vinaigre de même concentration pendant des temps différents Prendre la même masse égale de substance et mesurer la masse après l'avoir trempée dans du vinaigre de différentes concentrations pendant le même temps,1,0
+170,zh_010171,Si la surface immergée dans le vinaigre est la même Si l'acidité du vinaigre est la même Si le temps d'immersion est le même Si d'autres objets sont lavés,1,2
+171,zh_010172,(_1) La concentration de la substance dans le vinaigre (2) La température de l'expérience (3) Trouver quatre nouveaux matériaux,1,2
+172,zh_010173,Température requise PH Volume de liquide,1,3
+173,zh_010174,(_1) Retrouver les quatre matières (2) Verser à nouveau le vinaigre (3) Concentration du vinaigre,1,1
+174,zh_010175,(_1) Echantillons de matériaux différents de la masse initiale de la première expérience (2) Quantités et concentrations égales de vinaigre dans chaque récipient (3) Masse initiale des échantillons,1,2
+175,zh_010176,(_1) Plus de matériaux à choisir (2) Vinaigre pour ajouter des impuretés (3) Acidité du vinaigre,1,1
+176,zh_010177,(_1) La quantité de pluies acides (2) L'acidité du vinaigre (3) Un plus grand choix de matériaux,1,2
+177,zh_010178,(_1) Quantité de pluie acide ajoutée (2) Temps de corrosion par la pluie acide (3) Degré de corrosion du matériau,1,1
+178,zh_010179,(_1) Quantité de vinaigre mise en place (2) Composition du vinaigre (3) Composition de l'échantillon,1,3
+179,zh_010180,(_1) Re-préparation de 4 échantillons de qualité différente mais identique (2) Re-traitement des échantillons de qualité expérimentalement différente en échantillons de qualité identique (3) Valeur pH du vinaigre (4) Surface de l'échantillon en contact avec le vinaigre,1,2
+180,zh_010181,(_1) Les caractéristiques physiques des échantillons (2) La surface de leur contact avec le vinaigre (3) La valeur du pH du vinaigre,1,3
+181,zh_010182,(_1) Quantité de vinaigre réduite séparément (2) Concentration massique de chaque matière (3) Concentration massique du vinaigre,1,2
+182,zh_010183,"Un peu de cèdre rouge, de bois d'encens et de bois précieux sont infiltrés par les pluies acides pour obtenir un petit résultat en comparaison...",1,0
+183,zh_010184,(_1) Valeur du pH des pluies acides (2) Masse des pluies acides,1,2
+184,zh_010185,Concentration du vinaigre et quantité,1,1
+185,zh_010186,(_1) masse d'acide acétique versée (2) quantité d'acide consommée,1,1
+186,zh_010187,Effet minime des pluies acides sur le bois,1,0
+187,zh_010188,(_1) Les pluies acides ont un effet plus important sur le calcaire (2) Pas d'effet sur le bois (3) Moins d'effet sur le plastique,1,0
+188,zh_010189,(_1) Valeur du pH du vinaigre (2) Valeur du pH des pluies acides (3) Disponibilité des conditions de ré-analyse,1,1
+189,zh_010190,(_1) Concentration constante du vinaigre (2) Même surface de contact avec l'objet (3) Critères pour un lavage à l'eau distillée propre,1,3
+190,zh_010191,(_1) Masse de l'eau (2) Volume de l'échantillon (3) Température de l'expérience,1,2
+191,zh_010192,(_1) Valeur pH du vinaigre (2) Valeur pH des pluies acides (3) Mauvaise qualité du matériel contrôle de qualité ,1,1
+192,zh_010193,(_1) Valeur du pH du vinaigre (2) Volume du vinaigre (3) Température du bois,1,2
+193,zh_010194,"Teneur en vinaigre Température et humidité dans le récipient Conditions de lumière,",1,2
+194,zh_010195,(_1) Valeur du pH du vinaigre (2) Valeur du pH des pluies acides (3) Disponibilité des conditions de réexpérimentation,1,1
+195,zh_010196,(_1) Pureté des différents matériaux (2) Si de nouvelles impuretés sont mélangées par réaction avec l'acide (3) Mettre dans un nouveau récipient et du vinaigre à nouveau avec les mêmes indicateurs pour chacun.,1,2
+196,zh_010197,(_1) mettre des quantités égales de vinaigre (2) la même masse d'échantillon (3) répéter l'expérience ci-dessus,1,1
+197,zh_010198,(_1) Verser séparément des quantités égales de vinaigre (2) Prélever des échantillons de la même masse (3) Répéter l'expérience ci-dessus plusieurs fois,1,1
+198,zh_010199,(_1) La teneur en eau initiale de l'échantillon (2) Les données obtenues en ajoutant des quantités égales de vinaigre et en contrôlant les autres quantités qui restent identiques (3) Le test utilisant des masses égales de l'échantillon,1,2
+199,zh_010200,L'échantillon doit être testé pour détecter la présence d'impuretés. Les groupes doivent être testés plusieurs fois de plus pour voir si les résultats sont différents.,1,1
+200,zh_010201,(_1) Quantité de gaz produite (2) Masse égale des échantillons (3) Le marbre et le calcaire sont deux types de roches et peuvent être remplacés par l'une d'entre elles.,1,0
+201,zh_010202,(_1) la quantité de vinaigre et la valeur du pH ; (2) toute perte de masse lorsque l'échantillon est prélevé à nouveau et rincé ; (3) la masse totale de matière restant dans le récipient,1,2
+202,zh_010203,(_1) Quantité de gaz produite (2) Masse de vinaigre,1,1
+203,zh_010204,(_1) la masse du gaz (2) si la structure de l'objet est altérée (3) sous quelle forme la masse réduite est dissipée,1,0
+204,zh_010205,"(_1) Le degré d'infiltration de l'objet mesuré (2) La température au moment de la mesure, le taux d'humidité",1,2
+205,zh_010206,(_1) La masse de vinaigre à verser doit être la même (2) L'étanchéité doit être vérifiée (3) L'échantillon doit être lavé avec des fournitures spécifiques,1,2
+206,zh_010207,"(_1) Densité de l'échantillon, volume (2) Force de l'acide acétique (3) Si le récipient est hermétique (4) Humidité de l'air",1,2
+207,zh_010208,(_1) Densité de divers matériaux (2) Volume de divers matériaux (3) Degré d'endommagement de divers matériaux,1,1
+208,zh_010209,(_1) valeur du pH du vinaigre (2) masse de vinaigre contenue dans chaque tasse (3) taille de la surface de vinaigre en contact avec l'objet,1,3
+209,zh_010210,(_1) Les autres substances produites dans le récipient (2) Les propriétés de chaque matériau exposé dans le récipient (3) L'état de la cause de la différence des résultats pour chaque matériau.,1,0
+210,zh_010211,(_1) La qualité du vinaigre (2) Le pH du vinaigre (3) S'il y a une perte de qualité pour d'autres raisons.,1,2
+211,zh_010212,(_1) La qualité du vinaigre (2) Le pH du vinaigre (3) L'eau peut-elle enlever une partie de la qualité du vinaigre ?,1,2
+212,zh_010213,La résistance à la corrosion du plastique contrôle la masse initiale de même qu'elle contrôle le vinaigre versé dans le récipient.,1,1
+213,zh_010214,Il faut également savoir (_1) si la température ambiante au moment du traitement de l'échantillon est constante (2) si la valeur du pH du vinaigre est trop différente de celle des pluies acides (3) si le changement de température a un effet excessif sur le test.,1,1
+214,zh_010215,(_1) la quantité de vinaigre est la même que la dernière fois (2) le type d'acidité du vinaigre devrait être différent de la dernière fois (3) aucune couche protectrice ne peut être produite après une réaction,1,1
+215,zh_010216,"(_1),. La présence d'impuretés dans l'échantillon (2) La taille de la concentration de vinaigre (3) La masse initiale de l'échantillon choisi doit être la même",1,2
+216,zh_010217,Propriétés chimiques de l'échantillon Quantité de vinaigre Fermeture du récipient ou non,1,1
+217,zh_010218,(_1) la fraction massique du vinaigre (2) la durée de l'expérience (3) la propreté de l'échantillon lui-même et son insolubilité dans l'eau,1,2
+218,zh_010219,"(_1) le volume du vinaigre et sa masse (2) les différences dans l'essai dues à des facteurs externes (3) les autres effets externes sur la forme, l'apparence, etc. de l'échantillon dus à l'essai",1,2
+219,zh_010220,(_1) La quantité et le type de vinaigre dans chaque récipient (2) La présence ou l'absence de réactions d'absorption d'eau dans les quatre matériaux (3) Les avantages du,1,2
+220,zh_010221,(_1) La concentration du vinaigre (2) La température à laquelle les éléments ont changé.,1,2
+221,zh_010222,(_1) Tenir compte du changement de température avant et après l'essai (2) si les articles se décolorent (3) si une déformation se produit,1,0
+222,zh_010223,(_1) La rapidité avec laquelle le vinaigre s'évapore (2) Le pouvoir absorbant des différents matériaux (3) La température (4) La pression atmosphérique,1,1
+223,zh_010224,(_1) Changement de la teneur en CO2 dans l'air(2) Surface de contact du matériau expérimental(3) Température au moment du test,1,2
+224,zh_010225,"Mesurer la masse (volume) de vinaigre et contrôler la quantité de manière constante ; la concentration de vinaigre peut diminuer et le vinaigre doit être changé à nouveau ; connaître le temps de réaction approximatif pour chaque type de matériau, pas _24 heures",1,2
+225,zh_010226,(_1) pH des pluies acides (2) ampleur du changement de température (3) pouvoir absorbant de l'échantillon,1,2
+226,zh_010227,(_1) changement de température (2) si la pression est constante (3) si l'article est décoloré,1,0
+227,zh_010228,(_1) la concentration d'acide acétique (2) l'étanchéité du récipient (3) la densité des divers matériaux,1,1
+228,zh_010229,(_1) le plastique contient-il des impuretés ? (2) le vinaigre peut-il être réutilisé plus d'une fois ? (3) comment l'échantillon réagit-il avec le vinaigre ?,1,1
+229,zh_010230,(_1) S'assurer que les quatre matériaux sont également secs et humides avant le test (2) Éviter toute réduction de la qualité de l'échantillon pendant le processus de lavage (3) S'assurer que les matériaux sont suffisamment secs pendant le processus de séchage.,1,2
+230,zh_010231,(_1) concentration du vinaigre (2) proportion des principaux ingrédients dans l'échantillon (3) matériau facile à utiliser,1,2
+231,zh_010232,"Température dans l'air, température élevée ou basse, texture de l'échantillon",1,2
+232,zh_010233,(_1) Concentration du vinaigre (2) si la même quantité de vinaigre a été versée dans les 4 récipients (3) si les récipients étaient complètement scellés,1,2
+233,zh_010234,"(_1) si le volume de vinaigre recouvrait complètement le matériau (2) si le vinaigre et les pluies acides étaient chimiquement identiques (3) si les récipients et le vinaigre, ainsi que le matériau, étaient complètement scellés avant le test.",1,1
+234,zh_010235,(_1) Mesurer la quantité de vinaigre ajoutée à chaque récipient (2) Laisser les échantillons sécher librement à l'air libre sans les utiliser pour le lavage (3) Mesurer les changements qui se produisent lorsque les matériaux sont placés dans le vinaigre,1,1
+235,zh_010236,(_1) Assurez-vous que les quatre matériaux sont également secs et humides avant le test (2) Le volume de vinaigre introduit dans chaque récipient est constant (3) Les quatre matériaux sont dans le même environnement,1,3
+236,zh_010237,(_1) réaction de différents matériaux avec le vinaigre pour produire des substances (2) température (3) taille de la surface des matériaux,1,2
+237,zh_010238,(_1) Composition de chaque échantillon (2) Composition des pluies acides (3) Quantité de vinaigre utilisée.,1,3
+238,zh_010239,(_1) les pluies acides n'érodent pas le bois (2) érosion plus importante du marbre (3) érosion plus importante du calcaire,1,0
+239,zh_010240,(_1) La quantité de vinaigre dans chaque récipient est-elle exactement la même (2) érosion plus importante du marbre (3) érosion plus importante du calcaire,1,1
+240,zh_010241,(_1) Même quantité de vinaigre (2) Attention à la fermeture (3) Attention à ne pas endommager l'échantillon lors du shabbing.,1,1
+241,zh_010242,(_1) Utiliser la même concentration de pluie acide (2) Utiliser la même quantité de matériaux différents (3) Contrôler la surface de contact de la même manière.,1,2
+242,zh_010243,(_1) Temps (2) Pluies acides PH (3) Différences dans la nature du matériau,1,0
+243,zh_010244,(_1) La concentration et la quantité de vinaigre doivent être égales (2) La surface de contact de chaque type d'échantillon avec le vinaigre doit être la même (3) Les échantillons ne réagiront pas au contact de l'air dans l'air,1,3
+244,zh_010245,(_1) Détermination de la masse de différents échantillons (2) Température de l'air (3) Température,1,1
+245,zh_010246,Effet des pluies acides sur différents matériaux,1,0
+246,zh_010247,Les pluies acides n'ont pratiquement aucun effet sur les matériaux en bois et un effet significatif sur les matériaux pierreux. Il a moins d'effet sur les plastiques.,1,0
+247,zh_010248,Effet des pluies acides sur différents matériaux (_1) Détermination de la masse de 4 échantillons différents (2) Versement de vinaigre dans 4 récipients identiques,1,0
+248,zh_010249,(_1) Déterminer la masse de 4 échantillons différents (2) Verser du vinaigre dans 4 récipients identiques distincts (3) Déterminer l'effet des pluies acides sur différents matériaux,1,0
+249,zh_010250,Quelles sont les propriétés physiques des pluies acides ?,1,0
+250,zh_010251,(_1) Déterminer la masse de 4 échantillons différents (2) Verser du vinaigre dans 4 récipients identiques (3) Placer un échantillon d'une des matières dans un récipient et l'étiqueter avec les instructions appropriées et faire de même pour les autres échantillons,1,0
+251,zh_010252,"Si la matière est soluble, si la matière se décompose avec le temps et si la matière réagit avec les autres composants du vinaigre.",1,0
+252,zh_010253,"(_1) si la concentration des pluies acides est la même (2) si le matériau de l'échantillon n'est pas perturbé par d'autres facteurs (par exemple l'humidité, la température) (3) si le matériau est soluble. '",1,2
+253,zh_010254,(_1) si la concentration de vinaigre est la même (2) si la surface de contact du matériau est complète (3) si le shabbing à l'eau distillée est complet.,1,2
+254,zh_010255,"La bonne quantité de pluie acide, le temps de test, la température de test.",1,1
+255,zh_010256,(_1) Concentration des pluies acides (2) Gamme des effets des pluies acides (3) Visibilité des pluies acides,1,1
+256,zh_010257,(_1) La quantité de vinaigre doit être la même (2) L'environnement extérieur ne doit pas changer (par exemple la température) (3) Les échantillons ne doivent pas être endommagés lors du shabbing.,1,2
+257,zh_010258,(_1) si la différence de température entre l'intérieur et l'extérieur affecte (2) si les différents effets PH des pluies acides font une différence (3) comment la qualité des pluies acides affecte les différents matériaux,1,3
+258,zh_010259,(_1) La quantité appropriée de produit de la réaction de l'échantillon avec la pluie acide (2) L'effet de l'essai de composition dans l'air (3) La quantité de changement de PH dans la pluie acide après la réaction.,1,0
+259,zh_010260,(_1) PH de l'échantillon (2) contenu de l'échantillon (3) pureté de l'échantillon,1,1
+260,zh_010261,(_1) Mesurer la masse de 4 échantillons différents (2) Verser du vinaigre dans 4 récipients identiques (3) Mettre un échantillon d'une des matières dans un récipient et l'étiqueter avec les instructions appropriées,1,0
+261,zh_010262,(_1) Volumes de masse égaux de vinaigre (2) Masses égales d'échantillons de test (3) Temps égal entre les mesures,1,1
+262,zh_010263,(_1) Le vinaigre choisi doit être de la même concentration et du même type (2) Les volumes massiques de vinaigre doivent être égaux (3) Le vinaigre doit submerger complètement l'échantillon (4) La surface de contact entre l'échantillon et le vinaigre,1,3
+263,zh_010264,(_1) Le vinaigre choisi doit être de même concentration et de même type (2) La masse et le volume de vinaigre doivent être identiques,1,2
+264,zh_010265,"Détermination de la masse de _4 échantillons différents, un échantillon dans chaque récipient",1,0
+265,zh_010266,(_1) Concentration du vinaigre (2) Température ambiante (3) Masse du vinaigre ajouté,1,3
+266,zh_010267,"(_1) Laver à nouveau chaque bécher (2) Nouveau marbre, matériau calcaire (3) Collationner les étiquettes",1,0
+267,zh_010268,PH initial Intégrité initiale Température initiale,1,2
+268,zh_010269,(_1)Volume de vinaigre dans quatre récipients (2)Heure exacte à laquelle chaque échantillon a été prélevé (3)Temps d'écouvillonnage à l'eau distillée,1,2
+269,zh_010270,(_1) Degré de tolérance de l'échantillon aux pluies acides (2) pH des pluies acides locales (3) Assurance que tout le matériel expérimental a séché.,1,1
+270,zh_010271,"le pH du vinaigre, le volume de chaque échantillon, la quantité et la concentration du vinaigre versé",1,3
+271,zh_010272,(_1) comment la masse de la matière change au cours du processus (2) si la masse de la matière sera réduite par d'autres facteurs (3) si la qualité de la matière est pure et si elle contient d'autres impuretés,1,1
+272,zh_010273,"(_1) Le degré de corrosion à la surface des différents matériaux (2) Si le matériau est immergé dans le vinaigre à la même profondeur (3) Pour les exigences du matériau, un temps d'immersion trop long peut laisser le matériau incomplet (4) Quelles exigences doivent être observées lors du shabbing avec de l'eau distillée.",1,2
+273,zh_010274,(_1) Connaître le pH des pluies acides (2) Comment les pluies acides de différents pH affectent-elles le matériel (3) Quel est l'effet de la conception d'un groupe témoin de matériel dans de l'eau distillée,1,1
+274,zh_010275,"(_1) Une fois de plus, l'expérience doit permettre de conserver la même masse initiale que la première mesure (2) Inversez l'eau distillée laissée dans le récipient pour qu'elle sèche (3) Lorsque vous laissez sécher, vous devez être conscient qu'il y a une perte de pesée de l'échantillon.",1,0
+275,zh_010276,(_1) consistance de la surface des échantillons (2) volume de vinaigre dans le récipient (3) surface de l'échantillon couverte par le récipient (4) concentration de vinaigre de chacun (5) masse des échantillons individuels non lavés,1,3
+276,zh_010277,(_1) récipient pour la pluie acide (2) quantité appropriée de pluie acide brute (3) quantité appropriée d'eau distillée,1,1
+277,zh_010278,(_1) valeur du pH du vinaigre (2) forme volumétrique de l'échantillon et surface de contact de l'acide (3) influence éventuelle de facteurs externes,1,3
+278,zh_010279,(_1) Ce sont les pluies acides qui érodent le plus le calcaire (2) Si le bois est une grume avec ou sans traitement (3) Si les pluies acides réagissent chimiquement avec le contrôle de la qualité des matériaux,1,0
+279,zh_010280,(_1) Récipients de produit pour pluies acides (2) Quantité appropriée de produit brut pour pluies acides (3) Quantité appropriée d'eau distillée,1,1
+280,zh_010281,(_1) valeur du pH du vinaigre (2) forme volumique de l'échantillon et surface de contact du vinaigre (3) influence éventuelle de facteurs externes,1,3
+281,zh_010282,(_1) Masse du vinaigre ajouté (2) Concentration du vinaigre (3) Volume et taille de la surface de l'échantillon,1,3
+282,zh_010283,(_1) La masse de vinaigre versée doit être la même (2) La concentration de vinaigre (3) Le volume de gaz produit,1,2
+283,zh_010284,(_1) Nouveau matériel expérimental choisi pour chaque expérience (2) Observer la couleur de la solution dans le récipient et mesurer la masse (3) Calculer si la concentration de la solution a changé,1,0
+284,zh_010285,(_1) Moment requis (2) pH des pluies acides (3) Composition des pluies acides (4) Présence éventuelle d'impuretés dans l'échantillon,1,2
+285,zh_010286,Si l'échantillon a complètement réagi Si le gaz externe n'a pas d'effet sur l'expérience L'erreur de pesage n'est pas significative,1,0
+286,zh_010287,(_1) L'état de l'échantillon (2) La température au moment de l'expérience (3) La concentration de vinaigre PH,1,3
+287,zh_010288,Etat de l'échantillon Concentration de l'acide Densité de l'échantillon Si l'échantillon contient des impuretés Si l'échantillon est entièrement dans l'acide,1,3
+288,zh_010289,(_1) Masse de chaque échantillon avant le frottement (2) pH du vinaigre Force de l'acidité (3) Volume de vinaigre dans chaque récipient (4) Temps,1,2
+289,zh_010290,(_1) Masse de quatre matériaux expérimentaux différents (2) Concentration du vinaigre (3) Volume d'eau distillée,1,1
+290,zh_010291,(_1) Concentration du vinaigre dans chaque récipient (2) Si la quantité de vinaigre dans chaque récipient est la même,1,2
+291,zh_010292,(_1) S'il y a eu une réduction de la perte d'échantillon pendant le processus de brossage (2) S'il y a eu une perte de calcaire pendant le temps de séchage (3) Si le pH de l'acide répondait à la norme de pH des pluies acides.,1,0
+292,zh_010293,(_1) Répétez l'expérience avec différentes masses de marbre calcaire bois plastique (2) Répétez l'expérience avec la même masse de matériau (3) Répétez l'expérience avec différentes concentrations de vinaigre,1,0
+293,zh_010294,(_1) Température au moment de l'expérience (2) État dans lequel se trouvait l'échantillon (3) Concentration du vinaigre,1,3
+294,zh_010295,(_1) La quantité de solution de vinaigre versée dans chaque récipient (2) Si la température a atteint la bonne valeur (3) Les changements produits dans chaque matériau pendant la première expérience,1,2
+295,zh_010296,(_1) Le volume et la surface de chaque matériau (2) L'acidité du vinaigre (3) La température de chaque récipient au moment de l'expérience,1,3
+296,zh_010297,(_1) Type et concentration du vinaigre (2) Matériau du récipient Taille (3) Masse du vinaigre versé,1,3
+297,zh_010298,(_1) pH du vinaigre (2) Volume du récipient Masse (3) Degré d'endommagement (4) Densité de l'objet Volume ,1,3
+298,zh_010299,(_1) Portion de vinaigre prise (2) Forme de ces matériaux Taille Volume (3) Temps passé en immersion (4) Densité du matériau choisi,1,2
+299,zh_010300,(_1) si le pH de l'acide acétique était le même si la masse était la même (2) si les matériaux expérimentaux contenaient des impuretés (3) si les matériaux ont été soumis à l'érosion pendant la même durée,1,3
+300,zh_010301,(_1) Température (2) Conditions d'étanchéité (3) Données du premier essai,1,1
+301,zh_010302,"Il faut déterminer la taille du volume, la masse, etc.",1,1
+302,zh_010303,(_1) Volume du gaz (2) Masse du précipité. (3) La masse de tous les éléments avant et après le changement.,1,1
+303,zh_010304,(_1) le type de vinaigre ; (2) la concentration de vinaigre ; (3),1,1
+304,zh_010305,"Données sur le pH du vinaigre comparé au pH des pluies acides, la surface de contact du matériau avec le vinaigre, la masse du récipient, si le matériau est absorbant.",1,1
+305,zh_010306,(_1) les causes des pluies acides (2) si les pluies acides corrodent le bois (3) les applications futures des pluies acides,1,0
+306,zh_010307,"La concentration de l'échantillon, le temps de l'expérience, les échantillons qui peuvent être comparés.",1,1
+307,zh_010308,(_1) Matériel nécessaire pour l'expérience (2) Température lors de la dissolution (3) Différence de temps nécessaire et masse de l'objet,1,2
+308,zh_010309,(_1) mesurer le pH du liquide dans chacun des quatre récipients après l'expérience ; (2) comparer la différence de pH du liquide dans les quatre récipients après l'expérience ; (3) s'assurer qu'aucune précipitation n'est produite lors du passage de l'échantillon avec de l'eau distillée.,1,0
+309,zh_010310,"Consommation de pluie acide par tasse, changement de réaction dans chaque tasse",1,0
+310,zh_010311,(_1) température (2) masse d'eau (3) masse de l'échantillon original,1,1
+311,zh_010312,"(_1) Des quantités égales de vinaigre ont été versées dans chacun des 4 récipients identiques de façon à ce que les échantillons soient complètement submergés. (2) L'essai a été réalisé à la même température, sous la même pression. (3) Déterminez la température dans le bécher à tout moment, le pH",1,3
+312,zh_010313,concentration du vinaigre quantité de vinaigre température du vinaigre,1,2
+313,zh_010314,(_1) Contrôlez que la masse de vinaigre dans le récipient est égale (2) La surface des quatre matériaux est la même (3) L'échantillon peut être complètement submergé par le vinaigre dans le récipient.,1,3

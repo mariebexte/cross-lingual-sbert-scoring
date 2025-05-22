@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+21,21,zh_100022,White:: as a kennel paint color light has less effect on white and its temperature is optimal for the life of the dog,10,1
+45,45,zh_100046,"White:: When the sun shines on the roof of the kennel white absorbs sufficient heat, the temperature rises slowly when the sun goes down, there is still heat in the kennel because white heat dissipation is slow.",10,2
+54,54,zh_100055,White:: the temperature is milder,10,0
+62,62,zh_100063,"Dark grey:: will make the internal temperature of the kennel rise steadily more moderate Confirmation: black, light grey, white, etc. absorb temperature instability, so researchers are not completely sure it will be good for the kennel Dark grey is not necessarily the best, but he can remain relatively stable, more convincing",10,1
+71,71,zh_100072,"White:: Because the color is painted inside the kennel, the kennel is less able to dissipate heat and the dog itself radiates heat, so white is best",10,0
+78,78,zh_100079,"White::The temperature inside the kennel is lower because white absorbs less heat Confirmation: By comparing the four colors, white is found to absorb the least heat",10,2
+104,104,zh_100105,Black:: The temperature inside the kennel is the highest Black has the highest heat absorption capacity,10,1
+108,108,zh_100109,"Dark gray:: The squared difference in temperature is small The darker the color, the higher the temperature",10,0
+110,110,zh_100111,Dark grey:: keeps the temperature inside the kennel almost constant as evidenced by the _3 experiments above where the dark grey kept the temperature inside the kennel at 48°.,10,0
+139,139,zh_100140,White:: the air temperature inside the glass rises less in the same time,10,1
+162,162,zh_100163,Dark grey:: Keeps the temperature inside the kennel at a constant value to ensure a constant temperature The temperature of the bottle in the dark grey lid is _48°C and remains constant,10,0
+193,193,zh_100194,"White::Under the light, white will absorb less heat, most of the heat is dissipated, the temperature rise of the glass bottle is smaller than other species. White lids have the lowest average value after the experiment",10,1
+211,211,zh_100212,"White::: so that the indoor temperature is not too high, the test shows that white has the lowest energy absorption rate of light",10,2
+242,242,zh_100243,Light gray:: make the kennel stable temperature _③ thermometer measurement to maintain the temperature of 45 ℃,10,0
+248,248,zh_100249,"White::White has less effect on the kennel on its internal temperature, and the results in the above experiment are similar to those described",10,1
+256,256,zh_100257,"White::The internal temperature is not too high will not affect the normal activities of the dog. The above test corresponds to a white cap, and the temperature inside the bottle is stable at about _45℃.",10,1
+259,259,zh_100260,Black:: Black had the highest number of trials and the highest temperature,10,1
+272,272,zh_100273,White::White reflects all the light,10,0
+293,293,zh_100294,Black:: Black heats up faster and can stay warm when cold because black absorbs heat faster,10,1

@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+14,14,zh_010015,"(_1) die Menge des sauren Regens (2) die Menge des sauren Regens sollte so bemessen sein, dass die Menge angemessen ist",1,1
+53,53,zh_010054,(_1) Oberflächenkorrosion dieser Gegenstände durch sauren Regen (2) Messung des pH-Wertes der einzelnen Gegenstände,1,0
+68,68,zh_010069,(_1) Hat die Essigmenge abgenommen (2) Hat der Essig bei der Reaktion mit den Reaktanten schädliche Gase erzeugt (3) Gab es während des Experiments irgendwelche Gefahren?,1,0
+89,89,zh_010090,(_1) pH-Wert des Essigs (2) Menge des zugegebenen Essigs (3) Kontaktfläche,1,3
+106,106,zh_010107,(_1) Hat sich jede Probe chemisch verändert? (2) Wie hoch war der pH-Wert? (3) Was genau ist der Unterschied zwischen Essig und saurem Regen auf dem Material?,1,1
+130,130,zh_010131,(_1) Die Umgebungstemperatur sollte die gleiche sein (2) Die Sonneneinstrahlung sollte die gleiche sein (3) Die vier Materialien sollten die gleiche Menge an gegossenem Essig erhalten,1,2
+152,152,zh_010153,(_1) Essigsäuregehalt im Essig (2) Menge des Essigs (3) Anfangs-PH-Wert,1,2
+157,157,zh_010158,Ausgangsmasse Masse nach dem Versuch Differenz der Masse ,1,0
+163,163,zh_010164,"(_1) Separate Proben wurden in reines Wasser gelegt, um eine Kontrolle zu bilden (2) Erhöhung der Essigkonzentration bei konstanter Masse der Probe (3) Erhöhung der Essigmasse bei konstanter Masse der Probe",1,0
+179,179,zh_010180,"(_1) Wiederaufbereitung von 4 unterschiedlichen, aber identischen Qualitätsproben (2) Wiederaufbereitung der experimentell unterschiedlichen Qualitätsproben zu identischen Qualitätsproben (3) pH-Wert des Essigs (4) Fläche der Probe, die mit Essig in Berührung kommt",1,2
+184,184,zh_010185,Konzentration des Essigs und wie viel,1,1
+186,186,zh_010187,Minimale Auswirkungen von saurem Regen auf Holz,1,0
+204,204,zh_010205,"(_1) Das Ausmaß der Infiltration des Objekts (2) Die Temperatur zum Zeitpunkt der Messung, die Luftfeuchtigkeit",1,2
+213,213,zh_010214,"Außerdem sind folgende Informationen erforderlich: (_1) ob die Umgebungstemperatur zum Zeitpunkt der Behandlung der Probe konstant ist, (2) ob der pH-Wert des Essigs zu stark von dem des sauren Regens abweicht, (3) ob die Temperaturveränderung den Test übermäßig beeinflusst",1,1
+221,221,zh_010222,(_1) Betrachtung der Temperaturveränderung vor und nach der Prüfung (2) ob sich die Gegenstände verfärbt haben (3) ob Verformungen aufgetreten sind,1,0
+245,245,zh_010246,Auswirkungen des sauren Regens auf verschiedene Materialien,1,0
+250,250,zh_010251,(_1) Bestimme die Masse von 4 verschiedenen Proben (2) Gieße Essig in 4 identische Behälter (3) Gib eine Probe eines der Materialien in einen Behälter und beschrifte ihn mit der entsprechenden Anweisung und mache dasselbe mit den anderen Proben,1,0
+283,283,zh_010284,"(_1) Für jeden Versuch wird ein neues Versuchsmaterial ausgewählt (2) Beobachte die Farbe der Lösung im Behälter und miss die Masse (3) Berechne, ob sich die Konzentration der Lösung verändert hat",1,0
+286,286,zh_010287,(_1) Der Zustand der Probe (2) Die Temperatur zum Zeitpunkt des Versuchs (3) Die Konzentration des Essigs PH,1,3

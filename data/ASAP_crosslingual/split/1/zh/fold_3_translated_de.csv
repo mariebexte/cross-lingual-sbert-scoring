@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+45,45,zh_010046,"(_1) Der pH-Wert des Essigs muss bekannt sein (2) Die Größe der Kontaktfläche mit dem Essig muss für jedes Material gleich sein (3) Es muss bekannt sein, ob einer der einzelnen Stoffe vor und nach der Reaktion zusätzlich mit den Verbindungen im Essig reagiert hat",1,2
+65,65,zh_010066,Konzentration der Säure Ob die Probe andere Stoffe enthält Es sollte eine Kontrollgruppe für Vergleichstests eingerichtet werden,1,2
+83,83,zh_010084,(_1) die Masse des in den Behälter gegossenen Essigs (2) ob nach dem Versuch ein Produkt entsteht oder nicht (3) das Volumen des Fassungsvermögens,1,1
+100,100,zh_010101,"(_1) Befolgen Sie die Methode der kontrollierten Variablen (2) Gleiche Materialien, gleiche Schritte (3) Befolgen Sie die Regeln des Experiments",1,0
+102,102,zh_010103,"(_1) Nehmen Sie die gleiche Probe für das gleiche Experiment (2) Die Probe sollte die gleiche sein wie die vorherige Das experimentelle Verfahren ist auch das gleiche wie oben (3) Das Gefäß sollte nach der Verwendung gebürstet und gereinigt werden, um das Experiment durchzuführen",1,1
+104,104,zh_010105,(_1) Die Ausgangsmasse der Probe ist gleich (2) Die Konzentration des Essigs ist gleich (3) Die innere und äußere Umgebung ist beim Einbringen gleich,1,2
+125,125,zh_010126,(_1) destilliertes Wasser (2) Becherglas (3) Essig,1,0
+126,126,zh_010127,Destilliertes Wasser Becherglas Essig ,1,0
+136,136,zh_010137,(_1) Die Masse der Probe vor und nach dem Bürsten mit destilliertem Wasser (2) Ob die verschiedenen Versuchsmaterialien verdampfen (3) Der Einfluss der Masse auf den Versuch,1,0
+154,154,zh_010155,Volumen der einzelnen Proben Masse des Essigs Konzentration des Essigs,1,3
+202,202,zh_010203,(_1) Menge des erzeugten Gases (2) Masse des Essigs,1,1
+209,209,zh_010210,(_1) Andere im Behälter hergestellte Stoffe (2) Die Eigenschaften jedes im Behälter vorkommenden Stoffes (3) Die Angabe der Ursache für die unterschiedlichen Ergebnisse für jeden Stoff,1,0
+240,240,zh_010241,"(_1) Gleiche Menge Essig (2) Sorgfältige Versiegelung (3) Achten Sie darauf, dass Sie die Probe beim Schaben nicht beschädigen",1,1
+247,247,zh_010248,Wirkung des sauren Regens auf verschiedene Materialien (_1) Bestimmung der Masse von 4 verschiedenen Proben (2) Gießen von Essig in 4 identische Behälter,1,0
+260,260,zh_010261,(_1) Messung der Masse von 4 verschiedenen Proben (2) Abfüllen von Essig in 4 identische Behälter (3) Abfüllen einer Probe eines der Materialien in einen Behälter und Beschriftung mit den entsprechenden Anweisungen,1,0
+264,264,zh_010265,"Bestimmung der Masse von _4 verschiedenen Proben, eine Probe in jedem Behälter",1,0
+265,265,zh_010266,(_1) Essigkonzentration (2) Umgebungstemperatur (3) Masse des zugegebenen Essigs,1,3
+290,290,zh_010291,(_1) Konzentration des Essigs in jedem Behälter (2) Ob die Essigmenge in jedem Behälter gleich ist,1,2
+309,309,zh_010310,"Verbrauch von saurem Regen pro Becher, Veränderung der Reaktion in jedem Becher",1,0

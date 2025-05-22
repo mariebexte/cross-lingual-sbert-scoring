@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+15,15,fr_010016,Este es el procedimiento correcto.,1,0
+24,24,fr_010025,Encuentre la diferencia entre la masa de indicación y la masa final para cada muestra. ¿Qué muestra tuvo una gran desviación de masa después de _24 horas? ¿Qué muestra tenía una pequeña desviación en la masa? ¿Qué conclusión puedes sacar a partir de las observaciones?,1,0
+45,45,fr_010046,Vierta el vinagre en cada uno de los cuatro recipientes separados pero idénticos.,1,0
+51,51,fr_010052,"- ¿Qué vinagre utilizar (de vino, blanco, de sidra...)? - ¿A qué temperatura deben almacenarse las muestras y dónde? - ¿Podemos utilizar cualquier tipo de recipiente (vidrio, plástico, transparente, opaco, etc.)?",1,3
+73,73,fr_010074,Me di cuenta de que la misma cantidad que se puso en el frasco se quitó con una pequeña diferencia.,1,0
+87,87,fr_010088,"La pregunta no tiene sentido, me disculpo.  Creo que nos ha dado todo lo que necesitamos, excepto el nombre del material...  En ese caso, necesitaría un libro de texto de química, o un espectrómetro de masas para averiguar de qué material se trata la muestra, ¿no?",1,0
+93,93,fr_010094,"determinar el material de la muestra, la compatibilidad de los materiales entre sí, el punto de fusión de cada material",1,1
+95,95,fr_010096,valor negativo,1,0
+102,102,fr_010103,volumen de vinagre añadido,1,1
+109,109,fr_010110,No hay información adicional,1,0
+114,114,fr_010115,Necesitaría otros materiales para probar y ver qué materiales pierden peso cuando se añaden al vinagre,1,0
+130,130,fr_010131,¿Qué cantidad de vinagre echan en los contenedores? ¿Por qué los pesos iniciales son diferentes? ¿Y si dejamos las muestras durante una semana?,1,1
+135,135,fr_010136,"¿En qué estado debe incluirse el material en las muestras (moldeado, entero, en polvo)? ¿En qué recipiente deben secarse las muestras durante _30 minutos? ¿A qué temperatura deben conservarse las muestras? ¿Dónde se pesan las muestras?",1,3
+159,159,fr_010160,¿por qué se hace este experimento? ¿cuál es nuestra hipótesis? ¿qué resultados buscamos?,1,2
+182,182,fr_010183,"Determina de qué objetos se trata, comprueba la porosidad de los mismos y pesa también el vinagre.",1,2
+195,195,fr_010196,"Las muestras son mármol, piedra caliza, madera y plástico. La masa inicial del mármol es de _9,8 g, la masa de la piedra caliza es de 10,4 g, la masa de la madera es de 11,2 g y la masa del plástico es de 7,2 g",1,0
+200,200,fr_010201,Compruebe la cantidad de muestra de vinagre.  Compruebe la cantidad de muestras de material.  Limpie bien el recipiente.,1,2
+235,235,fr_010236,Necesito saber la densidad.,1,1
+259,259,fr_010260,"¿Las muestras desconocidas son sólidas, líquidas o gaseosas?  ¿Las muestras desconocidas son radiactivas?  ¿El experimento se realiza en el exterior o en el interior?",1,2

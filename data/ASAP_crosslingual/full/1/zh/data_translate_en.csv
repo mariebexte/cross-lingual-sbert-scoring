@@ -1,0 +1,315 @@
+,id,text,prompt,score
+0,zh_010001,(_1) Samples of the same initial mass (2) Acetic acid of the same pH (3) Conscientiousness and responsibility,1,1
+1,zh_010002,Ensure that the four materials are equally dry and wet before the experiment The volume of vinegar poured into each container is certain The four materials are in the same environment,1,3
+2,zh_010003,(_1) should ensure that the experiment is carried out under certain variables (2) ensure that the experiment is not affected by other factors (3) consider the situation of the experimental samples themselves,1,0
+3,zh_010004,A: (_1) the temperature of the air (2) how much volume of vinegar is introduced (3) the time to shabu-shabu with distilled water,1,3
+4,zh_010005,(_1)Volume before the experiment volume after the test (2)Color and state before the experiment color and state after the test,1,1
+5,zh_010006,(_1) whether the amount of vinegar put into the same (2) whether the experimental device is airtight (3) whether the process operation is problematic (4) whether the selection of materials is typical (5) whether the difference in PH between vinegar and acid rain is not significant,1,2
+6,zh_010007,(_1) the amount of vinegar put into the same (2) the choice of experimental materials to ensure that the content of impurities is less (3) control the external environment to maintain consistency,1,3
+7,zh_010008,(_1) the same mass of marble limestone plastic wood for the first experiment (2) four other containers that are the same as the first experiment (3) prepare vinegar and distilled water (4) the volume of the substance and contact area (5) the amount of vinegar,1,3
+8,zh_010009,(_1) whether it is dissolved with vinegar (2) whether it is warmed up (3) whether there is precipitation,1,0
+9,zh_010010,(_1) keep the experiment as a single variable choose objects of the same volume size (2) the external environment should be the same,1,2
+10,zh_010011,(_1)PH test paper Determine whether the PH value of vinegar is the same (2)Corrosion of the sample,1,1
+11,zh_010012,(_1)Concentration of vinegar(2)Strength of acidity(3)Surface area of substance in each container,1,2
+12,zh_010013,(_1)PH of the vinegar sample,1,1
+13,zh_010014,(_1)Sufficient alkali powder Acid concentration inside the material to be polymerized,1,0
+14,zh_010015,(_1)The amount of acid rain (2)The amount of acid rain should be sufficient so that the amount fully reflects,1,1
+15,zh_010016,(_1) the PH of the solution (2) the concentration of the solution (3) the mass of the solution,1,2
+16,zh_010017,(_1) the mass of vinegar after the experiment (2) the size of the vinegar absorbed by each mass (3) whether it contains impurities,1,1
+17,zh_010018,(_1)Acetic acid PH value (2)Contact area of material with acetic acid (3)Ambient temperature,1,3
+18,zh_010019,(_1)Acidity of vinegar (2)Surface area of test material (3)Mass of vinegar added each time,1,3
+19,zh_010020,(_1) pH size of vinegar (2) state of the sample (3) density of the sample,1,1
+20,zh_010021,(_1)The relative temperature of the air at the time of the two measurements humidity pressure and other factors (2)Whether there is some kind of acetic acid reaction on the surface of the object near to produce substances that can react with the measured material (3)Whether the dryness of the material after washing is the same as before the experiment,1,1
+21,zh_010022,(_1) Whether other substances are attached to the marble (2) Whether vinegar completely reacts with the reactants (3) Whether there is a deviation in the measurement,1,0
+22,zh_010023,(_1) When measuring the sample before the experiment to determine whether there are impurities on the surface of the sample (2) Pour the vinegar in equal volumes and its use of the same mass fraction (3) Put its sample becomes dry to make sure that the sample does not react with the ingredients in the air Increase or decrease the mass,1,2
+23,zh_010024,Whether the sample will continue to acidify after the experiment,1,0
+24,zh_010025,(_1) the same volume of vinegar should be poured (2) use the same volume of the sample and allow it to sink completely into the vinegar (3) the mass of the sample before it dries,1,2
+25,zh_010026,(_1) soaking time (2) temperature of the solution (3) room temperature at that time,1,2
+26,zh_010027,(_1)Give the experiment used container to clean it (2)Find some metal material for the experiment control (3)The amount of vinegar must be sufficient,1,0
+27,zh_010028,(_1) whether the temperature around the experiment has an effect on it (2) whether the amount of vinegar in each container is the same (3) whether there is any gas produced when vinegar reacts with the material (4) whether there is any external object that will react with it to increase the mass during the drying process,1,2
+28,zh_010029,(_1) The concentration of vinegar (2) The density of each item (3) Whether mass is consumed during the drying process,1,1
+29,zh_010030,(_1) ensure that the 4 materials are equally dry and wet before the experiment (2) the volume of vinegar poured into each container is certain (3) the four materials are in the same environment when the experiment is conducted,1,3
+30,zh_010031,"(_1) The contact area between the sample and vinegar (2) The physical state of the sample (powder, lump, etc.) (3) The way of brushing (strength, tool)",1,3
+31,zh_010032,(_1) Mass fraction of acetic acid (2) Medium and short duration of the experiment (3) Cleanliness and insolubility of the sample itself,1,1
+32,zh_010033,(_1) Different volume sizes of four different samples (2) The same concentration of vinegar content in the four containers (3) Sealing the containers,1,2
+33,zh_010034,(_1) the mass of vinegar in each container (2) whether there are substances in the sample that can react with acetic acid,1,1
+34,zh_010035,The principle of vinegar corroding articles Different material hardness The PH value of vinegar,1,1
+35,zh_010036,(_1)Material of the container(2)The amount of vinegar poured into four containers(3)Whether the residue is washed out when scrubbing,1,2
+36,zh_010037,(_1) pH value of acid rain (2) length of reaction time (3) amount of acid rain,1,2
+37,zh_010038,Form of the sample Volume Temperature,1,2
+38,zh_010039,(_1) whether the acidity of the acidity is the same (2) whether the air is isolated Water in the air dilutes the vinegar (3) whether the material is authentic,1,1
+39,zh_010040,(_1)The pH value and content of the vinegar solution (2)Whether the object is susceptible to corrosion and reaction with it (3)Whether a control group is required,1,1
+40,zh_010041,(_1)What is the mass of each sample under normal conditions after leaving it for (2)4 hours (2)What is the pH of acid rain,1,1
+41,zh_010042,"(_1)The PH of the vinegar used in the experiment (2)The volume of vinegar poured into the container (3)The collection of the experimental samples is not allowed For example, the texture of marble Plastic material and color The type of wood",1,3
+42,zh_010043,(_1)Whether the vinegar poured into each container was the same amount (2)Whether the sample that was rinsed and dried still contained vinegar (3)The acid content in the vinegar,1,2
+43,zh_010044,The contact surface between each sample and vinegar and the amount of rinsing water Temperature and reserve conditions of the experiment,1,2
+44,zh_010045,The PH level of vinegar What affects the four samples the most Keeping the original material unchanged should be repeatable,1,1
+45,zh_010046,(_1) Need to know the pH of vinegar (2) Need to know whether the size of the contact area with vinegar is the same for each material (3) Need to know whether there is any additional reaction with the compound in vinegar in each substance before and after the reaction,1,2
+46,zh_010047,(_1) The pH value of vinegar (2) The amount of vinegar in 4 identical containers (3) The pH of each container itself,1,2
+47,zh_010048,(_1)Whether the sample contains impurities (2)The concentration of vinegar (3)Whether the sample is completely air-dried after being placed (4)Whether it is stirred,1,3
+48,zh_010049,(_1)CO2 KNO3 HCL Add the mass of vinegar (2)Time (3)The same temperature,1,1
+49,zh_010050,(_1)whether the 4 samples were brushed before the experiment started whether they were dry (2)the pH value of vinegar (3)whether the vinegar submerged the 4 samples and whether the volume of the 4 samples was the same,1,3
+50,zh_010051,(_1)The amount of vinegar should be consistent (2)The light intensity time and place (3)Whether the degree of rinsing is rough or fine,1,2
+51,zh_010052,(_1) Chemical composition of the samples (2) Volume of vinegar poured in (3) Different composition of acid rain and vinegar,1,2
+52,zh_010053,(_1) The main components of the sample (2) The pH value of the acid rain (3) The extent to which the items were damaged,1,2
+53,zh_010054,(_1) Surface corrosion of these items by acid rain (2) Measurement of the pH value of each item,1,0
+54,zh_010055,(_1)Controlling the effect of temperature on the experiment (2)Multiple experiments to make the results more reliable (3)Quality of materials,1,1
+55,zh_010056,(_1)Whether impurities are produced,1,0
+56,zh_010057,(_1)The amount of vinegar in the solution (2)The surface area of the article,1,2
+57,zh_010058,(_1)Adjusting the pH of the material with alkaline solution (2)Not waiting for free air drying Artificial drying,1,0
+58,zh_010059,(_1) the mass of each sample taken should be the same (2) distilled water rinsing time is the same (3) whether the drying process requires contact with air,1,1
+59,zh_010060,(_1)The content of vinegar in the beaker in the original experiment is different Several experiments are needed (2)The nature of the material is different (3)Change the time of the experiment,1,1
+60,zh_010061,(_1) The pH value of vinegar needs to be close to that of acid rain (2) Distilled water brushes the vinegar to make it completely washed out (3) The operation is not wrong when measuring the mass,1,0
+61,zh_010062,(_1) To the initial mass of the reactants of various experimental materials is the same (2) The concentration of the vinegar used PH should be similar to the PH of acid rain (3) Whether the volume of vinegar is the same ④ What is the PH of vinegar,1,2
+62,zh_010063,"(_1) whether the material is mutilated at the beginning, rust, etc. (2) whether the experiment is done in a consistent manner with other external conditions (3) what is the general value of the effect of acid rain on the material",1,2
+63,zh_010064,"Does the corrosion caused by the acid leave new material on the surface of the sample specimen? If the resulting material is tightly bound to the sample, then the experiment is not correct and needs to be improved.",1,0
+64,zh_010065,(_1) The pH of the vinegar poured in (2) The amount of vinegar added drop by drop (3) The length of the distilled water brushing,1,3
+65,zh_010066,Concentration of acid Whether the sample contains other substances A control group should be set up for comparison test,1,2
+66,zh_010067,(_1) Concentration of vinegar (2) Determination of the amount of vinegar poured into each container (3) Air temperature of the test environment,1,3
+67,zh_010068,(_1) Is the content of vinegar in each container equal (2) Is the surface area of each sample in contact with vinegar the same (3) Does each sample dry after 30 minutes (4) Is the type of vinegar the same,1,3
+68,zh_010069,(_1) whether the content of vinegar is reduced (2) whether harmful gases are produced when vinegar reacts with the reactants (3) whether there is any danger during the whole experiment,1,0
+69,zh_010070,(_1) The content of vinegar in the sample (2) The hardness of the test sample before and after the experiment,1,1
+70,zh_010071,(_1) Whether the content of vinegar is all the same Whether the effect is ideal (2) Whether the material contains new impurities (3) Whether other reactions are included in the reaction process,1,2
+71,zh_010072,(_1)The volume of vinegar (2)The concentration of vinegar PH (3)The material of the material under test,1,3
+72,zh_010073,(_1)PH value of acid (2)Quality of acid,1,2
+73,zh_010074,(_1)Clean and empty environment (2)Clean sample and experimental equipment (3)The same mass of vinegar put on different samples,1,1
+74,zh_010075,(_1)The concentration of vinegar after the experiment (2)Whether the amount of vinegar poured into the four beakers is the same (3)The time of immersing in vinegar,1,2
+75,zh_010076,(_1)The pH value of vinegar (2)Whether the sample contains impurities (3)Whether the sample is exposed to oxygen after being shabu-shabu and new substances are generated (4)Whether the amount of vinegar poured into the containers is the same.,1,3
+76,zh_010077,(_1) The pH value of vinegar (2) The amount of vinegar poured into each container (3) The concentration of vinegar poured into the container,1,2
+77,zh_010078,PH value of vinegar Mass of vinegar poured into the container Concentration of vinegar poured into the container,1,2
+78,zh_010079,(_1)PH value of vinegar(2)Whether the material was submerged in vinegar(3)Whether the vinegar was exposed to direct sunlight and whether the container was covered  ,1,2
+79,zh_010080,"(_1)Whether the surface of marble, limestone, and plastic is attached (2)The type and characteristics of wood (3)The service life of vinegar, and whether new substances are produced",1,1
+80,zh_010081,(_1) Sampling acid rain from different areas (2) and designing experiments (3) and observing the effects of acid rain on the surrounding biological environment,1,0
+81,zh_010082,(_1) whether the experimental material is enough for multiple use (2) to determine whether the experimental environment is the same as the first time (3) whether the acidity has a serious effect on the material,1,2
+82,zh_010083,(_1) Temperature conditions during the experiment should be controlled variables (2) Whether each material is affected in the process of taking out the sun again to dry should also be known (3) The degree of acid rain resistance of each material,1,2
+83,zh_010084,(_1) the mass of vinegar poured into the container (2) whether there is a product generated after the experiment (3) the volume of the capacity,1,1
+84,zh_010085,"(_1)A suitable sample needs to be selected for control (2)The mass of vinegar poured into the sample, the concentration are the same (3)The object should be placed in the same environment for 30 minutes to make it dry",1,2
+85,zh_010086,(_1) four samples (2) vinegar poured into the sample and the balance (3) distilled water,1,2
+86,zh_010087,(_1) get a white paper without stains (2) calculate the mass of the paper (3) drop the vinegar onto the paper and measure the mass after 24h,1,0
+87,zh_010088,(_1)The concentration of acetic acid in the solution(2)The mass of the main components in each type of experimental object(3)The volume of vinegar poured in each time,1,3
+88,zh_010089,(_1)The type of vinegar(2)The mass of vinegar poured into each container(3)The type and size of the container,1,3
+89,zh_010090,(_1)PH value of vinegar(2)Content of vinegar added(3)Contact area,1,3
+90,zh_010091,(_1)The content of vinegar (in the sample) (2)Whether the vinegar contained in the experimental sample was cleaned or not (3)The volume of different samples,1,2
+91,zh_010092,(_1)The original dryness and wetness of the four samples (2)Whether all of them can be air-dried within 30 minutes (3)Whether the operation of distilled water shabu-shabu has any effect on the experiment.,1,2
+92,zh_010093,(_1) the amount of vinegar reduction (2) whether it reacts with distilled water (3) whether it reacts with other substances in the process of becoming dry,1,0
+93,zh_010094,(_1) the role of vinegar (2) the initial form (3) the role of distilled water (4) whether distilled water has an effect on the material (5) whether the material reacts with vinegar,1,0
+94,zh_010095,(_1) Add equal amounts of vinegar (2) Sort it (3) Repeatedly flush it with distilled water (4) Switch to a material with different acidity for several experiments,1,1
+95,zh_010096,(_1) vinegar content in each container (2) contact area of each sample with vinegar (3) whether the original mass of each sample is the dry mass (4) density of each sample,1,3
+96,zh_010097,Additional information (_1) the amount of vinegar consumed by each different sample (2) whether impurities will be produced,1,1
+97,zh_010098,(_1) the same temperature (2) the state of the plastic (3) the mass of the material,1,1
+98,zh_010099,(_1)The mass of vinegar poured in (2)The acidity of vinegar,1,2
+99,zh_010100,(_1) the volume of acid rain (2) whether the surface of the wood is covered or not (3) whether the type of plastic is the same,1,2
+100,zh_010101,(_1) follow the controlled variable method (2) the same materials and the same steps (3) follow the rules of the experiment,1,0
+101,zh_010102,"(_1) Wood does not dry easily and should be weighed after determining that the wood, including the grain surface, is completely dry. (2) the volume of the four materials, the surface area, that is, the shape of the same size is best (3) placed in the same environment to avoid high temperature so that the vinegar play",1,3
+102,zh_010103,(_1) take the same sample for the same experiment (2) the sample should be the same as the previous experimental steps are also the same as above (3) the container should be brushed and cleaned after use to carry out the experiment,1,1
+103,zh_010104,Weigh the mass of the liquid in the container and compare the mass of the liquid in the container after the experiment.,1,0
+104,zh_010105,"(_1) The initial mass of the control sample is the same (2) The concentration of vinegar is the same (3) When placing the sample, keep the internal and external environment the same",1,2
+105,zh_010106,The reactants will not react with items other than vinegar Control a single variable Make the reactants equal in substance mass Pour the same amount of vinegar,1,1
+106,zh_010107,(_1) whether each sample has undergone a chemical change (2) what is the pH value (3) what exactly is the difference between vinegar and acid rain on the material,1,1
+107,zh_010108,Control vinegar energy concentration is the same Mass after becoming dry Distilled water concentration is the same,1,1
+108,zh_010109,(_1) The shape of the four samples and their surface area (2) Whether the temperature is the same (3) How acidic the vinegar is,1,3
+109,zh_010110,Re-selection of samples and weighing Re-replacement of acetic acid,1,0
+110,zh_010111,(_1) The degree of damage to the surface (2) The change in color of the surface of the substance,1,1
+111,zh_010112,(_1)The initial volume and density size of the four samples (2)Whether the pH value of acid rain is equal in each experiment (3)Whether the temperature in the four containers is the same,1,3
+112,zh_010113,(_1) the amount of vinegar (2) the time consumed by the experiment (3) whether the temperatures in the four containers were the same,1,2
+113,zh_010114,(_1) pH value of acid rain (2) composition in acid rain (3) composition and density of substances in the sample area of contact between sample and vinegar,1,3
+114,zh_010115,(_1) pH value of acid rain (2) Composition in acid rain (3) Composition of materials,1,3
+115,zh_010116,(_1) The amount of vinegar poured into the four containers (2) The particle size of the four materials (3) The difference between vinegar and acid rain composition,1,2
+116,zh_010117,(_1) pH value of acid rain (2) shape of the sample (3) temperature of the container,1,3
+117,zh_010118,(_1)The mass of the container (2)The mass of acetic acid (3)Whether there will be a change in the mass due to the occurrence of a chemical reaction,1,2
+118,zh_010119,(_1) picking different materials (2) increasing the initial mass (3) increasing the type of sample,1,0
+119,zh_010120,Add the mass of vinegar,1,1
+120,zh_010121,Amount of acid rain pH,1,2
+121,zh_010122,(_1) Whether the concentration of vinegar in the container is the same (2) The type of rock (3) The mass of the rock,1,2
+122,zh_010123,Separate samples were put into pure water to form a control,1,0
+123,zh_010124,(_1) Comparison of the mass difference between the mass of the sample measured again and the original mass (2) the mass of the marble (3) the volume of the limestone,1,1
+124,zh_010125,Volume of the sample Surface area and pH value,1,2
+125,zh_010126,(_1) distilled water (2) beaker (3) vinegar,1,0
+126,zh_010127,Distilled water Beaker Vinegar ,1,0
+127,zh_010128,PH of acid rain Content of acid rain Volume of water Sample after wind and sunlight   ,1,1
+128,zh_010129,(_1) acid rain added (2) degree of material corrosion (3) acid rain corrosion time,1,1
+129,zh_010130,(_1) Determine the mass of four different samples (2) Leave the samples for 30 minutes to dry (3) Determine again the mass of each sample now,1,0
+130,zh_010131,(_1)The ambient temperature should be the same (2)The exposure to sunlight should be the same (3)The vinegar received by the four materials poured should be the same,1,2
+131,zh_010132,(_1)The pH value of vinegar (2)The temperature of the environment (3)The length of the experiment time,1,2
+132,zh_010133,(_1)PH test paper to measure PH value (2)test tube (3)volumetric flask,1,0
+133,zh_010134,(_1)Control the effect of temperature on the experiment (2)Multiple experiments to make the result more accurate (3)Observe the result of quality difference every few hours,1,1
+134,zh_010135,(_1)The type of vinegar (2)The amount of vinegar poured in (3)The tool for brushing,1,3
+135,zh_010136,(_1) Concentration and amount of vinegar poured In how many liters precisely (2) What is the pH value of vinegar (3) Temperature of the room,1,3
+136,zh_010137,(_1) The mass of the sample before and after scrubbing with distilled water (2) Whether the various experimental materials evaporate (3) The effect of mass on the experiment,1,0
+137,zh_010138,(_1) Mass of vinegar solution poured (2) Density of each material sample (3) Time of rinsing,1,2
+138,zh_010139,(_1)Density (2)Mass of vinegar added and acetic acid content in it,1,2
+139,zh_010140,(_1)The change of PH before and after the vinegar (2)The volume of the object Change,1,1
+140,zh_010141,(_1)The amount of vinegar (2)The presence of dregs in the vinegar (3)The shape and size of the sample,1,2
+141,zh_010142,(_1)The concentration of vinegar (2)Whether the four samples reacted with acid (3)Whether the surface of the sample was covered with precipitated substances after the reaction,1,1
+142,zh_010143,(_1)Vinegar concentration (2)Strength of acid (3)Surface area of the items,1,2
+143,zh_010144,(_1)Acetic acid concentration reaction of the same (2)Set acetic acid different concentrations on the same mass of material the same type of material effect,1,0
+144,zh_010145,(_1)Weigh the same four cups of vinegar Ensure the same amount of vinegar,1,1
+145,zh_010146,(_1) whether the sample contains impurities (2) whether to add catalyst (3) whether the concentration of vinegar is the same for each experiment 4 whether to stir,1,2
+146,zh_010147,(_1) How dry the material is (2) Whether there are other adherents on the material after it becomes dry (3) Whether it is isolated from air,1,1
+147,zh_010148,(_1)Seal the bottle (2)Volume of marble (3)Color of limestone,1,1
+148,zh_010149,(_1)The amount of acid rain added (2)The degree of corrosion of the material (3)The time of being corroded by acid rain,1,1
+149,zh_010150,(_1)Mass degree of vinegar reduction respectively (2)Mass concentration of various materials (3)Mass concentration of vinegar,1,2
+150,zh_010151,Volume of marble Mass of limestone Mass of plastic,1,1
+151,zh_010152,The original mass of marble The original mass of limestone The original mass of wood,1,0
+152,zh_010153,(_1) Acetic acid content in vinegar (2) Amount of vinegar (3) Initial PH,1,2
+153,zh_010154,Initial PH Initial light level Initial temperature,1,2
+154,zh_010155,Volume of each sample Mass of vinegar Concentration of vinegar,1,3
+155,zh_010156,(_1)Vinegar concentration (2)Vinegar temperature (3)Soaking time,1,2
+156,zh_010157,Acid rain has almost no effect on wood materials Greater effect on stone materials Less effect on plastic,1,0
+157,zh_010158,Initial mass Post-experimental mass Difference in mass ,1,0
+158,zh_010159,Same initial mass Smaller unit,1,0
+159,zh_010160,Need contact area of each material with acid rain Acid rain concentration Material mass Volume as well as density,1,3
+160,zh_010161,Variation in acid rain concentration,1,0
+161,zh_010162,Humidity of the air Temperature Atmospheric pressure Is the Earth's gravity standard,1,1
+162,zh_010163,(_1) The difference between vinegar and acid rain (2) The PH of vinegar and the PH of acid rain (3) Whether the four materials are the same except that the materials are different,1,2
+163,zh_010164,(_1)Put the samples in pure water separately to form a control (2)Increase the concentration of vinegar when the mass of the sample remains the same (3)Increase the mass of vinegar when the mass of the sample remains the same,1,0
+164,zh_010165,(_1) surface area of the sample (2) volume of the sample (3) density of the sample,1,2
+165,zh_010166,(_1) whether the mass of the sample is the same (2) whether the vinegar concentration is the same (3) whether the temperature is appropriate,1,2
+166,zh_010167,(_1) The concentration of acid rain (2) The mass of acid rain (3) The temperature of acid rain,1,3
+167,zh_010168,(_1) pH value of acid rain (2) Amount of acid rain added by drops (3) To remove water completely,1,2
+168,zh_010169,(_1) PH of acid rain (2) Concentration of acid rain (3) Volume of vinegar used,1,2
+169,zh_010170,Take the same mass of substance soaked in vinegar with the same concentration for different times and measure the mass Take the same equal mass of substance soaked in vinegar with different concentrations for the same time and measure the mass,1,0
+170,zh_010171,Whether the area immersed in vinegar is the same Whether the acidity of vinegar is the same Whether the immersion time is the same Whether other items are washed off,1,2
+171,zh_010172,(_1) the concentration of the vinegar substance (2) the temperature of the experiment (3) find four new materials,1,2
+172,zh_010173,Need temperature PH Volume of liquid,1,3
+173,zh_010174,(_1) Find the four materials again (2) Pour the vinegar again (3) The concentration of vinegar,1,1
+174,zh_010175,(_1) Samples of materials different from the initial mass of the first experiment (2) Equal amount and equal concentration of vinegar in each container (3) Initial mass of samples,1,2
+175,zh_010176,(_1) more materials (2) vinegar to add impurities (3) vinegar pH,1,1
+176,zh_010177,(_1) the amount of acid rain (2) the acidity of vinegar (3) more than one choice of materials,1,2
+177,zh_010178,(_1) The amount of acid rain added (2) The time of being corroded by acid rain (3) The degree of material corrosion,1,1
+178,zh_010179,(_1) the amount of vinegar put in (2) the composition of vinegar (3) the sample composition,1,3
+179,zh_010180,(_1) Re-preparation of 4 different but same quality samples (2) Re-processing of samples of different quality into samples of the same quality after the experiment (3) pH value of vinegar (4) Area of sample in contact with vinegar,1,2
+180,zh_010181,(_1) Appearance characteristics of the samples (2) Area of their contact with vinegar (3) pH value of vinegar,1,3
+181,zh_010182,(_1) The amount of vinegar reduced separately (2) The mass concentration of each material (3) The mass concentration of vinegar,1,2
+182,zh_010183,"A little bit of red cedar wood, incense wood and precious wood were infiltrated with acid rain to achieve comparatively small results.",1,0
+183,zh_010184,(_1) pH value of acid rain (2) mass of acid rain,1,2
+184,zh_010185,The concentration of vinegar and how much,1,1
+185,zh_010186,(_1) the mass of acetic acid poured (2) the amount of acid consumed,1,1
+186,zh_010187,Minimal effect of acid rain on wood,1,0
+187,zh_010188,(_1) Acid rain has more effect on limestone (2) No effect on wood (3) Less effect on plastic,1,0
+188,zh_010189,(_1) pH value of vinegar (2) pH value of acid rain (3) With or without retesting conditions,1,1
+189,zh_010190,(_1) The concentration of vinegar remains the same (2) The same contact area with the object (3) The standard of distilled water scrubbed clean,1,3
+190,zh_010191,(_1)The mass of water (2)The volume of the sample (3)The temperature of the experiment,1,2
+191,zh_010192,(_1)PH value of vinegar (2)PH value of acid rain (3)Poor quality of material quality control ,1,1
+192,zh_010193,(_1) pH value of vinegar (2) volume of vinegar (3) temperature of the wood,1,2
+193,zh_010194,"The concentration content of vinegar The temperature and humidity in the container The light of,",1,2
+194,zh_010195,(_1)PH value of vinegar (2)PH value of acid rain (3)Conditions with or without re-experimentation,1,1
+195,zh_010196,(_1)The purity of various materials(2)Whether the reaction with acid is mixed with new impurities(3)Put in again need new container and vinegar and each index is the same,1,2
+196,zh_010197,(_1) put in equal amounts of vinegar (2) the same mass of the sample (3) repeat the above experiment,1,1
+197,zh_010198,(_1)To pour in equal amounts of vinegar separately (2)The samples should be taken with the same mass (3)Repeat the above experiment several times,1,1
+198,zh_010199,(_1) the initial water content of the sample (2) the data obtained by adding equal amounts of vinegar and controlling other amounts constant (3) using equal masses of the sample for the test,1,2
+199,zh_010200,Should test whether there are impurities in the sample The test of each group and then do a few more times to see if the results are different The highest strictly prohibited types of tests to see whether the substance is easy to decompose or react with water error analysis,1,1
+200,zh_010201,"(_1) the amount of gas produced (2) the same mass of the sample (3) marble and limestone both belong to the rock type, can replace a",1,0
+201,zh_010202,(_1) the amount of vinegar and pH value; (2) the sample is then removed and rinsed with or without mass loss; (3) the total mass of residual material in the container,1,2
+202,zh_010203,(_1) the amount of gas produced (2) the mass of vinegar,1,1
+203,zh_010204,(_1) the mass of the gas (2) whether the structure of the object is changed (3) in what form the reduced mass is dissipated,1,0
+204,zh_010205,"(_1)The extent to which the measured object is infiltrated(2)The temperature at the time of measurement, the humidity",1,2
+205,zh_010206,(_1)The mass of vinegar poured in should be the same (2)To check the air tightness (3)To wash the sample with the specified supplies,1,2
+206,zh_010207,"(_1)Density of sample, volume (2)Strength of acetic acid (3)Whether the container is airtight (4)Humidity of air",1,2
+207,zh_010208,(_1) density of various materials (2) volume of various materials (3) degree of damage of various materials,1,1
+208,zh_010209,(_1)The pH value of vinegar(2)The mass of vinegar contained in each cup(3)The size of the area of vinegar in contact with the object,1,3
+209,zh_010210,(_1) Other substances produced in the container (2) The properties of each material exhibited in the container (3) The condition of the cause of the difference in the results of each material.,1,0
+210,zh_010211,(_1)The quality of vinegar(2)The acidity of vinegar(3)Whether the quality is lost due to other reasons,1,2
+211,zh_010212,(_1)The quality of vinegar(2)The pH value of vinegar(3)Whether the quality is partially taken away by water,1,2
+212,zh_010213,Corrosion resistance of plastic control the initial mass with its same control the same vinegar poured into the container,1,1
+213,zh_010214,The information also needed is (_1) whether the ambient temperature is constant when handling the sample (2) whether the pH value of vinegar is too different from that of acid rain (3) whether the change in temperature has an excessive effect on the test,1,1
+214,zh_010215,(_1) The amount of vinegar is the same as last time (2) The type of vinegar acidity should be different from last time (3) No protective layer can be produced after one reaction,1,1
+215,zh_010216,"(_1),. The presence of impurities in the sample (2) the size of the vinegar concentration (3) the initial mass of the selected sample should be the same",1,2
+216,zh_010217,Chemical properties of the sample Amount of vinegar Whether the container is sealed,1,1
+217,zh_010218,(_1)the mass fraction of vinegar(2)the length of the experiment(3)the cleanliness of the sample itself and insolubility in water,1,2
+218,zh_010219,(_1)The volume of vinegar and its mass(2)The difference of test by external factors(3)Other external effects such as shape and appearance on the sample by the test,1,2
+219,zh_010220,(_1)The content and type of vinegar in each container(2)Whether the four materials have water absorption reaction(3)The benefit of,1,2
+220,zh_010221,(_1)How much concentration of vinegar (2)The temperature at which the items change,1,2
+221,zh_010222,(_1) Consider the temperature change before and after the test (2) whether the items discolored (3) whether the deformation occurred,1,0
+222,zh_010223,(_1) how fast the vinegar evaporates (2) the absorbency of various materials (3) temperature (4) the size of the air pressure,1,1
+223,zh_010224,(_1)The change of CO2 content in air(2)The contact area of experimental materials(3)The temperature at the time of test,1,2
+224,zh_010225,"Measure the mass (volume) of vinegar and control the amount of consistency; the concentration of vinegar may be weakened and the vinegar should be changed again; know the approximate reaction time of each type of material, not _24 hours",1,2
+225,zh_010226,(_1) pH value of acid rain (2) the amount of temperature change (3) sample absorption,1,2
+226,zh_010227,(_1) temperature change (2) whether the pressure is constant (3) whether the item is discolored,1,0
+227,zh_010228,(_1) concentration of acetic acid (2) whether the container is sealed (3) density of various materials,1,1
+228,zh_010229,(_1)Whether the plastic contains impurities (2)Whether the vinegar can be used repeatedly (3)The degree of reaction between the sample and the vinegar,1,1
+229,zh_010230,(_1)Ensure the same degree of dryness and wetness of the four materials before the test (2)Avoid the reduction of the quality of the sample caused by the washing process (3)Ensure that the material is sufficiently dry during the drying process,1,2
+230,zh_010231,(_1) the concentration of vinegar (2) the proportion of the main components of the sample (3) easy material,1,2
+231,zh_010232,"Temperature in the air, high or low temperature, texture of the sample",1,2
+232,zh_010233,(_1)The concentration of vinegar(2)Whether the amount of vinegar poured in 4 containers is the same(3)Whether the containers are completely sealed,1,2
+233,zh_010234,"(_1) Whether the volume of vinegar completely covers the material (2) Whether the chemical properties of vinegar and acid rain are the same (3) Whether the container and vinegar, and the material are completely sealed before the test",1,1
+234,zh_010235,(_1) Measure the amount of vinegar added to each container (2) Allow the sample to air dry freely without being used for cleaning (3) Measure the changes that occur when the material is placed in the vinegar,1,1
+235,zh_010236,(_1) ensure that the four materials are dry and wet to the same degree before the test (2) the volume of vinegar introduced into each container is certain (3) the four materials are in the same environment,1,3
+236,zh_010237,(_1) Different materials react with vinegar to produce substances (2) Temperature (3) Size of surface area of materials,1,2
+237,zh_010238,(_1) the composition of each sample (2) the composition of the acid rain (3) the amount of vinegar is how much.,1,3
+238,zh_010239,(_1) acid rain does not erode wood (2) greater erosion of marble (3) greatest erosion of limestone,1,0
+239,zh_010240,(_1) whether the amount of vinegar in each container is exactly the same (2) greater erosion of marble (3) greatest erosion of limestone,1,1
+240,zh_010241,(_1) the same amount of vinegar (2) pay attention to the seal (3) shabu-shabu to be careful not to damage the sample,1,1
+241,zh_010242,(_1) use the same concentration of acid rain (2) use the same amount of different materials (3) control the same contact surface,1,2
+242,zh_010243,(_1)Time (2)Acid rain PH (3)Difference in material properties,1,0
+243,zh_010244,(_1) the concentration and amount of vinegar should be equal (2) the contact area of each type of sample and vinegar should be the same (3) the sample will not react with air contact in the air,1,3
+244,zh_010245,(_1) Determination of the mass of different samples (2) Air temperature (3) Temperature,1,1
+245,zh_010246,Effect of acid rain on different materials,1,0
+246,zh_010247,Acid rain has almost no effect on wood materials and a huge effect on stone materials. It has less effect on plastics.,1,0
+247,zh_010248,Effect of acid rain on different materials (_1) Determination of the mass of 4 different samples (2) Pouring vinegar into 4 identical containers,1,0
+248,zh_010249,(_1) Determine the mass of 4 different samples (2) Pour vinegar into 4 identical containers each (3) Determine the effect of acid rain on different materials,1,0
+249,zh_010250,What are the physical properties of acid rain,1,0
+250,zh_010251,"(_1) Determine the mass of 4 different samples (2) Pour vinegar into 4 identical containers (3) Put a sample of one of the materials in a container and label it with the appropriate instructions, and do the same for the other samples",1,0
+251,zh_010252,"Whether the material is soluble, whether the material decomposes over time, and whether the material reacts with other components of the vinegar.",1,0
+252,zh_010253,"(_1) whether the concentration of acid rain is the same (2) whether the sample material is not disturbed by other factors (e.g., moisture, temperature) (3) whether the material is soluble. '",1,2
+253,zh_010254,(_1) whether the concentration of vinegar is the same (2) whether the contact area of the material is complete (3) whether the distilled water shabu is thorough,1,2
+254,zh_010255,"The right amount of acid rain, test time, test temperature.",1,1
+255,zh_010256,(_1)The concentration of acid rain(2)The influence range of acid rain(3)Visibility of acid rain,1,1
+256,zh_010257,(_1)The amount of vinegar should be the same (2)The external environment should not be changed (such as temperature) (3)The sample should not be damaged when shabu-shabu.,1,2
+257,zh_010258,(_1) whether the temperature difference between indoor and outdoor affects (2) whether there is a difference in the impact of different PH of acid rain (3) the quality of acid rain on different materials,1,3
+258,zh_010259,(_1) the amount of the sample and the acid rain reaction of the appropriate amount of the product (2) the air in the composition of the test to get the impact (3) the amount of change in the PH of the acid rain after the reaction.,1,0
+259,zh_010260,(_1) sample PH (2) sample content (3) sample purity,1,1
+260,zh_010261,(_1) Measure the mass of 4 different samples (2) Pour vinegar into 4 identical containers (3) Place a sample of one of the materials into a container and label it with the corresponding description,1,0
+261,zh_010262,(_1) Equal mass volume of vinegar (2) Equal mass of test samples (3) Equal time between measurements,1,1
+262,zh_010263,(_1) The vinegar selected should be of the same concentration and type (2) The mass volume of vinegar should be equal (3) The vinegar should completely submerge the sample (4) The contact area between the sample and the vinegar,1,3
+263,zh_010264,(_1) The vinegar chosen should be of the same concentration and type (2) The mass and volume of vinegar should be the same,1,2
+264,zh_010265,Determine the mass of _4 different samples and put one sample in each container,1,0
+265,zh_010266,(_1)The concentration of vinegar (2)The ambient temperature (3)The mass of vinegar added,1,3
+266,zh_010267,"(_1) rewash each beaker (2) new marble, limestone material (3) finishing labels",1,0
+267,zh_010268,Initial PH initial integrity initial temperature,1,2
+268,zh_010269,(_1)Volume of vinegar in four containers (2)Exact time when each sample was removed (3)Distilled water shabbing time,1,2
+269,zh_010270,(_1)Degree of sample tolerability to acid rain (2)PH of local acid rain (3)Assurance that all experimental materials have been dried,1,1
+270,zh_010271,"The acidity of vinegar, the volume of each sample, the amount and concentration of vinegar poured in",1,3
+271,zh_010272,(_1) how the mass of the material changes during the process (2) whether the mass of the material will be reduced by other factors (3) whether the quality of the material is pure and whether it contains other impurities,1,1
+272,zh_010273,"(_1) the degree of corrosion on the surface of each material (2) whether the material is immersed in vinegar in the same depth (3) for the requirements of the material, soaking time too long may make the material incomplete (4) what requirements should be noted when shabu-shabu with distilled water",1,2
+273,zh_010274,(_1) to know the PH of acid rain (2) how does acid rain of different PH affect the material (3) what is the effect of designing a control group material in distilled water,1,1
+274,zh_010275,(_1) again experiment should keep the initial mass and the first measurement of the same (2) will be left in the container of distilled water inverted to dry (3) placed to dry should pay attention to the sample weighing there is a loss,1,0
+275,zh_010276,(_1) whether the surface area of the sample is consistent (2) the volume of vinegar in the container (3) the area of the sample covered by the container (4) the concentration of vinegar each (5) the mass of each sample not washed,1,3
+276,zh_010277,(_1) container for acid rain (2) appropriate amount of raw material for acid rain (3) appropriate amount of distilled water,1,1
+277,zh_010278,(_1)The pH value of vinegar (2)The contact area between the volume shape of the sample and the acid (3)Whether it is influenced by external factors,1,3
+278,zh_010279,(_1)Acid rain erodes limestone most severely (2)Whether the wood is raw wood With or without processing (3)Whether the acid rain reacts chemically with the material quality control,1,0
+279,zh_010280,(_1)Containers of acid rain materials (2)Appropriate amount of acid rain raw materials (3)Appropriate amount of distilled water,1,1
+280,zh_010281,(_1) the pH value of vinegar (2) the volume shape of the sample and the contact area of vinegar (3) whether it is influenced by external factors,1,3
+281,zh_010282,(_1) The mass of vinegar added (2) The concentration of vinegar (3) The volume and surface area size of the sample,1,3
+282,zh_010283,(_1) The mass of vinegar poured in should be the same (2) The concentration of vinegar (3) The volume of gas produced,1,2
+283,zh_010284,(_1) Select new experimental material for each experiment (2) Observe the color of the solution in the container and measure the mass (3) Calculate if the concentration of the solution has changed,1,0
+284,zh_010285,(_1) Need for schedule timing (2) pH value of acid rain (3) Composition in acid rain (4) Whether the sample has impurities,1,2
+285,zh_010286,Whether the sample is completely reacted Whether the external gas has no effect on the experiment Weighing error is not significant,1,0
+286,zh_010287,(_1) The state of the sample (2) The temperature at the time of the experiment (3) The concentration of vinegar PH,1,3
+287,zh_010288,The state of the sample The concentration of the acid The density of the sample Whether the sample contains impurities Whether the sample is all completely in the acid,1,3
+288,zh_010289,(_1)Mass of each sample before scrubbing (2)PH of vinegar Strength of acidity (3)Volume of vinegar in each container (4)Time,1,2
+289,zh_010290,(_1)Mass of four different experimental materials (2)Concentration of vinegar (3)Volume of distilled water,1,1
+290,zh_010291,(_1) the concentration of vinegar in each container (2) whether the amount of vinegar in each container is the same,1,2
+291,zh_010292,(_1)Whether there was a loss of sample reduction during the brushing process (2)Whether the limestone was lost during the letting dry time (3)Whether the acid pH was in accordance with the acid rain pH standard,1,0
+292,zh_010293,(_1)Select different masses of marble limestone wood plastic to repeat the experiment (2)Take the same mass of material to repeat the experiment (3)Use different concentrations of vinegar to repeat the experiment,1,0
+293,zh_010294,(_1) the temperature at the time of the experiment (2) the state the sample was in (3) the concentration of vinegar,1,3
+294,zh_010295,(_1) The amount of vinegar solution poured into each container (2) Whether the temperature reached the appropriate value (3) The changes produced by each material in the first experiment,1,2
+295,zh_010296,(_1)The volume and surface area of each material (2)The acidity of the vinegar (3)The temperature of each container at the time of the experiment,1,3
+296,zh_010297,(_1)Type and concentration of vinegar (2)Material of container Size (3)Mass of vinegar poured in,1,3
+297,zh_010298,(_1)PH of vinegar (2)Volume of container Mass (3)Degree of damage (4)Density of object Volume ,1,3
+298,zh_010299,(_1)The fraction of vinegar taken (2)The shape of these materials Size Volume (3)The time of soaking (4)The density of the chosen material,1,2
+299,zh_010300,(_1) whether the pH of acetic acid is the same whether the mass is the same (2) whether the experimental materials contain impurities (3) whether the materials are subjected to erosion for the same amount of time,1,3
+300,zh_010301,(_1) temperature (2) sealing (3) data from the first test,1,1
+301,zh_010302,"It is necessary to determine the volume size, mass, etc.",1,1
+302,zh_010303,(_1) Volume of gas (2) Mass of precipitate. (3)The mass of all items before and after change.,1,1
+303,zh_010304,(_1)The type of vinegar; (2)The concentration of vinegar; (3),1,1
+304,zh_010305,"The data of the pH of vinegar compared with the pH of acid rain, the contact area of the material with vinegar, the mass of the container, and whether the material is absorbent.",1,1
+305,zh_010306,(_1) The causes of acid rain (2) Whether acid rain corrodes wood (3) Future applications for acid rain,1,0
+306,zh_010307,"The concentration of the sample, the time of the experiment, the samples that can be compared",1,1
+307,zh_010308,(_1) the equipment needed for the experiment (2) the temperature when dissolving (3) the time difference needed and the mass of the object,1,2
+308,zh_010309,(_1) Measure the pH of the liquid in each of the four containers after the experiment; (2) Compare the difference in pH of the liquid in the four containers after the experiment; (3) Ensure that no precipitation is produced during the shabbing of the sample with distilled water.,1,0
+309,zh_010310,"Consumption of acid rain per cup, change in reaction in each cup",1,0
+310,zh_010311,(_1) temperature (2) mass of water (3) mass of the original sample,1,1
+311,zh_010312,"(_1)Pour equal amounts of vinegar into each of the 4 identical containers so that the samples are fully submerged. (2)Conduct the test at the same temperature and pressure. (3)Measure the temperature in the beaker at all times, PH",1,3
+312,zh_010313,concentration of vinegar quantity of vinegar temperature of vinegar,1,2
+313,zh_010314,(_1) Control the mass of vinegar in the container is equal (2) The surface area of the four materials is the same (3) The sample can be completely submerged by vinegar in the container.,1,3

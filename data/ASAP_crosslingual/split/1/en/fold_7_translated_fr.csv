@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+13,13,en_cw_000014,La quantité de vinaigre ajoutée dans chaque récipient est manquante\n La capacité des récipients\n La température\n des matériaux,1,2
+46,46,en_cw_000054,"J'aurais besoin de connaître la quantité exacte des agents réactifs : vinaigre et eau distillée, si les échantillons doivent rester dans un environnement humide ou sec et le type spécifique de récipient à utiliser.",1,2
+50,50,en_cw_000060,"J'ai besoin de quatre récipients avec des couvercles, et d'échantillons de marbre, de calcaire, de bois et de plastique qui peuvent entrer dans ces récipients. J'ai besoin d'un volume de vinaigre suffisant pour remplir tous les récipients afin que les échantillons puissent tous y être noyés. Et j'ai besoin d'une balance pour mesurer la masse.",1,0
+51,51,en_cw_000061,L'échantillon de calixa avait la plus grande différence de masse. L'échantillon de marbre avait la deuxième plus grande différence. L'échantillon de plastique avait une différence minime. L'échantillon de bois n'avait aucune perte de masse.,1,0
+54,54,en_cw_000064,On a déterminé la masse que présente chacun des ingrédients qui ont été approuvés en les mettant en contact avec le vinaigre.,1,0
+70,70,en_cw_000081,1. Quantité de vinaigre\N 2. Concentration du vinaigre\n 3. Taille du récipient,1,2
+76,76,en_cw_000087,"J'aurais besoin, des ingrédients",1,0
+106,106,en_cw_000121,"Quelle quantité de vinaigre devrais-je verser dans chaque récipient ? Et, les conditions telles que la température, l'humidité, la pression, etc. sont-elles importantes ?",1,1
+130,130,en_cw_000150,Quelle taille doivent avoir les récipients par rapport à la taille des échantillons?\N Quelle est la gamme de tailles autorisées pour les échantillons?\N Est-ce que chaque échantillon doit appartenir à des types de roches fixes ?,1,1
+132,132,en_cw_000152,Le volume de vinaigre utilisé pour chaque échantillon et le poids spécifique de l'échantillon sont nécessaires.,1,1
+137,137,en_cw_000157,Je ne comprends pas pourquoi ce matériau calcaire perd de la masse. Qu'est-ce qui est différent et pourquoi le bois ne perd pas de masse ?,1,0
+157,157,en_cw_000178,Quelle quantité de vinaigre faut-il verser ? Combien de temps les échantillons doivent-ils être rincés ? Quels sont les différents échantillons à prélever au départ ?,1,2
+167,167,en_cw_000188,La moyenne entre les données d'entrée et de sortie. Je pense que les estimateurs de moyenne et de variance devraient être placés dans les deux colonnes suivantes. comme données supplémentaires.,1,0
+189,189,en_cw_000211,kkkkk,1,0
+218,218,en_cw_000242,1,1,0
+235,235,en_cw_000263,Quelle quantité de vinaigre a été utilisée ? Comment la masse a-t-elle été mesurée ? Pourquoi avoir choisi le vinaigre ? Pourquoi avoir utilisé de l'eau distillée plutôt que de l'eau du robinet ?,1,1
+247,247,en_cw_000275,"Le volume des échantillons, les types de matériaux spécifiques (bois : chêne, bois de rose, etc.), la taille du récipient",1,3
+253,253,en_cw_000281,"Afin de reproduire l'expérience, vous auriez besoin d'informations supplémentaires telles que la quantité de vinaigre en millilitres versée dans chaque récipient. De plus, vous devez connaître la taille des récipients, la quantité et la durée de rinçage des échantillons avec de l'eau distillée.",1,3
+255,255,en_cw_000283,Toutes les informations sont ici,1,0

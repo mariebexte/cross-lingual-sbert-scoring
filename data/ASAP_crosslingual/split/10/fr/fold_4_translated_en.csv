@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+12,12,fr_100013,White::Lower temperature due to lighter color as indicated by the information given,10,1
+13,13,fr_100014,"""Black::Looking at the results of the experiment and comparing the averages of each color; it is clear that the color """"black"""" absorbs the most temperature.""",10,2
+53,53,fr_100054,White::White absorbs moisture and therefore affects the interiors.,10,0
+58,58,fr_100059,Black::DOG'S BIRTH TEMPERATURE MAINTAINED AT _24 CELCIUS DEGREES,10,1
+70,70,fr_100071,Dark grey::GREY IS CORRECT,10,0
+71,71,fr_100072,Black::I don't know,10,0
+79,79,fr_100080,White::The kennel will heat less in white because this color absorbs less energy,10,1
+84,84,fr_100085,Dark gray::the dog will attract,10,0
+110,110,fr_100111,"White::According to the results of the experiment, we opted for the color of White paint, in fact because inside the kennel that Brandi and Jerry want to design the temperature will be less important because it is a color of paint less dark, so opting for the white color will allow them to design a kennel that absorbs a lesser amount of heat inside the kennel compared to a dark color for example the black color for the kennel that on the contrary will absorb a significant amount of heat.",10,2
+133,133,fr_100134,White::The white color allows to limit the heating of the interior of the kennel in case of sunlight. A darker color would have generated an important increase in temperature.,10,1
+135,135,fr_100136,White::It can increase the temperature in the kennel,10,0
+139,139,fr_100140,"Dark gray::I think light gray is the ideal temperature, it is very warm and not even too cold.",10,0
+141,141,fr_100142,"White::This color should keep it a few degrees cooler than the others. According to the data, white does not absorb as much heat as the darker colors",10,1
+155,155,fr_100156,Black::black lasts longer in the heat,10,1
+158,158,fr_100159,"""White::White is the best color to paint the interior because it is the most reflective color, so it would make the interior of the house """"cooler"""", while the other colors (black, dark gray and light gray) would make the interior of the house warmer.""",10,1
+181,181,fr_100182,"White::In my opinion, the best temperature would be in the range of _41 to 45 degrees.  We can see from the chart that after 10 minutes, the color white increases the temperature of the interior of the doghouse in this range. This suggests that the energy absorption is uniform - neither too low nor too high.",10,2
+182,182,fr_100183,"Dark gray::According to the study, this is the color that kept the same consistency.",10,1
+196,196,fr_100197,"White::this color absorbs less heat, so there won't be as much heat inside the house",10,1
+210,210,fr_100211,White::I like this experience and find a better result. Each student does our best. This chart is used to select the best result.,10,0

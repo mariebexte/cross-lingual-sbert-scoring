@@ -1,0 +1,20 @@
+,Unnamed: 0.1,Unnamed: 0,id,text,prompt,score
+0,89,89,zh_010090,(_1) Valeur de pH de l'acide (2) Contenu de l'acide ajouté (3) Zone de contact,1,3
+1,286,286,zh_010287,(_1) État de l'échantillon (2) température de l'expérimentation (3) pH de la concentration de l'acide,1,3
+2,53,53,zh_010054,(_1) Les précipitations acides sur la corrosion de la surface de ces objets (2) Mesurer le pH de chaque objet,1,0
+3,157,157,zh_010158,Qualité initiale Qualité post-expérimentale Qualité différente ,1,0
+4,186,186,zh_010187,Les pluies acides ont le moins d’impact sur le bois.,1,0
+5,221,221,zh_010222,(_1) Prendre en compte les changements de température avant l'essai (2) si l'objet s'est évanoui (3) s'il s'est formé ou non,1,0
+6,283,283,zh_010284,(_1) Chaque expérimentation sélectionne un nouveau matériau (2) observe la couleur de la solution dans le récipient et mesure la masse (3) calcule si la concentration de la solution a changé,1,0
+7,163,163,zh_010164,(_1) Placer l'échantillon avec de l'eau pure séparément pour former un contraste (2) Augmenter la concentration du vinaigre lorsque la qualité de l'échantillon est inchangée (3) Augmenter la qualité du vinaigre lorsque la qualité de l'échantillon est inchangée,1,0
+8,68,68,zh_010069,(_1) la réduction de la teneur en vinaigre (2) la production de gaz nocifs lors de la réaction du vinaigre avec le réactif (3) l'existence de risques tout au long de l'expérimentation,1,0
+9,250,250,zh_010251,(_1) mesurer la qualité de 4 échantillons différents (2) verser le vinaigre dans 4 conteneurs identiques séparément (3) placer l'échantillon d'un des matériaux dans un conteneur et apposer l'étiquette d'indication correspondante et procéder de la même manière aux autres échantillons,1,0
+10,245,245,zh_010246,Les effets de la pluie sur les différents matériaux,1,0
+11,106,106,zh_010107,(_1) Si les échantillons ont subi des changements chimiques (2) Quelle est la valeur du pH (3) Quelle est la différence entre le vinaigre et la pluie acide dans le matériau,1,1
+12,213,213,zh_010214,Les informations nécessaires comprennent également (_1) si la température ambiante est constante lors du traitement de l'échantillon (2) si le pH de l'acide est trop différent de celui de la pluie acide (3) si les changements de température ont un effet excessif sur l'essai.,1,1
+13,14,14,zh_010015,(_1) La quantité de pluie acide (2) La quantité de pluie acide doit être suffisante,1,1
+14,184,184,zh_010185,Quelle est la concentration de la jalousie?,1,1
+15,179,179,zh_010180,(_1) Préparer à nouveau 4 échantillons différents mais de la même qualité (2) Traiter à nouveau les échantillons de la même qualité après l'expérimentation en échantillons de la même qualité (3) Valeur de pH de l'acide (4) La zone de contact de l'échantillon avec l'acide,1,2
+16,152,152,zh_010153,(_1) Contenu de l'acide acétique dans le vinaigre (2) Dosage du vinaigre (3) Valeur initiale du PH,1,2
+17,130,130,zh_010131,(_1) La température ambiante doit être cohérente (2) l'exposition au soleil doit être la même (3) les quatre matériaux doivent recevoir la même quantité de vinaigre.,1,2
+18,204,204,zh_010205,(_1) degré d'immersion du matériau (2) température et humidité au moment de la mesure,1,2

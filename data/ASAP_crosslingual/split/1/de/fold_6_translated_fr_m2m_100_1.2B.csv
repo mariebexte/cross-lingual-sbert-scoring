@@ -1,0 +1,20 @@
+,Unnamed: 0.1,Unnamed: 0,id,text,prompt,score
+0,223,223,de_000224,Quel type de vinaigre a-t-il été utilisé? Les échantillons ont-ils été entièrement recouverts d'acide? Quelle est la taille des tests?,1,3
+1,298,298,de_000299,"Quantité et variété de vinaigre, taille des échantillons, taille des récipients",1,3
+2,250,250,de_000251,"Essai, masse au début, masse à la fin",1,0
+3,29,29,de_000030,Il faut redéfinir les masses. La différence de poids doit être calculée en pourcentage.,1,0
+4,111,111,de_000112,"Déterminer la masse des quatre essais. Versez du vinaigre dans chacun des quatre récipients distincts mais identiques. Après 24 heures, retirer les échantillons des récipients et rincer chaque échantillon avec de l'eau distillée. Déterminer le poids de chaque épreuve.",1,0
+5,67,67,de_000068,"la masse des 4 échantillons différents, verser du vinaigre sur les échantillons, déterminer le poids à la fin des échantillons",1,0
+6,112,112,de_000113,"Pour répéter l'expérience, vous avez besoin de différents matériaux appropriés pour l'expérience, et une balance qui peut déterminer exactement le poids des matériaux. L'expérimentation doit être effectuée exactement au même moment que lors du premier passage.",1,0
+7,45,45,de_000046,"La masse des échantillons, du vinaigre, 4 récipients identiques sont nécessaires.",1,0
+8,18,18,de_000019,Temps de séchage plus long Autres échantillons: Temps de boue / boue,1,0
+9,138,138,de_000139,"Marbre, calcaire, bois, plastique - masse au début (g) - vinaigre - 24 heures - Placez les échantillons pendant 30 minutes pour sécher - masse à la fin (g) - différence de masse (g)",1,0
+10,189,189,de_000190,"1ère La masse des quatre échantillons doit être comparée avant et après l'essai au moyen de la détermination du poids. 2ème Quatre tasses de même taille sont remplies de la même quantité de vinaigre, puis on décrit chaque tasses et on y apporte la matière correspondante et on laisse l'échantillon reposer 24 heures. 3ème Ensuite, retirez le matériau testé et laissez-le sécher 30 minutes avant de déterminer son poids.",1,0
+11,22,22,de_000023,"- Combien de temps les échantillons doivent-ils rester dans le récipient lors de la deuxième tentative? Combien de temps faut-il pour sécher, plus ou moins de 30 minutes? Prenons-nous le même type de vinaigre?",1,1
+12,156,156,de_000157,- comment déterminer la masse - combien de vinaigre à verser - À quelle température les récipients doivent attendre 24 heures,1,1
+13,180,180,de_000181,"Type d'échantillon, masse au début, masse à la fin",1,1
+14,282,282,de_000283,"En outre, les échantillons de la même consistance et de la même taille devraient être placés en parallèle pendant 24 heures dans de l'eau distillée/pas de pluie acide pour obtenir des valeurs comparatives. Il convient également d'indiquer la taille et la proportion de surface exactes des échantillons.",1,1
+15,187,187,de_000188,- Quantité de vinaigre versée dans chaque récipient - Type de vinaigre utilisé - Différence de masse en pourcentage - Comment étiqueter les récipients,1,2
+16,285,285,de_000286,Combien de vinaigre je dois prendre Les échantillons sont placés dans le récipient avec le vinaigre Combien d'eau distillée je peux utiliser pour laver l'échantillon ,1,2
+17,20,20,de_000021,-La surface des échantillons -La température sous laquelle l'essai a été effectué -La teneur en acide des vinaigres (spécifier précisément le vinaigre),1,2
+18,142,142,de_000143,Quelle était la concentration de l’acide acétique? Les épreuves ont-elles été complètement recouvertes d’œsophage? Comment était l'humidité dans la pièce,1,2

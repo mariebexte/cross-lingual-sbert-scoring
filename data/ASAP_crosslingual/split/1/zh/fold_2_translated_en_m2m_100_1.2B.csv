@@ -1,0 +1,20 @@
+,Unnamed: 0.1,Unnamed: 0,id,text,prompt,score
+0,287,287,zh_010288,State of the sample Acid concentration Density of the sample whether the sample contains impurities whether the sample is completely in the acid,1,3
+1,208,208,zh_010209,(_1) PH value of vinegar (2) the amount of vinegar per cup (3) the size of the area in which vinegar is in contact with the object,1,3
+2,156,156,zh_010157,"Acid rain has almost no impact on wood materials, greater impact on stone materials, less impact on plastics.",1,0
+3,122,122,zh_010123,Put pure water into the sample separately.,1,0
+4,242,242,zh_010243,(_1) Time (2) Acid Rain PH (3) Difference in Material Properties,1,0
+5,278,278,zh_010279,(_1) acid rain is the worst for the erosion of the rock (2) whether the wood is raw wood has no processing (3) acid rain and material quality inspection if there has been a chemical reaction,1,0
+6,187,187,zh_010188,(_1) Acid rain has a greater impact on rock (2) no impact on wood (3) less impact on plastics,1,0
+7,92,92,zh_010093,(_1) reduction in the amount of vinegar (2) whether it reacts with distilled water (3) whether it reacts with other substances in the process of drying,1,0
+8,26,26,zh_010027,(_1) Clean the container used in the experiment (2) look for some metal materials for experimental control (3) the amount of vinegar must be sufficient,1,0
+9,129,129,zh_010130,(_1) measure the quality of four different samples (2) place the sample for 30 minutes to make it dry (3) again measure the quality of each sample now,1,0
+10,305,305,zh_010306,(_1) Causes of Acid Rain (2) Will Acid Rain Corrode Wood (3) Future Applications for Acid Rain,1,0
+11,141,141,zh_010142,(_1) concentration of vinegar (2) whether the four samples react with acid (3) whether the surface of the post-reaction sample is stained with sediment,1,1
+12,31,31,zh_010032,(_1) Mass score of acetic acid (2) medium short time of experiment (3) purity of the sample itself and insolubility in water,1,1
+13,196,196,zh_010197,(_1) Put equal amounts of vinegar (2) sample quality is the same (3) repeat the above experiment,1,1
+14,233,233,zh_010234,(_1) Whether the volume of vinegar completely covers the material (2) whether the chemical properties of vinegar and acid rain are the same (3) whether the container and vinegar are completely sealed before testing,1,1
+15,121,121,zh_010122,(_1) Is the concentration of vinegar in the container the same (2) the type of rock (3) the quality of the rock,1,2
+16,43,43,zh_010044,Contact surface between the sample and vinegar and use of rinse water Temperature and storage conditions for the experiment,1,2
+17,112,112,zh_010113,(_1) the content of vinegar (2) the time spent in the experiment (3) whether the temperature within the four containers is the same,1,2
+18,74,74,zh_010075,(_1) The concentration of the post-experimental vinegar (2) whether the amount of vinegar poured into four boiled cups is the same (3) whether the amount of vinegar is immersed in the vinegar,1,2

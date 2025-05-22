@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+8,8,zh_010009,(_1) s'il a été dissous avec du vinaigre (2) s'il a été réchauffé (3) s'il y a eu précipitation,1,0
+13,13,zh_010014,(_1) Concentration suffisante de poudre alcaline d'acide à l'intérieur du matériau à polymériser,1,0
+16,16,zh_010017,(_1) la masse du vinaigre après l'expérience (2) la taille du vinaigre absorbé par chaque masse (3) la présence d'impuretés,1,1
+55,55,zh_010056,(_1) Si des impuretés sont produites,1,0
+66,66,zh_010067,(_1) Concentration du vinaigre (2) Détermination de la quantité de vinaigre versée dans chaque récipient (3) Température de l'air de l'environnement d'essai,1,3
+76,76,zh_010077,(_1) Le pH du vinaigre (2) La quantité versée dans chaque récipient (3) La concentration du vinaigre versé dans le récipient,1,2
+110,110,zh_010111,(_1) Le degré d'endommagement de la surface (2) Le changement de couleur de la surface de la substance,1,1
+151,151,zh_010152,Masse originale de marbre Masse originale de calcaire Masse originale de bois,1,0
+189,189,zh_010190,(_1) Concentration constante du vinaigre (2) Même surface de contact avec l'objet (3) Critères pour un lavage à l'eau distillée propre,1,3
+191,191,zh_010192,(_1) Valeur pH du vinaigre (2) Valeur pH des pluies acides (3) Mauvaise qualité du matériel contrôle de qualité ,1,1
+200,200,zh_010201,(_1) Quantité de gaz produite (2) Masse égale des échantillons (3) Le marbre et le calcaire sont deux types de roches et peuvent être remplacés par l'une d'entre elles.,1,0
+205,205,zh_010206,(_1) La masse de vinaigre à verser doit être la même (2) L'étanchéité doit être vérifiée (3) L'échantillon doit être lavé avec des fournitures spécifiques,1,2
+210,210,zh_010211,(_1) La qualité du vinaigre (2) Le pH du vinaigre (3) S'il y a une perte de qualité pour d'autres raisons.,1,2
+216,216,zh_010217,Propriétés chimiques de l'échantillon Quantité de vinaigre Fermeture du récipient ou non,1,1
+226,226,zh_010227,(_1) changement de température (2) si la pression est constante (3) si l'article est décoloré,1,0
+229,229,zh_010230,(_1) S'assurer que les quatre matériaux sont également secs et humides avant le test (2) Éviter toute réduction de la qualité de l'échantillon pendant le processus de lavage (3) S'assurer que les matériaux sont suffisamment secs pendant le processus de séchage.,1,2
+246,246,zh_010247,Les pluies acides n'ont pratiquement aucun effet sur les matériaux en bois et un effet significatif sur les matériaux pierreux. Il a moins d'effet sur les plastiques.,1,0
+251,251,zh_010252,"Si la matière est soluble, si la matière se décompose avec le temps et si la matière réagit avec les autres composants du vinaigre.",1,0
+308,308,zh_010309,(_1) mesurer le pH du liquide dans chacun des quatre récipients après l'expérience ; (2) comparer la différence de pH du liquide dans les quatre récipients après l'expérience ; (3) s'assurer qu'aucune précipitation n'est produite lors du passage de l'échantillon avec de l'eau distillée.,1,0

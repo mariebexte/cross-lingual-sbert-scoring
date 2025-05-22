@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+12,12,fr_100013,"Blanco::Temperatura más baja debido a que el color es más claro, como se indica en la información dada",10,1
+13,13,fr_100014,"""Negro::Observando los resultados del experimento y comparando las medias de cada color; está claro que el color """"negro"""" es el que más temperatura absorbe"".",10,2
+53,53,fr_100054,"Blanco::El blanco absorbe la humedad y, por tanto, afecta a los interiores.",10,0
+58,58,fr_100059,Negro::TEMPERATURA DE NACIMIENTO DEL PERRO MANTENIDA A _24 GRADOS CELCIUS,10,1
+70,70,fr_100071,Gris oscuro::GRIS ES CORRECTO,10,0
+71,71,fr_100072,Negro::No sé,10,0
+79,79,fr_100080,Blanco::La perrera se calentará menos en blanco porque este color absorbe menos energía,10,1
+84,84,fr_100085,Gris oscuro::el perro atraerá,10,0
+110,110,fr_100111,"Blanco::De acuerdo con los resultados del experimento, optamos por el color de pintura Blanco, de hecho porque dentro de la perrera que Brandi y Jerry quieren diseñar la temperatura será menos importante porque es un color de pintura menos oscuro, por lo que optar por el color Blanco les permitirá diseñar una perrera que absorba una menor cantidad de calor dentro de la perrera en comparación con un color oscuro por ejemplo el color Negro para la perrera que por el contrario absorberá una cantidad significativa de calor.",10,2
+133,133,fr_100134,Blanco::El color blanco ayuda a limitar el calentamiento del interior de la caseta con la luz del sol. Un color más oscuro habría provocado un aumento indeseable de la temperatura.,10,1
+135,135,fr_100136,Blanco::Puede aumentar la temperatura en la perrera,10,0
+139,139,fr_100140,"Gris oscuro::Creo que el gris claro es la temperatura ideal, es muy cálido y ni siquiera demasiado frío.",10,0
+141,141,fr_100142,"Blanco::Este color debería mantenerlo unos grados más fresco que los demás. Según los datos, el blanco no absorbe tanto calor como los colores más oscuros",10,1
+155,155,fr_100156,Negro::el negro dura más con el calor,10,1
+158,158,fr_100159,"""Blanco::El blanco es el mejor color para pintar el interior porque es el color más reflectante, por lo que haría el interior de la casa """"más fresco"""", mientras que los otros colores (negro, gris oscuro y gris claro) harían el interior de la casa más cálido.""",10,1
+181,181,fr_100182,"Blanco::En mi opinión, la mejor temperatura estaría en el rango de _41 a 45 grados.  Podemos ver en el gráfico que después de 10 minutos, el color blanco aumenta la temperatura del interior de la perrera en este rango. Esto sugiere que la absorción de energía es uniforme, ni demasiado baja ni demasiado alta.",10,2
+182,182,fr_100183,"Gris oscuro::Según el estudio, es el color que ha mantenido la misma consistencia.",10,1
+196,196,fr_100197,"Blanco::este color absorbe menos calor, por lo que no habrá tanto calor dentro de la casa",10,1
+210,210,fr_100211,Blanco::Me gusta esta experiencia y encuentro un mejor resultado. Cada estudiante hace lo que puede. Esta tabla se utiliza para seleccionar el mejor resultado.,10,0

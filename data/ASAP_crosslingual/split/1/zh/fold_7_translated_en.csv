@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+35,35,zh_010036,(_1)Material of the container(2)The amount of vinegar poured into four containers(3)Whether the residue is washed out when scrubbing,1,2
+57,57,zh_010058,(_1)Adjusting the pH of the material with alkaline solution (2)Not waiting for free air drying Artificial drying,1,0
+60,60,zh_010061,(_1) The pH value of vinegar needs to be close to that of acid rain (2) Distilled water brushes the vinegar to make it completely washed out (3) The operation is not wrong when measuring the mass,1,0
+63,63,zh_010064,"Does the corrosion caused by the acid leave new material on the surface of the sample specimen? If the resulting material is tightly bound to the sample, then the experiment is not correct and needs to be improved.",1,0
+94,94,zh_010095,(_1) Add equal amounts of vinegar (2) Sort it (3) Repeatedly flush it with distilled water (4) Switch to a material with different acidity for several experiments,1,1
+96,96,zh_010097,Additional information (_1) the amount of vinegar consumed by each different sample (2) whether impurities will be produced,1,1
+101,101,zh_010102,"(_1) Wood does not dry easily and should be weighed after determining that the wood, including the grain surface, is completely dry. (2) the volume of the four materials, the surface area, that is, the shape of the same size is best (3) placed in the same environment to avoid high temperature so that the vinegar play",1,3
+103,103,zh_010104,Weigh the mass of the liquid in the container and compare the mass of the liquid in the container after the experiment.,1,0
+118,118,zh_010119,(_1) picking different materials (2) increasing the initial mass (3) increasing the type of sample,1,0
+145,145,zh_010146,(_1) whether the sample contains impurities (2) whether to add catalyst (3) whether the concentration of vinegar is the same for each experiment 4 whether to stir,1,2
+148,148,zh_010149,(_1)The amount of acid rain added (2)The degree of corrosion of the material (3)The time of being corroded by acid rain,1,1
+169,169,zh_010170,Take the same mass of substance soaked in vinegar with the same concentration for different times and measure the mass Take the same equal mass of substance soaked in vinegar with different concentrations for the same time and measure the mass,1,0
+182,182,zh_010183,"A little bit of red cedar wood, incense wood and precious wood were infiltrated with acid rain to achieve comparatively small results.",1,0
+190,190,zh_010191,(_1)The mass of water (2)The volume of the sample (3)The temperature of the experiment,1,2
+212,212,zh_010213,Corrosion resistance of plastic control the initial mass with its same control the same vinegar poured into the container,1,1
+220,220,zh_010221,(_1)How much concentration of vinegar (2)The temperature at which the items change,1,2
+249,249,zh_010250,What are the physical properties of acid rain,1,0
+277,277,zh_010278,(_1)The pH value of vinegar (2)The contact area between the volume shape of the sample and the acid (3)Whether it is influenced by external factors,1,3
+285,285,zh_010286,Whether the sample is completely reacted Whether the external gas has no effect on the experiment Weighing error is not significant,1,0

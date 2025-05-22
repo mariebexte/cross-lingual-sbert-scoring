@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+4,4,zh_100005,Blanc : : La température à l'intérieur du chenil restera entre _41-43°C. La température moyenne du chenil dans les expériences 1 - 3 était de 42°C pour le blanc.,10,1
+53,53,zh_100054,"Le blanc : : abaisse la température de l'air dans le chenil par rapport aux autres couleurs, il réfléchit et absorbe moins de lumière, c'est-à-dire qu'il absorbe moins d'énergie.",10,1
+70,70,zh_100071,"Gris foncé : : maintient la température de l'air constante Plus la couleur est foncée, meilleure est l'isolation La température est restée constante au cours des cinq expériences",10,0
+72,72,zh_100073,"Noir : : Plus la couleur est foncée, plus le chenil est chaud. Le noir a une température moyenne de _53°C de plus que le gris foncé gris clair blanc.",10,2
+76,76,zh_100077,"Blanc : : Le blanc absorbe l'énergie et fait monter la température à l'intérieur du chenil, mais il le fait plus lentement que les autres couleurs. La température moyenne du noir est de _53°C, celle du gris foncé de 48, celle du gris clair de 45 et celle du blanc de 42, c'est pourquoi le blanc absorbe l'énergie plus lentement en comparaison.",10,2
+83,83,zh_100084,Noir : : réchauffe le chenil et augmente la luminosité du chenil,10,1
+88,88,zh_100089,Blanc : : a entraîné un faible changement de la température moyenne de l'air dans le chenil La température moyenne à l'intérieur du bocal en verre après _10 minutes de bouchage blanc était de 42°C.,10,1
+121,121,zh_100122,Noir : : Le noir absorbe plus la chaleur et la température à l'intérieur du chenil augmente.,10,1
+141,141,zh_100142,Blanc : : La couleur blanche empêche la température à l'intérieur du chenil d'être trop élevée.,10,1
+154,154,zh_100155,"Blanc : : plus la couleur est claire, plus la différence d'élévation de température est faible et le contraire n'est pas vrai.",10,0
+164,164,zh_100165,Noir : : Le noir fait monter la température,10,1
+176,176,zh_100177,Noir : : une couleur plus foncée absorbe plus d'énergie Intérieur du chenil plus chaud Noir température moyenne la plus élevée sur _3 essais,10,2
+191,191,zh_100192,Gris clair : : maintient l'équilibre de l'intérieur du chenil,10,0
+194,194,zh_100195,Noir::affectera le changement de température Le noir est le meilleur pour garder la chaleur.,10,1
+228,228,zh_100229,"Blanc: : la couleur augmente la température quand il y a de la lumière et maintient l'intérieur du chenil relativement stable, le test _1 augmente la température quand il y a de la lumière ; le test 2 augmente la température et le petit test 3 diminue la température. Maintient sa température relativement appropriée",10,0
+244,244,zh_100245,Gris clair : : le chenil devient gris,10,0
+251,251,zh_100252,Blanc::C'est le blanc qui modifie le moins la température.,10,0
+267,267,zh_100268,"Noir::augmente la température, le noir est plus élevé dans tous les cas",10,1
+302,302,zh_100303,Bleu ::Utilisez la lumière pour faire briller cette couleur bleue.,10,0
