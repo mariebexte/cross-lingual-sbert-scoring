@@ -4,22 +4,41 @@ import random
 import shutil
 import sys
 import torch
+import glob
 
 import pandas as pd
 
 from datetime import datetime
-from model_training.utils import encode_labels, eval_sbert, get_device
-from sentence_transformers import SentenceTransformer, InputExample, losses, evaluation, models
+from model_training.utils import encode_labels, eval_sbert, get_device, cross_dataframes, get_preds_from_pairs
 from sentence_transformers.evaluation import SimilarityFunction
 from torch.utils.data import DataLoader
+from transformers import EarlyStoppingCallback
 from tqdm import tqdm
 
-
 random_state = 3456478
+from copy import deepcopy
+import datasets
+from sentence_transformers import SentenceTransformer, losses, evaluation, SentenceTransformerTrainer, SentenceTransformerTrainingArguments
+from config import ANSWER_LENGTH
 
-# For larger amounts of training data: Do not create all possible pairs, but limit to a fixed number per epoch (if possible, have different pairs across different epochs)
-def train_sbert(run_path, df_train, df_val, df_test, answer_column, target_column, id_column, base_model="all-MiniLM-L6-v2", batch_size=8, num_epochs=20, num_pairs_per_example=None, do_warmup=False, save_model=False, num_val_pairs=None):
 
+
+def get_paired_data_from_dataframes(df_train, df_val, df_test, target_column, id_column='submission_id', answer_column='text'):
+    
+    df_train_pairs = cross_dataframes(df=df_train, df_ref=df_train)
+    df_val_pairs = cross_dataframes(df=df_val, df_ref=df_train)
+    df_test_pairs = cross_dataframes(df=df_test, df_ref=df_train)
+
+    for df_split in [df_train_pairs, df_val_pairs, df_test_pairs]:
+    
+        df_split[target_column] = (df_split[target_column+'_1'] == df_split[target_column+'_2']).astype(int)
+
+    return df_train_pairs, df_val_pairs, df_test_pairs
+
+
+
+def train_sbert(run_path, df_train, df_val, df_test, answer_column, target_column, id_column, base_model, batch_size, num_epochs, num_pairs_per_example=None, save_model=False, num_val_pairs=None):
+    
     # Clear logger from previous runs
     log = logging.getLogger()
     handlers = log.handlers[:]
@@ -29,7 +48,7 @@ def train_sbert(run_path, df_train, df_val, df_test, answer_column, target_colum
         log.removeHandler(handler)
         handler.close()
 
-    device = get_device()
+    device = 'cuda'
 
     print('**** Running SBERT on:', device)
 
@@ -42,7 +61,6 @@ def train_sbert(run_path, df_train, df_val, df_test, answer_column, target_colum
     logging.info('base_model:\t' + base_model)
     logging.info('number of epochs:\t' + str(num_epochs))
     logging.info('batch size:\t' + str(batch_size))
-    logging.info('warmup:\t' + str(do_warmup))
 
     logging.info('num train:\t' + str(len(df_train)))
     logging.info('num val:\t' + str(len(df_val)))
@@ -51,6 +69,9 @@ def train_sbert(run_path, df_train, df_val, df_test, answer_column, target_colum
     logging.info('num validation pairs:\t' + str(num_val_pairs))
 
     start_time = datetime.now()
+
+    # Where to store finetuned model
+    model_path = os.path.join(run_path, "finetuned_model")
 
     num_batches_per_round = None
 
@@ -70,150 +91,98 @@ def train_sbert(run_path, df_train, df_val, df_test, answer_column, target_colum
         transformer = models.Transformer(base_model)
         pooling = models.Pooling(transformer.get_word_embedding_dimension(), pooling_mode="mean")
         model = SentenceTransformer(modules=[transformer, pooling], device=device)
-
-    # Where to store finetuned model
-    model_path = os.path.join(run_path, "finetuned_model")
-
-    # Define list of training pairs: Create only as many as needed
-    if num_epochs * num_pairs_per_example < len(df_train):
-
-        seeds = random.Random(random_state).sample(range(1, 100000), len(df_train))
-
-        train_examples = []
-
-        for idx_1, example_1 in tqdm(df_train.iterrows(), total=len(df_train)):
-
-            df_subsample = df_train.sample(num_epochs * num_pairs_per_example, random_state=seeds[idx_1])
-
-            for _, example_2 in df_subsample.iterrows():
-
-                if not example_1[id_column] == example_2[id_column]:
-
-                    label = 0
-
-                    if example_1[target_column] == example_2[target_column]:
-
-                        label = 1
-
-                    train_examples.append(InputExample(texts=[example_1[answer_column], example_2[answer_column]], label=label*1.0))
     
-    # Define list of training pairs: Create as many as possible
-    else:
+    model.max_seq_length=ANSWER_LENGTH
 
-        train_examples = []
+    df_train_paired, df_val_paired, df_test_paired = get_paired_data_from_dataframes(df_train=df_train, df_val=df_val, df_test=df_test, target_column=target_column)
+    print(len(df_train_paired))
 
-        for _, example_1 in tqdm(df_train.iterrows(), total=len(df_train)):
+    # Downsample training
+    if num_pairs_per_example is not None:
+        
+        if len(df_train) * num_pairs_per_example * num_epochs < len(df_train_paired):
 
-            for _, example_2 in df_train.iterrows():
-
-                if not example_1[id_column] == example_2[id_column]:
-
-                    label = 0
-
-                    if example_1[target_column] == example_2[target_column]:
-
-                        label = 1
-
-                    train_examples.append(InputExample(texts=[example_1[answer_column], example_2[answer_column]], label=label*1.0))
-
-    # Define validation pairs: Create as many as possible
-    val_example_dict = {}
-    val_example_index = 0
-
-    for _, example_1 in tqdm(df_val.iterrows(), total=len(df_val)):
-
-        for _, example_2 in df_train.iterrows():
-
-            if not example_1[id_column] == example_2[id_column]:
-
-                label = 0
-
-                if example_1[target_column] == example_2[target_column]:
-
-                    label = 1
-
-                val_example_dict[val_example_index] = {"text_1": example_1[answer_column], "text_2": example_2[answer_column], "sim_label": label}
-                val_example_index += 1
-
-    val_examples = pd.DataFrame.from_dict(val_example_dict, "index")
+            df_train_paired = df_train_paired.sample(len(df_train) * num_epochs * num_pairs_per_example, random_state=random_state) 
 
     if num_val_pairs is not None:
 
-        val_examples = val_examples.sample(num_val_pairs, random_state=random_state)
+        df_val_paired = df_val_paired.sample(num_val_pairs, random_state=random_state)
 
-    # Define train dataset, dataloader, train loss
-    train_dataloader = DataLoader(train_examples, shuffle=True, batch_size=batch_size)
-    train_loss = losses.OnlineContrastiveLoss(model)
+    train_dataset = datasets.Dataset.from_dict({
+        'text1': list(df_train_paired[answer_column + '_1']),
+        'text2': list(df_train_paired[answer_column + '_2']),
+        'label': list(df_train_paired[target_column])
+    })
+    eval_dataset = datasets.Dataset.from_dict({
+        'text1': list(df_val_paired[answer_column + '_1']),
+        'text2': list(df_val_paired[answer_column + '_2']),
+        'label': list(df_val_paired[target_column])
+    })
 
-    # Define evaluator
-    evaluator = evaluation.EmbeddingSimilarityEvaluator(val_examples["text_1"].tolist(), val_examples["text_2"].tolist(), val_examples["sim_label"].tolist())
 
-    num_warm_steps = 0
+    loss = losses.OnlineContrastiveLoss(model)
 
-    if do_warmup == True:
+    early_stop = EarlyStoppingCallback(early_stopping_patience=3)
 
-        if num_pairs_per_example is not None:
+    args = SentenceTransformerTrainingArguments(
+        output_dir=run_path,
+        load_best_model_at_end=True,
+        per_device_train_batch_size=batch_size,
+        per_device_eval_batch_size=batch_size,
+        eval_strategy='steps',
+        save_strategy='steps',
+        eval_steps=int(len(df_train)/batch_size),
+        max_steps=int((len(df_train)/batch_size)*num_epochs),
+        save_steps=int(len(df_train)/batch_size),
+        # num_train_epochs=num_epochs,
+        # eval_strategy='epoch',
+        # save_strategy='epoch',
+        metric_for_best_model='spearman_max'
+    )
 
-            steps_per_epoch = num_batches_per_round
+    dev_evaluator = evaluation.EmbeddingSimilarityEvaluator(df_val_paired[answer_column + "_1"].tolist(), df_val_paired[answer_column + "_2"].tolist(), df_val_paired[target_column].tolist(), write_csv=True)
+    dev_evaluator(model)
 
-        else:
-            steps_per_epoch = len(train_examples)/batch_size
+    trainer = SentenceTransformerTrainer(
+        model=model,
+        args=args,
+        train_dataset=train_dataset,
+        eval_dataset=eval_dataset,
+        loss=loss,
+        evaluator=dev_evaluator,
+        callbacks=[early_stop]
+    )
 
-        total_num_steps = steps_per_epoch * num_epochs
-        num_warm_steps = round(0.1*total_num_steps)
-
-    # Tune the model
-    if num_pairs_per_example is not None:
-
-        model.fit(train_objectives=[(train_dataloader, train_loss)], epochs=num_epochs, warmup_steps=num_warm_steps, evaluator=evaluator, output_path=model_path, save_best_model=True, show_progress_bar=True, steps_per_epoch=num_batches_per_round)
-    
-    else:
-
-        model.fit(train_objectives=[(train_dataloader, train_loss)], epochs=num_epochs, warmup_steps=num_warm_steps, evaluator=evaluator, output_path=model_path, save_best_model=True, show_progress_bar=True)
+    trainer.train()
 
     logging.info("SBERT number of epochs: "+str(num_epochs))
     logging.info("SBERT batch size: "+str(batch_size))
-    logging.info("SBERT warmup steps: "+str(num_warm_steps))
-    logging.info("SBERT evaluator: "+str(evaluator.__class__)+" Batch size: "+str(evaluator.batch_size)+" Main similarity:"+str(evaluator.main_similarity))
-    logging.info("SBERT loss: "+str(train_loss.__class__))
+    logging.info("SBERT evaluator: "+str(dev_evaluator.__class__)+" Batch size: "+str(dev_evaluator.batch_size)+" Main similarity:"+str(dev_evaluator.primary_metric))
+    logging.info("SBERT loss: "+str(loss.__class__))
+    
+    # Obtain test predictions
+    model.eval()
+    
+    with torch.no_grad():
 
-    # Evaluate best model: Can only do this if training was sucessful, otherwise keep pretrained
-    if os.path.exists(os.path.join(model_path, "pytorch_model.bin")):
+        df_train_copy = deepcopy(df_train)
+        df_test_copy = deepcopy(df_test)
 
-        model = SentenceTransformer(model_path)
+        df_train_copy['embedding'] = df_train_copy[answer_column].apply(model.encode)
+        df_test_copy['embedding'] = df_test_copy[answer_column].apply(model.encode)
 
-    else:
+    df_inference = cross_dataframes(df=df_test_copy, df_ref=df_train_copy)
+    df_inference['sim'] = df_inference.apply(lambda row: row['embedding_1'] @ row['embedding_2'], axis=1)
+    test_answers, test_true_scores, test_predictions, test_predictions_max = get_preds_from_pairs(df=df_inference, id_column=id_column+'_1', pred_column='sim', ref_label_column=target_column+'_2', true_label_column=target_column+'_1')
 
-        try:
+    df_test_aggregated = pd.DataFrame({id_column: test_answers, 'pred': test_predictions, target_column: test_true_scores, 'pred_max': test_predictions_max})
+    df_test_aggregated.to_csv(os.path.join(run_path, 'preds.csv'))
 
-            model = SentenceTransformer(base_model)
-        
-        except:
-
-            # Above sometimes crashes, but this gives equivalent result
-            transformer = models.Transformer(base_model)
-            pooling = models.Pooling(transformer.get_word_embedding_dimension(), pooling_mode="mean")
-            model = SentenceTransformer(modules=[transformer, pooling], device=device)
-
-    # Eval testing data: Get sentence embeddings for all testing and reference answers
-    df_test['embedding'] = df_test[answer_column].apply(model.encode)
-
-    df_ref = pd.concat([df_val, df_train])
-    df_ref['embedding'] = df_ref[answer_column].apply(model.encode)
-
-    # Copy training statistic into run folder
-    if os.path.exists(model_path):
-
-        shutil.copyfile(os.path.join(model_path, "eval", "similarity_evaluation_results.csv"), os.path.join(run_path, "eval_training.csv"))
-
-    # Delete model to save space
-    if os.path.exists(model_path) and save_model==False:
-
-        shutil.rmtree(model_path)
-
-    gold, max_pred, avg_pred = eval_sbert(run_path=run_path, df_test=df_test, df_ref=df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
+    for checkpoint in glob.glob(os.path.join(run_path, 'checkpoint*')):
+        shutil.rmtree(checkpoint)
 
     logging.info('Training duration:\t' + str(datetime.now() - start_time))
 
-    return gold, max_pred, avg_pred
-    
+    model.save_pretrained(model_path)
+
+    return test_true_scores, test_predictions_max, test_predictions

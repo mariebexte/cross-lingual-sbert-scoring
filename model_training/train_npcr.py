@@ -16,12 +16,14 @@ from datetime import datetime
 from npcr.model import npcr_model
 from npcr.evaluator_core import Evaluator_opti_adversarial, evaluate_finetuned_model
 
+from config import NPCR_NUM_VAL, NPCR_NUM_TEST
+
 
 np.random.seed(100)
 logger = get_logger("Train...")
         
 
-def train_npcr(target_path, base_model, df_train, df_val, df_test, col_prompt, col_answer, col_score, val_example_size=15, example_size=25, min_label=None, max_label=None, max_num=1024, learning_rate=0.00001, batch_size=64, num_epochs=10, model_name='best_model', training_within_prompt=True, training_with_same_score=False, num_training_pairs=None, finetuned_model=None, save_model=False):
+def train_npcr(target_path, base_model, df_train, df_val, df_test, col_prompt, col_answer, col_score, max_num, batch_size, num_epochs, val_example_size=NPCR_NUM_VAL, example_size=NPCR_NUM_TEST, min_label=None, max_label=None, learning_rate=0.00005, model_name='best_model', training_within_prompt=True, training_with_same_score=False, num_training_pairs=None, finetuned_model=None, save_model=False):
 
     # Clear logger from previous runs
     log = logging.getLogger()
@@ -71,11 +73,11 @@ def train_npcr(target_path, base_model, df_train, df_val, df_test, col_prompt, c
     model.cuda()
 
     evl = Evaluator_opti_adversarial(out_dir=target_path, model_name=model_name, features_dev=features_dev, masks_dev=masks_dev,\
-        dev_y_example=y_dev_example, dev_y_goal=y_dev_goal, min_label=min_label, max_label=max_label, prompts_array=df_val[col_prompt], example_size=val_example_size)
+        dev_y_example=y_dev_example, dev_y_goal=y_dev_goal, min_label=min_label, max_label=max_label, prompts_array=df_val[col_prompt], example_size=val_example_size, patience=3)
 
     logger.info("Train model")
-
     loss_fn = nn.MSELoss()
+
     optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
 
     train_x0 = [j[0] for j in features_train]
@@ -97,33 +99,64 @@ def train_npcr(target_path, base_model, df_train, df_val, df_test, col_prompt, c
         num_workers=2,
     )
 
-    for ii in tqdm(range(num_epochs)):
+    eval_steps=int(len(df_train)/batch_size)
+    max_steps=int((len(df_train)/batch_size)*num_epochs)
 
-        logger.info('Epoch %s/%s' % (str(ii+1), num_epochs))
-        start_time = time.time()
+    batches = iter(loader)
 
-        for step, (batch_x0, batch_x1, batch_mask_x0, batch_mask_x1, batch_y) in tqdm(enumerate(loader), total=len(loader)):
+    early_stop = False
+    epoch = 1
+
+    for step in tqdm(range(max_steps)):
+
+        if not early_stop:
+
+            logger.info('Step %s/%s' % (str(step+1), max_steps))
+            start_time = time.time()
+
+            try:
+                (batch_x0, batch_x1, batch_mask_x0, batch_mask_x1, batch_y) = next(batches)
+            
+            except:
+
+                # Start over
+                batches = iter(loader)
+                (batch_x0, batch_x1, batch_mask_x0, batch_mask_x1, batch_y) = next(batches)
 
             optimizer.zero_grad()
             Y_predict = model(batch_x0.cuda(), batch_x1.cuda(), batch_mask_x0.cuda(), batch_mask_x1.cuda())
             loss = loss_fn(Y_predict.squeeze(), batch_y.squeeze().cuda())
-            # print('epoch:', ii, 'step:', step, 'loss:', loss.item())
+            print('epoch:', epoch, 'step:', step, 'loss:', loss.item())
             loss.backward()
             optimizer.step()
 
-        tt_time = time.time() - start_time
-        logger.info("Training one epoch in %.3f s" % tt_time)
+            if step % eval_steps == 0:
 
-        model.eval()
+                tt_time = time.time() - start_time
+                logger.info("Training one epoch in %.3f s" % tt_time)
 
-        with torch.no_grad():
+                model.eval()
 
-            evl.evaluate(model, ii, val_example_size, True)
+                with torch.no_grad():
 
-        model.train()
+                    evl.evaluate(model, epoch, val_example_size, True)
 
-        ttt_time = time.time() - start_time - tt_time
-        logger.info("Evaluate one time in %.3f s" % ttt_time)
+                if evl.stop:
+
+                    early_stop = True
+                    
+                else:
+                    
+                    model.train()
+
+                ttt_time = time.time() - start_time - tt_time
+                logger.info("Evaluate one time in %.3f s" % ttt_time)
+
+                epoch += 1
+            
+        else:
+
+            logger.info('Doing early stop!')
 
     logging.info('Full training took:\t' + str(datetime.now() - start))
 

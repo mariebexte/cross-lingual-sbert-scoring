@@ -5,7 +5,7 @@ import torch
 import pandas as pd
 
 from datetime import datetime
-from config import EPIRLS, ASAP_T, ASAP_M, SBERT_BASE_MODEL, RESULT_PATH_EXP_1
+from config import EPIRLS, ASAP_T, ASAP_M, SBERT_BASE_MODEL, RESULT_PATH_EXP_1, ANSWER_LENGTH
 from copy import deepcopy
 from model_training.utils import read_data, get_device, eval_sbert, write_classification_statistics
 from sentence_transformers import SentenceTransformer
@@ -38,6 +38,7 @@ def run_pretrained(dataset_path, dataset_name, id_column, answer_column, target_
 
                 # Load model
                 model = SentenceTransformer(SBERT_BASE_MODEL)
+                model.max_seq_length=ANSWER_LENGTH
                 df_ref = pd.concat([df_train, df_val])
                 df_ref['embedding'] = df_ref[answer_column].apply(model.encode)
                 
@@ -79,6 +80,7 @@ def run_pretrained(dataset_path, dataset_name, id_column, answer_column, target_
                     out_file.write('Total duration:\t' + str(end - start))
 
 
+
 def run_pretrained_cross_validated(dataset_path, dataset_name, id_column, answer_column, target_column, languages, translate_test, num_folds, run_suffix=''):
 
     device = get_device()
@@ -117,6 +119,7 @@ def run_pretrained_cross_validated(dataset_path, dataset_name, id_column, answer
 
                     # Load model
                     model = SentenceTransformer(SBERT_BASE_MODEL)
+                    model.max_seq_length=128
                     df_ref['embedding'] = df_ref[answer_column].apply(model.encode)
                     
                     # Zero-shot evaluation of model on all languages
@@ -177,7 +180,7 @@ def run_pretrained_cross_validated(dataset_path, dataset_name, id_column, answer
                         out_file.write('Total duration:\t' + str(end - start))
 
 
-for run in ['_RUN1', '_RUN2', '_RUN3']:
+for run in ['_RUN1']:
 
     for dataset in [EPIRLS, ASAP_T]:
 
@@ -193,7 +196,7 @@ for run in ['_RUN1', '_RUN2', '_RUN3']:
         )
 
 
-for run in ['_RUN1', '_RUN2', '_RUN3']:
+for run in ['_RUN1']:
 
     for dataset in [ASAP_M]:
 

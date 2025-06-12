@@ -5,7 +5,7 @@ import torch
 
 import pandas as pd
 
-from config import EPIRLS, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, SBERT_NUM_PAIRS, SBERT_NUM_VAL_PAIRS, RESULT_PATH_EXP_2
+from config import EPIRLS, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, NPCR_NUM_EPOCHS, SBERT_BATCH_SIZE, BERT_BATCH_SIZE, NPCR_BATCH_SIZE, ANSWER_LENGTH, SBERT_NUM_PAIRS, SBERT_NUM_VAL_PAIRS, RESULT_PATH_EXP_2
 from copy import deepcopy
 from model_training.train_xlmr import train_xlmr
 from model_training.train_xlmr_sbert_core import train_xlmr as train_xlmr_sbert_core
@@ -18,7 +18,7 @@ random_state = 56398
 amounts = [15, 35, 75, 150, 300]
 
 
-def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, run_xlmr=True, run_sbert=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, run_npcr_xlmr=True, run_npcr_sbert=True, bert_batch_size=32, sbert_batch_size=64):
+def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, run_xlmr=True, run_sbert=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, run_npcr_xlmr=True, run_npcr_sbert=True):
 
     device = get_device()
 
@@ -68,7 +68,7 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
 
                     if not os.path.exists(os.path.join(run_path_bert, 'preds.csv')):
 
-                        gold, xlmr_pred = train_xlmr(run_path_bert, df_train=df_train_base_reduced, df_val=df_val_base, df_test=df_test_base, answer_column=answer_column, target_column=target_column, base_model=XLMR_BASE_MODEL, num_epochs=BERT_NUM_EPOCHS, batch_size=bert_batch_size, save_model=True)
+                        gold, xlmr_pred = train_xlmr(run_path_bert, df_train=df_train_base_reduced, df_val=df_val_base, df_test=df_test_base, answer_column=answer_column, target_column=target_column, base_model=XLMR_BASE_MODEL, num_epochs=BERT_NUM_EPOCHS, batch_size=BERT_BATCH_SIZE, save_model=True)
                         
                         write_classification_statistics(filepath=run_path_bert, y_true=gold, y_pred=xlmr_pred)
                         
@@ -82,7 +82,7 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
                     
                     if not os.path.exists(os.path.join(run_path_sbert, 'preds.csv')):
 
-                        gold, pred_max, pred_avg = train_sbert(run_path_sbert, df_train=df_train_base_reduced, df_val=df_val_base, df_test=df_test_base, answer_column=answer_column, target_column=target_column, base_model=SBERT_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=sbert_batch_size, do_warmup=False, save_model=True, num_pairs_per_example=SBERT_NUM_PAIRS, num_val_pairs=SBERT_NUM_VAL_PAIRS)
+                        gold, pred_max, pred_avg = train_sbert(run_path_sbert, df_train=df_train_base_reduced, df_val=df_val_base, df_test=df_test_base, answer_column=answer_column, target_column=target_column, base_model=SBERT_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, do_warmup=False, save_model=True, num_pairs_per_example=SBERT_NUM_PAIRS, num_val_pairs=SBERT_NUM_VAL_PAIRS)
 
                         write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_avg, suffix='')
                         write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_max, suffix='_max')
@@ -98,7 +98,7 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
 
                     if not os.path.exists(os.path.join(run_path_bert_swap_sbert, 'preds.csv')):
 
-                        gold, xlmr_swap_sbert_pred = train_xlmr_sbert_core(run_path_bert_swap_sbert, df_train=df_train_base_reduced, df_val=df_val_base, df_test=df_test_base, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=bert_batch_size, save_model=True, base_model='/models/'+SBERT_BASE_MODEL)
+                        gold, xlmr_swap_sbert_pred = train_xlmr_sbert_core(run_path_bert_swap_sbert, df_train=df_train_base_reduced, df_val=df_val_base, df_test=df_test_base, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=BERT_BATCH_SIZE, save_model=True, base_model='/models/'+SBERT_BASE_MODEL)
                                                 
                         write_classification_statistics(filepath=run_path_bert_swap_sbert, y_true=gold, y_pred=xlmr_swap_sbert_pred)
                         
@@ -113,7 +113,7 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
                     
                     if not os.path.exists(os.path.join(run_path_sbert_swap_xlmr, 'preds.csv')):
 
-                        gold, pred_max_xlmr_core, pred_avg_xlmr_core = train_sbert(run_path_sbert_swap_xlmr, answer_column=answer_column, id_column=id_column, target_column=target_column, df_train=df_train_base_reduced, df_val=df_val_base, df_test=df_test_base, base_model=XLMR_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=sbert_batch_size, do_warmup=False, save_model=True, num_pairs_per_example=SBERT_NUM_PAIRS, num_val_pairs=SBERT_NUM_VAL_PAIRS)
+                        gold, pred_max_xlmr_core, pred_avg_xlmr_core = train_sbert(run_path_sbert_swap_xlmr, answer_column=answer_column, id_column=id_column, target_column=target_column, df_train=df_train_base_reduced, df_val=df_val_base, df_test=df_test_base, base_model=XLMR_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, do_warmup=False, save_model=True, num_pairs_per_example=SBERT_NUM_PAIRS, num_val_pairs=SBERT_NUM_VAL_PAIRS)
                         
                         write_classification_statistics(filepath=run_path_sbert_swap_xlmr, y_true=gold, y_pred=pred_avg_xlmr_core, suffix='')
                         write_classification_statistics(filepath=run_path_sbert_swap_xlmr, y_true=gold, y_pred=pred_max_xlmr_core, suffix='_max')
@@ -129,7 +129,7 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
 
                     if not os.path.exists(os.path.join(run_path_npcr_xlmr, 'preds.csv')):
 
-                        gold, npcr_xlmr_pred = train_npcr(target_path=run_path_npcr_xlmr, df_train=df_train_base_reduced, df_val=df_val_base, df_test=df_test_base, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=XLMR_BASE_MODEL, max_num=NPCR_ANSWER_LENGTH, training_with_same_score=True, save_model=True)
+                        gold, npcr_xlmr_pred = train_npcr(target_path=run_path_npcr_xlmr, df_train=df_train_base_reduced, df_val=df_val_base, df_test=df_test_base, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=XLMR_BASE_MODEL, max_num=ANSWER_LENGTH, num_epochs=NPCR_NUM_EPOCHS, batch_size=NPCR_BATCH_SIZE, training_with_same_score=True, save_model=True)
                                                 
                         write_classification_statistics(filepath=run_path_npcr_xlmr, y_true=gold, y_pred=npcr_xlmr_pred)
                         
@@ -144,7 +144,7 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
 
                     if not os.path.exists(os.path.join(run_path_npcr_sbert, 'preds.csv')):
 
-                        gold, npcr_sbert_pred = train_npcr(target_path=run_path_npcr_sbert, df_train=df_train_base_reduced, df_val=df_val_base, df_test=df_test_base, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=SBERT_BASE_MODEL, max_num=NPCR_ANSWER_LENGTH, training_with_same_score=True, save_model=True)
+                        gold, npcr_sbert_pred = train_npcr(target_path=run_path_npcr_sbert, df_train=df_train_base_reduced, df_val=df_val_base, df_test=df_test_base, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=SBERT_BASE_MODEL, max_num=ANSWER_LENGTH, num_epochs=NPCR_NUM_EPOCHS, batch_size=NPCR_BATCH_SIZE, training_with_same_score=True, save_model=True)
                                                 
                         write_classification_statistics(filepath=run_path_npcr_sbert, y_true=gold, y_pred=npcr_sbert_pred)
                         
@@ -185,7 +185,7 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
                         
                             finetuned_model_xlmr = os.path.join(run_path_bert, 'best_model')
 
-                            gold, xlmr_pred_finetune = train_xlmr(run_path_bert_finetune, df_train=df_train_target_sample, df_val=df_val_target, df_test=df_test_target, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=bert_batch_size, base_model=finetuned_model_xlmr, save_model=False)
+                            gold, xlmr_pred_finetune = train_xlmr(run_path_bert_finetune, df_train=df_train_target_sample, df_val=df_val_target, df_test=df_test_target, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=BERT_BATCH_SIZE, base_model=finetuned_model_xlmr, save_model=False)
                             
                             write_classification_statistics(filepath=run_path_bert_finetune, y_true=gold, y_pred=xlmr_pred_fineteune)
                             
@@ -202,7 +202,7 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
 
                             finetuned_model_sbert = os.path.join(run_path_sbert, 'finetuned_model')
 
-                            gold, pred_max_finetune, pred_avg_finetune = train_sbert(run_path_sbert_finetune, df_train=df_train_target_sample, df_val=df_val_target, df_test=df_test_target, answer_column=answer_column, target_column=target_column, base_model=finetuned_model_sbert, num_epochs=SBERT_NUM_EPOCHS, batch_size=sbert_batch_size, do_warmup=False, save_model=False, num_pairs_per_example=SBERT_NUM_PAIRS, num_val_pairs=SBERT_NUM_VAL_PAIRS)
+                            gold, pred_max_finetune, pred_avg_finetune = train_sbert(run_path_sbert_finetune, df_train=df_train_target_sample, df_val=df_val_target, df_test=df_test_target, answer_column=answer_column, target_column=target_column, base_model=finetuned_model_sbert, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, do_warmup=False, save_model=False, num_pairs_per_example=SBERT_NUM_PAIRS, num_val_pairs=SBERT_NUM_VAL_PAIRS)
 
                             write_classification_statistics(filepath=run_path_sbert_finetune, y_true=gold, y_pred=pred_avg_finetune, suffix='')
                             write_classification_statistics(filepath=run_path_sbert_finetune, y_true=gold, y_pred=pred_max_finetune, suffix='_max')
@@ -220,7 +220,7 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
                         
                             finetuned_model_xlmr_swap_sbert = os.path.join(run_path_bert_swap_sbert, 'best_model', 'pytorch_model.bin')
 
-                            gold, xlmr_swap_sbert_pred = train_xlmr_sbert_core(run_path_bert_swap_sbert_finetune, df_train=df_train_target_sample, df_val=df_val_target, df_test=df_test_target, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=bert_batch_size, base_model=finetuned_model_xlmr_swap_sbert, save_model=False, from_pretrained=True)
+                            gold, xlmr_swap_sbert_pred = train_xlmr_sbert_core(run_path_bert_swap_sbert_finetune, df_train=df_train_target_sample, df_val=df_val_target, df_test=df_test_target, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=BERT_BATCH_SIZE, base_model=finetuned_model_xlmr_swap_sbert, save_model=False, from_pretrained=True)
                             
                             write_classification_statistics(filepath=run_path_bert_swap_sbert_finetune, y_true=gold, y_pred=xlmr_swap_sbert_pred)
                             
@@ -237,7 +237,7 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
 
                             finetuned_model_sbert_swap_xlmr = os.path.join(run_path_sbert_swap_xlmr, 'finetuned_model')
 
-                            gold, pred_max_xlmr_core, pred_avg_xlmr_core = train_sbert(run_path_sbert_swap_xlmr_finetune, df_train=df_train_target_sample, df_val=df_val_target, df_test=df_test_target, answer_column=answer_column, target_column=target_column, base_model=finetuned_model_sbert_swap_xlmr, num_epochs=SBERT_NUM_EPOCHS, batch_size=sbert_batch_size, do_warmup=False, save_model=False, num_pairs_per_example=SBERT_NUM_PAIRS, num_val_pairs=SBERT_NUM_VAL_PAIRS)
+                            gold, pred_max_xlmr_core, pred_avg_xlmr_core = train_sbert(run_path_sbert_swap_xlmr_finetune, df_train=df_train_target_sample, df_val=df_val_target, df_test=df_test_target, answer_column=answer_column, target_column=target_column, base_model=finetuned_model_sbert_swap_xlmr, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, do_warmup=False, save_model=False, num_pairs_per_example=SBERT_NUM_PAIRS, num_val_pairs=SBERT_NUM_VAL_PAIRS)
 
                             write_classification_statistics(filepath=run_path_sbert_swap_xlmr_finetune, y_true=gold, y_pred=pred_avg_xlmr_core, suffix='')
                             write_classification_statistics(filepath=run_path_sbert_swap_xlmr_finetune, y_true=gold, y_pred=pred_max_xlmr_core, suffix='_max')
@@ -255,7 +255,7 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
                         
                             finetuned_model_npcr_xlmr = os.path.join(run_path_npcr_xlmr, 'best_model')
 
-                            gold, npcr_xlmr_pred_finetune = train_npcr(target_path=run_path_npcr_xlmr_finetune, df_train=df_train_target_sample, df_val=df_val_target, df_test=df_test_target, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=XLMR_BASE_MODEL, max_num=NPCR_ANSWER_LENGTH, training_with_same_score=True, finetuned_model=finetuned_model_npcr_xlmr)                            
+                            gold, npcr_xlmr_pred_finetune = train_npcr(target_path=run_path_npcr_xlmr_finetune, df_train=df_train_target_sample, df_val=df_val_target, df_test=df_test_target, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=XLMR_BASE_MODEL, max_num=ANSWER_LENGTH, num_epochs=NPCR_NUM_EPOCHS, batch_size=NPCR_BATCH_SIZE, training_with_same_score=True, finetuned_model=finetuned_model_npcr_xlmr)                            
                             write_classification_statistics(filepath=run_path_npcr_xlmr_finetune, y_true=gold, y_pred=npcr_xlmr_pred_finetune)
                             
                             df_train_target_sample.to_csv(os.path.join(run_path_npcr_xlmr_finetune, 'train.csv'))
@@ -271,7 +271,7 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
                         
                             finetuned_model_npcr_sbert = os.path.join(run_path_npcr_sbert, 'best_model')
 
-                            gold, npcr_sbert_pred_finetune = train_npcr(target_path=run_path_npcr_sbert_finetune, df_train=df_train_target_sample, df_val=df_val_target, df_test=df_test_target, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=SBERT_BASE_MODEL, max_num=NPCR_ANSWER_LENGTH, training_with_same_score=True, finetuned_model=finetuned_model_npcr_sbert)                            
+                            gold, npcr_sbert_pred_finetune = train_npcr(target_path=run_path_npcr_sbert_finetune, df_train=df_train_target_sample, df_val=df_val_target, df_test=df_test_target, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=SBERT_BASE_MODEL, max_num=ANSWER_LENGTH, num_epochs=NPCR_NUM_EPOCHS, batch_size=NPCR_BATCH_SIZE, training_with_same_score=True, finetuned_model=finetuned_model_npcr_sbert)                            
                             write_classification_statistics(filepath=run_path_npcr_sbert_finetune, y_true=gold, y_pred=npcr_sbert_pred_finetune)
                             
                             df_train_target_sample.to_csv(os.path.join(run_path_npcr_sbert_finetune, 'train.csv'))
@@ -306,4 +306,10 @@ run_exp(
     answer_column=EPIRLS['answer_column'],
     target_column=EPIRLS['target_column'],
     languages=EPIRLS['languages'],
+    run_xlmr=True,
+    run_sbert=True,
+    run_xlmr_swap_sbert=True,
+    run_sbert_swap_xlmr=True,
+    run_npcr_xlmr=True,
+    run_npcr_sbert=True,
     )

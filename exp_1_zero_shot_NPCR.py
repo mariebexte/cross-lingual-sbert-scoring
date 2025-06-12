@@ -4,14 +4,14 @@ import torch
 
 import pandas as pd
 
-from config import EPIRLS, ASAP_T, ASAP_M, SBERT_BASE_MODEL, XLMR_BASE_MODEL, RESULT_PATH_EXP_1, NPCR_ANSWER_LENGTH
+from config import EPIRLS, ASAP_T, ASAP_M, SBERT_BASE_MODEL, XLMR_BASE_MODEL, RESULT_PATH_EXP_1, ANSWER_LENGTH, NPCR_BATCH_SIZE, NPCR_NUM_EPOCHS
 from copy import deepcopy
 from model_training.train_npcr import train_npcr
 from model_training.utils import read_data, get_device, write_classification_statistics
 from npcr.evaluator_core import evaluate_finetuned_model
 
 
-def run_dataset(dataset_path, dataset_name, prompt_column, answer_column, target_column, languages, translate_test, run_suffix=''):
+def run_dataset(dataset_path, dataset_name, prompt_column, answer_column, target_column, languages, translate_test, run_suffix='', run_xlmr=True, run_sbert=True):
 
     device = get_device()
 
@@ -24,7 +24,17 @@ def run_dataset(dataset_path, dataset_name, prompt_column, answer_column, target
 
             torch.cuda.empty_cache()
 
-            for model in [(SBERT_BASE_MODEL, 'NPCR_SBERT'), (XLMR_BASE_MODEL, 'NPCR_XLMR')]:
+            models = []
+
+            if run_xlmr:
+
+                models.append((XLMR_BASE_MODEL, 'NPCR_XLMR'))
+            
+            if run_sbert:
+
+                models.append((SBERT_BASE_MODEL, 'NPCR_SBERT'))
+
+            for model in models:
                 
                 print(prompt, language, model)
 
@@ -41,7 +51,7 @@ def run_dataset(dataset_path, dataset_name, prompt_column, answer_column, target
 
                 if not os.path.exists(os.path.join(run_path, 'preds.csv')):
                     
-                    gold, pred = train_npcr(target_path=run_path, df_train=df_train, df_val=df_val, df_test=df_test, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=base_model, max_num=NPCR_ANSWER_LENGTH, training_with_same_score=True, save_model=True)
+                    gold, pred = train_npcr(target_path=run_path, df_train=df_train, df_val=df_val, df_test=df_test, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=base_model, max_num=ANSWER_LENGTH, batch_size=NPCR_BATCH_SIZE, num_epochs=NPCR_NUM_EPOCHS, training_with_same_score=True, save_model=True)
                     write_classification_statistics(filepath=run_path, y_true=gold, y_pred=pred)
 
                     # Zero-shot evaluation of finetuned model on all **other** languages
@@ -54,7 +64,7 @@ def run_dataset(dataset_path, dataset_name, prompt_column, answer_column, target
                             os.mkdir(run_path_test)
 
                         df_test_other = read_data(os.path.join(dataset_path, prompt, test_lang, 'test.csv'), answer_column=answer_column, target_column=target_column)
-                        gold, pred_test = evaluate_finetuned_model(model_path=os.path.join(run_path, 'best_model'), base_model=base_model, df_ref=df_train, df_test=df_test_other, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, target_path=run_path_test, max_num=NPCR_ANSWER_LENGTH, suffix='_' + str(test_lang))
+                        gold, pred_test = evaluate_finetuned_model(model_path=os.path.join(run_path, 'best_model'), base_model=base_model, df_ref=df_train, df_test=df_test_other, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, target_path=run_path_test, max_num=ANSWER_LENGTH, suffix='_' + str(test_lang))
 
                         df_test_copy = deepcopy(df_test_other)
                         df_test_copy['pred'] = pred_test
@@ -72,7 +82,7 @@ def run_dataset(dataset_path, dataset_name, prompt_column, answer_column, target
                                 os.mkdir(run_path_test_translated)
 
                             df_test_other_translated = read_data(os.path.join(dataset_path, prompt, test_lang, 'test_translated_m2m_100_1.2B_' + language + '.csv'), answer_column=answer_column, target_column=target_column)
-                            gold, pred_test_translated = evaluate_finetuned_model(model_path=os.path.join(run_path, 'best_model'), base_model=base_model, df_ref=df_train, df_test=df_test_other_translated, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, target_path=run_path_test_translated, max_num=NPCR_ANSWER_LENGTH, suffix='_' + str(test_lang) + '_translated')
+                            gold, pred_test_translated = evaluate_finetuned_model(model_path=os.path.join(run_path, 'best_model'), base_model=base_model, df_ref=df_train, df_test=df_test_other_translated, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, target_path=run_path_test_translated, max_num=ANSWER_LENGTH, suffix='_' + str(test_lang) + '_translated')
 
                             df_test_translated_copy = deepcopy(df_test_other_translated)
                             df_test_translated_copy['pred'] = pred_test_translated
@@ -89,7 +99,7 @@ def run_dataset(dataset_path, dataset_name, prompt_column, answer_column, target
 
 
 
-def run_dataset_folds(dataset_path, dataset_name, prompt_column, answer_column, target_column, languages, translate_test, num_folds, run_suffix=''):
+def run_dataset_folds(dataset_path, dataset_name, prompt_column, answer_column, target_column, languages, translate_test, num_folds, run_suffix='', run_xlmr=True, run_sbert=True):
 
     device = get_device()
 
@@ -127,7 +137,15 @@ def run_dataset_folds(dataset_path, dataset_name, prompt_column, answer_column, 
                 df_val = read_data(os.path.join(dataset_path, prompt, language, 'fold_' + str(val_fold) + '.csv'), answer_column=answer_column, target_column=target_column)
                 df_test = read_data(os.path.join(dataset_path, prompt, language, 'fold_' + str(test_fold) + '.csv'), answer_column=answer_column, target_column=target_column)
 
-                for model in [(SBERT_BASE_MODEL, 'NPCR_SBERT'), (XLMR_BASE_MODEL, 'NPCR_XLMR')]:
+                if run_xlmr:
+
+                    models.append((XLMR_BASE_MODEL, 'NPCR_XLMR'))
+                
+                if run_sbert:
+
+                    models.append((SBERT_BASE_MODEL, 'NPCR_SBERT'))
+
+                for model in models:
 
                     base_model = model[0]
                     model_name = model[1]
@@ -136,7 +154,7 @@ def run_dataset_folds(dataset_path, dataset_name, prompt_column, answer_column, 
 
                     if not os.path.exists(os.path.join(run_path, 'preds.csv')):
                         
-                        gold, pred = train_npcr(target_path=run_path, df_train=df_train, df_val=df_val, df_test=df_test, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=base_model, max_num=NPCR_ANSWER_LENGTH, training_with_same_score=True, save_model=True)
+                        gold, pred = train_npcr(target_path=run_path, df_train=df_train, df_val=df_val, df_test=df_test, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=base_model, max_num=ANSWER_LENGTH, num_epochs=NPCR_NUM_EPOCHS, batch_size=NPCR_BATCH_SIZE, training_with_same_score=True, save_model=True)
                         write_classification_statistics(filepath=run_path, y_true=gold, y_pred=pred)
 
                         # Zero-shot evaluation of finetuned model on all **other** languages
@@ -163,7 +181,7 @@ def run_dataset_folds(dataset_path, dataset_name, prompt_column, answer_column, 
                             df_test_other = pd.concat(df_test_other_list)
                             df_test_other.reset_index(inplace=True)
 
-                            gold, pred_test = evaluate_finetuned_model(model_path=os.path.join(run_path, 'best_model'), base_model=base_model, df_ref=df_train, df_test=df_test_other, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, target_path=run_path_test, max_num=NPCR_ANSWER_LENGTH, suffix='_' + str(test_lang))
+                            gold, pred_test = evaluate_finetuned_model(model_path=os.path.join(run_path, 'best_model'), base_model=base_model, df_ref=df_train, df_test=df_test_other, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, target_path=run_path_test, max_num=ANSWER_LENGTH, suffix='_' + str(test_lang))
 
                             df_test_copy = deepcopy(df_test_other)
                             df_test_copy['pred'] = pred_test
@@ -190,7 +208,7 @@ def run_dataset_folds(dataset_path, dataset_name, prompt_column, answer_column, 
                                 df_test_other_translated = pd.concat(df_test_other_translated_list)
                                 df_test_other_translated.reset_index(inplace=True)
 
-                                gold, pred_test_translated = evaluate_finetuned_model(model_path=os.path.join(run_path, 'best_model'), base_model=base_model, df_ref=df_train, df_test=df_test_other_translated, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, target_path=run_path_test_translated, max_num=NPCR_ANSWER_LENGTH, suffix='_' + str(test_lang) + '_translated')
+                                gold, pred_test_translated = evaluate_finetuned_model(model_path=os.path.join(run_path, 'best_model'), base_model=base_model, df_ref=df_train, df_test=df_test_other_translated, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, target_path=run_path_test_translated, max_num=ANSWER_LENGTH, suffix='_' + str(test_lang) + '_translated')
 
                                 df_test_translated_copy = deepcopy(df_test_other_translated)
                                 df_test_translated_copy['pred'] = pred_test_translated
@@ -207,7 +225,7 @@ def run_dataset_folds(dataset_path, dataset_name, prompt_column, answer_column, 
                         print('Skipping prompt ' + str(prompt) + ' because it already ran!')
 
 
-for run in ['_RUN1', '_RUN2', '_RUN3']:
+for run in ['_RUN1']:
 
     for dataset in [EPIRLS, ASAP_T]:
 
@@ -219,11 +237,13 @@ for run in ['_RUN1', '_RUN2', '_RUN3']:
             target_column=dataset['target_column'], 
             languages=dataset['languages'], 
             run_suffix=run, 
+            run_xlmr=True,
+            run_sbert=True,
             translate_test=dataset['translate_test']
             )
 
 
-for run in ['_RUN1', '_RUN2', '_RUN3']:
+for run in ['_RUN1']:
     
     for dataset in [ASAP_M]:
 
@@ -235,6 +255,8 @@ for run in ['_RUN1', '_RUN2', '_RUN3']:
             target_column=dataset['target_column'],
             languages=dataset['languages'], 
             run_suffix=run, 
+            run_xlmr=True,
+            run_sbert=True,
             translate_test=dataset['translate_test'], 
             num_folds=dataset['num_folds']
             )

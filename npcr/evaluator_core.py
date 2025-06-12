@@ -20,7 +20,7 @@ logger = get_logger("Evaluate stats")
 class Evaluator_opti_adversarial():
 
 
-    def __init__(self, out_dir, model_name, features_dev, masks_dev, dev_y_example, dev_y_goal, example_size, min_label=None, max_label=None, prompts_array=None, save_model=True, save_stats=True, suffix=''):
+    def __init__(self, out_dir, model_name, features_dev, masks_dev, dev_y_example, dev_y_goal, example_size, min_label=None, max_label=None, prompts_array=None, save_model=True, save_stats=True, suffix='', patience=None):
 
         self.out_dir = out_dir
         self.modelname = model_name
@@ -32,7 +32,7 @@ class Evaluator_opti_adversarial():
 
         self.example_size = example_size
 
-        self.best_dev = [-1, -1, -1, -1]
+        self.best_dev = [10000, -1, -1, -1, -1]
         self.dev_loader = self.init_data_loader()
 
         # To track and write training stats to file
@@ -45,6 +45,13 @@ class Evaluator_opti_adversarial():
 
         self.min_label = min_label
         self.max_label = max_label
+
+        self.patience = patience
+        self.stop = False
+
+        if patience is None:
+
+            self.patience = None
 
         if min_label is None:
 
@@ -78,14 +85,14 @@ class Evaluator_opti_adversarial():
 
     def print_info(self, epoch):
 
-        logger.info('[DEV]   QWK:  %.3f, PRS: %.3f, SPR: %.3f, RMSE: %.3f, (Best @ %i: {{%.3f}}, %.3f, %.3f, %.3f)' % (
-            self.dev_qwk, self.dev_pr, self.dev_spr, self.dev_rmse, self.best_dev_epoch,
-            self.best_dev[0], self.best_dev[1], self.best_dev[2], self.best_dev[3]))
+        logger.info('[DEV]   LOSS:  %.3f, QWK:  %.3f, PRS: %.3f, SPR: %.3f, RMSE: %.3f, (Best @ %i: {{%.3f}}, %.3f, %.3f, %.3f, %.3f)' % (
+            self.dev_loss, self.dev_qwk, self.dev_pr, self.dev_spr, self.dev_rmse, self.best_dev_epoch,
+            self.best_dev[0], self.best_dev[1], self.best_dev[2], self.best_dev[3], self.best_dev[4]))
 
         logger.info(
             '--------------------------------------------------------------------------------------------------------------------------')
 
-        self.dict_performance[self.dict_performance_idx] = {'epoch': epoch, 'val QWK': self.dev_qwk, 'val PRS': self.dev_pr,\
+        self.dict_performance[self.dict_performance_idx] = {'epoch': epoch, 'val loss': self.dev_loss, 'val QWK': self.dev_qwk, 'val PRS': self.dev_pr,\
             'val SPR': self.dev_spr, 'val RMSE': self.dev_rmse, 'val best epoch': self.best_dev_epoch}
         
         self.dict_performance_idx += 1
@@ -101,6 +108,8 @@ class Evaluator_opti_adversarial():
 
         dev_pred_int = []
         dev_pred_raw = []
+
+        losses = []
 
         for step, (batch_dev_x0, batch_dev_x1, batch_dev_mask_x0, batch_dev_mask_x1, batch_example_s) in tqdm(enumerate(self.dev_loader), total=len(self.dev_loader)):
             
@@ -127,8 +136,13 @@ class Evaluator_opti_adversarial():
             
             dev_y_pred = model(batch_dev_x0.cuda(), batch_dev_x1.cuda(), batch_dev_mask_x0.cuda(), batch_dev_mask_x1.cuda())
             
+            
             # Rescale predicted deviations to range of possible DEVIATIONS within label range of current prompt
             dev_y_pred_unscaled = rescale_tointscore_adversarial(dev_y_pred.detach().cpu().numpy(), min_label=self.min_label, max_label=self.max_label, prompts_array=batch_prompt_array, differences=True)
+            
+            true_score = self.dev_y_goal[step]
+            true_deviation = (batch_example_s.squeeze().cpu() * -1 ) + true_score
+            losses.append(mean_square_error(dev_y_pred_unscaled.squeeze(), true_deviation))
             
             # Add predicted deviation to scores of reference example
             dev_pred_group = dev_y_pred_unscaled + batch_example_s.detach().cpu().numpy()
@@ -154,18 +168,28 @@ class Evaluator_opti_adversarial():
         dev_pred_int = np.array(dev_pred_int)
         dev_pred_raw = np.array(dev_pred_raw)
 
+        avg_loss = sum(losses)/len(losses)
+        self.dev_loss = avg_loss
+
         self.calc_correl(dev_pred_int)
         self.calc_kappa(dev_pred_int)
         self.calc_rmse(dev_pred_int)
 
-        if self.dev_qwk > self.best_dev[0]:
+        if self.dev_loss < self.best_dev[0]:
 
-            self.best_dev = [self.dev_qwk, self.dev_pr, self.dev_spr, self.dev_rmse]
+            self.best_dev = [self.dev_loss, self.dev_qwk, self.dev_pr, self.dev_spr, self.dev_rmse]
             self.best_dev_epoch = epoch
 
             if self.save_model:
 
                 torch.save(model, self.out_dir + '/' + self.modelname)
+        
+        # No improvement, check if patience exceeded
+        else:
+
+            if self.patience is not None and ((epoch - self.best_dev_epoch) >= self.patience):
+
+                self.stop = True
 
         if print_info:
 

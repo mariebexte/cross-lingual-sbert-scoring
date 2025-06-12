@@ -86,7 +86,7 @@ def plot_embeddings_scatterplot(df_overall, target_path, vis_column, model_name,
 
 def get_xlmr_embedding(answer, answer_col, tokenizer, bert_model):
 
-    inputs = tokenizer(answer, return_tensors='pt', padding=True, truncation=True)
+    inputs = tokenizer(answer, return_tensors='pt', padding=True, truncation=True, max_length=128)
     inputs = inputs.to('cuda')
     outputs = bert_model(**inputs)
     embedding = outputs[0][:, 0, :]
@@ -137,6 +137,7 @@ def get_df_with_embeddings_sbert(df_overall, answer_col, model_name='paraphrase-
 
     df_overall = deepcopy(df_overall)
     model = SentenceTransformer(model_name)
+    model.max_seq_length=128
     sbert_embeddings = model.encode(list(df_overall[answer_col]))
     # print(sbert_embeddings.shape)
     df_overall['sbert_embedding'] = list(sbert_embeddings)
@@ -203,6 +204,7 @@ for dataset in [EPIRLS, ASAP_T]:
 
         print(prompt)
 
-        if prompt == '1':
+        if prompt == 'E011T09C':
+        # if prompt == '1':
 
-            plot_embeddings(target_path='/results/emb_vis_final_', dataset_path=dataset['dataset_path'], dataset_name=dataset['dataset_name'], prompt=prompt, answer_column=dataset['answer_column'], target_column=dataset['target_column'], language_column=dataset['language_column'], use_umap=False, languages=dataset['languages'])
+            plot_embeddings(target_path='/results/emb_vis_final_short_', dataset_path=dataset['dataset_path'], dataset_name=dataset['dataset_name'], prompt=prompt, answer_column=dataset['answer_column'], target_column=dataset['target_column'], language_column=dataset['language_column'], use_umap=False, languages=dataset['languages'])

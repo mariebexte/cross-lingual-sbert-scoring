@@ -7,6 +7,8 @@ from sklearn.metrics import classification_report, accuracy_score, cohen_kappa_s
 from transformers import TrainerCallback, Trainer
 from scipy import spatial
 
+from config import ANSWER_LENGTH
+
 
 def read_data(path, answer_column, target_column):
 
@@ -102,7 +104,7 @@ def eval_bert(model, tokenizer, df_test, answer_column, target_column):
 
     test_texts = list(df_test.loc[:, answer_column])
     test_labels = encode_labels(df_test, label_column=target_column)
-    test_encodings = tokenizer(test_texts, truncation=True, padding=True)
+    test_encodings = tokenizer(test_texts, truncation=True, padding=True, max_length=ANSWER_LENGTH)
     test_dataset = Dataset(test_encodings, test_labels)
 
     trainer = Trainer(model=model)
@@ -136,45 +138,58 @@ def calculate_sim(row):
     return (1 - spatial.distance.cosine(row['embedding_test'], row['embedding_ref']))
 
 
+# _2 is ref!
+def cross_dataframes(df, df_ref):
+
+    return pd.merge(left=df, right=df_ref, how='cross', suffixes=('_1', '_2'))
+
+
+def get_preds_from_pairs(df, id_column, pred_column, ref_label_column, true_label_column):
+
+    answer_ids = []
+    pred_labels = []
+    pred_labels_max = []
+    true_labels = []
+
+    # For each test instance
+    for answer, df_answer in df.groupby(id_column):
+
+        true_label = list(df_answer[true_label_column].unique())
+        if len(true_label) > 1:
+            print('True label not unique!', true_label)
+            sys.exit(0)
+
+        else:
+            true_label = true_label[0]
+
+        score_probs = {}
+
+        for label, df_label in df_answer.groupby(ref_label_column):
+
+            score_probs[label] = df_label[pred_column].mean()
+        
+        pred_label = max(score_probs, key=score_probs.get)
+    
+        # Find most similar answer and its label
+        max_idx = df_answer[pred_column].idxmax()
+        pred_label_max = df_answer.loc[max_idx][ref_label_column]
+
+        answer_ids.append(answer)
+        pred_labels.append(pred_label)
+        pred_labels_max.append(pred_label_max)
+        true_labels.append(true_label)
+
+    return answer_ids, true_labels, pred_labels, pred_labels_max
+
+
 def eval_sbert(run_path, df_test, df_ref, id_column, answer_column, target_column):
 
-    # Later used to create dataframe with classification results
-    predictions = {}
-    predictions_index = 0
+    df_inference = cross_dataframes(df=df_test, df_ref=df_ref)
+    df_inference['sim'] = df_inference.apply(lambda row: row['embedding_1'] @ row['embedding_2'], axis=1)
 
-    # Cross every test embedding with every train embedding
-    df_cross = pd.merge(left=df_test, right=df_ref, how='cross', suffixes=['_test', '_ref'])
-    df_cross['cos_sim'] = df_cross.apply(calculate_sim, axis=1)
+    test_answers, test_true_scores, test_predictions, test_predictions_max = get_preds_from_pairs(df=df_inference, id_column=id_column+'_1', pred_column='sim', ref_label_column=target_column+'_2', true_label_column=target_column+'_1')
 
-    # Determine predictions for individual test instances
-    for test_instance, df_instance in df_cross.groupby(id_column + '_test'):
-
-        # Determine prediction: MAX
-        max_row = df_instance.iloc[[df_instance["cos_sim"].argmax()]]
-        max_sim = max_row.iloc[0]["cos_sim"]
-        max_pred = max_row.iloc[0][target_column + "_ref"]
-        max_sim_id = max_row.iloc[0][id_column + "_ref"]
-        max_sim_answer = max_row.iloc[0][answer_column + "_ref"]
-
-        # Determine prediction: AVG
-        label_avgs = {}
-
-        for label, df_label in df_instance.groupby(target_column + "_ref"):
-
-            label_avgs[label] = df_label["cos_sim"].mean()
-
-        avg_pred = max(label_avgs, key=label_avgs.get)
-        avg_sim = max(label_avgs.values())
-
-        predictions[predictions_index] = {"id": test_instance, "pred_avg": avg_pred, "sim_score_avg": avg_sim,"pred_max": max_pred, "sim_score_max": max_sim, "most_similar_answer_id": max_sim_id, "most_similar_answer_text": max_sim_answer}
-        predictions_index += 1
-
-    copy_test = df_test.copy()
-    df_predictions = pd.DataFrame.from_dict(predictions, orient='index')
-    df_predictions = pd.merge(copy_test, df_predictions, left_on=id_column, right_on="id")
-    df_predictions.to_csv(os.path.join(run_path, "preds.csv"), index=None)
-
-    return encode_labels(df_test, label_column=target_column), list(df_predictions['pred_max']), list(df_predictions['pred_avg'])
+    return test_true_scores, test_predictions, test_predictions_max
 
 
 class Dataset(torch.utils.data.Dataset):

@@ -9,12 +9,12 @@ import pandas as pd
 import numpy as np
 
 from datetime import datetime
-from transformers import Trainer, TrainingArguments, AutoConfig
+from transformers import Trainer, TrainingArguments, AutoConfig, EarlyStoppingCallback
 from model_training.sbert_for_classification import SbertForSequenceClassification
 from model_training.utils import encode_labels, get_device, Dataset, compute_metrics, WriteCsvCallback, GetTestPredictionsCallback
 
 
-def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column, base_model="paraphrase-multilingual-MiniLM-L12-v2", num_epochs=20, batch_size=16, do_warmup=False, save_model=False, from_pretrained=False):
+def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column, base_model, num_epochs, batch_size, save_model=False, from_pretrained=False):
 
     gc.collect()
 
@@ -29,7 +29,7 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column
 
     device = get_device()
 
-    print('**** Running XLMR on:', device)
+    print('**** Running XLMR with SBERT base on:', device)
 
     if not os.path.exists(run_path):
 
@@ -115,7 +115,6 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column
         config.sbert_path = base_model
         model = SbertForSequenceClassification(config).to(device)
 
-
     # Tokenize the dataset, truncate if longer than max_length, pad with 0's when less than `max_length`
     train_encodings = model.sbert.tokenize(train_texts)
     valid_encodings = model.sbert.tokenize(valid_texts)
@@ -125,14 +124,6 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column
     train_dataset = Dataset(train_encodings, train_labels)
     valid_dataset = Dataset(valid_encodings, valid_labels)
     test_dataset = Dataset(test_encodings, test_labels)
-
-    num_warm_steps = 0
-
-    if do_warmup == True:
-
-        steps_per_epoch = len(df_train)/batch_size
-        total_num_steps = steps_per_epoch * num_epochs
-        num_warm_steps = round(0.1*total_num_steps)
 
     logging.info('Labels: ' + str(label_set))
 
@@ -145,7 +136,6 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column
             num_train_epochs=num_epochs,             
             per_device_train_batch_size=batch_size,
             per_device_eval_batch_size=batch_size,  
-            warmup_steps=num_warm_steps,
             load_best_model_at_end=True,
             evaluation_strategy="epoch",
             logging_strategy="epoch",
@@ -160,7 +150,6 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column
             num_train_epochs=num_epochs,             
             per_device_train_batch_size=batch_size,
             per_device_eval_batch_size=batch_size,  
-            warmup_steps=num_warm_steps,
             evaluation_strategy="epoch",
             logging_strategy="epoch",
         )
@@ -178,6 +167,7 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column
 
     trainer.add_callback(WriteCsvCallback(csv_train=os.path.join(run_path, "train_stats.csv"), csv_eval=os.path.join(run_path, "eval_stats.csv"), dict_val_loss=dict_val_loss))
     trainer.add_callback(GetTestPredictionsCallback(dict_test_preds=dict_test_preds, save_path=os.path.join(run_path, "test_stats.csv"), trainer=trainer, test_data=test_dataset))
+    trainer.add_callback(EarlyStoppingCallback(early_stopping_patience=3))
     trainer.train()
 
     # Determine epoch with lowest validation loss

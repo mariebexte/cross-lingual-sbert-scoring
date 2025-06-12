@@ -7,6 +7,7 @@ from typing import Optional, Union, Tuple
 from transformers import BertPreTrainedModel
 from transformers.modeling_outputs import SequenceClassifierOutput
 from sentence_transformers import SentenceTransformer
+from config import ANSWER_LENGTH
 
 
 ## Add classification head to SBERT model
@@ -20,6 +21,7 @@ class SbertForSequenceClassification(BertPreTrainedModel):
         self.config = config
 
         self.sbert = SentenceTransformer(config.sbert_path)
+        self.sbert.max_seq_length=ANSWER_LENGTH
 
         classifier_dropout = (config.classifier_dropout if config.classifier_dropout is not None else config.hidden_dropout_prob)
         self.dropout = nn.Dropout(classifier_dropout)
