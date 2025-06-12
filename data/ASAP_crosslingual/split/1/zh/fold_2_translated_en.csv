@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+26,26,zh_010027,(_1)Give the experiment used container to clean it (2)Find some metal material for the experiment control (3)The amount of vinegar must be sufficient,1,0
+31,31,zh_010032,(_1) Mass fraction of acetic acid (2) Medium and short duration of the experiment (3) Cleanliness and insolubility of the sample itself,1,1
+43,43,zh_010044,The contact surface between each sample and vinegar and the amount of rinsing water Temperature and reserve conditions of the experiment,1,2
+74,74,zh_010075,(_1)The concentration of vinegar after the experiment (2)Whether the amount of vinegar poured into the four beakers is the same (3)The time of immersing in vinegar,1,2
+92,92,zh_010093,(_1) the amount of vinegar reduction (2) whether it reacts with distilled water (3) whether it reacts with other substances in the process of becoming dry,1,0
+112,112,zh_010113,(_1) the amount of vinegar (2) the time consumed by the experiment (3) whether the temperatures in the four containers were the same,1,2
+121,121,zh_010122,(_1) Whether the concentration of vinegar in the container is the same (2) The type of rock (3) The mass of the rock,1,2
+122,122,zh_010123,Separate samples were put into pure water to form a control,1,0
+129,129,zh_010130,(_1) Determine the mass of four different samples (2) Leave the samples for 30 minutes to dry (3) Determine again the mass of each sample now,1,0
+141,141,zh_010142,(_1)The concentration of vinegar (2)Whether the four samples reacted with acid (3)Whether the surface of the sample was covered with precipitated substances after the reaction,1,1
+156,156,zh_010157,Acid rain has almost no effect on wood materials Greater effect on stone materials Less effect on plastic,1,0
+187,187,zh_010188,(_1) Acid rain has more effect on limestone (2) No effect on wood (3) Less effect on plastic,1,0
+196,196,zh_010197,(_1) put in equal amounts of vinegar (2) the same mass of the sample (3) repeat the above experiment,1,1
+208,208,zh_010209,(_1)The pH value of vinegar(2)The mass of vinegar contained in each cup(3)The size of the area of vinegar in contact with the object,1,3
+233,233,zh_010234,"(_1) Whether the volume of vinegar completely covers the material (2) Whether the chemical properties of vinegar and acid rain are the same (3) Whether the container and vinegar, and the material are completely sealed before the test",1,1
+242,242,zh_010243,(_1)Time (2)Acid rain PH (3)Difference in material properties,1,0
+278,278,zh_010279,(_1)Acid rain erodes limestone most severely (2)Whether the wood is raw wood With or without processing (3)Whether the acid rain reacts chemically with the material quality control,1,0
+287,287,zh_010288,The state of the sample The concentration of the acid The density of the sample Whether the sample contains impurities Whether the sample is all completely in the acid,1,3
+305,305,zh_010306,(_1) The causes of acid rain (2) Whether acid rain corrodes wood (3) Future applications for acid rain,1,0

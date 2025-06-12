@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+35,35,de_000036,masse beginn masse en material,1,0
+49,49,de_000050,"Los materiales a examinar son *mármol, piedra caliza, madera y plástico*. Dar la masa en *gramos*. Da la *diferencia* de masa entre el principio y el final del experimento.",1,0
+50,50,de_000051,La cantidad de vinagre vertida en cada recipiente. Las dimensiones exactas de los contenedores utilizados. La cantidad de agua destilada utilizada para enjuagar las muestras.,1,3
+68,68,de_000069,"Para repetir el experimento, hay que volver a aumentar la masa. se necesitan más recipientes.",1,0
+79,79,de_000080,"Determinar la masa de las muestras, colocar las muestras en recipientes llenos de vinagre, sacar y secar las muestras después de 24 h y determinar de nuevo el peso.",1,0
+95,95,de_000096,"Me faltaba la cantidad de vinagre utilizada en cada muestra, y la temperatura a la que se expuso durante 40 horas, y qué tipos de recipientes utilicé.",1,2
+107,107,de_000108,"Pesar las 4 muestras, colocarlas individualmente en recipientes etiquetados con vinagre. Después de 24 horas, retire las muestras, enjuáguelas y póngalas a secar durante 30 minutos, péselas de nuevo.",1,0
+109,109,de_000110,¿Cómo se puede determinar la masa? ¿Cómo se puede determinar el peso al final? ¿Las muestras deben secarse al aire libre o en el interior?,1,0
+128,128,de_000129,"Es necesario determinar: la concentración de vinagre en el experimento, la posible concentración de ácido en la lluvia ácida y el cambio en la masa de cada muestra repetida después del secado adicional durante una hora",1,1
+141,141,de_000142,¿Qué cantidad de vinagre se utiliza? ¿Qué tamaño tienen los contenedores?,1,2
+144,144,de_000145,"No se tiene en cuenta el contenido real de ácido acético en el vinagre utilizado. Dependiendo de la marca comercial, hay fluctuaciones.  Tampoco se tiene en cuenta que el contenido de ácido es mucho mayor que el de la lluvia ácida en cualquier caso. Un """"defecto"""" del experimento reside en la fase de secado. Dado que las muestras utilizadas tienen distinta capacidad de absorción, la madera, por ejemplo, tardará mucho más en secarse que el plástico.",1,1
+165,165,de_000166,Tal vez la temperatura sea de interés.,1,0
+192,192,de_000193,"- La acidez del vinagre - Las características exactas de los materiales, no es lo mismo una madera que otra, etc. - La superficie de contacto del ácido, es el material fino y ancho o una esfera.",1,3
+204,204,de_000205,Es necesario conocer la cantidad de vinagre y el tamaño de los recipientes y las muestras de material para obtener los mismos resultados. También puede ser importante saber si es necesaria una determinada temperatura para llevar a cabo el experimento.,1,2
+226,226,de_000227,"Para poder repetir el experimento, es necesario conocer las cantidades de los ingredientes que se van a utilizar. Sin las cantidades, no se puede repetir uno a uno.",1,0
+248,248,de_000249,Hay que describir la superficie de los materiales.  Luego hay que determinar la antigüedad de los materiales. Y debe haber información sobre quién hizo el experimento.,1,1
+273,273,de_000274,"- ¿Qué cantidad de vinagre se utiliza? - ¿La muestra está sellada? - ¿Cuáles son las propiedades medioambientales? Temperatura, luz solar, etc.",1,1
+276,276,de_000277,La masa al principio de la muestra. El tiempo que estas muestras estuvieron en el recipiente con vinagre. La masa al final,1,0
+280,280,de_000281,"Además, se requiere la forma y la naturaleza de las muestras, así como la cantidad y el tipo de vinagre (por ejemplo, la concentración de ácido) que se utiliza.",1,2

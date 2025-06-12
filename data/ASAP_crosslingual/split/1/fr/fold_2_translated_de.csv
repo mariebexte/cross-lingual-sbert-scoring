@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+15,15,fr_010016,Das ist das richtige Verfahren.,1,0
+24,24,fr_010025,Ermitteln Sie für jede Probe die Differenz zwischen der Indikationsmasse und der Endmasse. Welche Probe hatte eine große Abweichung in der Masse nach den _24 Stunden? Welche Probe hatte eine kleine Massenabweichung? Welche Schlussfolgerung ziehen Sie aus den Beobachtungen?,1,0
+45,45,fr_010046,"Gieße Essig in jedes der vier separaten, aber identischen Gefäße.",1,0
+51,51,fr_010052,"- Welchen Essig soll ich verwenden (Wein, Weißwein, Apfelessig...)? - Bei welcher Temperatur sollten die Proben aufbewahrt werden und wo? - Kann jede Art von Behälter verwendet werden (Glas, Plastik, durchsichtig, undurchsichtig,... )?",1,3
+73,73,fr_010074,"Ich habe festgestellt, dass die gleiche Menge, die in den Topf gegeben wurde, mit einem minimalen Unterschied mitgenommen wurde.",1,0
+87,87,fr_010088,"Die Frage macht keinen Sinn, ich entschuldige mich.  Ich glaube, Sie haben uns alles gegeben, was wir brauchen, außer dem Namen des Materials?  In diesem Fall bräuchte ich ein Chemiebuch oder ein Massenspektrometer, um herauszufinden, aus welchem Material die Probe besteht, nicht wahr?",1,0
+93,93,fr_010094,"das Material der Probe bestimmen, die Verträglichkeit der Materialien untereinander, Schmelzpunkt jedes Materials.",1,1
+95,95,fr_010096,negativer Wert,1,0
+102,102,fr_010103,Volumen des hinzugefügten Essigs,1,1
+109,109,fr_010110,Es gibt keine zusätzlichen Informationen.,1,0
+114,114,fr_010115,"Ich bräuchte weitere Materialien zum Testen, um herauszufinden, welche Materialien an Gewicht verlieren, wenn sie zu Essig hinzugefügt werden.",1,0
+130,130,fr_010131,"Wie viel Essig gießen sie in die Behälter? Warum sind die Startgewichte unterschiedlich? Wie wäre es, wenn wir die Proben eine Woche lang stehen lassen?",1,1
+135,135,fr_010136,"In welchem Zustand muss das Material in den Proben enthalten sein (geformt, ganz, pulverisiert)? In welchem Behälter müssen die Proben _30 Minuten lang getrocknet werden? Bei welcher Temperatur sollten die Proben aufbewahrt werden? Wo sollen die Proben gewogen werden?",1,3
+159,159,fr_010160,Warum wird dieses Experiment durchgeführt? Was ist unsere Hypothese? Welche Ergebnisse wollen wir erreichen?,1,2
+182,182,fr_010183,"Bestimmen Sie, um welche Gegenstände es sich handelt, sehen Sie, wie porös die Gegenstände sind, und wiegen Sie auch den Essig.",1,2
+195,195,fr_010196,"Die Proben sind Marmor, Kalkstein, Holz und Plastik. Die Ausgangsmasse von Marmor ist _9,8 g, die Masse von Kalkstein ist 10,4 g, die Masse von Holz ist 11,2 g und die Masse von Plastik ist 7,2 g.",1,0
+200,200,fr_010201,Überprüfen Sie die Probenmenge des Essigs.  Überprüfen Sie die Menge der Materialproben.  Reinigen Sie den Behälter gründlich.,1,2
+235,235,fr_010236,Ich muss die Dichte wissen.,1,1
+259,259,fr_010260,"Sind die unbekannten Proben fest, flüssig oder gasförmig?  Sind die unbekannten Proben radioaktiv?  Wird das Experiment im Freien oder in geschlossenen Räumen durchgeführt?",1,2

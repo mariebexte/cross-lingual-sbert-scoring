@@ -1,0 +1,275 @@
+,id,text,prompt,score
+0,fr_010001,nous pouvons étiqueter les conteneurs d'échantillons verser d'autres substance trouver une valeur précise,1,0
+1,fr_010002,1. ou se trouvent les echantillons? 2. combien de vinaigre? 3. quel type de vinaigre? 4. je utilise quoi pour peser les echantillons?,1,3
+2,fr_010003,"marbe,calcaire,plastique",1,0
+3,fr_010004,"Afin de reproduire l'expérience, il faudrait d'abord savoir combien de vinaigre ils ont utilisé dans chaque récipient. J'aurais aussi besoin de savoir où ils ont placé leurs conteneurs pendant _24 heures (dans quel environnement). Enfin, j'aurais besoin de savoir si les échantillons étaient assis et séchés au soleil ou à l'intérieur dans un environnement climatisé.",1,3
+4,fr_010005,1. vous auriez besoin d'une balance pour peser la masse avant et après 2. vous auriez besoin d'un conteneur et d'une étiquette pour chaque échantillon 3. vous avez besoin d'un morceau de chaque échantillon de matériau,1,0
+5,fr_010006,"Pour effectuer la procédure, nous devons nous assurer que les conteneurs sont propres, utiliser une balance avec précision pour mieux diagnostiquer l'évolution du poids des substances et augmenter le temps pendant lequel les échantillons sont laissés au repos à l'étape _5 car certaines substances peuvent changer son poids.",1,0
+6,fr_010007,"L'expérience doit-elle se dérouler à température ambiante ? Quel type de contenant doit être utilisé, devons-nous nous servir d'un bécher ? Le séchage de _30 minutes doit-il s'effectuer à l'air libre ou faut-il utiliser une plaque chauffante ou une flamme ? Quel type de balance est nécessaire pour déterminer la masse, faut-il une balance de grande précision pouvant exprimer des masses fiables au mg près ?",1,3
+7,fr_010008,"Contenance du récipient, quantité de vinaigre à verser, poids des échantillons",1,3
+8,fr_010009,"1 - Les élèves doivent fournir une échelle de précision pour mesurer les échantillons. 2 - Les étudiants doivent vérifier si la balance est calibrée, car chaque gramme est important et fera une différence dans le résultat de l'étude. 3 - Les élèves doivent s'assurer que les matériaux sont purs et ne contiennent aucun mélange.",1,0
+9,fr_010010,"Il faudrait des explications un peu plus clair pour une personne qui n'y connait absolument rien en science. En effet, je suis confu à propos de la masse de départ et de fin ? Quelle quantité faut-il mettre celle de départ ou de fin?",1,0
+10,fr_010011,"Température ambiante, quantité de vinaigre, temps de lavage",1,3
+11,fr_010012,"1.Le vinaigre peut endommager le marbre. Lorsque le vinaigre rencontre le calcaire dans le marbre, une réaction chimique se produit. ... Comme le vinaigre réagit avec les éclats de marbre, son pH bas est élevé à un nombre plus élevé et moins acide. À la suite de la réaction chimique, des bulles ou de la mousse se forment. 2.  Le vinaigre, un acide, dissout des morceaux d'un matériau appelé carbonate de calcium dans le calcaire. Cela libère du dioxyde de carbone, un gaz qui monte à la surface sous la forme d'un flux de bulles. Les roches qui ne contiennent pas de carbonate de calcium ne pétilleront pas. 3.Une fois le vinaigre et le lait mélangés, la réaction s'est produite et la protéine a été dénaturée. ... Le vinaigre et le lait réagissent pour former du caillé (un solide) et du lactosérum (un liquide). Ces caillés ne peuvent pas être retournés au vinaigre et au lait. Une fois que le caillé est complètement sec, il forme un plastique utilisable.",1,0
+12,fr_010013,"J'aurais besoin de savoir combien de vinaigre ils ont versé dans chaque cuve, et de quel type de matériaux spécifiques il s'agissait. Par exemple, quel type de plastique ils ont utilisé.",1,2
+13,fr_010014,"nous devons également inclure la masse de l'échantillon séché, car lorsque l'eau s'assèche, la masse deviendra plus légère que le poids de masse fourni.",1,1
+14,fr_010015,LAISSER LES ECHANTILLONS REPOSER ET SECHOR PENDANT _30 MINUTS DETERMINER LA MASSE DE CHAGUE ECHANTILLON,1,0
+15,fr_010016,C'est la bonne procédure.,1,0
+16,fr_010017,"quantité de vinaigre,  nom de l’étudiant & heure exacte",1,1
+17,fr_010018,1. Quelle est l'hypothèse de cette expérience ? 2. Quelle doit être la taille des échantillons ? 3. Faut-il le faire à l'intérieur ou à l'extérieur ?,1,3
+18,fr_010019,1. Comparer les résultats attendus avec ceux obtenus  2. Analyser l'erreur expérimentale.  3. Expliquez vos résultats en termes de questions théoriques.,1,0
+19,fr_010020,"Les informations supplémentaires requises pour reproduire la procédure sont: la méthode à utiliser pour déterminer la masse des quatres échantillons: instrument à utiliser et le degré de précision de la mesure à effectuer, et la quantité de vinaigre à verser dans chaque récipient.",1,3
+20,fr_010021,"Je voudrais mesurer le pH du vinaigre, et aussi je utiliserais le meme volume du liquid pour chaque echantillon. Aussi je ajouterais le % difference d'original masse.",1,1
+21,fr_010022,toutes les informations sont dans la boite,1,0
+22,fr_010023,"Afin de reproduire l'expérience, vous auriez besoin d'informations supplémentaires telles que la quantité de vinaigre versé dans chaque récipient. De plus, vous auriez besoin de connaître la taille du conteneur.",1,2
+23,fr_010024,THE RETIRER LES ECHANATILLONS ET RINCER CHAQUE PENDANT IN BOIS.,1,0
+24,fr_010025,Trouvez la différence entre la masse d'indication et la masse finale pour chaque échantillon. Quel échantillon avait une grande déviation de masse après les _24 heures ? Quel échantillon avait une petite déviation dans la masse ? Quelle conclusion pouvez-vous tirer sur la base des observations?,1,0
+25,fr_010026,1. Quelle quantité de vinaigre a été utilisée. 2. Le même vinaigre est-il réutilisé ? 3. Quel type de vinaigre est utilisé ?,1,2
+26,fr_010027,Il serait intéressant d'évaluer la température ambiante avant de tester,1,1
+27,fr_010028,"Placer un échantillon d’un matériau dans un contenant et l’étiqueter. Répétez l’opération avec les échantillons restants, en plaçant un seul échantillon dans un seul contenant .",1,0
+28,fr_010029,"Déterminer la masse de quatre échantillons différents.,Placer un échantillon d’un matériau dans un contenant et l’étiqueter. Répétez l’opération avec les échantillons restants, en plaçant un seul échantillon dans un seul contenant., Déterminer la masse de chaque échantillon.",1,0
+29,fr_010030,"Versez du vinaigre dans chacun des quatre récipients séparés, mais identiques. Placez un échantillon d'un matériau dans un récipient et étiquetez-le. Répétez avec les échantillons restants, en plaçant un seul échantillon dans un seul récipient. Après _24 heures, retirer les échantillons des conteneurs et rincer chaque échantillon avec de l'eau distillée. Aucune autre information nécessaire, les directions étaient très directes.",1,0
+30,fr_010031,"La quantité de vinaigre versé dans les récipients, et la taille et le type des récipients. La procédure pour déterminer la masse des échantillons.",1,3
+31,fr_010032,"la masse de substance a diminué après l'expérience .le calcaire, lorsqu'il réagit avec le vinaigre, dissout des morceaux d'un matériau appelé carbonate de calcium dans le calcaire. Cela libère du dioxyde de carbone, un gaz qui monte à la surface sous forme d'un flux de bulles, il réduit la masse de calcaire.Le bios n'est pas un acide, il ne réagit donc pas avec le vinaigre",1,1
+32,fr_010033,"Il contient également des informations importantes et les détails les plus recherchés, donc je ne veux rien d'autre.",1,0
+33,fr_010034,L'élève a été dépassé.,1,0
+34,fr_010035,"Une réaction chimique se produit lorsque certaines substances réagissent entre elles, il existe parfois des faits très visibles qui confirment l'occurrence et, parmi eux, nous pouvons souligner: dégagement de gaz et de lumière, changement de couleur et d'odeur, formation de précipités",1,0
+35,fr_010036,1. Lieutenant que la balance est bien calibrée 2. Utilisez toujours la même balance 3. Vérifiez le poids de tous les échantillons en même temps,1,1
+36,fr_010037,"1. Il est important d'utiliser une balance avec une bonne précision pour peser les matériaux analysés. 2. Attendez 24 heures selon le manuel, car le bon moment est important pour le bon déroulement de l'expérience. 3. Lors de la pesée du matériau après séchage, veillez à ne pas noter la différence de masse.",1,0
+37,fr_010038,j'ai besoin d'une calculatrice et d'instruments de mesure,1,0
+38,fr_010039,"mesurer la quantité de vinaigre,Mesurer le temps correctement,",1,1
+39,fr_010040,Quel est le matériau de l'échantillon et quelle quantité d'échantillon est suffisante pour la procédure mentionnée à l'étape _3 ? Et à quelle température faut-il laisser les conteneurs dans les 24 heures d'attente de l'étape 4 ?,1,2
+40,fr_010041,BONNE INFORMATION FACILE À APPRENDRE. BIEN ESSAYÉ,1,0
+41,fr_010042,"Les échantillons doivent avoir la même masse avant le début de l'expérience, Utilisez une balance ultra-précise, Laisser les échantillons dans un endroit fermé et protégé, sans interférence environnementale",1,0
+42,fr_010043,"Standardiser et documenter les protocoles expérimentaux,Augmenter la transparence des données et des statistiques,En effet, vous devez apporter des modifications à l'expérience pour reproduire les données, toujours dans le but d'obtenir les mêmes résultats",1,0
+43,fr_010044,"la masse des objets peut être mesurée avec un équipement spécifique après _30 minutes d'attente, il faut ajouter des réactifs pour que la masse puisse être calculée si certaines substances comme les bœufs",1,0
+44,fr_010045,"1) Assurez-vous que chaque taille d'echantillons est la meme. 2) Decouvrez quel est l'objectif reel de l'experience, pour connaitre le meilleur methode d'experimentation. 3) Decouvrez exactement combien du vinaigre est necessaire pour chaque echantillon.",1,2
+45,fr_010046,"Verser du vinaigre dans chacun des quatre récipients séparés, mais identiques.",1,0
+46,fr_010047,L'échantillon de bois ne doit montrer aucun changement de masse.  Le vinaigre est un excellent produit pour nettoyer les dépôts de calcaire.  Ne nettoyez pas les récipients plastifiés avec du vinaigre en raison des résidus de la corrosion.,1,0
+47,fr_010048,je ne crois pas qu'il manque quelque chose a cette expérience,1,0
+48,fr_010049,Vous devez connaître le PH de chaque échantillon.,1,1
+49,fr_010050,"ils devraient inclure le temps, la valeur totale et effectuer une analyse sur les résultats",1,2
+50,fr_010051,J'aurais besoin de connaitre l'equipement qui a ete utilise pour prendre la messe et les mesures. J'ai besoin de connaitre le type de vinaigre. Je veux savior quel etair l'enviroment de sechage,1,3
+51,fr_010052,"- Quel vinaigre utiliser (vin, blanc, de cidre...) ? - A quelle température doit-on conserver les échantillons et où ? - Peut-on utiliser n'importe quel type de contenant ? (verre, plastique, transparent, opaque,... ) ?",1,3
+52,fr_010053,Je ne sais pas,1,0
+53,fr_010054,1. Ce que je vais utiliser pour mesurer l'échantillon 2. Combien de fois dois-je répéter l'enquête 3. Tout appareil nécessaire,1,3
+54,fr_010055,1. quantite de vinaigre dans chaque receptable 2. necessite ou non d'immerger l'echantillon entier dans le vinaigre 3. duree de rincage,1,3
+55,fr_010056,"masse totale, dureté, densité",1,3
+56,fr_010057,"Les informations presentees etaient des donnees sur le debut, la fin et le changement de poids",1,0
+57,fr_010058,les bœufs ont le résultat le plus élevé par rapport aux autres,1,0
+58,fr_010059,combien de vinagire il faut verser? c'est quoi le contenant?,1,2
+59,fr_010060,"Afin de réaliser cette expérience, j'aimerais savoir combien de Vinger a été utilisé. J'aimerais aussi savoir si le vinaigre recouvre totalement les objets. Il est également important de savoir combien d'eau est utilisée et pendant combien de temps chaque échantillon est lavé.",1,3
+60,fr_010061,l'élève a réussi,1,0
+61,fr_010062,"1. Déterminer la masse de quatre échantillons différents.  2. Verser du vinaigre dans chacun des quatre récipients séparés, mais identiques.  3. Placer un échantillon d’un matériau dans un contenant et l’étiqueter. Répétez l’opération avec les échantillons restants, en plaçant un seul échantillon dans un seul contenant.  4. Après 24 heures, retirer les échantillons des contenants et rincer chaque échantillon avec de l’eau distillée.  5. Laisser les échantillons reposer et sécher pendant 30 minutes.  6. Déterminer la masse de chaque échantillon.  Les données des étudiants sont enregistrées dans le tableau ci-dessous.",1,0
+62,fr_010063,"Il faudrait la quantité de vinaigre versé dans les récipients. Savoir quel est le type de vinaigre. Connaitre dans le détail les types des échantillons (type de bois, de plastique, ...)",1,3
+63,fr_010064,"nom des échantillons utilisés, combien de vinaigre utilisé, comment la masse a-t-elle été déterminée",1,3
+64,fr_010065,Ceci est une opportunité de collecter des informations supplémentaires auprès des participants dont vous pourriez avoir besoin pour la formation.,1,0
+65,fr_010066,Savoir combien de liquide a été versé dans chaque récipient. Assurez-vous d’utiliser le même conteneur. Assurez-vous que le liquide est stocké dans le même type d’environnement.,1,3
+66,fr_010067,"1 - le calcaire était le matériau qui avait la plus grande perte de masse. 2 - le bois a gardé la même quantité de masse. 3 - le plastique a perdu 0,1 g de masse à la fin de l'expérience.",1,0
+67,fr_010068,"Vous auriez besoin de connaître le volume de vinaigre ajouté, le changement de volume lorsque chaque échantillon est ajouté à un récipient et la mesure de la densité de chaque échantillon.",1,3
+68,fr_010069,"boire n'a aucun changement dans le début et la fin,d'autres augmenteront en début et diminueront en fin",1,0
+69,fr_010070,différent est très énorme et ces données sont très essentielles. La masse de fin est inférieure à la masse de defert. Que toutes les tables sont des points égaux. C'est une table très intéressante.,1,0
+70,fr_010071,"Les échantillons doivent être pesés avant d'être placés dans le récipient, puis la densité de chaque échantillon doit être mesurée. Après qu'ils aient séché, leur masse doit être mesurée à nouveau.",1,2
+71,fr_010072,"Le but de toute recherche est de décrire et d'expliquer la variation.  C'est bien défini. Nous pouvons quantifier les informations recueillies à partir de notre question. Exclure la spéculation. C'est spécifique.  La variable qui est étudiée et manipulée ou modifiée. Son effet direct est observé dans l'expérience. Les exemples peuvent être : la température, la quantité d'eau et la lumière. Je veux dire, ils peuvent être manipulés.",1,0
+72,fr_010073,Où trouver les matériaux. Comment entreposer les échantillons. Quel quantité de vinaigre dois-je versé dans les récipients.,1,1
+73,fr_010074,J'ai réalisé que le même montant qui a été mis dans le pot a été emporté avec une différence minime.,1,0
+74,fr_010075,Vous devez savoir quels matériaux tester. Vous devez savoir quelle taille/surface des matériaux doit être utilisée. Vous devez savoir combien de temps chaque échantillon a été rincé à l'eau distillée.,1,3
+75,fr_010076,"quel est l'échantillon de, quel est censé être le résultat final ?,  quelle taille d'un conteneur",1,2
+76,fr_010077,1. Vérifiez l'effet du vinaigre sur les échantillons 2. La texture des échantillons 3.bon type de conteneurs pour mener l'expérience,1,2
+77,fr_010078,1) utiliser des gants pendant l’expérience    2)ne pas placer ailleurs que l’échantillon à étudier dans le récipient   3) Noter les masses avant et après l’ajout du vinaigre,1,1
+78,fr_010079,1. quantité de vinaigre nécessaire pour chaque échantillon  2.  Quel type de conteneur doit être utilisé pour chaque échantillon  3.  Méthode de stockage pour chaque échantillon,1,3
+79,fr_010080,"J'aurais besoin de la quantité de vinaigre à mettre dans les récipients, pendant combien de temps je dois rincer l'échantillon avec l'eau distillée et dans quelles conditions je devrais laisser reposer et sécher les échantillons pendant _30 minutes (au soleil, à l'ombre, température de la pièce, etc.)",1,3
+80,fr_010081,"1. le volume de vinaigre mis dans the recipient, 2. le poids du material place dans le vinaigre, 3. la tare sur la balance",1,3
+81,fr_010082,"densité initiale, densité finale, différence de densité",1,1
+82,fr_010083,Quels sont les echantillons. Quels sont les volumes des conteneurs. Quelle quantite de vinaigre doit etre utilise.,1,3
+83,fr_010084,Définissez au préalable de quels matériaux il s'agit. Définissez le niveau de vinaigre par défaut pour tous les conteneurs. Définissez le type d'emplacement dans lequel les destinataires peuvent rester pendant qu'ils sont en attente.,1,3
+84,fr_010085,"Nettoyer le contenu où pourete le vinaigre  , Attendre _24 heures,écrire les masses de chaque échantillon dans un tableau",1,1
+85,fr_010086,"peser les échantillons au départ , le type de vinaigre à utiliser. comment retirer les échantillons des contenants.",1,3
+86,fr_010087,"Température de  température de l'objet, le volume, acidité du vinaigre",1,3
+87,fr_010088,"La question n’a pas de sens, je m’excuse.  Je crois que vous avez donné tout ce dont nous avions besoin, sauf le nom du matériel?  Dans ce cas, j’aurais besoin d’un manuel de chimie, ou d’un spectromètre de masse pour savoir quel est le matériau de l’échantillon, n’est-ce pas?",1,0
+88,fr_010089,"vous auriez besoin d'une balance, d'eau distillée et d'échantillons",1,0
+89,fr_010090,l'expérience est très bonne et les étudiants la rendent meilleure.,1,0
+90,fr_010091,Quelle taille d'échantillons faut-il utiliser ?,1,1
+91,fr_010092,"Il faut connaître la concentration de vinegre, la taille approximative des contenants et la précision des balances",1,3
+92,fr_010093,"la masse de marbre a obtenu un résultat négatif,et calcaire aussi,la masse de boisson a été préréglée, mais mise à zéro,la masse platique était négative",1,0
+93,fr_010094,"déterminer le matériau de l'échantillon, la compatibilité des matériaux entre eux, point de fusion de chaque matériau",1,1
+94,fr_010095,exactement combien de vinaigre je dois mettre dans les récipients? Le matériau des récipients est pertinent? Et la dimensione des échantillons?,1,3
+95,fr_010096,valeur négative,1,0
+96,fr_010097,"La taille de tous les échantillons est la même, je veux dire comment les sélectionner, est-ce que je les prends selon mes souhaits ou doivent-ils tous être de la même taille ?. Une autre question, combien de vinaigre dois-je verser dans chaque récipient ?. Et la dernière question, combien de temps cela peut-il prendre au maximum depuis que j'ai mis le matériel dans le conteneur ? Je veux dire tous les matériaux, je dois le faire en une minute, le temps du premier matériau n'est pas le même que celui du dernier matériau, le temps de séchage n'est plus le même",1,3
+97,fr_010098,7-vérifier la couleur de la pâte à la fin de l'expérience  8-rajouter un peu d'eau si vous n'obtenez pas le résultat escompté  .,1,0
+98,fr_010099,Mesurer et verser la même quantité d'échantillon. Utilisez la loupe pour regarder la structure des solides. Voyez s'ils sont solides ou cristallins.,1,0
+99,fr_010100,"Étiquetez les échantillons avec les lettres A, B, C, D, E. Après _30 minutes de repos, calculez la masse de chaque récipient. Le calcul sera effectué en informant la masse x force de chaque conteneur.",1,0
+100,fr_010101,"Le type de récipient dans lequel le produit sera versé, les matériaux supplémentaires qui peuvent être nécessaires pour mélanger les produits, stylo ou marqueur pour l'étiquetage",1,2
+101,fr_010102,1. Sortez les échantillons des conteneurs 2. Mesurer la masse qu'ils possèdent 3. Faire la différence entre le maximum initial et le maximum final,1,0
+102,fr_010103,volume de vinaigre ajouté,1,1
+103,fr_010104,"j'aurais besoin de marbres, de calcaire, de bois et d'un échantillon de plastique pour reproduire l'expérience.",1,0
+104,fr_010105,"1. Discussion, 2. Conversation, 3. Chat",1,0
+105,fr_010106,1. Une minuterie 2. Une échelle 3. Un crayon,1,0
+106,fr_010107,"Vous devrez répéter l'expérience plusieurs fois pour voir si les données sont les mêmes, vous devrez vous assurer que les quantités de liquides sont la même quantité pour chaque expérience. Vous pouvez mettre les données dans une feuille de calcul Excel pour comparer les données.",1,0
+107,fr_010108,Je devrais évaluer comment chaque élève montre le processus de chaque vinaigre dans la tasse.J'ai aussi besoin de voir les masses de vinaigre dans chaque tasse.,1,0
+108,fr_010109,Quel type de vinaigre doit-on utiliser ? Comment déterminer la masse de chaque échantillon ? Comment sécher les échantillons ?,1,3
+109,fr_010110,Il n'y a pas d'informations supplémentaires,1,0
+110,fr_010111,"la masse de dinitiale de la bille est de _9,8 g, si elle perd 0,4 g la masse finale est de 9,4 g.",1,0
+111,fr_010112,1 Combien de vinaigre ?,1,1
+112,fr_010113,"quels conteneurs de matériaux devraient-ils être?  est-ce que le vinaigre blanc, rouge ou de pomme est meilleur ?  Le vinaigre doit-il être versé lentement ou rapidement dans les échantillons ?",1,3
+113,fr_010114,"réaction chimique, quantité de vinaigre, température",1,2
+114,fr_010115,J'aurais besoin d'autres matériaux à tester afin de savoir quels matériaux perdent du poids lorsqu'ils sont ajoutés au vinaigre,1,0
+115,fr_010116,"la quantité de vinaigre nécessaire, si le type de vinaigre influence le résultat, l'influence de la température ambiante sur l'expérience",1,3
+116,fr_010117,"utiliser un récipient en verre, eau à température naturelle, dans un environnement aéré",1,3
+117,fr_010118,La masse initiale et finale des échantillons a été donnée.,1,1
+118,fr_010119,Quelle quantité de vinaigre a été ajoutée à chaque substance ? À quel point la substance est-elle sèche? Comment la substance réagit-elle aux autres liquides ?,1,3
+119,fr_010120,Création d'un échantillon.sur quatre substances différentes.Cette expérience prendra _24 heures.,1,0
+120,fr_010121,"masse de temperature,",1,0
+121,fr_010122,"Quel type de bois est utilisé? Par exemple Chêne, Érable, Cerisier. Le bois a-t-il été séché et depuis combien de temps? Quel type de plastique est utilisé?",1,3
+122,fr_010123,1.Quantité de vinaigre utilisée ? 2.La température de la pièce. 3.L'expérience se fait-elle de jour ou de nuit ?,1,3
+123,fr_010124,1. La plupart des masses de matériaux ont diminué. 2. Seule la masse de la bois n'a pas changé. 3. La masse calcaire a eu le plus grand changement,1,0
+124,fr_010125,"oublié de fournir des articles, écrivez avant et après l'expérience",1,0
+125,fr_010126,1. masse molaire de l'échantillon 2. masse molaire de vinaigre 3. masse molaire après la réaction de l'échantillon,1,1
+126,fr_010127,L'étudiant a été dépassé.,1,0
+127,fr_010128,"On peut aussi le garder _1h et voir le résultat. Il changera en fonction des horaires. Et aussi, cela devrait être fait de manière détaillée.",1,0
+128,fr_010129,6-1 ajouter du colorant pour ajouter de la couleur 6-2 ajouter du sel au goût et durer 6-3 ajouter de la farine de blé pour ajouter du volume,1,0
+129,fr_010130,Assurez-vous d’inclure au moins trois éléments d’information,1,0
+130,fr_010131,Combien de vinaigre versent-ils dans les récipients? Pourquoi les poids de départ sont-ils différents? Et si on laissait les échantillons pendant une semaine?,1,1
+131,fr_010132,RIEN DE SPÉCIAL À DIRE,1,0
+132,fr_010133,"J'ai besoin de savoir le volume du vinaigre a verser dans chaque contenant. On doit aussi savoir a quelle température les échantillons vont être préservés pour _24 heures. Finalement, on doit savoir la nature ou composition du contenant (verre, plastique, etc...)",1,3
+133,fr_010134,"Pour commencer, il faut verser du vinaigre dans chacun des récipients .  Après, il faut placer un échantillon d’un matériau dans un contenant. Puis, il faut  l’étiqueter.   Répétez l’opération avec les échantillons restants.  Il faut retirer les échantillons des contenants après _24 heures.  On les laisse sécher pendant 30 minutes.   Finalement, on peut déterminer la masse de chaque échantillon.",1,0
+134,fr_010135,Vous avez besoin des quatre recipients identiques; pour l'expérience il faut une journée entiére et il faut se referer le tableau ci-dessous pour la validation.,1,0
+135,fr_010136,"Dans quel état le matériau doit-il être inclus dans les échantillons ? (Moulé, entier, pulvérisé) Dans quel récipient faut-il faire sécher les échantillons pendant _30 minutes ? A quelle température doit-on conserver les échantillons ? Où peser les échantillons ?",1,3
+136,fr_010137,du groupe de base qui va diriger la mise en place de la coopérative. Vous effectuerez les exercices basés sur l'idée d'entreprise que vous aurez définie,1,0
+137,fr_010138,Il est important de souligner que le vinaigre utilisé est de l'alcool ; assurez-vous que les conteneurs sont propres; - utiliser des étiquettes colorées pour une meilleure identification des échantillons.,1,0
+138,fr_010139,Vous devez savoir quels matériaux tester. Vous devez savoir quelle taille/surface des matériaux doit être utilisée. Vous devez savoir combien de temps chaque échantillon a été rincé à l'eau distillée.,1,3
+139,fr_010140,Vous devez savoir quels matériaux tester. Vous devez savoir quelle taille/surface des matériaux doit être utilisée. Vous devez savoir combien de temps chaque échantillon a été rincé à l'eau distillée.,1,3
+140,fr_010141,"j'ai besoin des noms de tous les éléments impliqués, du point de fusion et de leur point d'ébullition",1,2
+141,fr_010142,"1.Exercice : Après avoir lu la procédure du groupe, décrivez les informations supplémentaires dont vous auriez besoin pour reproduire l’expérience. Assurez-vous d’inclure au moins trois éléments d’information.2.Ne pas déranger le récipient pendant au moins 1 heure  3.Assurez-vous que l'eau doit être parfaitement mélangée avec les échantillons.",1,0
+142,fr_010143,"la masse totale des échantillons ,volume,la concentration de chacun",1,3
+143,fr_010144,Guide pour le suivi et l’évaluation de projets/programmes,1,0
+144,fr_010145,"Quelle est la réaction chimique entre le vinaigre et le marbre, le bois, le calcaire, le plastique apres _24 heures?",1,0
+145,fr_010146,"Taille des récipients, acidité du vinaigre, durée de séchage",1,3
+146,fr_010147,La quantité de vinaigre versé dans chaque récipient. Comment les conteneurs que nous avons stockés pendant _24 heures. The surface area of the four samples in the vinegar.,1,3
+147,fr_010148,"N'utilisez pas de vinaigre, de Windex ou d'eau de Javel sur le marbre. Une seule utilisation de ces substances acides rongera la surface d'un comptoir en marbre et ternira la pierre. N'utilisez pas non plus de nettoyant abrasif ou de tampons, car le marbre peut être rayé.  Ainsi, le vinaigre combiné au calcaire crée une réaction chimique. Lorsque les acides et les bases se combinent, ils produisent de l'eau et des sels. Mettre la roche calcaire dans le vinaigre démarre la réaction chimique. Lorsque l'acide commence à dissoudre le carbonate de calcium, nous pouvons voir la libération de bulles de dioxyde de carbone qui pétillent vers le haut.  La première chose à propos du vinaigre, c'est qu'on ne le conserve jamais dans du plastique ! Le contenu acide du vinaigre va ronger le plastique et il y aura des microparticules de plastique dans votre acv, que l'on boit à jeun !! Wow!",1,0
+148,fr_010149,"j'aurais besoin de connaître le sexe des personnes, la façon dont les données ont été collectées et la validité des données",1,0
+149,fr_010150,"1. le type de marbre, 2. le type de bois, et 3. le type de vinaigre utilisée",1,3
+150,fr_010151,donner la quantité de vinaigre à utiliser.  donner la quantité d'eau distillée pour le rincage. connaitre la taille des récipients et la taille des échantillons,1,3
+151,fr_010152,"La masse de depart, la masse de fin",1,1
+152,fr_010153,"Il faudrait savoir quelle taille doivent faire les échantillons, quelle taille doivent faire les récipients, et quelle quantité de vinaigre utiliser.",1,3
+153,fr_010154,Vous devez connaître la quantité de vinaigre utilisée dans chaque contenant. Vous devez savoir quel type de vinaigre a été utilisé dans chaque contenant. Vous devez savoir quels matériaux tester.,1,3
+154,fr_010155,C'est important de savoir les tailles des quatre récipients. Je veux savoir la quantité de l'eau distillée et la quantité du vinaigre . Quelle temperature est-ce qu'on utilise quand on laisse les échantillons reposer?,1,3
+155,fr_010156,1. Vous devez connaître la quantité de vinaigre utilisée dans chaque contenant. 2.Vous devez savoir quel type de vinaigre a été utilisé dans chaque contenant. 3. Vous devez savoir quels matériaux tester.,1,3
+156,fr_010157,Suivez les étapes selon les instructions. Déterminer les différents processus. Terminez en complétant l'expérience avec les étapes suivantes,1,0
+157,fr_010158,"quel type de récipient a été utilisé, quelle quantité de vinaigre a été utilisée et la taille du récipient",1,3
+158,fr_010159,Assurez-vous que tous les échantillons sont également secs,1,0
+159,fr_010160,pourquoi cette expérience est-elle faite? quelle est notre hypothèse ? quels résultats recherchons-nous ?,1,2
+160,fr_010161,"pierre, sel et charbon",1,0
+161,fr_010162,"1. Il devrait y avoir une liste des équipements qui seront utilisés pour l'expérience. 2. L'équipement de santé et de sécurité à utiliser, comme le port de lunettes, un masque, un tablier, etc. 3. Le nom de l'échantillon de matériau qui est placé dans chaque contenant.",1,1
+162,fr_010163,Quantité d'eau.Taille des conteneurs. Quantité de vinaigre.,1,3
+163,fr_010164,"Étape _1 : Les échantillons doivent être lavés dans du vinaigre pour éliminer la poussière et la saleté. Étape 2 : L'échantillon doit être lavé avec de l'eau distillée. Étape 3 : Couvrir l'échantillon avec un papier filtre conique pour le sécher. (pour éviter l'accumulation de poussière sur l'échantillon. Commencez l'expérience. À la fin de l'expérience, utilisez un papier filtre conique pour le séchage afin d'éviter l'accumulation de poussière. Assurez-vous d'utiliser un système de mesure fermé pour calculer la masse.",1,0
+164,fr_010165,"Combien du vinagre , combien d'un materiau ,",1,2
+165,fr_010166,"De quel matériau doivent être les conteneurs, comment mesurer la masse, quels matériaux puis-je utiliser ?",1,2
+166,fr_010167,"J'aurais besoin de connaitre le type de récipient utilisé (tube a essai, Erlenmeyer…), les dimensions du récipient, les dimensions des échantillons, et les quantités de vinaigre utilisée. Avec ses éléments, je pourrais confirmer si toute la surface des chaques échantillons est en contact avec le vinaigre et ainsi comprendre si les differences de masse sont lié a la résistance du materiel de l'échantillon ou a une difference de taille de surface de contact entre le vinaigre et le materiaux.",1,3
+167,fr_010168,Le type de conteneur utilisé. Taille des conteneurs. Type de balance utilisée. Une sorte de plastique et de marbre sont utilisés dans l'expérience.,1,3
+168,fr_010169,"épaisseur du mélange, telle qu'elle est pendant et après la pause.",1,0
+169,fr_010170,"nouvelle tendance design, plastique moulable, augmenté la minceur du pigment blanc",1,0
+170,fr_010171,"Des données sur la température ambiante, la chaleur spécifique de chaque matériau et leur durée de vie moyenne sont nécessaires.",1,2
+171,fr_010172,les echantillon cest le marbre le calcaire le bois et le plastique.le masse de depart de marbre cest _9.8 g le masse de calcaire cest 10.4 g le masse de bois cest 11.2 g et le masse de la plastique cest 7.2 g,1,0
+172,fr_010173,J'aurais besoin du volume de vinaigre versé dans chaque récipient.,1,1
+173,fr_010174,"Pour calculer la densité, il faut diviser la masse par le volume. Pour calculer la masse, il faut multiplier le volume par la densité. Pour calculer le volume, nous devons diviser la masse par la densité.",1,0
+174,fr_010175,Je pense que vous devriez ajouter un peu plus de vinaigre et de temps d'attente pour le marbre et le calcaire,1,0
+175,fr_010176,1. Combien de vinaigre de verser. 2. Où se procurer les échantillons 3. Quelles informations mettre sur l'étiquette. 4. Comment conserver les échantillons,1,3
+176,fr_010177,Vous devez savoir quelle méthode de séchage utiliser.  Vous devez savoir quel type de vinaigre a été utilisé dans chaque contenant. Vous devez savoir quel type de conteneur utiliser.,1,3
+177,fr_010178,Vous devez savoir quels matériaux tester. Vous devez savoir quelle taille/surface des matériaux doit être utilisée. Vous devez savoir combien de temps chaque échantillon a été rincé à l'eau distillée.,1,3
+178,fr_010179,"1. Couvrez-vous correctement le visage pour éviter tout type de mésaventure, 2. Les échantillons doivent être également versés, 3. Gardez un temps égal pour les échantillons",1,0
+179,fr_010180,"Le but de l'expérience doit être expliqué, par exemple : Déterminer la masse de quatre échantillons de matériaux différents avant et après avoir été exposés au vinaigre. Les échantillons doivent être pesés initialement et leur poids noté. Après la procédure est effectuée, un rapport avec la conclusion doit être fait.",1,2
+180,fr_010181,- Indiquez la quantité de vinaigre à mettre dans les récipients; -Indiquez comment mesurer la masse des échantillons; -Indiquez comment les données obtenues doivent être enregistrées.,1,3
+181,fr_010182,"La derniere etape serait de calculer la difference entre la masse de depart et la masse de fin. C'est ainsi que nous determinons combien chaque materiau a perdu du poids.Pour etre juste, la masse de depart aurait du etre la meme pour tous le materiaux.",1,0
+182,fr_010183,"Déterminez quels sont les objets, voyez à quel point les objets sont poreux et pesez également le vinaigre.",1,2
+183,fr_010184,"des questions plus claires, plus de contenu, mais l'expérience est géniale",1,0
+184,fr_010185,CETTE EXPERIENCE EST TRES BONNE JE L'AIME.,1,0
+185,fr_010186,1- Mesurer la température de chacun des échantillons ; 2-Mesurer le pH de chacun des échantillons ; 3- Accélérer le séchage avec l'utilisation d'un four pour augmenter la température ; 4- Portez des gants pour ne pas contaminer la masse sèche avec l'humidité des mains,1,0
+186,fr_010187,"J'aurais besoin de la température, de la quantité de vinaigre et de la quantité d'eau pour laver les matériaux.",1,3
+187,fr_010188,"quelle est l'hypothèse? Quelles sont les différentes variables ? Telles que les variables indépendantes, les variables dépendantes et les variables contrôlées.",1,2
+188,fr_010189,"durée, type de vinaigre, type de récipient",1,3
+189,fr_010190,"la quantité de vinaigre à verser, faut-il fermer les contenant, quelle type de balance doit être utilisé, quels échantillons prendre",1,3
+190,fr_010191,"A travers cette expérience, on remarque que la masse de tous les échantillons a diminué sauf pour le bois, qui a conservé la même masse.",1,0
+191,fr_010192,"Vous devez vous assurer d'utiliser une balance de précision et vous devez toujours la mettre à zéro avant de l'utiliser, vous devez ramasser les matériaux avec une main propre afin de ne pas modifier le résultat de l'expérience, en plus de faire preuve de prudence lors de la manipulation avec les réactifs.",1,0
+192,fr_010193,"Vous devez d'abord vous assurer que vous disposez d'un échantillon de contrôle. Deuxièmement, vous devrez déterminer le poids avant le séchage. Troisièmement, comparez le poids avant et après le séchage pour voir si l'évaporation avait une corrélation avec la différence de masse.",1,0
+193,fr_010194,Tarer la balance avant de placer les échantillons dans le conteneur. Laisser les récipients reposer à température ambiante.,1,0
+194,fr_010195,"La masse du vinaigre qui a été versé dans chaque récipient doit être déterminée, La masse des échantillons après avoir été retiré du récipient doit être pesée, La masse des échantillons après rinçage immédiat à l'eau distillée doit être déterminée",1,3
+195,fr_010196,les echantillon cest le marbre le calcaire le bois et le plastique.le masse de depart de marbre cest _9.8 g le masse de calcaire cest 10.4 g le masse de bois cest 11.2 g et le masse de la plastique cest 7.2 g,1,0
+196,fr_010197,Quel type de conteneurs ont été utilisés? combien de chaque matériau a été utilisé? Je pense que je pourrais maintenant reproduire l'expérience,1,2
+197,fr_010198,"Vous devez connaître le volume de vinaigre dans chaque récipient (c'est-à-dire s'il recouvre entièrement ou non l'échantillon), la concentration d'acide acétique que contient le vinaigre et la température à laquelle les échantillons ont été laissés.",1,3
+198,fr_010199,1. Vous devez savoir combien de vinaigre a été utilisé dans chaque récipient. 2. Vous devez savoir quel type de vinaigre a été utilisé dans chaque récipient. 3. Vous devez savoir quels matériaux tester. 4. Vous devez savoir quelle taille/surface des matériaux doit être utilisée.,1,3
+199,fr_010200,"Déterminer la masse de quatre échantillons différents, Placer un échantillon d’un matériau dans un contenant et l’étiqueter. Répétez l’opération avec les échantillons restants, en plaçant un seul échantillon dans un seul contenant, Déterminer la masse de chaque échantillon",1,1
+200,fr_010201,Vérifiez la quantité d'échantillon de vinaigre.  Vérifier la quantité d'échantillons de matériaux.  Bien nettoyer le récipient.,1,2
+201,fr_010202,le calcaire a la différence de masse la plus faible par contre le bois le plus élevé,1,0
+202,fr_010203,"J'aurais besoin de savoir ce qui est utilisé comme échantillon. J'aurais aussi besoin de savoir comment nous mesurons les échantillons. Enfin, j'aurais besoin de comprendre quelle était l'hypothèse globale pour interpréter le tableau.",1,2
+203,fr_010204,"la quantité de vinaigre, la quantité d'eau distillée, la grandeur des contenants",1,3
+204,fr_010205,J'aimerais connaitre la meteo au moment de l'experience. L'jumidite affecterait specifiquement les resultats. J'aimerais connaitre la densite du plastique car il se dilaterait probablement. Je voudrais savoir combien de fois cette procedure a ete repetee pour verifier toute erreur de calcul.,1,3
+205,fr_010206,"Déterminez le poids, la mesure et la surface de l'échantillon.",1,2
+206,fr_010207,quelle langue,1,0
+207,fr_010208,"Les différents échantillons sont le marbre, le calcaire, le bois et le plastique. Tirer les conclusions relatives à l'effet du vinaigre sur la masse de chacun des échantillons. Identifier l'échantillon insensible au vinaigre.",1,0
+208,fr_010209,quantité de vinaigre; Température; type de vinaigre; acidité,1,3
+209,fr_010210,"Première  Quelle serait la raison d'utiliser du vinaigre? En cas de manque, quel autre réactif utiliser ?  seconde:  Quelles informations est-il important de mettre sur l'étiquette ?  la troisième:  Quel type de balance est utilisé pour vérifier la différence de masses ?",1,2
+210,fr_010211,"surface , densité , le volume",1,0
+211,fr_010212,1. Spécifier les matériaux qui doivent être utilisés - 2. Spécifier la quantité de vinaigre à verser dans chaque récipient - 3. Placer un échantillon d'un matériau dans un des contenants de vinaigre et l'étiqueter-,1,2
+212,fr_010213,1. J'ai besoin de la quantité de vinaigre. 2. La température pour reposer les échantillons. 3. La quantité de l’eau distillée pour rincer chaque échantillon.,1,3
+213,fr_010214,il y a des exemples de masse de chaque échantillon. Le calcaire a le plus de différence de masse. Le bois a la différence de masse _0.,1,0
+214,fr_010215,J'aime cette expérience et je trouve un meilleur résultat. Chaque étudiant fait de notre mieux. Ce tableau sert à sélectionner le meilleur résultat.,1,0
+215,fr_010216,"bonne information, tableau précis & facile à comprendre",1,0
+216,fr_010217,"1.Après avoir trouvé la valeur de différence de masse, le groupe a répété l'expérience en utilisant de nouveaux échantillons des mêmes composants et leurs quantités respectives de masse de départ. 2.Despeje alcool em cada um dos quatro recipientes separados, mas idênticos. 3.effectuer les mêmes étapes que dans l'expérience avec le vinaigre précédemment. 4.Faire un tableau avec toutes les données observées des expériences avec la masse finale des composants lors du versement du vinaigre et de l'alcool. 5 Construire un tableau avec la valeur finale de la différence de masse entre les deux expériences (vinaigre/alcool)",1,0
+217,fr_010218,"J'aurais besoin de savoir le taille des récipients, combien de vinaigre leurs ont utilise, et la temperature de la piece, parce que cela pourrait affecter l'experience.",1,3
+218,fr_010219,1.Masse de vinaigre ajoutée à l'échantillon. 2. l'échantillon se dilate-t-il lors du lavage et du séchage ? 3. Le récipient est-il complètement sec avant d'ajouter du vinaigre dans le récipient ?,1,3
+219,fr_010220,"Température ambiante de l'expérience, matériau du conteneur, humidité de l'air sur le site d'essai.",1,3
+220,fr_010221,la température ambiante était essentielle pour le changement de masse de chacun de chaque exemple,1,1
+221,fr_010222,1. Température ambiante 2. Marge d'erreur 3. Type de vinaigre,1,3
+222,fr_010223,4. Stockez les échantillons dans un endroit avec la température et l'humidité appropriées pour chaque échantillon.  7. Répétez l'étape 6 trois fois pour une meilleure précision.  8. Déterminez le pourcentage d'erreur du processus de pesée de l'échantillon.,1,0
+223,fr_010224,Définition de la mole et du nombre d'Avogadro et utilisation pour exprimer une quantité de matière. Calcul et utilisation de la concentration molaire.,1,0
+224,fr_010225,"vous aurez besoin d'observations, d'hypothèses et du matériel nécessaire pour réaliser l'expérience.",1,2
+225,fr_010226,brièvement au groupe les grandes lignes des avantages d'avoir une politique et des procédures sur la protection des enfants. Si vous n'avez pas déjà montré.,1,0
+226,fr_010227,pour préformer l'expiration dont vous auriez besoin vinaigre et quatre conteneurs séparés ainsi que le temps,1,0
+227,fr_010228,"1. Déterminer la masse de quatre échantillons différents.  2. Verser du vinaigre dans chacun des quatre récipients séparés, mais identiques.  3. Placer un échantillon d’un matériau dans un contenant et l’étiqueter. Répétez l’opération avec les échantillons restants, en plaçant un seul échantillon dans un seul contenant.  4. Après 24 heures, retirer les échantillons des contenants et rincer chaque échantillon avec de l’eau distillée.  5. Laisser les échantillons reposer et sécher pendant 30 minutes.  6. Déterminer la masse de chaque échantillon.  Les données des étudiants sont enregistrées dans le tableau ci-dessous.",1,0
+228,fr_010229,"la quantité d’eau distillée, la quantité de vinaigre, la masse des objets",1,3
+229,fr_010230,"Classez le matériau séché en différentes catégories en fonction de leurs caractéristiques telles que la texture, la forme et la solidification.",1,1
+230,fr_010231,"Placer un échantillon d’un matériau dans un contenant et l’étiqueter. Répétez l’opération avec les échantillons restants, en plaçant un seul échantillon dans un seul contenant.",1,0
+231,fr_010232,1. Quelle quantité de vinaigre a été utilisée. 2. Température du vinaigre et de la pièce 3. Humidité de la pièce,1,3
+232,fr_010233,"rien,intéressante",1,0
+233,fr_010234,"Temperature, acidité et quantité de vinaigre. Dimensions, area de surface des échantillons. L'échantillon était-il complètement immergé ? Temperature pendant l'experience?",1,3
+234,fr_010235,"Portez des gants, un peignoir et des chaussures fermées.",1,0
+235,fr_010236,J'ai besoin de connaître la densité.,1,1
+236,fr_010237,J'ai besoin d'une balance pour peser les échantillons. J'ai besoin échantillons en divers matériaux. Il faut expliquer porquoi il y une différence de masse.,1,0
+237,fr_010238,"Mesurer la température, examiner les types d'échantillons, mesurer l'échelle de poids",1,3
+238,fr_010239,"la temperature, la lumiere, quel sorte de vinaigre",1,3
+239,fr_010240,Déterminer la masse de quatre échantillons différents .,1,1
+240,fr_010241,"3.Placer un échantillon d’un matériau dans un contenant et l’étiqueter. Répétez l’opération avec les échantillons restants, en plaçant un seul échantillon dans un seul contenant.",1,0
+241,fr_010242,1. J'aurais besoin de savoir quelle était la température dans la pièce.2. J'aurais besoin de savoir si les conteneurs étaient couverts ou découverts. 3. J'aimerais savoir comment ils ont complètement séché les matériaux. Était-ce le séchage à l'air ou les ont-ils essuyés?,1,3
+242,fr_010243,Comment déterminer les masses,1,1
+243,fr_010244,les informations sont suffisantes pour effectuer l'exercice,1,0
+244,fr_010245,"J'AI BESOIN DE CONNAÎTRE LE POIDS SPÉCIFIQUE DU TYPE D'OBJET À EXAMINER, LE TYPE DE VINAIGRE QUE VOUS ALLEZ UTILISER ET LA TEMPÉRATURE DU VINAIGRE",1,3
+245,fr_010246,"Je testerais également avec de l'eau, du vinaigre de cidre de pomme et de l'eau de Javel.",1,0
+246,fr_010247,"7.Créez un tableau avec les colonnes du nom de l'échantillon, de la masse de départ, de la masse de fin et de la différence de masse en grammes. 8. Mettez les données de masse avant la conception dans la deuxième colonne et après la conception dans la troisième colonne 9. Dans la quatrième colonne, soustrayez les valeurs de masse de départ de la masse de fin en grammes.",1,0
+247,fr_010248,"masa del final marbre es _9,4, la calcaire es 9,1, le bois es 11.2, y le plastique es 7,1",1,0
+248,fr_010249,"Après avoir lu la procédure du groupe nous pouvons déduire que pour reproduire cette expérience ; nous aurions besoin de la masse de départ des échantillons que nous aurions choisis, pour pouvoir faire la différence avec la masse que nous aurions ottenu après avoir realisé l'expérience, les échantillons sont choisis par nous même, donc n'importe quel échantillon d'un matériau, nous aurions aussi besoin du vinaigre et de quatre récipients séparés , il y faudra aussi de l'eau distillée .",1,0
+249,fr_010250,quelle était la concentration de vinaigre? combien de temps ont-ils laissé les articles dans le vinaigre ?,1,1
+250,fr_010251,les échantillons les plus égaux sont le marbre et le calcaire. =_20.2 masse de départ,1,0
+251,fr_010252,Le tableau est une plus petite différence pour chaque colonne. C'est un tableau très intéressant. Et le marbre et le bois n'ont qu'une plus petite différence de sorte que la colonne et la table sont très intéressantes.,1,0
+252,fr_010253,Il faut dire si l'endroit où la pâte a été placée est affecté par l'humidité,1,1
+253,fr_010254,"Tout d'abord, je ferais une hypothèse. Deuxièmement, je ferais remarquer si la question subit un changement physique ? Enfin, je m'assurerais également de répéter l'expérience.",1,1
+254,fr_010255,la quantité de vinaigre on ajouté dans les echantillon,1,1
+255,fr_010256,"Faut-il mélanger le vinaigre et le materiaux ? Quelles sont les conditions de conservation des échantillons : à la lumière, dans le noir, à quelle température,... ? Quel doit être la taille de l'échantillon / la quantité de vinaigre à verser ?",1,3
+256,fr_010257,"la quantité de vinaigre à verser dans chacun des quatre récipients; déterminer la masse de départ de quatre échantillons, déterminer la masse de fin des échantillons",1,2
+257,fr_010258,J'aime cette expérience et je trouve un meilleur résultat. Chaque étudiant fait de notre mieux. Ce tableau sert à sélectionner le meilleur résultat.,1,0
+258,fr_010259,Pas certain. Je ne suis pas un scientifique.,1,0
+259,fr_010260,"Les échantillons inconnus sont-ils solides, liquides ou gazeux ?  Les échantillons inconnus sont-ils radioactifs ?  L'expérience est-elle réalisée à l'extérieur ou à l'intérieur ?",1,2
+260,fr_010261,nous pouvons étiqueter lewe can verser d'autres substances comme un HCL trouver une valeur précise,1,0
+261,fr_010262,Combien de vinaigre a été versé dans les recipients ? La superficie était-elle la même pour chaque échantillon ? Quelle type de vinaigre a été utilisé ?,1,3
+262,fr_010263,"J'aurais besoin de connaître la quantité de vinaigre versée dans chaque récipient, la précision de la balance utilisée et la matière des récipients.",1,3
+263,fr_010264,1. Ils doivent décider quelles données ils essaient de collecter. 2. Ils doivent suivre la méthode scientifique pour assurer la cohérence 3. Le groupe doit également s'assurer qu'il y a aussi peu de variables que possible afin qu'il n'y ait pas de résultats très différents,1,1
+264,fr_010265,"Il faut disposer d'une balance précise et correctement étalonée pour avoir des résultats fiables. Il est également nécessaire d'avoir un échantillon final bien sec avant la pesée pour s'assurer que l'échantillon ne contienne plus de liquide, faussant ainsi la mesure de la masse. Il faudra faire attention également à ne pas dégrader un échantillon devenu fragile avant la pesée en le manipulant avec précaution.Dans l'étape trois il aurait été utile de préciser que les contenants en question sont en fait les récipents préalablement préparé avec du vinaigre. Enfin une liste du matériel necessaire à l'expérience serait utile (balance de précision, type de contenant, pince..) ainsi que des subtances (quel type de vinaigre) et matériaux utilisés.",1,0
+265,fr_010266,"les matériaux utilisés, capacité des conteneurs, type de vinaigre utilisé",1,3
+266,fr_010267,"La température de la pièce, La taille des conteneurs qui ont été utilisés. Le poids de chaque morceau de matériel.",1,1
+267,fr_010268,"placer un echantillon dun materiau dans un contenant et etiqueter. repetez operation avec les echantillons restants, en placant un seul echantillon dans un seul contenant.",1,0
+268,fr_010269,1. Combien de vinaigre est-il necessaire ajouter a chaque récipient? 2. Combien d'eau distillée as-t-il besoin d'utiliser pour cette expérience? 3. Quelle est la taille de vos récipients?,1,3
+269,fr_010270,"Il doit y avoir une variable de contrôle, il doit y avoir une hypothèse et il doit y avoir une répétition de l'expérience.",1,0
+270,fr_010271,"Le tableau manque de données sur le récipient, la météo et le vinaigre. C'est ce que j'ai compris qu'il fallait faire",1,3
+271,fr_010272,"1) Les dimensionds de chaque échantillon en millimètres, 2) le pH du vinaigre (ou type de vinaigre), 3) le type de plastique (No. 4 ou No. 6)",1,3
+272,fr_010273,Les mesures de température du sol sont relevées au voisinage du Site d’étude de l’atmosphère ou du Site d’étude de l’humidité du sol.,1,0
+273,fr_010274,Combien de vinaigre? récipient en verre ou en plastique? sécher et se reposer où ? soleil? Ombre?,1,3

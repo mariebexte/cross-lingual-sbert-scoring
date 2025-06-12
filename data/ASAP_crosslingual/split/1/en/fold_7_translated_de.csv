@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+13,13,en_cw_000014,Es fehlt die Menge des in jeden Behälter eingefüllten Essigs\n Das Fassungsvermögen der Behälter\n Die Temperatur\n der Materialien,1,2
+46,46,en_cw_000054,"Ich müsste die genaue Menge der Reaktionsmittel wissen: Essig und destilliertes Wasser, ob die Proben in einer feuchten oder trockenen Umgebung aufbewahrt werden müssen und welche Art von Behälter zu verwenden ist.",1,2
+50,50,en_cw_000060,"Ich brauche vier Behälter mit Deckeln und Proben von Marmor, Kalkstein, Holz und Kunststoff, die in die Behälter passen. Ich brauche eine ausreichende Menge Essig, um alle Behälter zu füllen, damit alle Proben darin ertränkt werden können. Und ich brauche eine Waage, um die Masse zu messen.",1,0
+51,51,en_cw_000061,Die Kalixa-Probe wies den größten Massenunterschied auf.\n Die Marmorprobe hatte den zweitgrößten Unterschied.\n Die Kunststoffprobe wies einen minimalen Unterschied auf.\n Die Holzprobe wies keinen Massenverlust auf.,1,0
+54,54,en_cw_000064,"Es wurde die Masse bestimmt, die jeder der zugelassenen Inhaltsstoffe aufweist, indem er sie mit dem Essig in Kontakt bringt",1,0
+70,70,en_cw_000081,1. Menge des Essigs\n 2. Konzentration des Essigs\n 3. Größe des Behälters,1,2
+76,76,en_cw_000087,"Ich bräuchte, die Zutaten",1,0
+106,106,en_cw_000121,"Wie viel Essig müsste ich in jeden Behälter füllen? Und sind Bedingungen wie Temperatur, Feuchtigkeit, Druck usw. wichtig?",1,1
+130,130,en_cw_000150,Wie groß müssen die Behälter im Verhältnis zur Größe der Proben sein?\n Wie groß darf die Bandbreite der Proben sein?\n Muss jede Probe zu bestimmten Gesteinsarten gehören?,1,1
+132,132,en_cw_000152,Das Volumen des für jede Probe verwendeten Essigs und das spezifische Gewicht der Probe werden benötigt,1,1
+137,137,en_cw_000157,"Ich verstehe nicht, warum dieses Material Kalkstein an Masse verliert. Was ist anders und warum Holz nicht verlieren Masse?",1,0
+157,157,en_cw_000178,Wie viel Essig muss gegossen werden? Wie lange sollten die Proben gespült werden? Welche verschiedenen Proben sollten zunächst entnommen werden?,1,2
+167,167,en_cw_000188,"Der Durchschnitt zwischen den Eingabe- und Ausgabedaten. Ich denke, dass die Mittelwert- und Varianzschätzer in den nächsten beiden Spalten platziert werden sollten. als zusätzliche Daten.",1,0
+189,189,en_cw_000211,kkkk,1,0
+218,218,en_cw_000242,1,1,0
+235,235,en_cw_000263,Welche Menge an Essig wurde verwendet?\n Wie wurde die Masse gemessen?\n Warum wurde Essig gewählt? Warum wurde destilliertes Wasser anstelle von Leitungswasser verwendet?,1,1
+247,247,en_cw_000275,"Das Volumen der Proben, die spezifischen Materialtypen (Holz: Eiche, Palisander usw.), die Größe des Behälters",1,3
+253,253,en_cw_000281,"Um das Experiment zu wiederholen, benötigen Sie zusätzliche Informationen, z. B. wie viel Essig (in Millilitern) in jeden Behälter gefüllt wurde. Außerdem müsstest du wissen, wie groß die Behälter waren und wie viel und wie lange die Proben mit destilliertem Wasser abgespült wurden.",1,3
+255,255,en_cw_000283,Alle Informationen finden Sie hier,1,0

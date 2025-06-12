@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+19,19,zh_010020,(_1) pH size of vinegar (2) state of the sample (3) density of the sample,1,1
+21,21,zh_010022,(_1) Whether other substances are attached to the marble (2) Whether vinegar completely reacts with the reactants (3) Whether there is a deviation in the measurement,1,0
+23,23,zh_010024,Whether the sample will continue to acidify after the experiment,1,0
+32,32,zh_010033,(_1) Different volume sizes of four different samples (2) The same concentration of vinegar content in the four containers (3) Sealing the containers,1,2
+77,77,zh_010078,PH value of vinegar Mass of vinegar poured into the container Concentration of vinegar poured into the container,1,2
+86,86,zh_010087,(_1) get a white paper without stains (2) calculate the mass of the paper (3) drop the vinegar onto the paper and measure the mass after 24h,1,0
+93,93,zh_010094,(_1) the role of vinegar (2) the initial form (3) the role of distilled water (4) whether distilled water has an effect on the material (5) whether the material reacts with vinegar,1,0
+95,95,zh_010096,(_1) vinegar content in each container (2) contact area of each sample with vinegar (3) whether the original mass of each sample is the dry mass (4) density of each sample,1,3
+128,128,zh_010129,(_1) acid rain added (2) degree of material corrosion (3) acid rain corrosion time,1,1
+143,143,zh_010144,(_1)Acetic acid concentration reaction of the same (2)Set acetic acid different concentrations on the same mass of material the same type of material effect,1,0
+175,175,zh_010176,(_1) more materials (2) vinegar to add impurities (3) vinegar pH,1,1
+230,230,zh_010231,(_1) the concentration of vinegar (2) the proportion of the main components of the sample (3) easy material,1,2
+234,234,zh_010235,(_1) Measure the amount of vinegar added to each container (2) Allow the sample to air dry freely without being used for cleaning (3) Measure the changes that occur when the material is placed in the vinegar,1,1
+248,248,zh_010249,(_1) Determine the mass of 4 different samples (2) Pour vinegar into 4 identical containers each (3) Determine the effect of acid rain on different materials,1,0
+258,258,zh_010259,(_1) the amount of the sample and the acid rain reaction of the appropriate amount of the product (2) the air in the composition of the test to get the impact (3) the amount of change in the PH of the acid rain after the reaction.,1,0
+268,268,zh_010269,(_1)Volume of vinegar in four containers (2)Exact time when each sample was removed (3)Distilled water shabbing time,1,2
+280,280,zh_010281,(_1) the pH value of vinegar (2) the volume shape of the sample and the contact area of vinegar (3) whether it is influenced by external factors,1,3
+291,291,zh_010292,(_1)Whether there was a loss of sample reduction during the brushing process (2)Whether the limestone was lost during the letting dry time (3)Whether the acid pH was in accordance with the acid rain pH standard,1,0
+292,292,zh_010293,(_1)Select different masses of marble limestone wood plastic to repeat the experiment (2)Take the same mass of material to repeat the experiment (3)Use different concentrations of vinegar to repeat the experiment,1,0

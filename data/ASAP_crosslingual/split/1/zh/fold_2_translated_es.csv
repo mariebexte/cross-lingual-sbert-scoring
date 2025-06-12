@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+26,26,zh_010027,(_1) dar una limpieza al recipiente utilizado para el experimento (2) encontrar algún material metálico para el control experimental (3) la cantidad de vinagre debe ser suficiente,1,0
+31,31,zh_010032,(_1) Fracción de masa de ácido acético (2) Duración media o corta del experimento (3) Limpieza e insolubilidad de la propia muestra,1,1
+43,43,zh_010044,La superficie de contacto entre cada muestra y el vinagre y la cantidad de agua de enjuague La temperatura y las condiciones de reserva del experimento,1,2
+74,74,zh_010075,(_1) la concentración de vinagre después del experimento (2) si se vertió la misma cantidad de vinagre en los cuatro vasos (3) el tiempo de inmersión en el vinagre,1,2
+92,92,zh_010093,(_1) la cantidad de vinagre reducida (2) si reaccionó con agua destilada (3) si reaccionó con otras sustancias durante el proceso de secado,1,0
+112,112,zh_010113,(_1) la cantidad de vinagre (2) el tiempo consumido por el experimento (3) si las temperaturas en los cuatro recipientes eran las mismas,1,2
+121,121,zh_010122,(_1) si la concentración de vinagre en el recipiente es la misma (2) el tipo de roca (3) la masa de la roca,1,2
+122,122,zh_010123,Se pusieron muestras separadas en agua pura para formar un control,1,0
+129,129,zh_010130,(_1) Determina la masa de cuatro muestras diferentes (2) Deja las muestras durante 30 minutos para que se sequen (3) Vuelve a determinar la masa de cada muestra ahora,1,0
+141,141,zh_010142,(_1) Concentración del vinagre (2) Si las cuatro muestras reaccionaron con el ácido (3) Si hubo una sustancia precipitante en la superficie de las muestras después de la reacción,1,1
+156,156,zh_010157,La lluvia ácida no tiene casi ningún efecto sobre los materiales de madera Mayor efecto sobre los materiales de piedra Menor efecto sobre los plásticos,1,0
+187,187,zh_010188,(_1) La lluvia ácida afecta más a la piedra caliza (2) No afecta a la madera (3) Afecta menos al plástico,1,0
+196,196,zh_010197,(_1) poner cantidades iguales de vinagre (2) la misma masa de muestra (3) repetir el experimento anterior,1,1
+208,208,zh_010209,(_1) valor de pH del vinagre (2) masa de vinagre contenida en cada taza (3) tamaño del área de vinagre en contacto con el objeto,1,3
+233,233,zh_010234,"(_1) si el volumen de vinagre cubría completamente el material (2) si el vinagre y la lluvia ácida eran químicamente idénticos (3) si los recipientes y el vinagre, y el material estaban completamente sellados antes de la prueba",1,1
+242,242,zh_010243,(_1) Tiempo (2) PH de la lluvia ácida (3) Diferencias en las propiedades del material,1,0
+278,278,zh_010279,(_1) La lluvia ácida es la más erosiva para la piedra caliza (2) Si la madera es de troncos Con o sin procesamiento (3) Si la lluvia ácida reacciona químicamente con el control de calidad del material,1,0
+287,287,zh_010288,Estado de la muestra Concentración del ácido Densidad de la muestra Si la muestra contiene impurezas Si la muestra está completamente en el ácido,1,3
+305,305,zh_010306,(_1) causas de la lluvia ácida (2) si la lluvia ácida corroe la madera (3) futuras aplicaciones de la lluvia ácida,1,0

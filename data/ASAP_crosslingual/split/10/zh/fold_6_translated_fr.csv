@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+21,21,zh_100022,"Blanc : : en tant que couleur de peinture pour chenil, la lumière a moins d'effet sur le blanc et sa température est optimale pour la vie du chien.",10,1
+45,45,zh_100046,"Blanc : : Lorsque le soleil frappe le toit du chenil, la couleur blanche absorbe suffisamment de chaleur et la température augmente lentement. Lorsque le soleil se couche, il y a encore de la chaleur dans le chenil car le blanc est lent à dissiper la chaleur.",10,2
+54,54,zh_100055,Blanc : : la température est plus douce,10,0
+62,62,zh_100063,"Gris foncé : : entraîne une augmentation régulière de la température interne du chenil plus modérée Confirmé : le noir, le gris clair, le blanc, etc. n'absorbent pas la température de façon régulière, les chercheurs ne sont donc pas tout à fait sûrs que ce sera bon pour le chenil Le gris foncé n'est pas nécessairement le meilleur mais il est plus convaincant car il reste relativement stable.",10,1
+71,71,zh_100072,"Blanc : : Parce qu'il est peint à l'intérieur de la niche, la niche est moins capable de dissiper la chaleur et utilise le blanc pour absorber moins de chaleur et le chien lui-même rayonne de la chaleur, donc le blanc est le meilleur.",10,0
+78,78,zh_100079,"Blanc::La température à l'intérieur du chenil est plus basse car le blanc absorbe moins de chaleur Confirmation : En comparant les quatre couleurs, on constate que le blanc absorbe le moins de chaleur.",10,2
+104,104,zh_100105,Noir : : la température la plus élevée à l'intérieur du chenil Le noir a la plus grande capacité d'absorption de la chaleur,10,1
+108,108,zh_100109,"Gris foncé : : la différence de température au carré est faible Plus la couleur est foncée, plus la température est élevée.",10,0
+110,110,zh_100111,"Gris foncé : : maintient la température à l'intérieur du chenil presque constante, comme en témoignent les _3 expériences ci-dessus où le gris foncé a maintenu la température à l'intérieur du chenil à 48°.",10,0
+139,139,zh_100140,Blanc : : la température de l'air à l'intérieur du verre augmente moins pendant la même période de temps.,10,1
+162,162,zh_100163,Gris foncé : : maintient la température à l'intérieur du chenil à une valeur constante pour garantir une température constante La bouteille dans le couvercle gris foncé a une température de _48°C et y reste,10,0
+193,193,zh_100194,"Blanc::Lorsqu'il est exposé à la lumière, le blanc absorbe moins de chaleur, la majeure partie de celle-ci est dissipée et le bocal en verre présente une élévation de température plus faible que les autres espèces. Le couvercle blanc a la valeur moyenne la plus basse après l'expérience.",10,1
+211,211,zh_100212,Le blanc : permet d'éviter que la température de la pièce ne soit trop élevée et des tests ont montré que le blanc présente le taux d'absorption d'énergie le plus faible pour la lumière.,10,2
+242,242,zh_100243,Gris clair : : stabilise la température du chenil _③ thermomètre maintient une température de 45°C.,10,0
+248,248,zh_100249,Blanc::Blanc a moins d'effet sur la température interne du chenil et les résultats de l'expérience ci-dessus sont similaires à ceux décrits,10,1
+256,256,zh_100257,Blanc::La température interne n'est pas trop élevée pour interférer avec les activités normales du chien. Le test ci-dessus correspond à un bouchon blanc et la température à l'intérieur de la bouteille est stable à environ _45°C.,10,1
+259,259,zh_100260,Black::Black avait le plus grand nombre d'essais et la température la plus élevée.,10,1
+272,272,zh_100273,Blanc : : Le blanc reflète toute la lumière,10,0
+293,293,zh_100294,Noir : : le noir chauffe plus rapidement et garde le chien au chaud quand il fait froid car le noir absorbe rapidement la chaleur.,10,1

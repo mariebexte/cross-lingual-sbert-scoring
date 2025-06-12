@@ -1,0 +1,212 @@
+,id,text,prompt,score
+0,fr_100001,"Negro::El color negro ayuda a aumentar la temperatura del aire en el nicho, ya que los colores más oscuros absorben más energía.",10,1
+1,fr_100002,"Blanco::Cuanto más claro sea el color, más fría será la temperatura interna del nicho. La pintura blanca tenía una temperatura general más fría que cualquier otro color, por lo que el color proporcionaría una temperatura interna más fría.",10,2
+2,fr_100003,"Blanco::Es obvio que los colores más claros mantienen el interior de un recipiente más fresco. Para la caseta del perro, el blanco parece apropiado en un clima cálido, pero en un clima frío, el negro sería más ventajoso, ya que calentaría el interior de la caseta.",10,2
+3,fr_100004,Blanco::menos cálido,10,0
+4,fr_100005,"Blanco::Como el blanco retiene menos el calor, creo que es más apropiado para mantener al perro fresco",10,1
+5,fr_100006,"Negro::Los ojos de un perro o un gato de color negro destacan menos que los de sus congéneres de pelaje claro. Cuando están rodeados de pelaje oscuro, sus expresiones faciales son menos pronunciadas y, por tanto, más difíciles de leer para los adoptantes. En muchas culturas, el color negro se asocia con el mal, la desgracia y la mala suerte.",10,0
+6,fr_100007,Gris oscuro::los colores más oscuros pueden hacer que la perrera sea más pequeña,10,0
+7,fr_100008,Negro::El color negro puede tardar más en volver a la temperatura base. Los resultados de las pruebas muestran que su temperatura es superior a la de cualquier otro color.,10,2
+8,fr_100009,Blanco::Un color más claro hace que la perrera sea más fresca,10,1
+9,fr_100010,"Negro::Lámpara de vidrio Cuatro cubiertas de colores: negro, gris oscuro, gris claro y blanco Termómetro Medidor Cronómetro son este elemento producen un color negro y no dañan.",10,1
+10,fr_100011,"Blanco::Los colores claros hacen que el interior de la perrera sea más fresco, mientras que los colores oscuros, al absorber más energía, hacen que la perrera sea más cálida. Evidentemente, la elección del color depende del lugar donde se vive, si hace frío o calor.",10,2
+11,fr_100012,Negro::TEMPERATURA DEL AIRE DENTRO DE LA CAJA DE VIDRIO DESPUÉS DE _10 MINUTOS NEGRO 54,10,1
+12,fr_100013,"Blanco::Temperatura más baja debido a que el color es más claro, como se indica en la información dada",10,1
+13,fr_100014,"""Negro::Observando los resultados del experimento y comparando las medias de cada color; está claro que el color """"negro"""" es el que más temperatura absorbe"".",10,2
+14,fr_100015,"Negro::Como el negro es el color más oscuro, la temperatura del tarro de cristal era más alta con la tapa negra.  La temperatura media con la tapa negra fue de _53, es decir, 5 grados más que con la gris oscura, y 11 grados más que con la blanca.",10,2
+15,fr_100016,"Blanco::El efecto del color blanco es pequeño en comparación con los demás colores. Sólo pasa la menor cantidad de calor al objeto. Por lo tanto, el blanco es la mejor opción para pintar el nicho según los resultados.",10,2
+16,fr_100017,"Blanco::Después de _10 minutos de medición de la temperatura, se calentará y se convertirá en esto.",10,0
+17,fr_100018,Negro::Los colores oscuros absorben mucho más calor que los claros porque absorben más energía luminosa. Los colores claros reflejan más luz,10,1
+18,fr_100019,Negro::El negro puede afectar a la casa del perro ya que es una casa para mascotas y no es necesario demasiado color,10,1
+19,fr_100020,"Gris oscuro: En los climas fríos, los colores más oscuros absorben el calor del sol y mantienen la perrera más caliente en el interior. Los colores claros son adecuados para los climas cálidos, ya que reflejan el sol y mantienen el interior de la casa más fresco.",10,1
+20,fr_100021,"Blanco::En función del color de la caseta del perro, ésta puede percibirse como alegre o triste. Además, dependiendo de la ubicación de la caseta, cuando le dé el sol, éste se reflejará y podrá proporcionar más luz u oscuridad al animal.",10,1
+21,fr_100022,Negro::T_1 - D 20 Esta fue una buena y útil respuesta a esta pregunta,10,0
+22,fr_100023,"Blanco::Cuanto más claro sea el color, menor será la temperatura. En un clima templado y dependiendo de la exposición de la perrera puede ser conveniente compensar el calor del sol pintando la perrera de blanco.",10,1
+23,fr_100024,Negro::en la tapa negra al medir la temperatura del aire dentro del frasco de vidrio el aire en el frasco vuelve a la temperatura cuando la lámpara se apaga,10,2
+24,fr_100025,Blanco::es blanco y será muy difícil de limpiar,10,0
+25,fr_100026,Gris oscuro::el color blanco porque mantiene la casa del perro fresca,10,1
+26,fr_100027,"Gris claro::Según su experiencia, Brandi y Jerry deben elegir un color que proporcione una temperatura interior agradable a pesar de la temperatura exterior. En su experiencia, falta el efecto del frío... y la misma experiencia con la madera. ¡Espero que la perrera sea para ellos y no para un animal!",10,0
+27,fr_100028,"Blanco::He elegido el color blanco porque absorbe menos energía, por lo que se calienta menos, como demuestra el experimento",10,2
+28,fr_100029,"Negro::El color negro puede ser ideal para un perro con un pelaje más corto en un entorno frío, ya que cuanto más oscuro es el color, más calor absorbe, haciendo que el entorno sea más cálido.",10,1
+29,fr_100030,Gris oscuro::No te dejes atrapar por nada,10,0
+30,fr_100031,"Blanco::El color blanco es el que menos energía absorbe y, por tanto, permite que el nicho tenga una temperatura interior más baja que con otros colores.",10,2
+31,fr_100032,Blanco::La lámpara es azul,10,0
+32,fr_100033,Negro:: el color puede afectar a la ubicación ya que el color negro absorbe más calor debido a la falta de color y esto le permite absorber todo el espectro de luz y calentar el.,10,2
+33,fr_100034,Blanco:: el color blanco permitirá una menor temperatura en el interior del nicho.,10,1
+34,fr_100035,Blanco::color cambiado por la ciencia,10,0
+35,fr_100036,"Negro::El color más oscuro de las macetas aumenta la absorción de energía en la propia maceta. Los datos registrados lo corroboran, por lo que el negro sería el mejor color, ya que es el más oscuro.",10,2
+36,fr_100037,Blanco::El blanco es el color adecuado porque es el que menos calor absorbe.,10,1
+37,fr_100038,"Blanco::Brandi y Jerry pueden elegir un color blanco para el perro que han diseñado que no absorbe más energía por ser un color claro. Porque si eligen el color negro, éste absorberá más energía calorífica como resultado, el interior del perro se verá afectado por la energía.",10,2
+38,fr_100039,"Blanco::El color influye en la temperatura del interior de la caseta. Por lo tanto, sería importante elegir el color más claro para que el aire del interior sea lo más fresco posible para el animal. El blanco es el color que mantiene la temperatura del aire más baja de las distintas opciones disponibles.",10,1
+39,fr_100040,"Blanco::Los colores oscuros absorben más luz y calor, por lo que el blanco proporcionará un clima muy bueno que el resto de los colores en los días calurosos.",10,1
+40,fr_100041,"Gris claro::En toda casa, el color del interior debe ser claro para que quede bien. Según la experiencia, el color claro reducirá la temperatura, por lo que el color claro es el mejor para el nicho.",10,0
+41,fr_100042,Gris oscuro::Los colores oscuros ayudan a mantener el sueño y a conservar la salud de los ojos.,10,0
+42,fr_100043,"Gris claro::Para que no tengas que limitarte a pintar la caseta con colores que camuflen la suciedad, he optado por pintarla con pintura súper lavable y resistente a las manchas. Así, sea cual sea el color elegido, la limpieza puede realizarse con un paño húmedo o una esponja, sin dañar la pintura, creyendo que esto no perjudicará la salud de la mascota.",10,0
+43,fr_100044,"Blanco::El blanco o gris claro para la caseta deja una temperatura más baja si vives en un clima cálido, el blanco y otros colores claros reflejarán la luz del sol y ayudarán a mantener a tu perro fresco. ahora bien, si la zona es fría lo ideal es pintar la caseta de negro o de un color oscuro, los colores oscuros atraerán y absorberán el calor del sol para ayudar a mantener al perro caliente.",10,1
+44,fr_100045,Negro::Este color afecta a la temperatura. este color afecta más.,10,0
+45,fr_100046,Black::different es muy grande y estos datos son muy esenciales. La masa del extremo es menor que la masa del deferente. Que todas las mesas son puntos iguales. Esta es una tabla muy interesante.,10,0
+46,fr_100047,Gris claro::Poste de luz es de _24 c,10,0
+47,fr_100048,"Negro:: El color negro aumentará la temperatura del aire dentro del nicho, ya que es más oscuro que el resto y tiene la capacidad de absorber más energía y calentar el nicho. Esto es evidente en la tabla anterior, ya que se observa que el color negro dio lugar a una temperatura más alta (media de _53) en comparación con el resto de los colores, que son menos oscuros y registraron temperaturas del aire relativamente más bajas.",10,2
+48,fr_100049,"Blanco::El blanco puede reflejar la luz lejos del interior de la estructura. Por lo tanto, el interior debe ser más fresco. El gráfico muestra que el blanco fue el color que obtuvo el resultado más frío.",10,2
+49,fr_100050,Negro::Afecta a la piel del perro,10,0
+50,fr_100051,Blanco::que el aire en el tarro vuelva a la temperatura media del aire inicial para cada color de la tapa Datos,10,0
+51,fr_100052,Blanco::Puede afectar a la temperatura dentro de la casa del perro,10,0
+52,fr_100053,"Blanco::Cuanto más oscuro sea el color del nicho, más energía recibirá, lo que significa que la temperatura será mayor. Al analizar los datos obtenidos en el experimento, el color blanco presentó los valores de temperatura más bajos.",10,2
+53,fr_100054,"Blanco::El blanco absorbe la humedad y, por tanto, afecta a los interiores.",10,0
+54,fr_100055,"Blanco::Esto ayudará a que el interior de la perrera sea más fresco. Esto se puede ver en el experimento en el que, tras la prueba con las tapas de color más claro, las temperaturas medias son más frías, mientras que con las tapas más oscuras la temperatura es más cálida.",10,2
+55,fr_100056,"Gris oscuro::Creo que el color puede afectar a la temperatura de la casa debido a la absorción de la luz y el calor, cuanto más oscuros sean los colores más cálidos serán, ya que los colores oscuros tienden a absorber la luz y el calor.",10,1
+56,fr_100057,"Blanco::El blanco es un color claro, por lo que absorbe menos calor, lo que garantiza un entorno mucho más acogedor en términos de temperatura, como se ha demostrado mediante un experimento.",10,2
+57,fr_100058,"Blanco::Con un tarro de tapa blanca, la temperatura media dentro del tarro es de _42°C, 3 grados menos que con una tapa gris claro y 11 grados menos que con una tapa transparente. La experiencia demuestra que la temperatura de un espacio cerrado está directamente relacionada con el color de la superficie expuesta a la fuente de calor: cuanto más claro sea el color del techo de la caseta, menos sufrirá el perro en su interior el calor. Por lo tanto, es preferible pintar la perrera de color blanco.",10,2
+58,fr_100059,Negro::TEMPERATURA DE NACIMIENTO DEL PERRO MANTENIDA A _24 GRADOS CELCIUS,10,1
+59,fr_100060,Blanco::El blanco absorbe la humedad y colapsa el interior.,10,0
+60,fr_100061,Blanco::El color blanco es el que menos efecto tiene.,10,1
+61,fr_100062,Gris claro::No influye más,10,0
+62,fr_100063,Gris claro::ESTE COLOR DEBE SER MUY ATRACTIVO PARA LA OSCURIDAD,10,0
+63,fr_100064,Blanco::El color blanco reflejará el calor del sol y mantendrá una temperatura más baja y confortable en la perrera,10,1
+64,fr_100065,Negro::¡porque la temperatura es más alta!,10,0
+65,fr_100066,"Blanco::cuanto más oscuro sea el color, mayor será la temperatura en el interior del nicho",10,1
+66,fr_100067,"Blanco::Con el color blanco, la temperatura dentro de la perrera es la que menos aumenta según los resultados del experimento.",10,1
+67,fr_100068,Blanco::Utilice pintura blanca o de color claro en su perrera si vive en un clima cálido. El blanco y otros colores claros reflejarán el sol y ayudarán a mantener a tu perro fresco.,10,1
+68,fr_100069,"::Según los resultados del experimento, su hipótesis se confirma. Cuanto más oscuro sea el color de la tapa, más rápido aumentará la temperatura dentro del recipiente. En el caso de una caseta de perro, esto dependerá del entorno en el que se coloque. Si el clima es cálido, hay que evitar el negro y preferir el blanco. En cambio, si el clima es soleado y frío, hay que preferir el negro. Los colores oscuros absorben más calor y aumentan el aire del recipiente en un tiempo similar. Por lo tanto, cabe imaginar que lo mismo ocurrirá con el interior de la perrera aunque no esté cerrada.",10,2
+69,fr_100070,Negro::el color puede afectar al interior de la casa,10,0
+70,fr_100071,Gris oscuro::GRIS ES CORRECTO,10,0
+71,fr_100072,Negro::No sé,10,0
+72,fr_100073,Blanco::El color blanco es muy atractivo. Da una energía positiva. Les hace felices. El ambiente siempre es alegre.,10,0
+73,fr_100074,"Gris claro::Tanto para el invierno como para el verano, la propiedad de absorción se comporta de forma neutra_Para la perrera, el propio perro puede ser responsable de una alta temperatura en el interior de la casa. Así, si seleccionamos el gris claro, para todas las estaciones, la temperatura será óptima.",10,1
+74,fr_100075,Gris oscuro::es un color atractivo... añade color rojo a un diseño impresionante,10,0
+75,fr_100076,Blanco::El color blanco haría que la perrera fuera más fresca. En el experimento podemos ver que el blanco dio lugar a temperaturas más bajas. Sería bueno que el perro no tuviera calor,10,1
+76,fr_100077,Gris claro::Realmente será una pintura de color de perrera atractiva...su apariencia debe ser real...podemos añadir un patrón de borde para hacerlo más hermoso..,10,0
+77,fr_100078,Blanco::Es más apropiado pintar la perrera de blanco para mantener la temperatura moderada en el interior,10,1
+78,fr_100079,Gris oscuro::El color puede ofrecer más confort controlando bien la temperatura.,10,0
+79,fr_100080,Blanco::La perrera se calentará menos en blanco porque este color absorbe menos energía,10,1
+80,fr_100081,"Negro::Cuanto más oscuro sea el color, mayor será la temperatura.",10,1
+81,fr_100082,Blanco::su color es realmente hermoso.,10,0
+82,fr_100083,"Gris oscuro::cuanto más alta es la temperatura, más cambia el color",10,0
+83,fr_100084,El propio blanco::negro se enfría más rápido que otros colores,10,0
+84,fr_100085,Gris oscuro::el perro atraerá,10,0
+85,fr_100086,"Blanco::El efecto del color blanco es menor que el de los otros colores. Sólo pasa una pequeña cantidad de calor a través del objeto. Por lo tanto, el blanco es la mejor opción para pintar en función de los resultados.",10,2
+86,fr_100087,"Blanco::Cuanto más oscuro es el color, más calor se retiene en él. Cuanto más claro sea el color, más fría será la temperatura.",10,1
+87,fr_100088,"Blanco::El color blanco puede afectar al nicho manteniendo el interior más fresco que otros colores. Lo sé porque en la tabla de datos aparece que la temperatura del aire dentro de la olla con la tapa puesta era de _42°C. La temperatura del aire dentro de una olla con tapa negra es de 53°C. Esto demuestra claramente que el blanco es un buen color para utilizar, ya que mantendrá fresco el interior del nicho.",10,1
+88,fr_100089,"Para hacer el espacio más distinto y atreverse con un look total... Y para ello, nada mejor que pintar los escalones o contrahuellas para ... Este método puede llevar algún tiempo para que su perro se acostumbre, pero al final resulta útil en muchas situaciones.",10,0
+89,fr_100090,"Blanco::El blanco no absorbe energía del entorno y hace que la perrera se caliente menos, ya que la experiencia ha demostrado que el blanco absorbe menos calor",10,1
+90,fr_100091,"Negro::Cuanto más oscuro sea el color, mayor será la temperatura que se medirá. Esta función se puede utilizar en caso de que se intente tener una temperatura más alta o más baja en un determinado entorno.",10,1
+91,fr_100092,Blanco::La cubierta blanca fue la que menos aumentó la temperatura en comparación con los demás colores. Así que la pintura blanca en el exterior del nicho mantiene el interior fresco.,10,2
+92,fr_100093,"Gris oscuro::Según los resultados, el color se basa en la temperatura que es segura para el perro.",10,0
+93,fr_100094,Negro::No sé,10,0
+94,fr_100095,"Blanco::Yo diría que la elección del color blanco mantendría la perrera más fresca basándose en el experimento del ejemplo.  Cuanto más oscuro sea el color, más energía calorífica se absorbe, por lo que utilizar el blanco tiene sentido si se desea una temperatura más fría.",10,1
+95,fr_100096,Blanco::He elegido este color basándome en los datos recogidos en el experimento,10,0
+96,fr_100097,Blanco::El interior de la perrera será menos frío que con otro color ya que el blanco refleja más luz que otros colores,10,2
+97,fr_100098,Gris oscuro::Dar información correcta y obtener datos correctos.,10,0
+98,fr_100099,"Blanco::Según los resultados del experimento, los colores oscuros absorben más calor y los claros menos.",10,1
+99,fr_100100,Negro::Este color dará lugar a una temperatura más cálida para el nicho,10,1
+100,fr_100101,"Blanco::El color más claro absorbe menos calor, al tratarse de una casa con un espacio cerrado, es ideal para una temperatura confortable. El color blanco varió muy poco entre las pruebas, mientras que los otros colores alcanzaron grados más altos.",10,1
+101,fr_100102,Gris claro::La cubierta de color gris claro es la que determina un menor aumento de la temperatura en la perrera en comparación con las cubiertas de otros colores.,10,1
+102,fr_100103,"Negro::Cuanto más oscuro sea el color de la tapa, mayor será el aumento de la temperatura del aire en el tarro de cristal, ya que los colores más oscuros absorben más energía.",10,2
+103,fr_100104,"Blanco::Si se pinta de blanco, no será tan cálido y será más fresco cuando haga calor.",10,1
+104,fr_100105,"Blanco:: Pintar la jaula de color blanco puede reducir la temperatura en el interior de la jaula, ya que el blanco tuvo la temperatura media más baja en el experimento (_42).",10,2
+105,fr_100106,"Gris oscuro::Este color es muy adecuado para la casa del perro, porque puede cambiar el estado de ánimo y mantener nuestra felicidad.También es muy beneficioso para nosotros y muy útil.",10,0
+106,fr_100107,"Blanco::Como el blanco absorbe menos calor, es una buena idea hacer la caseta del perro blanca",10,1
+107,fr_100108,"Blanco::Para una caseta de perro, lo ideal es que la temperatura en su interior sea suave, por lo que lo ideal es que el color de la pintura sea blanco. Como podemos ver en el experimento, el color blanco era el que mantenía la temperatura del aire más baja dentro de la maceta, por lo que debería utilizarse en la caseta del perro.",10,2
+108,fr_100109,"Negro::Según los resultados, este color calentará la casa, evitando que el perro pase frío",10,1
+109,fr_100110,Gris claro::podemos usar pinturas de varios colores...y también usar patrones atractivos para que se vea bien,10,0
+110,fr_100111,"Blanco::De acuerdo con los resultados del experimento, optamos por el color de pintura Blanco, de hecho porque dentro de la perrera que Brandi y Jerry quieren diseñar la temperatura será menos importante porque es un color de pintura menos oscuro, por lo que optar por el color Blanco les permitirá diseñar una perrera que absorba una menor cantidad de calor dentro de la perrera en comparación con un color oscuro por ejemplo el color Negro para la perrera que por el contrario absorberá una cantidad significativa de calor.",10,2
+111,fr_100112,Gris claro::El interior permanecerá más fresco pero no demasiado frío durante los calurosos meses de verano. Mantendrá el calor durante los meses de invierno.,10,1
+112,fr_100113,"Gris claro::si es posible, puede reducir los pasos del procedimiento. Pensé que si aumentamos la temperatura obtener el resultado pronto... mantener este experimento en el vacío.",10,0
+113,fr_100114,Negro::No sé,10,0
+114,fr_100115,"Blanco::Los resultados del experimento coinciden con la hipótesis de los alumnos. Por lo tanto, el color negro es el que más calienta el aire y el color blanco el que menos. Los mismos resultados pueden verse en la tabla.",10,1
+115,fr_100116,"Blanco::Ofrezca información precisa, coherente y fiable a partir de Big Data,Asegure el éxito de sus proyectos de Big Data con inteligencia de datos respaldada por la integración, el gobierno y la seguridad de los datos,Integre, gobierne y asegure los datos que su empresa necesita para tener éxito con un Data Lake,Integre, gobierne y asegure los Big Data que su empresa necesita para desarrollar rápidamente el valor empresarial",10,0
+116,fr_100117,"Negro::Un nicho necesita mantenerse caliente y, según los resultados del experimento, la temperatura media de un tarro con tapa negra es de _53 grados centígrados. Esta temperatura supone un aumento de 29 grados en 10 minutos respecto a la temperatura base de 24 grados.",10,2
+117,fr_100118,"Blanco::Dado que la temperatura en la jarra es la más baja (_42 grados de media), el color blanco permite absorber un mínimo de calor, y por tanto liberar un mínimo de calor",10,2
+118,fr_100119,Negro::Calcular y registrar la temperatura media del aire para cada color de tapa Datos,10,0
+119,fr_100120,"Gris claro:: El gris claro tiene una de las temperaturas del aire más bajas en comparación con el negro y el gris oscuro, lo que es bueno porque significa menos posibilidades de sobrecalentamiento de la perrera, especialmente en verano. El gris claro aumentará la temperatura del aire en la perrera más que si se utiliza el color blanco, lo que resulta útil durante la temporada de invierno, para que el interior de la perrera no se enfríe demasiado.",10,2
+120,fr_100121,"Blanco::Según los resultados del experimento, el aire para la cubierta blanca es el más bajo.",10,1
+121,fr_100122,"Blanco::Al utilizar el blanco el interior de la caseta será más cálido que los otros colores. Con una diferencia de _11°C de media, el color negro daría más calor que el blanco. Si no se dispone de blanco, se pueden utilizar los dos grises porque darán menos calor que el negro.",10,2
+122,fr_100123,Blanco::Un perro moriría si la temperatura fuera demasiado alta. Por eso elegí el blanco. Una temperatura más baja es mejor.,10,0
+123,fr_100124,"Blanco:: Al utilizar el blanco, el interior de la perrera tendrá la menor temperatura posible en todas las situaciones, esto se puede comprobar utilizando la tabla proporcionada como base, donde el blanco tuvo la menor temperatura de todos los colores utilizados en el experimento.",10,2
+124,fr_100125,"""White::White"" debería ayudar a mantener una forma de frescura en el nicho. El blanco es el color más adecuado para este fin según los resultados del experimento. Supongo que la caseta del perro está en un lugar ""cálido"".",10,1
+125,fr_100126,"Blanco::Mirando el experimento, el blanco tiene la temperatura más baja, lo que lo hace más práctico para una casa de perro",10,1
+126,fr_100127,Negro::El perro estaría más cómodo en un ambiente acogedor y le haría sentir seguro.,10,0
+127,fr_100128,"Blanco::El efecto del color blanco es débil en comparación con otros colores. Sólo permite que pase la menor cantidad de calor a través del objeto. Por lo tanto, el blanco es la mejor opción para pintar la perrera según los resultados.",10,1
+128,fr_100129,"Gris oscuro:: el color del interior puede afectar a la hornacina, ya que puede ilustrar el estado de ánimo del cuadro. Quieres que sea acogedor y de buen color",10,0
+129,fr_100130,"Blanco::El blanco refleja mejor la luz que los colores oscuros, así que baja la temperatura",10,1
+130,fr_100131,"Negro::El negro es el mejor color a utilizar para la perrera ya que el color oscuro tiende a producir una temperatura más alta o más cálida que a su vez es buena y propicia para la habitación del perro, ya que con el aumento de la temperatura del aire producido por la cubierta de color oscuro en el experimento, el perro se asegura de mantenerse caliente y en buen tiempo del frío en su casa o vivienda.",10,1
+131,fr_100132,Blanco::Ya que la temperatura interior es la más baja de las _4 (42). El animal en su interior estará más cómodo y menos caliente.,10,2
+132,fr_100133,"Blanco::Según los experimentos, el blanco es el más adecuado porque genera una menor variación de temperatura en el interior del recipiente al entrar en contacto con la luz y, por tanto, permitiría un lugar más aireado para la fabricación de la casa del animal.",10,1
+133,fr_100134,Blanco::El color blanco ayuda a limitar el calentamiento del interior de la caseta con la luz del sol. Un color más oscuro habría provocado un aumento indeseable de la temperatura.,10,1
+134,fr_100135,Blanco::El negro y otros colores oscuros atraerán y absorberán el calor del sol para ayudar a mantener el calor del perro.,10,1
+135,fr_100136,Blanco::Puede aumentar la temperatura en la perrera,10,0
+136,fr_100137,"Gris oscuro: En climas fríos, los colores más oscuros absorberán el calor del sol y mantendrán la perrera más caliente en el interior. Los colores claros son adecuados para los climas cálidos, ya que reflejan el sol y mantienen el interior de la casa más fresco.",10,1
+137,fr_100138,Blanco::Grietas de alcance,10,0
+138,fr_100139,"Blanco::Cuanto más oscuro sea el color exterior, mayor será la temperatura interior. El blanco es la mejor opción para mantener al perro fresco.",10,1
+139,fr_100140,"Gris oscuro::Creo que el gris claro es la temperatura ideal, es muy cálido y ni siquiera demasiado frío.",10,0
+140,fr_100141,"Blanco::Como la temperatura del blanco está en el rango de _40-43 grados, cuanto más baja sea la temperatura, más cómodos y menos calientes estarán los perros en la perrera.",10,1
+141,fr_100142,"Blanco::Este color debería mantenerlo unos grados más fresco que los demás. Según los datos, el blanco no absorbe tanto calor como los colores más oscuros",10,1
+142,fr_100143,Blanco::El perro tendrá menos calor en la caseta.,10,0
+143,fr_100144,"Blanco::El color blanco absorbe menos energía. Esto fue confirmado por la medición de la temperatura que se muestra en la tabla. El aire blanco tenía una temperatura media de _41 grados, mientras que los otros colores tenían una temperatura media de más de 45 grados.",10,2
+144,fr_100145,Negro::El resultado del gol de color no ha dañado la variante de color.,10,1
+145,fr_100146,Blanco::el color blanco es un color inadecuado porque se ensucia rápidamente lo ideal es un color más oscuro.,10,0
+146,fr_100147,Blanco::no puede afectar a la sensación de dejar un cuerno más fuerte que el otro,10,0
+147,fr_100148,Blanco::El blanco es un color realmente bonito por dentro.,10,0
+148,fr_100149,"Gris oscuro::Cuanto más oscuro sea el color de la tapa, mayor será el aumento de la temperatura del aire en el tarro de cristal, ya que los colores más oscuros absorben más energía.",10,1
+149,fr_100150,Blanco::El blanco absorbe la humedad y colapsa el interior.,10,0
+150,fr_100151,Blanco::Esto hará que el interior de la perrera sea más fresco.,10,1
+151,fr_100152,"Gris oscuro::Parece que el gris oscuro mantendrá la temperatura constante (_48 grados centígrados en las tres pruebas), lo que es importante para una caseta de perro para que el perro que esté dentro no tenga que sufrir fluctuaciones de temperatura. Esto es importante para una perrera, para que el perro que está dentro no tenga que sufrir las variaciones de temperatura. También garantiza que la temperatura no sea demasiado alta en verano (negro) ni demasiado baja en invierno (blanco).",10,2
+152,fr_100153,"Blanco::Este color puede afectar al interior de la perrera haciéndola más fresca en los meses de verano.  En invierno, es preferible un color más oscuro para aumentar la temperatura y calentar al perro.",10,1
+153,fr_100154,"Negro::_1. 1. Coloque la tapa negra con el termómetro acoplado en el tarro de cristal. 2. Asegúrese de que la temperatura inicial dentro del tarro es de 24°C.  3. Coloque la lámpara a 5 centímetros de la tapa y encienda la lámpara.  4. Después de 10 minutos, mide la temperatura del aire dentro del frasco de vidrio y anótala como prueba 1. 5. Apaga la lámpara y espera a que el aire del frasco vuelva a la temperatura inicial.  6. 6. Repita los pasos 2 a 5 para las pruebas 2 y 3. 7. Repita los pasos 1 a 6 para las tapas gris oscuro, gris claro y blanco. 8. Calcule y registre la temperatura media del aire para cada color de tapa.",10,2
+154,fr_100155,"Gris oscuro::Creo que el gris oscuro puede tener una especie de efecto invernadero, donde a medida que la temperatura sube durante el día, la temperatura baja y la perrera tendrá una temperatura más baja",10,1
+155,fr_100156,Negro::el negro dura más con el calor,10,1
+156,fr_100157,"Gris oscuro::el gris oscuro puede hacer que el interior de la perrera sea más cómodo en términos de clima. en los meses más cálidos sería más fresco, en los meses más fríos más cálido. reflejo del sol, etc.",10,1
+157,fr_100158,Negro::Me gusta este experimento y encuentro un mejor resultado. Cada estudiante hace lo que puede. Esta tabla se utiliza para seleccionar el mejor resultado,10,0
+158,fr_100159,"""Blanco::El blanco es el mejor color para pintar el interior porque es el color más reflectante, por lo que haría el interior de la casa """"más fresco"""", mientras que los otros colores (negro, gris oscuro y gris claro) harían el interior de la casa más cálido.""",10,1
+159,fr_100160,"Blanco::El efecto del color blanco es débil en comparación con los demás colores. Sólo pasa la menor cantidad de calor al objeto. Por lo tanto, el blanco es la mejor opción para pintar el nicho según los resultados.",10,1
+160,fr_100161,"Negro::Lámpara de cristal de la olla Cuatro tapas de color: negro, gris oscuro, gris claro y blanco Termómetro Medidor Cronómetro son este elemento producir el color negro y no dañar.",10,0
+161,fr_100162,"Blanco::El blanco tiene la temperatura media más baja. No quieres que un nicho sea demasiado caliente y con el color blanco, no es demasiado caliente.",10,2
+162,fr_100163,Blanco::El blanco es el color que dio la menor temperatura inicial y final.,10,1
+163,fr_100164,"Negro::Los resultados muestran que cuanto más oscura es la cubierta, mayor es la temperatura.",10,1
+164,fr_100165,Negro: El negro y otros colores oscuros atraen y absorben el calor del sol para ayudar a mantener al perro caliente. Utiliza pintura blanca o de color claro en tu caseta de perro si vives en un clima cálido.,10,1
+165,fr_100166,Blanco::El blanco absorbe la humedad y afecta al interior.,10,0
+166,fr_100167,"Blanco::porque si la perrera tiene que estar al sol, se mantendrá más fresca",10,1
+167,fr_100168,"Blanco::El blanco es más adecuado para la temperatura ideal dentro de la perrera. Porque atrae la menor cantidad de calor. La temperatura media en el interior del nicho de la tapa blanca es de _42, mientras que la temperatura media en el interior de las tapas negra, gris y gris claro es de 53, 48 y 45 respectivamente.",10,2
+168,fr_100169,"Gris claro::El color gris claro será el mejor para el interior de la caseta ya que mantendrá la temperatura entre _40 y 42, lo que será bueno para el perro.",10,2
+169,fr_100170,"Blanco:: Con la información que nos proporciona la experiencia, el blanco sería la mejor opción para pintar el interior de la perrera, ya que proporcionaría sistemáticamente el entorno de temperatura más fresco para que el animal no se sobrecaliente, independientemente del tiempo.",10,1
+170,fr_100171,Negro::Puede afectar al interior de la perrera haciendo que el interior sea más cálido debido a que los colores más oscuros absorben más energía.,10,1
+171,fr_100172,Blanco::EL BLANCO ES UN COLOR DE INTERIOR REALMENTE BELLO.,10,0
+172,fr_100173,Blanco::El blanco hace que la temperatura interior sea más fría. Es sólo _42C en comparación con 53C para el negro,10,2
+173,fr_100174,La pintura blanca::negra da la temperatura más fría. La caseta debe estar fresca para evitar que el perro pase demasiado calor.,10,1
+174,fr_100175,Gris claro::Esto proporcionará la mejor temperatura para el interior de la casa manteniéndola lo suficientemente cálida y fresca,10,1
+175,fr_100176,"Blanco::Como sabemos, el color generalmente oscuro afecta mucho al interior, especialmente el negro, por lo que aprenderíamos que el color negro generalmente observa el calor mientras que el color claro como el blanco no observa el calor. Por lo tanto, utilizaremos el blanco que mejor se adapte al nicho",10,1
+176,fr_100177,"Negro::por el método descrito en la investigación, este kore se destacará dentro de la casa.",10,0
+177,fr_100178,Blanco::el color del té de la perrera sería blanco porque el calor del sol se refleja en el blanco y sería más fresco,10,1
+178,fr_100179,Negro::Creo que a los perros les gustan las temperaturas más cálidas. Por eso elegí el más cálido.,10,1
+179,fr_100180,"Blanco::El color más oscuro da un aspecto más brillante. Tiene suficiente poder para absorber energía, el experimento tolerará fuertemente los colores oscuros en el tiempo dado, así que seleccioné el negro.",10,1
+180,fr_100181,"::Si el objetivo es mantener la casa del perro más caliente, el color debe ser negro (_1). Formado en la casa del perro, pero frío, el color debe ser blanco (2).",10,1
+181,fr_100182,"Blanco::En mi opinión, la mejor temperatura estaría en el rango de _41 a 45 grados.  Podemos ver en el gráfico que después de 10 minutos, el color blanco aumenta la temperatura del interior de la perrera en este rango. Esto sugiere que la absorción de energía es uniforme, ni demasiado baja ni demasiado alta.",10,2
+182,fr_100183,"Gris oscuro::Según el estudio, es el color que ha mantenido la misma consistencia.",10,1
+183,fr_100184,"::Depende de si construyo mi casa en el Sahara o en el círculo polar. Si construyo en un país cálido tomo un techo claro, si quiero calentar mi casa tomo un techo oscuro",10,1
+184,fr_100185,"Blanco::Al cabo de _10 minutos, el color blanco verdadero fue el que menos calor absorbió.",10,1
+185,fr_100186,Negro::Este color es de muy alta calidad.,10,0
+186,fr_100187,"Blanco:: La pintura blanca reflejará el calor de los rayos del sol manteniendo el interior de la perrera más fresco en verano. Sin embargo, si el perro vive en un clima fresco, puede ser preferible el color negro.",10,1
+187,fr_100188,Blanco::El color blanco no afectará a la temperatura ya que es baja,10,0
+188,fr_100189,El gris oscuro::El gris claro equilibrará el gris oscuro del interior,10,0
+189,fr_100190,"Blanco::Si eligen el color blanco, la casa será más fresca, con menos calor. Si eligen colores más oscuros, la casa será más calurosa y en los días de verano será insoportable que el perro se quede dentro.",10,1
+190,fr_100191,"Blanco::Un techo blanco (_2) ayudará a mantener la perrera fresca. El techo blanco mantendrá el interior de la perrera mucho más fresco. Como muestra la tabla de resultados, el techo blanco puede enfriar el interior hasta 11 grados en comparación con un techo negro.",10,2
+191,fr_100192,Gris claro::Este color es el que mejor combina con la caseta del perro.,10,0
+192,fr_100193,Negro::El color puede afectar al interior de la caseta ya que absorbe más calor,10,1
+193,fr_100194,"Blanco::Si Brandi y Jerry quieren mantener la perrera lo más fresca posible, deben elegir el color más claro posible, es decir, el blanco (opción _2)",10,1
+194,fr_100195,Blanco::El blanco absorbe la humedad y afecta al interior de la caseta del perro.,10,1
+195,fr_100196,"Blanco::Elegí el blanco para el color de la pintura de la perrera porque, como muestran los datos, el blanco sigue siendo la temperatura más fría. Esto se debe a que el blanco refleja el calor del sol en lugar de absorberlo.",10,1
+196,fr_100197,"Blanco::este color absorbe menos calor, por lo que no habrá tanto calor dentro de la casa",10,1
+197,fr_100198,"Gris oscuro::Esto depende de la temporada. En verano, el blanco es el color ideal, y en invierno, el negro. Al elegir un color gris oscuro intermedio. Este color se había calentado en el verano pero no tanto como el negro no siendo tan malo. Y en invierno la casa se había calentado un poco, pero no tanto como la negra, pero seguía trayendo buenas",10,1
+198,fr_100199,Blanco::COMO SE PUEDE OBSERVAR EL BLANCO ABSORBE MENOS CALOR QUE OTROS COLORES POR LO QUE ES EL MEJOR COLOR PARA USAR EN ESTA CIRCUNSTANCIA. EL BLANCO TAMBIÉN SE UTILIZA EN LOS PAÍSES CÁLIDOS COMO COLOR PARA PINTAR LAS PAREDES EXTERIORES DE LOS EDIFICIOS,10,1
+199,fr_100200,Negro::El negro es adecuado para pintar la perrera ya que el negro absorbe el calor y calentará la perrera por la noche o en invierno.,10,2
+200,fr_100201,"Blanco::La pintura blanca mantendrá la perrera más fresca que cualquier otro color. En el experimento, la maceta blanca se mantuvo por debajo de los _43 grados centígrados. Más fría que cualquier otra olla.",10,1
+201,fr_100202,Blanco::mostrará la casa como un buen,10,0
+202,fr_100203,Blanco::El efecto del color blanco es débil en comparación con otros colores. Sólo pasa la menor cantidad de calor al objeto. Así que el blanco es la mejor opción para pintar el nicho según los resultados.,10,2
+203,fr_100204,"Blanco::Esto puede afectar a la temperatura, en tiempo cálido la temperatura con este color será más baja, por ejemplo.",10,1
+204,fr_100205,"Negro::El color negro calentará más el ambiente, haciendo que el perro esté más caliente durante las noches",10,1
+205,fr_100206,"Gris oscuro::usando este color la perrera será más cálida pero no demasiado para mantenerla caliente, a una temperatura constante de _48 grados",10,1
+206,fr_100207,"Blanco::Si el color de la cera está impregnado, se calentará más",10,1
+207,fr_100208,"Blanco::El efecto del color blanco es débil en comparación con otros colores. Sólo transfiere la menor cantidad de calor al objeto. Por lo tanto, el blanco es la mejor opción para pintar el nicho según los resultados.",10,2
+208,fr_100209,Gris claro::ME GUSTA EL COLOR Y ME PARECE PERFECTO,10,0
+209,fr_100210,Gris oscuro::Muy bueno,10,0
+210,fr_100211,Blanco::Me gusta esta experiencia y encuentro un mejor resultado. Cada estudiante hace lo que puede. Esta tabla se utiliza para seleccionar el mejor resultado.,10,0

@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+2,2,en_cw_000003,saber cuánto vinagre se utilizó en cada recipiente\n saber qué tamaño/tipo de recipiente utilizar\n saber cuánto tiempo se enjuagó cada muestra en agua destilada..,1,3
+19,19,en_cw_000020,Tiene que decir qué tipo de material de los cuatro tipos de muestra no es hasta el final que se deduce lo que pueden ser.\NTambién debe determinar cuál debe ser el peso o tamaño medio de estas muestras.\NAl final debe comprobar los resultados para saber qué significan.,1,2
+23,23,en_cw_000025,Tamaño de los envases.\NMililitros de vinagre a añadir al envase.\NLas muestras deben tener el mismo tamaño?,1,3
+24,24,en_cw_000026,TENGO QUE TOMAR NOTA DE LA CANTIDAD DE VINAGRE UTILIZADA EN CADA UNO DE LOS ENVASES,1,1
+47,47,en_cw_000055,"La naturaleza de la materia que se proporciona, se permite repetir el experimento solo, hay que puede ir mal con los resultados de la medición en el experimento",1,0
+72,72,en_cw_000083,1- la concentración de vinagre.\N-el tipo de madera.\N-el tipo de plástico.,1,1
+107,107,en_cw_000122,"Necesito primero, cuando debo determinar la masa inicial, y realmente no entiendo el cuarto paso cuando dicen ""enjuagar cada muestra con agua destilada"", creo que puede ser un problema y puede contaminar la muestra.",1,0
+108,108,en_cw_000123,"El mármol, la piedra caliza y la madera son excelentes componentes",1,0
+110,110,en_cw_000125,"Necesitaría saber qué tipo de vinagre utilizaron, cuánto vinagre se puso en cada recipiente y de qué material estaban hechos los recipientes.",1,2
+138,138,en_cw_000158,"1. Necesitaría saber si las muestras se dejaron bajo cielo despejado o se mantuvieron bajo techo. Los factores ambientales podrían afectar drásticamente a los resultados. 2. Si se mantienen en el exterior, sería bueno saber las condiciones meteorológicas de esas 24 horas. Por último, ¿el trozo de madera era algún tipo de rama o era madera tratada con algún tipo de resina?",1,0
+145,145,en_cw_000166,no puede ser posible que la madera no tenga ninguna reacción.,1,0
+149,149,en_cw_000170,"que es la forma del material, la calidad del vinagre, la cantidad de vinagre, la cantidad de material",1,1
+152,152,en_cw_000173,"Preguntaría por el tamaño de las muestras, si tienen que ser aproximadamente del mismo tamaño, o es irrelevante?\N¿Qué tipo de recipientes se necesitan, similares a los de laboratorio, es decir, de vidrio, o puede valer cualquier tipo o recipiente?\N¿El vinagre es doméstico, o de algún tipo especial?",1,2
+170,170,en_cw_000191,"En primer lugar, necesito saber la hipótesis del experimento para asegurarme de que se confirma o no, que es ""después de 24 horas de remojo de 4 muestras diferentes en vinagre, la muestra que tiene el menor cambio en la masa es la menos afectada por la lluvia ácida del vinagre"", luego necesito saber el volumen exacto de vinagre que se añade a las cuatro muestras para asegurarme de que es constante para las 4 muestras.\También es preferible que el peso de las 4 muestras sea constante, ya que el tiempo es costoso (24 horas), por lo que la masa inicial también debe ser constante para obtener datos más precisos y debo realizar más ensayos, al menos tres, para obtener resultados precisos.",1,1
+180,180,en_cw_000201,Utilice estos datos para determinar el resultado,1,0
+212,212,en_cw_000235,"muy buen trabajo amigo, este es un puto disco muy bonito",1,0
+242,242,en_cw_000270,No hubo cambio de masa en la madera. La mejor masa cambiada fue la de la piedra caliza. Incluso el plástico tiene un descenso de masa.,1,0
+250,250,en_cw_000278,"se comparan las diferentes masas, tanto la inicial como la final para observar los resultados obtenidos y el cambio producido por el experimento.",1,0
+264,264,en_cw_000292,¿Qué tipo de vinagre se debe utilizar?\N¿Deben tener todos los materiales la misma superficie?\N¿Cuáles deben ser las medidas de los envases en relación con la superficie de los materiales?\N¿Deben quedar los materiales totalmente cubiertos por el vinagre?,1,2

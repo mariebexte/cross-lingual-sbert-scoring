@@ -1,0 +1,302 @@
+,id,text,prompt,score
+0,en_cw_000001,1. Verter la cantidad de vinagre\n 2. tamaño de los envases\n 3. cuantas veces enjuagar con agua destilada,1,2
+1,en_cw_000002,Necesito información sobre el porcentaje de vinagre.,1,0
+2,en_cw_000003,saber cuánto vinagre se utilizó en cada recipiente\n saber qué tamaño/tipo de recipiente utilizar\n saber cuánto tiempo se enjuagó cada muestra en agua destilada..,1,3
+3,en_cw_000004,Es importante verter vinagre en 4 muestras para reposar durante 24 horas y lavar con agua destilada.\N-La piedra tiene la mayor pérdida de peso porque se lavó el calcio/calcificación de la misma.\N-La madera y el plástico son constantes,1,0
+4,en_cw_000005,El lugar en el que se encontraban los recipientes\nLa temperatura del lugar en el que se encontraban los recipientes\nLa cantidad de vinagre colocada en cada recipiente,1,1
+5,en_cw_000006,Los ml de vinagre añadidos a cada recipiente\nEl volumen del recipiente\nLa temperatura alrededor del recipiente,1,2
+6,en_cw_000007,"No necesito ninguna información adicional. Necesito muestras, envases y ya está.",1,0
+7,en_cw_000008,como información adicional es necesario conocer el resultado del experimento,1,0
+8,en_cw_000009,la madera es el elemento menos afectado con el vinagre después de 24 horas no se vio afectada de ninguna manera la piedra caliza es la más afectada de todas su variación de masa es muy notable,1,0
+9,en_cw_000010,"mezclar 2 muestras al mismo tiempo y dejar reposar después de 40 minutos, analizar los resultados y luego realizar el procedimiento con las otras 2 muestras",1,0
+10,en_cw_000011,1. Puede hacer el procedimiento con más masas. Es mejor tomar el mismo peso de la masa inicial. En lugar de 24 horas mantener las masas en vinagre durante algunos días para obtener mejores resultados.,1,0
+11,en_cw_000012,Es necesario conocer la cantidad de vinagre y la concentración,1,1
+12,en_cw_000013,Medida de vinagre para verter en los recipientes\nCómo determinar la masa\nLos materiales de la muestra deben tener la misma forma y superficie,1,2
+13,en_cw_000014,Falta la cantidad de vinagre que se añade a cada recipiente\nLa capacidad de los recipientes\nLa temperatura\nlos materiales,1,2
+14,en_cw_000015,"Creo que habría que incluir en el experimento un metal como el hierro y el aluminio, además de utilizar otro tipo de ácido, el sulfúrico y el clorídico.",1,0
+15,en_cw_000016,"Material de vinagre: Mármol, Piedra Caliza, Madera, Plástico, una balanza para tomar el peso",1,0
+16,en_cw_000017,Necesito saber la cantidad de vinagre que se utiliza en cada muestra.\N- Necesito saber la cantidad de agua destilada que se utiliza para limpiar las muestras.\N- Necesito saber el tipo de madera que es. Me refiero a de qué árbol obtuvo el material,1,1
+17,en_cw_000018,cuál es el nivel de pureza del mármol\nqué cantidad de humedad contiene cada muestra\nqué peso tiene cada recipiente,1,0
+18,en_cw_000019,Necesito saber el valor ácido de los elementos de la muestra.,1,0
+19,en_cw_000020,Tiene que decir qué tipo de material de los cuatro tipos de muestra no es hasta el final que se deduce lo que pueden ser.\NTambién debe determinar cuál debe ser el peso o tamaño medio de estas muestras.\NAl final debe comprobar los resultados para saber qué significan.,1,2
+20,en_cw_000021,hay que saber qué cantidad de vinagre poner en cada muestra,1,1
+21,en_cw_000022,después de verter el vinagre la masa debe disminuir o permanecer igual \N Así que el próximo experimento pueden observar la diferencia de masa,1,0
+22,en_cw_000023,"- El experimento en sí no merece réplica alguna.\N- Los materiales utilizados como muestra son de diferente tipo de dureza y por tanto de resistencia.\N- El vinagre, hizo que tres de los materiales utilizados se degradaran en proporciones casi idénticas.\N- El o",1,0
+23,en_cw_000025,Tamaño de los envases.\NMililitros de vinagre a añadir al envase.\NLas muestras deben tener el mismo tamaño?,1,3
+24,en_cw_000026,TENGO QUE TOMAR NOTA DE LA CANTIDAD DE VINAGRE UTILIZADA EN CADA UNO DE LOS ENVASES,1,1
+25,en_cw_000028,"Condiciones del experimento, es decir, temperatura y presión. Concentración del vinagre.",1,0
+26,en_cw_000030,#¿NOMBRE?,1,0
+27,en_cw_000031,"cómo deben presentarse las muestras, en una sola pieza o en varias piezas pequeñas o molidas",1,1
+28,en_cw_000032,1- la condición en la que se puso la muestra\n 2- la temperatura de la sala donde se puso la muestra\n 3- cualquier factor externo adicional al experimento,1,1
+29,en_cw_000034,Características físico-químicas del mármol.\NCaracterísticas físico-químicas de la piedra caliza.\NCaracterísticas físico-químicas de la madera.\NCaracterísticas físico-químicas del plástico.\NEfecto del vinagre en cada uno de los materiales estudiados.,1,0
+30,en_cw_000036,"Las partes exactas de las muestras de mármol, piedra caliza, madera y plástico son necesarias para un correcto experimento científico.\NLa lluvia ácida se produce y se forma cuando la humedad del aire se combina con los óxidos de nitrógeno, el dióxido de azufre o el trióxido de azufre emitidos por las fábricas, las centrales eléctricas, las calderas de calefacción y los vehículos que utilizan carbón o productos del petróleo que contienen azufre",1,0
+31,en_cw_000038,¿Con qué materiales puedo sustituir las muestras?\N¿Puedo hacerlo con agua común si no tengo agua destilada?\N¿Puede ser cualquier tipo de vinagre?,1,1
+32,en_cw_000039,"hierro, aluminio y cobre",1,0
+33,en_cw_000040,"Es difícil para una persona que no conoce este procedimiento como tal. Deberían explicar por qué cada paso dice lo que dice. parece correcto en general, pero sería mejor si pudiéramos saber por qué aplican ese procedimiento y así poder entenderlo mejor.",1,0
+34,en_cw_000041,después del experimento se determinó que la madera no pierde masa después de un período prolongado de vinagre.\NEl plástico al igual que la madera no se ve afectado por el vinagre y finalmente la piedra caliza tiende a ser muy afectada por el vinagre,1,0
+35,en_cw_000042,Método para determinar la masa de las diferentes muestras.\NCantidad de vinagre que se vierte en los recipientes.\NTamaño de los recipientes utilizados.,1,2
+36,en_cw_000043,"Para replicar el experimento, hay que facilitar el tamaño y la superficie de cada muestra de material. Además, las temperaturas durante las 24 horas y los 30 minutos de secado también son importantes para la replicación.",1,1
+37,en_cw_000044,Ninguno,1,0
+38,en_cw_000045,"la concentración de vinagre es necesaria, para saber cómo afecta a la piedra caliza, al mármol o a la madera. No creo que se necesite ninguna información adicional",1,0
+39,en_cw_000047,"Necesitaría las masas a las que se hará el procedimiento en este caso mármol, piedra caliza y madera",1,0
+40,en_cw_000048,Este resultado describe muy pocos puntos de información.,1,0
+41,en_cw_000049,Agua y NaCl,1,0
+42,en_cw_000050,mármol calcáreo de plástico,1,0
+43,en_cw_000051,"¿Qué cantidad de vinagre debo poner en los contenedores?\N¿Puedo enjuagar con agua normal?\NNo importa el tipo de material de la muestra, para la madera si la muestra es de pino o roble?",1,2
+44,en_cw_000052,Necesitarás una balanza para medir la masa de cada muestra antes y después. También necesitarás agua destilada y un método adecuado para etiquetar tus recipientes.,1,0
+45,en_cw_000053,piedra caliza de mármol de plástico,1,0
+46,en_cw_000054,"Necesitaría saber la cantidad exacta de los agentes reactivos: vinagre y agua destilada, si las muestras deben permanecer en un ambiente húmedo o seco y el tipo específico de recipiente a utilizar.",1,2
+47,en_cw_000055,"La naturaleza de la materia que se proporciona, se permite repetir el experimento solo, hay que puede ir mal con los resultados de la medición en el experimento",1,0
+48,en_cw_000056,"¿qué tipo de vinagre, alcohólico o no, ?a qué temperatura, deben almacenarse las muestras durante 24 horas?",1,2
+49,en_cw_000057,no se,1,0
+50,en_cw_000060,"Necesito cuatro recipientes con tapa y muestras de mármol, piedra caliza, madera y plástico que puedan caber en ellos. Necesito un volumen suficiente de vinagre para llenar todos los recipientes, de modo que todas las muestras puedan ahogarse en él. Y necesito una balanza para medir la masa.",1,0
+51,en_cw_000061,La muestra de calixa tuvo la mayor diferencia de masa.\N-La muestra de mármol tuvo la segunda mayor diferencia.\N-La muestra de plástico tuvo una diferencia mínima.\N-La muestra de madera no tuvo ninguna pérdida de masa.,1,0
+52,en_cw_000062,El experimento muestra cómo el vinagre afecta negativamente a la masa de los materiales menos en la madera,1,0
+53,en_cw_000063,"volumen de cada muestra, en centímetros cúbicos\ndensidad en gramos por centímetro cúbico de mármol, piedra caliza. madera y plástico\nconcentración de vinagre o molaridad",1,2
+54,en_cw_000064,Se determinó la masa que presenta cada uno de los ingredientes que fueron aprobados al ponerlos en contacto con el vinagre,1,0
+55,en_cw_000065,no se necesita información adicional,1,0
+56,en_cw_000066,"la madera, el mármol y la piedra caliza son excelentes",1,0
+57,en_cw_000067,La cantidad de vinagre en cada muestra. El tamaño de los recipientes. ¿Las muestras estaban totalmente sumergidas en vinagre?,1,2
+58,en_cw_000069,"¿POR QUÉ SE NECESITA VINAGRE, EL RECIPIENTE DEBE SER DE ALGÚN MATERIAL ESPECÍFICO Y POR QUÉ NECESITAMOS AGUA DESTILADA?",1,0
+59,en_cw_000070,Podría ser bueno saber el material del recipiente.\N- Necesito saber el tipo de vinagre.\N-Cómo determinan la masa de las muestras.,1,1
+60,en_cw_000071,La adición de vinagre reduce la masa o deja que sea la misma.,1,0
+61,en_cw_000072,"Basándonos en el estudio, podemos concluir sobre la porosidad de los materiales suministrados. Se enumeran en la tabla. El mármol - 0,4. La piedra caliza - 1,3 es la más porosa.",1,0
+62,en_cw_000073,"Creo que deberías usar metales como el hierro y el aluminio, también usar otros ácidos como el ácido sulfúrico y el ácido clorídico.",1,0
+63,en_cw_000074,"Visual de cada producto al final de la prueba, cambio de textura y color.",1,0
+64,en_cw_000075,"El volumen de vinagre a utilizar, el lugar donde deben dejarse secar las muestras (al sol/en el interior), el tipo de vinagre a utilizar.",1,2
+65,en_cw_000076,La información adicional necesaria sería: 1) la concentración del vinagre 2) el nivel de acidez del vinagre 3) la cantidad de agua destilada que se utiliza para enjuagar cada muestra,1,1
+66,en_cw_000077,"Añade mármol con una masa de mirada de al menos 10,2 g. Añade madera con una masa de mirada de al menos 13g. Añadir mármol con una masa de mirada de al menos 10,2 g. Añadir plástico con una masa de mirada de al menos 7,3 g.",1,0
+67,en_cw_000078,tomar cuatro muestras y añadirles vinagre y enjuagar cada muestra con agua destilada,1,0
+68,en_cw_000079,faltan los siguientes pasos,1,0
+69,en_cw_000080,¿Cuánta cantidad de vinagre echamos? ¿la misma para todos?\N¿Las muestras de materiales van en el mismo recipiente con el vinagre dentro?\N¿Cubrimos los recipientes después de colocar las cosas en ellos?,1,1
+70,en_cw_000081,1. Cantidad de vinagre\n 2. Concentración de vinagre\n3. Tamaño del recipiente,1,2
+71,en_cw_000082,cantidad de vinagre que debe haber en cada recipiente\ncantidad que debe usarse de agua destilada\nmaterial del que están hechos los recipientes,1,1
+72,en_cw_000083,1- la concentración de vinagre.\N-el tipo de madera.\N-el tipo de plástico.,1,1
+73,en_cw_000084,a qué temperatura deben estar los contenedores,1,0
+74,en_cw_000085,"Necesita una balanza, las muestras y los contenedores.",1,0
+75,en_cw_000086,"necesito la composición química de cada componente, la reacción entre ellos y la resistencia térmica",1,0
+76,en_cw_000087,"Necesitaría, los ingredientes",1,0
+77,en_cw_000088,separar las mezclas\n \ncuando las juntes debes agitar bastante\n \ndebes dejar todos los saneamientos correspondientes,1,0
+78,en_cw_000089,Naturaleza de los materiales (sólo se indica en la tabla de resultados). \N - ¿Qué tipo de balanza debo utilizar?,1,0
+79,en_cw_000090,"necesitamos escamas, otro líquido como el aceite y la salsa de soja",1,0
+80,en_cw_000091,Este experimento muestra la reacción al Viangre que tiene un cuerpo de masa dependiendo de su composición. En este caso sólo la madera se mantuvo en su mismo volumen mientras que los otros 3 perdieron masa.,1,0
+81,en_cw_000092,chrbfgrtbvrtg,1,0
+82,en_cw_000093,1.¿Debo envolverlo? 2.¿Funciona este procedimiento para la piedra caliza? 3.¿Cómo sacarlas de los contenedores?,1,0
+83,en_cw_000094,"Un cuaderno para estudiar, comparar y describir los resultados.\N-El instrumento para determinar la masa.\N-Un plan a seguir después de registrado.",1,0
+84,en_cw_000095,Se requiere conocer de manera más específica el nivel de concentración química del vinagre utilizado.,1,0
+85,en_cw_000096,El porcentaje de mármol es un poco escaso,1,0
+86,en_cw_000097,"1. Necesitaría saber cuáles son las cuatro muestras diferentes. 2. ¿Son todas las muestras del mismo tamaño y, si es así, cuál es el tamaño de cada muestra? La cantidad de vinagre que se vierte en cada recipiente.",1,3
+87,en_cw_000098,¿Cómo puedo determinar la masa de las muestras al principio y al final?,1,0
+88,en_cw_000099,"Necesitamos saber la masa del vinagre. Todos los demás materiales (mármol, madera, plástico y piedra caliza) se indican en la tabla.",1,0
+89,en_cw_000100,¿Qué método debo utilizar para determinar la masa de las muestras?,1,0
+90,en_cw_000101,Tamaño del recipiente\n¿Cuánto vinagre usaron?\n¿El vinagre es el mismo para todas las muestras?,1,2
+91,en_cw_000102,"Algunos datos adicionales que necesitaría son: la cantidad y el tipo de vinagre que se utilizó, el tamaño y el tipo de recipiente y el tiempo que se enjuagó cada muestra.",1,3
+92,en_cw_000103,¿Cuánto vinagre debo verter en cada recipiente? ¿Con qué cantidad de agua destilada debo enjuagar las muestras? ¿Cómo debo determinar la masa de cada muestra?,1,1
+93,en_cw_000106,1. Registra la temperatura para comprobar si la temperatura puede afectar al resultado\n 2. Comprobar el pH (el grado de acidez) y probar con algún otro ácido líquido\n 3. Mencionar si el recipiente está cerrado con tapa o no para comprobar si la reacción con el aire puede hacer que el resultado sea diferente.,1,1
+94,en_cw_000107,Es necesario conocer la temperatura del vinagre. Conocer la concentración de vinagre y la cantidad de vinagre utilizada para replicar el experimento.,1,1
+95,en_cw_000108,"Masa de la mirada, masa del final, diferencia de masa",1,0
+96,en_cw_000109,Mármol,1,0
+97,en_cw_000110,¿por qué para los materiales se utilizó vinagre y no otra sustancia? ¿A qué temperatura se realizó el experimento? ¿Qué aplicación práctica tiene esta experiencia?,1,0
+98,en_cw_000111,Después de todo el procedimiento la madera es el único material que quedó intacto antes del vinagre,1,0
+99,en_cw_000112,¿cómo se pesó cada material? ¿cómo se eligió el material? ¿qué tipo de vinagre se utilizó?,1,1
+100,en_cw_000113,la lluvia ácida afecta al tipo de material,1,0
+101,en_cw_000114,Tipo de recipientes para las muestras\nCantidad de vinagre para cada recipiente\nTemperatura media de secado de las muestras,1,2
+102,en_cw_000115,"Nunca se dice que la cantidad de vinagre puesta en cada recipiente sea igual. Habría que decirlo.\NTambién necesitaría la temperatura de la habitación, la himidez del aire y una pequeña descripción del material utilizado. Tal vez si el material es muy absorbente, una diferencia en la humedad y temperatura del aire podría influir en los resultados.",1,2
+103,en_cw_000117,Información adicional que ayudaría a entender el experimento y a replicarlo mejor sería:\n 1.- las masas de las muestras antes de colocarlas en los recipientes.\n 2.- el pH de acidez del vinagre utilizado en el experimento.,1,2
+104,en_cw_000119,kkj5356 4ed,1,0
+105,en_cw_000120,1.- se trata de la lluvia ácida. 2.- el vinagre no puede hacer lluvia ácida. 3.- sólo el plástico quemado y mucho f hará ácido la lluvia.,1,0
+106,en_cw_000121,"¿Qué cantidad de vinagre tendría que verter en cada recipiente? Y, ¿son importantes las condiciones como temperatura, humedad, presión, etc.?",1,1
+107,en_cw_000122,"Necesito primero, cuando debo determinar la masa inicial, y realmente no entiendo el cuarto paso cuando dicen ""enjuagar cada muestra con agua destilada"", creo que puede ser un problema y puede contaminar la muestra.",1,0
+108,en_cw_000123,"El mármol, la piedra caliza y la madera son excelentes componentes",1,0
+109,en_cw_000124,muestras de material.\N-La masa inicial del material.\N-La masa final del material.,1,1
+110,en_cw_000125,"Necesitaría saber qué tipo de vinagre utilizaron, cuánto vinagre se puso en cada recipiente y de qué material estaban hechos los recipientes.",1,2
+111,en_cw_000126,"Para este experimento se debería disponer de información adicional sobre los datos de temperatura, presión y densidad.",1,0
+112,en_cw_000127,El ph/concentración de la solución de vinagre.\N-La cantidad de vinagre añadida a los recipientes.\N-El tipo de plástico utilizado en el experimento.,1,1
+113,en_cw_000128,"tamaño de la muestra, cuando se le da un experimento por lo general se obtiene un tamaño de la muestra esto es para saber qué tipo de contenedores, escala, otros que va a utilizar. \La cantidad de vinagre, si es sólo para cambiar el pH debe decir por lo menos unas gotas o algo así.",1,2
+114,en_cw_000129,1. Medir y disolver las muestras en cuatro recipientes separados llenos de vinagre\n 2. Aclarar con agua destilada después de 24 horas. Dejar secar las muestras y medir la masa final,1,0
+115,en_cw_000130,"Hay que saber la cantidad de vinagre que hay que añadir a cada muestra, hay que registrar la temperatura porque puede afectar a la acción del vinagre. También necesitas saber la cantidad de agua con la que se enjuagan las muestras.",1,1
+116,en_cw_000131,Deben incluirse los materiales que se van a utilizar. Debe incluirse la cantidad exacta de cada material. Explique el procedimiento y el equipo para determinar la masa.,1,1
+117,en_cw_000132,se produce una reacción química.\Nla mayoría de las sustancias pierden su masa excepto la madera\Nel ácido reacciona sobre las sustancias que provocan la reducción de sus masas,1,0
+118,en_cw_000133,El volumen de vinagre será necesario para añadir más el peso específico de cada muestra,1,1
+119,en_cw_000134,Necesita saber:\n 1. ¿Puede cambiar el material de los contenedores? ¿Puede haber otro material de estudio?\N3. El objetivo del exponente.,1,0
+120,en_cw_000135,Plástico,1,0
+121,en_cw_000138,Cuánto vinagre.\N-El sol ilumina o no.\N-Aire libre o no,1,1
+122,en_cw_000139,Es extraño que el vinagre contenido en el Mármol y el Plástico pueda cambiar su masa. No creo que sea posible cambiar sus masas incluso si el vinagre se coloca durante años.,1,0
+123,en_cw_000140,repetir el experimento de nuevo con cada muestra,1,0
+124,en_cw_000141,"La lluvia ácida ha reaccionado sobre todas las sustancias, ya que el informe muestra que estas sustancias han perdido la mayor parte de sus respectivas masas.",1,0
+125,en_cw_000142,La densidad de las muestras a incluir.,1,0
+126,en_cw_000145,Quisiera saber cuánto vinagre se utilizó por muestra\nQuisiera saber cuán porosas son las muestras\nQuisiera saber la longitud de las muestras utilizadas,1,2
+127,en_cw_000147,"Para llevar a cabo este experimento y su repetición, debes tener en cuenta la temperatura del medio. Creo que afectará a los resultados.",1,0
+128,en_cw_000148,"¿Qué cantidad de vinagre hay que utilizar para cuatro muestras diferentes? ¿Sumergimos toda la muestra en vinagre o sólo la mitad es buena? \N - ¿Debemos tapar los recipientes con las 4 muestras diferentes, cuando lo dejemos durante 24 horas. \N - ¿Dónde debemos guardar las 4 muestras para que se sequen después de enjuagarlas con agua destilada, en un recipiente o en otra cosa, sin que afecte a su masa final?",1,1
+129,en_cw_000149,¿De qué tamaño deben ser los recipientes?\N¿Cuánto vinagre debo echar en los recipientes?\N¿Cuál debe ser el tamaño de las muestras de los diferentes materiales?,1,3
+130,en_cw_000150,¿Qué tamaño deben tener los contenedores en relación con el tamaño de las muestras? ¿Cuál es el rango de tamaño permitido para las muestras?,1,1
+131,en_cw_000151,¿Qué vinagre utilizar? ¿Cuál es el tamaño de cada recipiente? Se necesita una balanza digital para el pesaje?,1,2
+132,en_cw_000152,Se necesita el volumen de vinagre utilizado para cada muestra y el peso específico de la misma,1,1
+133,en_cw_000153,La madera no cambia en absoluto.\N-La piedra caliza es lo que hace la mayor diferencia.\N-La presencia plástica de la segunda diferencia menor en masa,1,0
+134,en_cw_000154,1) ¿Cuánta cantidad de vinagre hay que verter en cada recipiente?\N- 2) ¿Qué información hay que poner en la etiqueta?\N- 3) ¿Qué hay que utilizar para la precisión de la balanza?,1,1
+135,en_cw_000155,¿qué cantidad de vinagre se debe purgar? ¿Puedo utilizar agua ordinaria en lugar de agua destilada?\n¿Si las muestras se secan a temperatura ambiente\n?,1,1
+136,en_cw_000156,1. La cantidad de vinagre utilizada\n 2. El tipo de vinagre utilizado. De qué material estaba hecha cada una de las cuatro muestras,1,3
+137,en_cw_000157,No entiendo por qué la pérdida de este material de piedra caliza de la masa. ¿Cuál es la diferencia y por qué la madera no pierde masa?,1,0
+138,en_cw_000158,"1. Necesitaría saber si las muestras se dejaron bajo cielo despejado o se mantuvieron bajo techo. Los factores ambientales podrían afectar drásticamente a los resultados. 2. Si se mantienen en el exterior, sería bueno saber las condiciones meteorológicas de esas 24 horas. Por último, ¿el trozo de madera era algún tipo de rama o era madera tratada con algún tipo de resina?",1,0
+139,en_cw_000159,en la física moderna todo peso depende de su masa y tamaño,1,0
+140,en_cw_000160,¿Qué temperatura tiene el vinagre?\N¿Cuál es el nivel de llenado del recipiente?\N¿Cuál es el volumen del recipiente?,1,1
+141,en_cw_000161,"Muestras de cuatro materiales diferentes, masa inicial (g) y masa final (g) de cada muestra.",1,1
+142,en_cw_000163,Es necesario conocer las cantidades de vinagre y agua y contar todo en la unidad de masa del material.,1,1
+143,en_cw_000164,forma de las muestras\nconcentración del vinagre\ncómo se determina la masa,1,1
+144,en_cw_000165,"Tipo de viñedo utilizado, cantidad y nivel de ph",1,0
+145,en_cw_000166,no puede ser posible que la madera no tenga ninguna reacción.,1,0
+146,en_cw_000167,Otra muestra diferente\n vinagre\n tiempo adicional,1,0
+147,en_cw_000168,La concentración del vinagre. El volumen de vinagre en cada recipiente. ¿El vinagre en cada recipiente tiene el mismo volumen?,1,1
+148,en_cw_000169,"Necesito más información sobre el peso, la forma y la viscosidad del hueco",1,0
+149,en_cw_000170,"que es la forma del material, la calidad del vinagre, la cantidad de vinagre, la cantidad de material",1,1
+150,en_cw_000171,CANTIDAD DE MASA PARA CADA MUESTRA\n CANTIDAD DE VINAGRE PARA CADA MUESTRA\n TEMPERATURA DEL ENTORNO,1,1
+151,en_cw_000172,el experimento muestra que el vinagre actúa sobre todos los materiales corroyéndolos excepto la madera que resiste la reacción,1,0
+152,en_cw_000173,"Preguntaría por el tamaño de las muestras, si tienen que ser aproximadamente del mismo tamaño, o es irrelevante?\N¿Qué tipo de recipientes se necesitan, similares a los de laboratorio, es decir, de vidrio, o puede valer cualquier tipo o recipiente?\N¿El vinagre es doméstico, o de algún tipo especial?",1,2
+153,en_cw_000174,"Vierte una cantidad idéntica de vinagre en recipientes idénticos.\N¿Cuál es la diferencia de peso de todas las muestras?\NUsa cuatro muestras; mármol, piedra caliza, madera y plástico.",1,0
+154,en_cw_000175,"En primer lugar, me gustaría saber qué tipo de vinagre se utilizó para este experimento. \N - ¿Se requiere alguna condición especial en el laboratorio? ¿De qué material estaban hechos los recipientes?\N¿Estaban bien abiertos o tenían tapas?",1,1
+155,en_cw_000176,"Necesitaría recipientes de plástico, agua destilada y etiquetas para rotular los recipientes.",1,0
+156,en_cw_000177,Poner el tanque en un centro comercial.,1,0
+157,en_cw_000178,¿Qué cantidad de vinagre hay que verter? ¿Cuánto tiempo hay que enjuagar las muestras? ¿Qué muestras diferentes deben recogerse inicialmente?,1,2
+158,en_cw_000179,"De lo anterior podemos concluir que todos los 4 artículos colocados en 4 recipientes son diferentes en tamaño y forma y en el material cuando se expone al vinagre que es de naturaleza ácida, que se disolvió dio un resultado de un ligero cambio en la forma y por lo que no habrá ninguna cosa necesidad de que el experimento sea replicado ya es perfecto.",1,0
+159,en_cw_000180,"Necesito saber la cantidad de vinagre que se utilizó, si los recipientes estaban cubiertos y dónde tengo que dejar que las muestras se asienten y se sequen.",1,1
+160,en_cw_000181,el experimento muestra que la madera no sufre ninguna alteración por el vinagre mientras que la piedra caliza es la que más se adhiere,1,0
+161,en_cw_000182,Superficie de la muestra\nCapacidad del vinagre\nEl tiempo en que se pone el vinagre es diferente,1,2
+162,en_cw_000183,"No creo que necesite nada más para replicar este experimento, pero pueden señalar cómo hicieron las mediciones y se puede escribir con más precisión y sencillez",1,0
+163,en_cw_000184,"usted tendría que saber el tamaño del contenedor, lo que se utilizó en las muestras para el líquido en cuanto a tipo de vinagre y su no en un entorno controlado",1,1
+164,en_cw_000185,"Necesitaría las nuevas muestras en bruto, una balanza, un dispositivo de calentamiento y contenedores nuevos y limpios",1,0
+165,en_cw_000186,utilizando la balanza digital para eliminar los envases mojados... con marcas para leer el volumen con exactitud,1,0
+166,en_cw_000187,1. Para el experimento es necesario conocer la cantidad de vinagre.\N- 2. cómo debe etiquetarse cada muestra.\N- 3. en qué habitación deben estar las muestras. ¿Luz u oscuridad? ¿Caliente o fresco?,1,1
+167,en_cw_000188,La media entre los datos de entrada y salida. Creo que los estimadores de la media y la varianza deberían colocarse en las dos columnas siguientes. como datos adicionales.,1,0
+168,en_cw_000189,Cuántos grados tiene el vinagre\nQué tipo de vinagre se utiliza\nEn qué condiciones atmosféricas se realiza el experimento,1,1
+169,en_cw_000190,"Para replicar el experimento se necesitará vinagre, mármol, piedra caliza, madera y plástico. Además de los recipientes",1,0
+170,en_cw_000191,"En primer lugar, necesito saber la hipótesis del experimento para asegurarme de que se confirma o no, que es ""después de 24 horas de remojo de 4 muestras diferentes en vinagre, la muestra que tiene el menor cambio en la masa es la menos afectada por la lluvia ácida del vinagre"", luego necesito saber el volumen exacto de vinagre que se añade a las cuatro muestras para asegurarme de que es constante para las 4 muestras.\También es preferible que el peso de las 4 muestras sea constante, ya que el tiempo es costoso (24 horas), por lo que la masa inicial también debe ser constante para obtener datos más precisos y debo realizar más ensayos, al menos tres, para obtener resultados precisos.",1,1
+171,en_cw_000192,"en las muestras podemos observar que la madera mantuvo su misma masa, mientras que en las otras pruebas hubo una pequeña fracción de pérdida en algunos elementos.",1,0
+172,en_cw_000193,¿De qué tipo de árbol se trata? ¿Cuál es el grosor de las muestras? ¿Cuánto es el vinagre?,1,1
+173,en_cw_000194,"La temperatura, la superficie de las muestras tiene que ser la misma.\NNNNecesita la información sobre el material del recipiente y el volumen.\NN- Necesita un paso sobre cómo calcular la diferencia de masa diciendo que necesita hacer una tabla. Realiza una tabla con los resultados añadiendo una columna extra con la diferencia de masa calculada con la Masa Final - Masa Inicial.",1,1
+174,en_cw_000195,temperatura de la zona de experiencia\n peso \n volumen de los recipientes,1,0
+175,en_cw_000196,No se aplica,1,0
+176,en_cw_000197,La piedra caliza perdió más masa en comparación con el plástico y la madera no se alteró,1,0
+177,en_cw_000198,repetir el experimento con los mismos pasos pero utilizando materiales diferentes,1,0
+178,en_cw_000199,¿Por qué utilizar el vinagre en particular? ¿Se puede hacer el mismo experimento con otras sustancias? ¿Hay alguna otra condición que deba cumplirse al realizar esta prueba para obtener datos significativos?,1,0
+179,en_cw_000200,"Incluir el valor inicial y final del color, la textura y la forma de los materiales podría proporcionar resultados más detallados",1,0
+180,en_cw_000201,Utilice estos datos para determinar el resultado,1,0
+181,en_cw_000202,después de 30 minutos de piedra caliza con más cambios y la escala de cambios en la madera no sufrió alteraciones de ningún tipo,1,0
+182,en_cw_000203,1. ¿Qué cantidad de vinagre tenemos que utilizar? ¿Necesitamos un entorno especial durante el experimento? ¿Qué herramientas debemos utilizar?,1,1
+183,en_cw_000204,"Después de 24 horas, recoja y mida el vinagre que queda en las muestras",1,0
+184,en_cw_000205,"Es necesario saber cuánto tiempo se ha enjuagado cada muestra en agua destilada, qué método de secado utilizar y qué tamaño/tipo de recipiente utilizar.",1,3
+185,en_cw_000207,tamizar la muestra,1,0
+186,en_cw_000208,aumentar el tamaño de la muestra\nVerificar que las muestras estén completamente cubiertas por el vinagre,1,0
+187,en_cw_000209,Tamaño de cada muestra\nVolumen para el contenedor,1,2
+188,en_cw_000210,Necesitaría información sobre la forma geométrica de las muestras; el tipo específico de material (qué tipo de madera debo usar); ¿puedo usar vinagre común o debo usar una marca específica?,1,2
+189,en_cw_000211,kkkk,1,0
+190,en_cw_000212,"1. el ph del vinagre\n 2. mayor especificación de los materiales, como el tipo de plástico su fórmula.\n 3. saber si los materiales fueron cubiertos completamente por el vinagre",1,1
+191,en_cw_000213,dddkdkd,1,0
+192,en_cw_000214,Tipo exacto de vinagre\n Tipo exacto de madera\n Tipo exacto de plástico\n Fuentes de piedra caliza y mármol,1,1
+193,en_cw_000215,material de contenedores\nvolumen/capacidad de contenedores\nvolumen de vinagre/masa,1,2
+194,en_cw_000216,cuando ponemos las muestras de material en un recipiente y etiquetamos.la masa después de hacer el experimento disminuye,1,0
+195,en_cw_000217,la masa de partida se resta con la masa final y el resultado es la diferencia de masa,1,0
+196,en_cw_000218,- este experimento probará la reacción del material al agua ácida\n - hay que escribir la dosis de agua ácida. Por ejemplo: 50 ml / litro\n - determinar las posibilidades que se producen de la reacción,1,0
+197,en_cw_000219,"es plástico, madera",1,0
+198,en_cw_000220,1.\N¿QUÉ CARACTERÍSTICAS PRESENTAN LOS ELEMENTOS DESPUÉS DEL EXPERIMENTO?\N-2.\N-CAMBIO DE COLOR?\N-3.\N-TEMperatura ambiente,1,0
+199,en_cw_000221,"Necesitaría saber de qué se compone normalmente la lluvia ácida, cómo se compara el vinagre con la lluvia ácida, y si todas las muestras estaban completamente secas después de 30 minutos. No creo que la madera esté seca en ese tiempo.",1,0
+200,en_cw_000222,112,1,0
+201,en_cw_000223,"1: El volumen de vinagre en cada recipiente\n 2:El tipo de vinagre utilizado, por ejemplo, balsámico, de sidra de manzana, de malta\n 3: Dónde guardar las muestras, por ejemplo, en un cuarto oscuro, en la nevera, en la repisa de la ventana",1,2
+202,en_cw_000224,Deben realizar una prueba con un líquido de características similares a las del vinagre. \N - Pueden ampliar el tiempo de 24 a 48 horas.,1,0
+203,en_cw_000225,"Necesitaría saber qué tipo de vinagre se utiliza, ya que hay diferentes tipos con diferentes potencias que podrían afectar al resultado. Creo que hay que hacer hincapié en que las muestras sólo se enjuagan y no se limpian con una toalla, ya que eso también podría afectar al resultado, así como en el tiempo de enjuague de las muestras. Cuanto más largo sea el enjuague, más masa podría eliminarse.",1,2
+204,en_cw_000226,¿Cómo se determinó la masa de las muestras? ¿Cómo se eligieron los materiales para las muestras? ¿Cuánto vinagre se vertió en los recipientes?,1,2
+205,en_cw_000227,cómo se llama el material que se necesita.\N-cuánto vinagre se debe verter.\N-qué temperatura debe tener el experimento.,1,2
+206,en_cw_000228,1.- Temperatura de los recipientes\n 2.- Presión de los recipientes\n 3.- Cantidad de vinagre,1,1
+207,en_cw_000229,1. concentración del vinagre\n 2. volumen del recipiente\n 3. Densidad específica de las muestras,1,1
+208,en_cw_000230,El ácido es lo que menos afecta a la madera.,1,0
+209,en_cw_000231,"(1) Conocer la temperatura ambiente. (2) Si el tipo de vinagre importa (vinagre normal, balsámico, de sidra, de vino, etc.) (3) Tener una idea de lo que debe decir la etiqueta 1, 2, 3, 4 o algo más).",1,1
+210,en_cw_000232,El peso de los materiales que intervienen en el experimento. Es necesario conocer el peso inicial para determinar la cantidad de sustancia que se ha tomado. También sería importante conocer la temperatura de secado.,1,0
+211,en_cw_000234,"Tipo de vinagre, también su concentración\nMaterial del recipiente de la muestra\nMétodo de secado empleado",1,3
+212,en_cw_000235,"muy buen trabajo amigo, este es un puto disco muy bonito",1,0
+213,en_cw_000236,"Para la madera no hay diferencia de masa, pero para el mármol es menor.",1,0
+214,en_cw_000237,"en la lluvia ácida la masa de 4 muestras diferentes es: - mármol - 92,12 - piedra caliza - 94,64 - madera - 125,44 - plástico -51,12",1,0
+215,en_cw_000238,07. Abr,1,0
+216,en_cw_000239,07. Mar,1,0
+217,en_cw_000240,Determine qué superficie exterior debe tener cada muestra.,1,1
+218,en_cw_000242,1,1,0
+219,en_cw_000243,Bueno podrían haber hecho el procedimiento si esperaban 24 horas ya que no era necesario esperar tanto tiempo,1,0
+220,en_cw_000244,Madera,1,0
+221,en_cw_000245,"Determine la masa de cuatro muestras diferentes.\NVierta vinagre en cada uno de los cuatro recipientes separados, pero idénticos.\NColoque una muestra de un material en un recipiente y etiquételo. Repita con las muestras restantes, colocando una sola muestra en un solo recipiente.\NDespués de 24 horas, saque las muestras de los recipientes y enjuague cada muestra con agua destilada.",1,0
+222,en_cw_000246,"1) Cuánto vinagre debe usarse con cada muestra.\n 2) Qué cantidad de material debe usarse\npor ejemplo, 1 kilogramo de madera.\n 3) Cuando se deja secar el material,\ndebe colocarse sobre una toalla de papel, una superficie sólida, etc.",1,2
+223,en_cw_000247,¿De dónde proceden las muestras? ¿Qué tipo de contenedores se utilizaron? ¿Qué tamaño tenían los contenedores?,1,1
+224,en_cw_000248,"El volumen de los envases, la cantidad de vinagre utilizada, la temperatura a la que se mantuvieron los envases. Para ser exigente, la forma y el tamaño de las muestras. Además, podría repetir el experimento con la información dada.",1,3
+225,en_cw_000249,"Si tuviera que replicar el experimento, necesitaría saber qué tipo de vinagre se utilizó y por qué. Me gustaría entender cómo la masa cambió tanto en algunos materiales y no en otros para poder escribir una hipótesis. Necesitaría información adicional sobre la temperatura del experimento, la altitud y la gravedad.",1,1
+226,en_cw_000250,"Repetiría el experimento seleccionando tres tipos de vinagre (de manzana, de vino blanco y de arroz)",1,0
+227,en_cw_000252,Se necesita el tamaño de cada una de las cuatro muestras. ¿Deben ser iguales o no?,1,1
+228,en_cw_000256,"la fórmula es necesaria para determinar la masa de las muestras, para replicar el experimento.",1,0
+229,en_cw_000257,Saber cuánto vinagre se utilizó en cada recipiente.\N-Saber qué tipo de vinagre se utilizó en cada recipiente.\N-Saber qué materiales probar.,1,3
+230,en_cw_000258,"Necesitaría saber el tipo de vinagre que se utilizó, y si los objetos se introdujeron en el vinagre húmedos o secos. ¿Qué tipo de plástico se utilizó?",1,1
+231,en_cw_000259,"Instrumentos, herramientas y tamaños",1,0
+232,en_cw_000260,¿A qué temperatura deben reposar las muestras 24 horas?,1,0
+233,en_cw_000261,La cantidad de vinagre que debes verter\nLa masa mínima de las muestras\nEl hecho de que al final tengas que determinar la diferencia de masa,1,1
+234,en_cw_000262,el procedimiento es claro y no se necesita ningún cambio adicional para replicar el experimento.,1,0
+235,en_cw_000263,¿Qué cantidad de vinagre se ha utilizado? ¿Cómo se ha medido la masa? ¿Por qué se utilizó agua destilada en lugar de agua del grifo?,1,1
+236,en_cw_000264,1) Balanza para pesar las muestras antes y después del experimento.\N- 2) Temporal.\N- 3) Filtro de agua.,1,0
+237,en_cw_000265,madera,1,0
+238,en_cw_000266,12.8 12.4 0.1,1,0
+239,en_cw_000267,"caso dual, la masa es más pequeña",1,0
+240,en_cw_000268,"La cantidad exacta de vinagre vertida en cada recipiente.\N-El material de los recipientes.\N-La temperatura, y otras condiciones a las que se dejaron las muestras durante las 24 horas.\N-El instrumento de medición de masa y el procedimiento.",1,1
+241,en_cw_000269,La masa de la madera no cambió durante el experimento. Para las otras tres muestras obtuve una masa menor para cada muestra.,1,0
+242,en_cw_000270,No hubo cambio de masa en la madera. La mejor masa cambiada fue la de la piedra caliza. Incluso el plástico tiene un descenso de masa.,1,0
+243,en_cw_000271,Necesitaría saber la cantidad de vinagre que hay que verter.,1,1
+244,en_cw_000272,"Masa del envase, Material del envase, Cantidad de vinagre utilizado.",1,1
+245,en_cw_000273,"determinar la masa de cuatro objetos diferentes vertiendo vinagre en cuatro recipientes por igual, etiquetar y colocar una muestra diferente en cada recipiente de los siguientes elementos: piedra caliza, mármol, madera, plástico",1,0
+246,en_cw_000274,mármol,1,0
+247,en_cw_000275,"El volumen de las muestras, los tipos específicos de materiales (madera: roble, palisandro, etc.), el tamaño del contenedor",1,3
+248,en_cw_000276,"qué tamaño de envases, cuántas onzas líquidas de vinagre",1,1
+249,en_cw_000277,"Para replicar el experimento creo que es conveniente tener como información adicional la química de cada elemento utilizado, estructuras atómicas y moleculares para realizar una prueba con mayor precisión para obtener resultados más exactos.",1,0
+250,en_cw_000278,"se comparan las diferentes masas, tanto la inicial como la final para observar los resultados obtenidos y el cambio producido por el experimento.",1,0
+251,en_cw_000279,"1. ¿Cuánto vinagre [volumen exacto] se añade a los recipientes? Escala de medición utilizada para determinar la masa de las muestras.\n 3. Tipo de madera utilizada, ya que no hay cambio de masa [debe ser una madera especial para no reaccionar con el vinagre].",1,3
+252,en_cw_000280,"La diferencia de masa puede estar relacionada con la abrasión del vinagre a cada muestra. \La madera puede ser más probable que cambie su densidad a la original después del proceso de secado, lo que hace que tenga la misma masa que tenía al principio del experimento. \Las otras muestras, podrían cambiar su composición después de la exposición al vinagre.",1,0
+253,en_cw_000281,"Para poder replicar el experimento necesitarías información adicional como la cantidad de vinagre en mililitros que se vertió en cada recipiente. Además, necesitaría saber el tamaño de los recipientes y cuánto y durante cuánto tiempo se enjuagaron las muestras con agua destilada.",1,3
+254,en_cw_000282,Necesitas:\n 1. masa o volumen de vinagre.\n 2. concentración de vinagre.\n 3. cantidades de agua destilada.,1,1
+255,en_cw_000283,toda la información está aquí,1,0
+256,en_cw_000284,1. La cantidad de vinagre vertida en las muestras. Estimar las superficies de cada muestra.\N- 3. La temperatura del lugar donde se pondrán los recipientes.,1,2
+257,en_cw_000285,¿Cuál era la concentración de vinagre? ¿Se mezcló el vinagre en los recipientes y con qué dispositivo? ¿A qué temperatura se secaron las muestras después de aclararlas con agua destilada?,1,0
+258,en_cw_000286,Necesitaré la masa molecular de estas muestras y también el vinagre. Y también necesitaré la temperatura específica.,1,0
+259,en_cw_000287,1. ¿Cuánto vinagre hay que poner en el recipiente de la muestra?\N2. ¿Qué equipo hay que utilizar para medir la masa?\N3. ¿Cuál es la fórmula para hallar la diferencia de masa?,1,1
+260,en_cw_000288,"En el experimento 2, la duración se aumentó a 10 minutos.",1,0
+261,en_cw_000289,La densidad de cada muestra\nLa calidad de la superficie del monasterio\nLa temperatura del vinagre,1,0
+262,en_cw_000290,qué tipo de vinagre se utilizó\nqué cantidad de vinagre se utilizó\nqué tipo de recipiente se utilizó,1,3
+263,en_cw_000291,"Coloque una muestra de un material en un recipiente y etiquételo. Repita con las muestras restantes, colocando una sola muestra en un solo recipiente\nDeje que las muestras se asienten y sequen durante 30 minutos.",1,0
+264,en_cw_000292,¿Qué tipo de vinagre se debe utilizar?\N¿Deben tener todos los materiales la misma superficie?\N¿Cuáles deben ser las medidas de los envases en relación con la superficie de los materiales?\N¿Deben quedar los materiales totalmente cubiertos por el vinagre?,1,2
+265,en_cw_000293,"Tipo de muestras, tamaño aproximado de las muestras, tipo de vinagre, tipo de recipiente (vidrio o cualquier otro)",1,3
+266,en_cw_000294,"Mármol 9,00 8,5 -0,5\n Caliza 300 308 +8\n Madera 12 12 0,0\n Plástico 500 490 -10",1,0
+267,en_cw_000295,no añada vinagre al plástico,1,0
+268,en_cw_000296,Examina el vinagre y el agua. ¿Dónde están las partes de las muestras?,1,0
+269,en_cw_000297,El volumen de vinagre vertido en cada recipiente\nla temperatura ambiente a la que se realizó el experimento\nel material del recipiente,1,1
+270,en_cw_000298,cantidad de vinagre añadida en cada muestra. Pérdida de peso debida a la reacción del material de la muestra con el vinagre. Cantidad de concentración de vinagre en cada muestra. Una alta concentración debería tener un alto efecto de reacción y de reducción de peso,1,1
+271,en_cw_000299,El volumen de vinagre utilizado; la temperatura del ambiente exterior; qué tipo de recipientes se utilizaron.,1,2
+272,en_cw_000300,"El mármol era puro porque el ácido puede eliminar las otras partículas cuando estaba en la prueba de ácido. La piedra caliza pierde su peso debido a la reaccion del acido en ella y la madera puede ganar algo de peso debido a la absorcion del acido asi como del agua destilada pero despues de secarla , su peso era el mismo por la evaporacion de los liquidos . El plástico no puede resolver mucho y la diferencia de masa puede ser insignificante.",1,0
+273,en_cw_000301,"Quizá necesitaría saber la temperatura ambiente, la exposición a la luz natural/artificial y el material de los cuatro recipientes.",1,0
+274,en_cw_000302,Tres termómetros idénticos: se suspenden en los contenedores para poder medir la temperatura del agua.,1,0
+275,en_cw_000303,"para la experimentación adicional, es necesario determinar la masa de óxidos de azufre y nitrógeno, cloruro de hidrógeno y otros compuestos que forman ácido",1,0
+276,en_cw_000304,tienen una pérdida de masa respecto a la inicial que tenía cada producto en el caso de la madera es el único que después del experimento no pierde masa.,1,0
+277,en_cw_000305,Los alumnos pueden intentar utilizar zumo de limón para sustituir al vinagre en la elaboración de una lluvia ácida.\N-Los alumnos pueden utilizar otros materiales como muestra para comprobar su masa.\N-Deja que las muestras se asienten en la solución durante más tiempo para comprobar si es eficaz.,1,0
+278,en_cw_000306,"¿Cómo se determina la masa de cada muestra?\N¿Cuánto vinagre hay que poner en cada recipiente, la muestra debe estar totalmente cubierta por el vinagre y en caso de que la muestra flote en el vinagre hay que presionarla?\N¿Dónde se guardan los recipientes y en qué condiciones?",1,1
+279,en_cw_000307,1. Tipos de muestra diferentes.\n 2. Temperatura para almacenar los envases durante la noche.\n 3. Cantidad o tamaño de las muestras.,1,2
+280,en_cw_000308,Pesar las muestras antes de añadirlas al recipiente\nLas muestras deben estar completamente sumergidas en el vinagre\nAsegurarse de que las muestras están completamente limpias antes de entrar en el recipiente,1,0
+281,en_cw_000309,"poliéster, vidrio, metal",1,0
+282,en_cw_000310,asegúrate de que cada recipiente contiene la misma cantidad de vinagre.\NEnumera las reacciones que se producen con la piedra de cal +vinagre y el mármol + vinagre.,1,0
+283,en_cw_000311,"Necesitaría la temperatura ambiente, la temperatura y el volumen de los materiales y el volumen inicial del vinagre.",1,1
+284,en_cw_000312,"- ¿es importante la temperatura ambiente? - si la masa de vinagre no es importante, ¿por qué necesito los recipientes del mismo tamaño? - la madera estará húmeda después de 24 horas en vinagre, ¿cómo la secaré en 30 minutos?",1,0
+285,en_cw_000313,"Utiliza tubos cilíndricos para depositar las muestras, trata de mezclar con la solución acuosa y comprueba cada muestra, utiliza un filtro para separar el agua de las muestras y ver cuánto queda.",1,0
+286,en_cw_000315,"Dado que el peso es una fuerza, los científicos también escriben la ecuación como F = mg.\n F = símbolo de peso, medido en Newtons, N.\n m = símbolo de masa, medido en kilogramos o kg",1,0
+287,en_cw_000316,¿cuál fue el volumen de vinagre? ¿cuál fue el volumen de los recipientes? ¿cuál fue la temperatura a la que permanecieron las muestras durante 24 horas?,1,2
+288,en_cw_000317,"La información adicional, pero muy importante para mí, es cómo está conectada la lluvia ácida con el vinagre y cuál es la cantidad de vinagre que hay que utilizar en el experimento. El procedimiento está bien escrito y podría replicarlo fácilmente, pero se trata de cómo el vinagre reacciona en la masa de mármol, piedra caliza, madera y plástico.",1,1
+289,en_cw_000318,"los tres materiales, mármol, piedra caliza y plástico, perdieron su masa tras el vertido de vinagre después de 24 horas, pero la masa de la madera fue la misma que antes de este experimento.",1,0
+290,en_cw_000320,"Los más resistentes a la madera ácida, una ligera pérdida de peso mostró el plástico-0,1 g y el mármol-0,4 g. El menos estable fue la piedra caliza - menos 1,3 g.",1,0
+291,en_cw_000321,Teoría sobre el deterioro de los materiales por la lluvia ácida y ritmo en que se producirá. Información previa sobre otros experimentos. El tamaño de las muestras.,1,1
+292,en_cw_000322,1. usar ácido cítrico\n 2. usar un trozo de tierra\n 3. determinar los cambios visuales,1,0
+293,en_cw_000323,podían proceder sin problemas respecto a la espera de 24 horas,1,0
+294,en_cw_000324,"¿Cómo se determina la masa?, y en qué parte del experimento se mencionan las muestras?",1,0
+295,en_cw_000325,45,1,0
+296,en_cw_000326,"Forma y tamaño de las muestras (ralladas, en polvo, en cubos, en esferas, etc.)\N-Cantidad de vinagre.\N-Concentración de ácido en el vinagre.\N-Temperatura del experimento.",1,2
+297,en_cw_000327,Determinar la masa,1,0
+298,en_cw_000328,"Necesito saber el estado de la madera, ¿necesita estar seca o húmeda antes del experimento? ¿está en su estado natural, sin adición de productos químicos (barniz)? y ¿es necesario exponer los recipientes o los cubrimos?",1,0
+299,en_cw_000329,38 kg,1,0
+300,en_cw_000330,sabemos la fórmula del vinagre y también una solución que contiene en conainer entonces restamos en it\n entonces también encontrar el porcentaje de error,1,0

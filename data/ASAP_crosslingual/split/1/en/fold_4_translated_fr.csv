@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+32,32,en_cw_000039,"fer, aluminium et cuivre",1,0
+40,40,en_cw_000048,Ce résultat décrit trop peu de points d'information.,1,0
+60,60,en_cw_000071,L'ajout de vinaigre réduit la masse ou la laisse identique.,1,0
+68,68,en_cw_000079,Il manque l'étape suivante,1,0
+85,85,en_cw_000096,Le pourcentage de marbre est un peu faible,1,0
+87,87,en_cw_000098,Comment puis-je déterminer la masse des échantillons au début et à la fin ?,1,0
+103,103,en_cw_000117,Les informations supplémentaires qui aideraient à comprendre l'expérience et à mieux la reproduire seraient :\n _1.- les masses des échantillons avant de les placer dans les récipients.\n 2.- le pH d'acidité du vinaigre utilisé dans l'expérience.,1,2
+128,128,en_cw_000148,"Quelle quantité de vinaigre faut-il utiliser pour quatre échantillons différents ? Doit-on immerger tout l'échantillon dans le vinaigre ou seulement la moitié est bonne ? \N Les récipients étiquetés avec _4 échantillons différents doivent-ils être couverts, lorsque nous les laissons pendant 24 heures. \N Où devons-nous conserver les 4 échantillons pour qu'ils sèchent après avoir été rincés à l'eau distillée, dans un récipient ou autre, sans que cela n'affecte leur masse intrinsèque ?",1,1
+135,135,en_cw_000155,quelle quantité de vinaigre faut-il purger ? Puis-je utiliser de l'eau ordinaire au lieu de l'eau distillée ?\n si les échantillons sont séchés à température ambiante ?,1,1
+161,161,en_cw_000182,Surface de l'échantillon\n Capacité du vinaigre\n Le moment où l'on met le vinaigre est différent.,1,2
+177,177,en_cw_000198,répète l'expérience en suivant les mêmes étapes mais en utilisant des matériaux différents,1,0
+184,184,en_cw_000205,"Vous devez savoir combien de temps chaque échantillon a été rincé dans l'eau distillée, quelle méthode de séchage utiliser et quelle taille/type de récipient utiliser.",1,3
+201,201,en_cw_000223,"1 : Le volume de vinaigre dans chaque récipient. 2 : Le type de vinaigre utilisé, par exemple balsamique, cidre de pomme, malt. 3 : Où stocker les échantillons, par exemple dans une pièce sombre, un réfrigérateur, sur le rebord d'une fenêtre.",1,2
+227,227,en_cw_000252,La taille de chacun des quatre échantillons est nécessaire. Doivent-ils être égaux ou non ?,1,1
+251,251,en_cw_000279,"1. Quelle quantité de vinaigre [volume exact] est ajoutée aux récipients ? 2. L'échelle de mesure utilisée pour déterminer la masse des échantillons.\N 3. Le type de bois utilisé, car il n'y a pas de changement de masse [il doit s'agir d'un bois spécial pour ne pas réagir avec le vinaigre].",1,3
+254,254,en_cw_000282,Vous avez besoin de : _1. la masse ou le volume de vinaigre. 2. la concentration de vinaigre. 3. les quantités d'eau distillée.,1,1
+258,258,en_cw_000286,J'ai besoin de la masse moléculaire de ces échantillons et du vinaigre. Et j'ai aussi besoin de la température spécifique.,1,0
+296,296,en_cw_000326,"Forme et taille des échantillons (râpés, en poudre, cubes, sphères, etc.)\n Quantité de vinaigre.\n Concentration de l'acide dans le vinaigre.\n Température de l'expérience.",1,2
+298,298,en_cw_000328,"Je dois connaître l'état du bois, doit-il être sec ou humide avant l'expérience ? Doit-il être sec ou humide avant l'expérience ? Est-il dans son état naturel, sans ajout de produits chimiques (vernis) ? et les récipients doivent-ils être exposés ou doivent-ils être couverts ?",1,0

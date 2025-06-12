@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+8,8,zh_010009,(_1) si se disolvió con vinagre (2) si se calentó (3) si hubo precipitación,1,0
+13,13,zh_010014,(_1) Concentración suficiente de polvo alcalino Ácido contenido en el material a polimerizar,1,0
+16,16,zh_010017,(_1) la masa del vinagre después del experimento (2) el tamaño del vinagre absorbido por cada masa (3) la presencia de impurezas,1,1
+55,55,zh_010056,(_1) Si se producen impurezas,1,0
+66,66,zh_010067,(_1) Concentración de vinagre (2) Determinación de la cantidad de vinagre vertida en cada recipiente (3) Temperatura del aire del entorno de la prueba,1,3
+76,76,zh_010077,(_1) El pH del vinagre (2) La cantidad vertida en cada recipiente (3) La concentración del vinagre vertido en el recipiente,1,2
+110,110,zh_010111,(_1) El grado de deterioro de la superficie (2) El cambio de color de la superficie de la sustancia,1,1
+151,151,zh_010152,Masa original de mármol Masa original de piedra caliza Masa original de madera,1,0
+189,189,zh_010190,(_1) Concentración constante de vinagre (2) Misma superficie de contacto con el objeto (3) Criterios para un lavado limpio de agua destilada,1,3
+191,191,zh_010192,(_1) Valor del pH del vinagre (2) Valor del pH de la lluvia ácida (3) Mala calidad del control de calidad del material ,1,1
+200,200,zh_010201,(_1) Cantidad de gas producida (2) Masa igual de muestras (3) El mármol y la caliza son ambos tipos de roca y pueden ser sustituidos por uno,1,0
+205,205,zh_010206,(_1) La masa de vinagre a verter debe ser la misma (2) La estanqueidad a comprobar (3) La muestra a lavar con los suministros especificados,1,2
+210,210,zh_010211,(_1) La calidad del vinagre (2) El pH del vinagre (3) Si hay una pérdida de calidad por otras razones,1,2
+216,216,zh_010217,Propiedades químicas de la muestra Cantidad de vinagre Si el recipiente está cerrado,1,1
+226,226,zh_010227,(_1) cambio de temperatura (2) si la presión es constante (3) si el elemento está descolorido,1,0
+229,229,zh_010230,(_1) Garantizar que los cuatro materiales estén igualmente secos y húmedos antes de la prueba (2) Evitar cualquier reducción de la calidad de la muestra durante el proceso de lavado (3) Garantizar que los materiales estén suficientemente secos durante el proceso de secado,1,2
+246,246,zh_010247,La lluvia ácida no tiene casi ningún efecto sobre los materiales de madera y un efecto significativo sobre los materiales pétreos. Tiene menos efecto sobre los plásticos.,1,0
+251,251,zh_010252,"Si el material es soluble, si el material se descompone con el tiempo y si el material reacciona con otros componentes del vinagre.",1,0
+308,308,zh_010309,(_1) medir el pH del líquido en cada uno de los cuatro recipientes después del experimento; (2) comparar la diferencia de pH del líquido en los cuatro recipientes después del experimento; (3) asegurarse de que no se produzca ninguna precipitación durante el batido de la muestra con agua destilada.,1,0

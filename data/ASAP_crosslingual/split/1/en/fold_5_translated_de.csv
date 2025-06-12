@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+0,0,en_cw_000001,1. Gießen Essig Menge\n 2. Container Größe\n 3. wie viele Zeit mit destilliertem Wasser spülen,1,2
+28,28,en_cw_000032,"1. die Bedingungen, unter denen die Probe eingesetzt wird, 2. die Temperatur des Raums, in dem die Probe eingesetzt wird, 3. alle zusätzlichen externen Faktoren, die das Experiment beeinflussen",1,1
+42,42,en_cw_000050,plastico marmor kalkstein,1,0
+43,43,en_cw_000051,"Welche Menge an Essig sollte ich in die Behälter geben?\n Kann ich mit normalem Wasser nachspülen?\n Ir spielt die Art der Materialprobe keine Rolle, für das Holz, wenn die Probe Kiefer oder Eiche ist?",1,2
+93,93,en_cw_000106,"1. Notiere die Temperatur, um zu prüfen, ob die Temperatur das Ergebnis beeinflussen könnte\n 2. Prüfen Sie den pH-Wert (den Säuregrad) und versuchen Sie es mit einer anderen flüssigen Säure\n 3. Erwähne, ob der Behälter mit einem Deckel verschlossen ist oder nicht, um zu prüfen, ob die Reaktion mit Luft das Ergebnis beeinflussen kann.",1,1
+122,122,en_cw_000139,"Es ist seltsam, dass Essig in Marmor und Plastik die Masse verändern kann. Ich glaube nicht, dass es möglich ist, ihre Masse zu verändern, selbst wenn der Essig jahrelang darin gelagert wird.",1,0
+165,165,en_cw_000186,"mit digitaler Waage\n Trockner, um alle nassen\n verzunderten Behälter zu entfernen..mit Markierungen, um das Volumen genau abzulesen",1,0
+182,182,en_cw_000203,1. Welche Menge Essig müssen wir verwenden?\n 2. Brauchen wir eine besondere Umgebung während des Experiments?\n 3. Welche Werkzeuge müssen wir verwenden?,1,1
+193,193,en_cw_000215,Material der Behälter\n Volumen/Fassungsvermögen der Behälter\n Essigvolumen/Masse,1,2
+195,195,en_cw_000217,die Ausgangsmasse wird von der Endmasse abgezogen und das Ergebnis ist die Massendifferenz,1,0
+204,204,en_cw_000226,Wie wurde die Masse der Proben bestimmt?\n Wie wurden die Materialien für die Proben ausgewählt?\n Wie viel Wein wurde in die Behälter gegossen?\n Welche Art von Behältern wurde verwendet?,1,2
+210,210,en_cw_000232,"Das Gewicht der an dem Experiment beteiligten Materialien. Sie müssen das Ausgangsgewicht kennen, um die Menge der entnommenen Substanz zu bestimmen. Außerdem ist es wichtig, die Trocknungstemperatur zu kennen.",1,0
+211,211,en_cw_000234,"Art des Essigs, auch seine Konzentration\n Material des Probenbehälters\n Angewandte Trocknungsmethode",1,3
+214,214,en_cw_000237,"Bei saurem Regen beträgt die Masse von 4 verschiedenen Proben \n Marmor - 92,12\n Kalkstein - 94,64\n Holz - 125,44\n Kunststoff -51,12",1,0
+219,219,en_cw_000243,"Nun, sie hätten das Verfahren auch durchführen können, wenn sie 24 Stunden gewartet hätten, da es nicht notwendig war, so lange zu warten.",1,0
+244,244,en_cw_000272,"Masse des Behälters, Material des Behälters, Menge des verwendeten Essigs.",1,1
+262,262,en_cw_000290,welche Art von Essig wurde verwendet\n wie viel Essig wurde verwendet\n welche Art von Behälter wurde verwendet,1,3
+292,292,en_cw_000322,1. Zitronensäure verwenden\n 2. ein Stück Erde verwenden\n 3. visuelle Veränderungen feststellen,1,0
+300,300,en_cw_000330,"Wir kennen die Essigformel und auch die Lösung, die im Behälter enthalten ist, dann subtrahieren wir sie und finden auch den prozentualen Fehler.",1,0

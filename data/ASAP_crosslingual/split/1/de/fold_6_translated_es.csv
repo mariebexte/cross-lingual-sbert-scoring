@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+18,18,de_000019,Tiempos de secado más largos Muestras adicionales: Barro/arcilla Tiempo,1,0
+20,20,de_000021,-La superficie de las muestras -La temperatura a la que se ha realizado la prueba -La acidez del vinagre (especificar exactamente qué vinagre),1,2
+22,22,de_000023,"- ¿cuánto tiempo deben estar las muestras en el contenedor para la segunda prueba? - ¿cuánto tiempo debe durar el secado, más/menos de 30 minutos? - ¿usamos el mismo tipo de vinagre?",1,1
+29,29,de_000030,Hay que volver a determinar las masas. La diferencia de peso debe calcularse en forma de porcentaje.,1,0
+45,45,de_000046,"La masa de las muestras, el vinagre, se necesitan 4 recipientes idénticos.",1,0
+67,67,de_000068,"la masa de las 4 muestras diferentes, verter vinagre sobre las muestras, determinar el peso al final de las mismas.",1,0
+111,111,de_000112,Determina la masa de las cuatro muestras. Vierta el vinagre en cada uno de los cuatro recipientes separados pero idénticos. Retire las muestras de los contenedores después de 24 horas y enjuague cada muestra con agua destilada. Determinar de nuevo el peso de cada muestra.,1,0
+112,112,de_000113,"Para repetir el experimento, necesitas diferentes materiales adecuados para el experimento y una balanza que pueda determinar el peso exacto de los materiales. El experimento debe realizarse exactamente en el mismo tiempo que en la primera ejecución.",1,0
+138,138,de_000139,"Mármol, piedra caliza, madera, plástico - Masa al principio (g) - Vinagre - 24 horas - Poner las muestras a secar durante 30 minutos - Masa al final (g) - Diferencia de masa (g)",1,0
+142,142,de_000143,¿cuál era la concentración de ácido acético? ¿las muestras estaban completamente cubiertas de vinagre? ¿cuál era la humedad de la habitación?,1,2
+156,156,de_000157,- cómo determinar la masa - cuánto vinagre verter - a qué temperatura deben esperar los recipientes durante 24 horas,1,1
+180,180,de_000181,"Tipo de muestra, masa al inicio, masa al final",1,1
+187,187,de_000188,- Cantidad de vinagre vertida en cada recipiente - Tipo de vinagre utilizado - Diferencia de masa en porcentaje - ¿Cómo deben etiquetarse los recipientes?,1,2
+189,189,de_000190,"1. Se comparará la masa de las cuatro muestras antes y después del experimento mediante la determinación del peso. 2. llene cuatro vasos de precipitados de igual tamaño con la misma cantidad de vinagre, luego etiquete cada vaso de precipitados y añada el material respectivo en él y deje reposar la muestra durante 24 horas. 3. A continuación, se retira el material ensayado y se deja secar durante 30 minutos antes de determinar su peso.",1,0
+223,223,de_000224,¿qué tipo de vinagre se utilizó? ¿quedaron las muestras completamente cubiertas por el vinagre? ¿cuáles son las dimensiones de las muestras?,1,3
+250,250,de_000251,"Muestra, masa al inicio, masa al final",1,0
+282,282,de_000283,"Además, habría que colocar muestras de la misma consistencia y tamaño en agua destilada/sin lluvia ácida en paralelo durante 24 horas para obtener valores comparativos. También hay que especificar el tamaño y la superficie exactos de las muestras.",1,1
+285,285,de_000286,¿Cuánta cantidad de vinagre tengo que tomar? ¿Se colocan las muestras en el recipiente con el vinagre? ¿Cuánta agua destilada puedo utilizar para lavar la muestra?,1,2
+298,298,de_000299,"Cantidad y tipo de vinagre, tamaño de las muestras, tamaño de los contenedores",1,3

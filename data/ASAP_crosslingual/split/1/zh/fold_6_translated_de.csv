@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+19,19,zh_010020,(_1) pH-Wert des Essigs (2) Zustand der Probe (3) Dichte der Probe,1,1
+21,21,zh_010022,(_1) ob andere Substanzen an der Murmel haften (2) ob der Essig vollständig mit den Reaktanten reagiert (3) ob die Messung verzerrt ist,1,0
+23,23,zh_010024,ob die Probe nach dem Experiment weiterhin sauer wird,1,0
+32,32,zh_010033,(_1) Unterschiedliche Volumengrößen der vier verschiedenen Proben (2) Gleiche Konzentration des Essiggehalts in den vier Behältern (3) Verschließen der Behälter,1,2
+77,77,zh_010078,PH-Wert des Essigs Masse des in den Behälter eingefüllten Essigs Konzentration des in den Behälter eingefüllten Essigs,1,2
+86,86,zh_010087,(_1) Es wurde ein weißes Papier ohne Flecken erhalten (2) Die Masse des Papiers wurde berechnet (3) Der Essig wurde auf das Papier getropft und die Masse wurde nach 24 Stunden bestimmt,1,0
+93,93,zh_010094,(_1) die Rolle des Essigs (2) die ursprüngliche Form (3) die Rolle des destillierten Wassers (4) ob das destillierte Wasser eine Wirkung auf das Material hatte (5) ob das Material mit Essig reagierte,1,0
+95,95,zh_010096,(_1) Essiggehalt in jedem Behälter (2) Kontaktfläche jeder Probe mit Essig (3) ob die ursprüngliche Masse jeder Probe eine Trockenmasse war (4) Dichte jeder Probe,1,3
+128,128,zh_010129,(_1) Menge des zugeführten sauren Regens (2) Grad der Materialkorrosion (3) Zeit für die Korrosion durch sauren Regen,1,1
+143,143,zh_010144,(_1) Die Essigsäurekonzentration reagiert gleich (2) Stellen Sie die Wirkung verschiedener Essigsäurekonzentrationen auf die gleiche Masse eines Materials gleicher Art ein,1,0
+175,175,zh_010176,"(_1) Mehr Materialien zur Auswahl (2) Essig, um Verunreinigungen hinzuzufügen (3) Säuregehalt des Essigs",1,1
+230,230,zh_010231,(_1) Konzentration des Essigs (2) Anteil der Hauptbestandteile der Probe (3) Leichtigkeit des Materials,1,2
+234,234,zh_010235,"(_1) Messen Sie die Menge an Essig, die jedem Behälter hinzugefügt wurde (2) Lassen Sie die Proben an der Luft trocknen, ohne sie zu waschen (3) Messen Sie die Veränderungen, die auftreten, wenn die Materialien in Essig eingelegt werden",1,1
+248,248,zh_010249,(_1) Bestimme die Masse von 4 verschiedenen Proben (2) Gieße Essig in 4 verschiedene identische Behälter (3) Bestimme die Wirkung von saurem Regen auf verschiedene Materialien,1,0
+258,258,zh_010259,(_1) Die entsprechende Produktmenge aus der Reaktion der Probe mit dem sauren Regen (2) Die Auswirkung des Zusammensetzungstests in der Luft (3) Das Ausmaß der PH-Veränderung des sauren Regens nach der Reaktion.,1,0
+268,268,zh_010269,"(_1)Volumen des Essigs in vier Behältern (2)Genaue Zeit, zu der jede Probe entnommen wurde (3)Abstrichzeit mit destilliertem Wasser",1,2
+280,280,zh_010281,(_1) pH-Wert des Essigs (2) Volumenform der Probe und Kontaktfläche des Essigs (3) Beeinflussung durch äußere Faktoren,1,3
+291,291,zh_010292,(_1) ob der Probenverlust während des Bürstenvorgangs verringert wurde (2) ob Kalkstein während der Trocknungszeit verloren ging (3) ob der pH-Wert der Säure dem pH-Wert des sauren Regens entsprach,1,0
+292,292,zh_010293,"(_1) Wiederholen Sie den Versuch mit verschiedenen Massen von Marmor, Kalkstein, Holz und Kunststoff (2) Wiederholen Sie den Versuch mit der gleichen Masse an Material (3) Wiederholen Sie den Versuch mit verschiedenen Konzentrationen von Essig",1,0

@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+35,35,de_000036,masse beginn masse ende material,1,0
+49,49,de_000050,"The materials to be examined are *marble, limestone, wood, and plastic*. Indicate the mass in *grams*. Indicate the *difference* in mass between the beginning and end of the experiment.",1,0
+50,50,de_000051,The amount of vinegar poured into each container. The exact dimensions of the containers used. The amount of distilled water used to rinse the samples.,1,3
+68,68,de_000069,"to repeat the experiment, the mass must be replenished.additional containers are needed.",1,0
+79,79,de_000080,"Determine the mass of the samples, place the samples in containers filled with vinegar, After 24 h remove and dry the samples with renewed weight determination",1,0
+95,95,de_000096,"I was missing the amount of vinegar used in each sample, and the temperature at which it was exposed for 40 hours, and what types of containers I used.",1,2
+107,107,de_000108,"Weigh the 4 samples, place them individually in labeled containers with vinegar. After 24 hours, remove the samples, rinse them and place them to dry for 30 minutes, weigh them again.",1,0
+109,109,de_000110,How to determine the mass? How to determine the weight at the end? Is it necessary to dry the samples outdoors or indoors?,1,0
+128,128,de_000129,"It is necessary to determine: the concentration of vinegar in the experiment, the possible acid concentration in the acid rain and the change in mass of each sample repeatedly after additional drying for one hour",1,1
+141,141,de_000142,How much vinegar is used? How big are the containers?,1,2
+144,144,de_000145,"The actual content of acetic acid in the vinegar used is not observed. There are variations there depending on the commercial brand.  It is also not taken into account that the acid content is much higher than that of acid rain either way. One """"flaw"""" of the experiment is in the drying phase. Since the samples used have different absorbencies, the wood, for example, will take much longer to dry than the plastic.",1,1
+165,165,de_000166,Perhaps the temperature would be of interest.,1,0
+192,192,de_000193,"- The acidity of the vinegar - The exact characteristics of the materials, wood is not equal to wood, etc - The attack surface of the acid, is the material thin and wide or a sphere.",1,3
+204,204,de_000205,It is necessary to know the amount of vinegar and the size of the containers and the material samples to get the same results. It might also be important to know if a certain temperature is necessary to perform the experiment.,1,2
+226,226,de_000227,"To be able to repeat the experiment, the quantities of the ingredients to be used are required. Without the quantities, it cannot be repeated one-to-one.",1,0
+248,248,de_000249,Surface of the materials must be described.  Then it must be determined how old the materials are. And there must be an info who did the experiment.,1,1
+273,273,de_000274,"- How much vinegar is used? - Is the sample sealed? - What are the environmental characteristics? Temperature, solar radiation, etc.",1,1
+276,276,de_000277,The mass at the beginning of the sample. The time these samples were in the container with vinegar. The mass at the end,1,0
+280,280,de_000281,"The shape and nature of the samples, as well as how much and which vinegar (e.g. concentration of acid) is used are also required.",1,2

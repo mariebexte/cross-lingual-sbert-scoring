@@ -1,0 +1,20 @@
+,Unnamed: 0.1,Unnamed: 0,id,text,prompt,score
+0,225,225,de_000226,Quel assiette doit-on utiliser? Combien d’acides sont donnés aux tests? Quels matériaux doivent être utilisés comme essai?,1,3
+1,240,240,de_000241,"Pour répéter l'expérience, il faudrait savoir ce qui suit: 1. Combien de vinaigre est utilisé pour chaque épreuve. 2ème Quelle est la concentration du vinaigre, c'est-à-dire combien d'acide acétique est dans le vinaigre 3. Sur quel type de marbre, de calcaire, de bois ou Il s’agit de plastique.",1,3
+2,119,119,de_000120,"eau distillée, vinaigre et un échantillon dont vous avez besoin",1,0
+3,207,207,de_000208,"L'expérience pourrait être évaluée pendant une période plus longue pour déterminer un effet plus prononcé.  Des données sur les pertes de matériel sont nécessaires.  Les répétitions pourraient être effectuées pour n'importe quel type de matériau, de sorte que les résultats soient plus précis.",1,0
+4,121,121,de_000122,Séparer l'eau distillée,1,0
+5,25,25,de_000026,-La perte d'eau des échantillons individuels après 24 heures -La proportion d'eau dans les échantillons -Qu'est-ce qui provoque le vinaigre dans les cas individuels? -Comment est l'interaction du vinaigre avec les matériaux? -Quelle est la capacité d'absorption des matériaux de vinaigre?,1,0
+6,16,16,de_000017,"Je comprends votre question de manière à ce que la même expérience soit faite à nouveau. Donc, j'ai besoin de nouveau la masse de marbre, de calcaire, de bois et de plastique au début et à la fin de l'expérience. J'ai besoin d'instructions concrètes pour savoir combien de temps les échantillons doivent rester dans les récipients et combien de temps vous devez sécher avec de l'eau distillée après le rinçage.",1,0
+7,62,62,de_000063,Répétez l'expérience avec d'autres matériaux. Déterminez à nouveau la différence de poids et effectuez une analyse de la qualité de l'eau pour déterminer la teneur en calcium et en magnésium afin de déterminer la dureté de l'eau.,1,0
+8,93,93,de_000094,4 conserve ensuite 4 matériaux et vinaigre,1,0
+9,102,102,de_000103,"Pour répéter l'expérience, de nouveaux échantillons doivent être collectés, les récipients nettoyés et les étiquettes retirées. Après cela, la masse doit être redéterminée et l'expérience peut être répétée en suivant les étapes ci-dessus.",1,0
+10,97,97,de_000098,"Contenu en calcaire du matériau, le vinaigre a un effet non calcaire; la différence de poids indique la teneur en calcaire du matériau",1,0
+11,162,162,de_000163,À quelle hauteur les conteneurs sont-ils remplis? Avec quel poids est déterminée la masse? Quelle est l'influence de l'air lors de la séchage des échantillons?,1,1
+12,277,277,de_000278,"La quantité de vinaigre versée dans chaque récipient. À quelle température les échantillons doivent être stockés (température ambiante, dans une pièce froide / chaude. Quelle pureté doivent être les échantillons, car les pertes de poids possibles peuvent être dues aux bactéries.",1,1
+13,256,256,de_000257,"Temparatu, quel conteneur! Poids",1,1
+14,172,172,de_000173,concentration concentration structure de surface température,1,1
+15,178,178,de_000179,"Quantité de vinaigre, force du vinaigre, température",1,2
+16,203,203,de_000204,Quelle quantité de concentration de vinaigre type de vinaigre mesure individuelle ou répétition?,1,2
+17,171,171,de_000172,Combien et quelle quantité de vinaigre était dans chaque épreuve. La température à laquelle l'expérience a été réalisée.,1,2
+18,243,243,de_000244,Volume du récipient conditions de séchage Valeur de pH du vinaigre,1,2

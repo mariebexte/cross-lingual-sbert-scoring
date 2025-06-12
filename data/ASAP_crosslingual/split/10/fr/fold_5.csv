@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+85,85,fr_100086,Blanc::L'effet de la couleur blanche est moindre par rapport aux autres couleurs. Il ne fait passer qu'une petite quantité de chaleur à travers l'objet. Le blanc est donc le meilleur choix pour peindre en fonction des résultats.,10,2
+57,57,fr_100058,"Blanc::Avec un pot au couvercle blanc, la température moyenne est de _42°C à l'intérieur du bocal, soit 3 degrés de moins qu'avec un couvercle gris clair et 11 degrés de moins qu'avec un couvercle clair. L'expérience montre que la température d'un lieu clos est directement corrélé à la couleur de la surface exposée à la source de chaleur : plus le toit de la niche sera de couleur claire, et moins le chien à l'intérieur souffrira de la chaleur. Il est donc préférable de peindre la niche en blanc.",10,2
+119,119,fr_100120,"Gris clair::Le gris clair a l'une des températures de l'air les plus basses contrairement au noir et au gris foncé, ce qui est bien car cela signifie moins de risques de surchauffe de la niche, en particulier en été. Le gris clair augmentera la température de l'air dans la niche que si la couleur blanche était utilisée, ce qui est utile pendant la saison hivernale, afin que l'intérieur de la niche ne devienne pas trop froid.",10,2
+189,189,fr_100190,"Blanc::S'ils choisissent la couleur blanche, la maison sera plus fraîche, avec moins de chaleur. S'ils choisissent des couleurs plus foncées, la maison sera plus chaude et les jours d'été, il sera insupportable pour le chien de rester à l'intérieur.",10,1
+106,106,fr_100107,"Blanc::puisque le blanc absorbe moins de chaleur, c'est une bonne idée de faire du blanc de la niche pour chien",10,1
+111,111,fr_100112,Gris clair::L'intérieur restera plus frais mais pas trop froid pendant les mois chauds d'été. Permettra de garder un peu de chaleur pendant les mois d'hiver.,10,1
+63,63,fr_100064,Blanc::La couleur blanche reflétera la chaleur du soleil et maintiendra une température plus basse et plus confortable dans la niche,10,1
+0,0,fr_100001,"Noir::La couleur noire aide à augmenter la température de l'air dans la niche, car les couleurs plus foncées absorbent plus d'énergie.",10,1
+140,140,fr_100141,"Blanc::Comme la température du blanc se situe dans la limite de _40-43 degrés, moins la température augmente, plus les chiens seront à l'aise et auront moins chaud dans la niche.",10,1
+17,17,fr_100018,Noir::Les couleurs sombres absorbent beaucoup plus de chaleur que les plus légères car elles absorbent plus d’énergie lumineuse. Les coleurs clairs reflètent plus de lumière,10,1
+90,90,fr_100091,"Noir::Plus la couleur est foncée, plus la température qui sera mesurée sera élevée. Cette fonctionnalité peut être utilisée au cas où vous essayez d'avoir une température plus élevée ou plus basse dans un certain environnement.",10,1
+179,179,fr_100180,"Blanc::La couleur foncée donne un aspect plus lumineux. Il a une puissance suffisante pour absorber l'énergie, l'expérience supportera fortement les couleurs sombres dans le temps imparti, j'ai donc sélectionné le noir.",10,1
+95,95,fr_100096,Blanc::J'ai choisi cette coulere en fonction des donnees recueillies a partir de l'experience,10,0
+187,187,fr_100188,Blanc::La couleur blanche n'affectera pas la température car elle est basse,10,0
+165,165,fr_100166,Blanc::Le blanc absorbe l'humidité et affecte l'intérieur.,10,0
+109,109,fr_100110,Gris clair::nous pouvons utiliser des peintures de couleurs multiples .. et également utiliser des motifs attrayants pour faire beau,10,0
+118,118,fr_100119,Noir::Calculer et enregistrer la température moyenne de l’air pour chaque couleur de couvercle  Données,10,0
+97,97,fr_100098,Gris foncé::Donnez des informations correctes et obtenez des détails corrects.,10,0
+62,62,fr_100063,Gris clair::CETTE COULEUR DEVRAIT ÊTRE TRÈS ATTRAYANTE POUR LA NIÈRE,10,0

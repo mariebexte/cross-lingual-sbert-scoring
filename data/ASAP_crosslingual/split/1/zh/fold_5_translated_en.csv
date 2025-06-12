@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+8,8,zh_010009,(_1) whether it is dissolved with vinegar (2) whether it is warmed up (3) whether there is precipitation,1,0
+13,13,zh_010014,(_1)Sufficient alkali powder Acid concentration inside the material to be polymerized,1,0
+16,16,zh_010017,(_1) the mass of vinegar after the experiment (2) the size of the vinegar absorbed by each mass (3) whether it contains impurities,1,1
+55,55,zh_010056,(_1)Whether impurities are produced,1,0
+66,66,zh_010067,(_1) Concentration of vinegar (2) Determination of the amount of vinegar poured into each container (3) Air temperature of the test environment,1,3
+76,76,zh_010077,(_1) The pH value of vinegar (2) The amount of vinegar poured into each container (3) The concentration of vinegar poured into the container,1,2
+110,110,zh_010111,(_1) The degree of damage to the surface (2) The change in color of the surface of the substance,1,1
+151,151,zh_010152,The original mass of marble The original mass of limestone The original mass of wood,1,0
+189,189,zh_010190,(_1) The concentration of vinegar remains the same (2) The same contact area with the object (3) The standard of distilled water scrubbed clean,1,3
+191,191,zh_010192,(_1)PH value of vinegar (2)PH value of acid rain (3)Poor quality of material quality control ,1,1
+200,200,zh_010201,"(_1) the amount of gas produced (2) the same mass of the sample (3) marble and limestone both belong to the rock type, can replace a",1,0
+205,205,zh_010206,(_1)The mass of vinegar poured in should be the same (2)To check the air tightness (3)To wash the sample with the specified supplies,1,2
+210,210,zh_010211,(_1)The quality of vinegar(2)The acidity of vinegar(3)Whether the quality is lost due to other reasons,1,2
+216,216,zh_010217,Chemical properties of the sample Amount of vinegar Whether the container is sealed,1,1
+226,226,zh_010227,(_1) temperature change (2) whether the pressure is constant (3) whether the item is discolored,1,0
+229,229,zh_010230,(_1)Ensure the same degree of dryness and wetness of the four materials before the test (2)Avoid the reduction of the quality of the sample caused by the washing process (3)Ensure that the material is sufficiently dry during the drying process,1,2
+246,246,zh_010247,Acid rain has almost no effect on wood materials and a huge effect on stone materials. It has less effect on plastics.,1,0
+251,251,zh_010252,"Whether the material is soluble, whether the material decomposes over time, and whether the material reacts with other components of the vinegar.",1,0
+308,308,zh_010309,(_1) Measure the pH of the liquid in each of the four containers after the experiment; (2) Compare the difference in pH of the liquid in the four containers after the experiment; (3) Ensure that no precipitation is produced during the shabbing of the sample with distilled water.,1,0

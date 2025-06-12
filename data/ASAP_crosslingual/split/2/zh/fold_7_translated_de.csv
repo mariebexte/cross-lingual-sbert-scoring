@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+18,18,zh_020019,Verschiedene Kunststoffarten haben unterschiedliche Elastizitäten,2,1
+25,25,zh_020026,Erhöhen Sie das Gewicht der Gewichte,2,0
+60,60,zh_020061,"a_1 Schlussfolgerung: verschiedene Polymere haben nicht die gleiche Elastizität b2 Verbesserung Legen Sie dasselbe Polymer übereinander und hängen Sie ein schwereres Gewicht daran, damit es sich stärker dehnt",2,1
+92,92,zh_020093,(_1) Kunststoff A ist am elastischsten (2) Lass die Gewichte ganz nach oben hängen und messe ihre gestreckte Länge,2,0
+103,103,zh_020104,"(_1) Verschiedene Kunststoffe haben unterschiedliche Elastizitäten und schrumpfen oder dehnen sich unter der auf sie ausgeübten Kraft (2) Wiederholen Sie dies für jeden Kunststofftyp mehrmals, um die Allgemeinheit zu erkennen",2,1
+112,112,zh_020113,a Die Elastizität der verschiedenen Materialien ist nicht gleich b Methode der Kontrollvariablen,2,2
+115,115,zh_020116,"a Verschiedene Materialien haben eine unterschiedliche Elastizität, und der Unterschied in der elastischen Verformung zwischen den beiden Zeitpunkten ist nicht groß b (_1) T2-Versuch ein weiterer Versuch mit dem gleichen Material (2) schneiden Sie das Versuchsmaterial in Formen der gleichen Größe und Länge und führen Sie den Versuch durch",2,3
+135,135,zh_020136,a Die Elastizität von Kunststoffen variiert je nach Art und verformt die Elastizität Beachten Sie die Regelgrößenmethode Behalten Sie die Masse der Gewichte bei,2,2
+165,165,zh_020166,(_1) ob die Längen der Kunststoffe gleich sind (2) ob die Massen der Gewichte gleich sind,2,2
+195,195,zh_020196,(_1) D-Kunststoff hat eine gute Festigkeit,2,0
+208,208,zh_020209,"a:Kunststoff D ist am elastischsten, A ist am wenigsten elastisch b:(_1)Bei der Entnahme von vier Materialien ist die gleiche Länge erforderlich(2)Die vier Materialtests kommen zu unterschiedlichen Positionen, die von den Klammern gehalten werden.",2,1
+225,225,zh_020226,"a. Die plastische Verformbarkeit ist am besten in D. b. Erhitzen Sie den Kunststoff, verlängern Sie die Reckzeit und verändern Sie die strukturelle Festigkeit des Kunststoffs.",2,0
+235,235,zh_020236,"a.C gute Elastizität D stabile Elastizität A,B weniger elastisch(_1) zweimal mit unterschiedlichen Massengewichten",2,0
+237,237,zh_020238,a:Kunststoff B hat die beste Elastizität b:(_1) verschiedene Gewichte wechseln(2) den Versuch mehrmals wiederholen,2,2
+249,249,zh_020250,"Je länger die Dehnung, desto elastischer ist das Polymer",2,0
+251,251,zh_020252,Kunststoff ist dehnbar,2,0
+264,264,zh_020265,Entnehmen Sie eine Probe einer bestimmten Kunststoffart und messen Sie ihre Länge.,2,0
+269,269,zh_020270,"Je länger die Zeit, desto größer die plastische Dehnung (_1) eine Gruppe zum Vergleich auswählen (2) die Masse der Klammern wird nicht berücksichtigt",2,0
+285,285,zh_020286,a Die Daten aus beiden Experimenten änderten sich nicht wesentlich Die Materialeigenschaften waren stabil b Wiederholen Sie das Experiment mit verschiedenen Kraftgradienten und beobachten Sie die Auswirkungen,2,0

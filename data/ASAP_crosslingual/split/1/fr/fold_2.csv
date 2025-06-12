@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+135,135,fr_010136,"Dans quel état le matériau doit-il être inclus dans les échantillons ? (Moulé, entier, pulvérisé) Dans quel récipient faut-il faire sécher les échantillons pendant _30 minutes ? A quelle température doit-on conserver les échantillons ? Où peser les échantillons ?",1,3
+51,51,fr_010052,"- Quel vinaigre utiliser (vin, blanc, de cidre...) ? - A quelle température doit-on conserver les échantillons et où ? - Peut-on utiliser n'importe quel type de contenant ? (verre, plastique, transparent, opaque,... ) ?",1,3
+109,109,fr_010110,Il n'y a pas d'informations supplémentaires,1,0
+195,195,fr_010196,les echantillon cest le marbre le calcaire le bois et le plastique.le masse de depart de marbre cest _9.8 g le masse de calcaire cest 10.4 g le masse de bois cest 11.2 g et le masse de la plastique cest 7.2 g,1,0
+114,114,fr_010115,J'aurais besoin d'autres matériaux à tester afin de savoir quels matériaux perdent du poids lorsqu'ils sont ajoutés au vinaigre,1,0
+24,24,fr_010025,Trouvez la différence entre la masse d'indication et la masse finale pour chaque échantillon. Quel échantillon avait une grande déviation de masse après les _24 heures ? Quel échantillon avait une petite déviation dans la masse ? Quelle conclusion pouvez-vous tirer sur la base des observations?,1,0
+15,15,fr_010016,C'est la bonne procédure.,1,0
+45,45,fr_010046,"Verser du vinaigre dans chacun des quatre récipients séparés, mais identiques.",1,0
+73,73,fr_010074,J'ai réalisé que le même montant qui a été mis dans le pot a été emporté avec une différence minime.,1,0
+95,95,fr_010096,valeur négative,1,0
+87,87,fr_010088,"La question n’a pas de sens, je m’excuse.  Je crois que vous avez donné tout ce dont nous avions besoin, sauf le nom du matériel?  Dans ce cas, j’aurais besoin d’un manuel de chimie, ou d’un spectromètre de masse pour savoir quel est le matériau de l’échantillon, n’est-ce pas?",1,0
+130,130,fr_010131,Combien de vinaigre versent-ils dans les récipients? Pourquoi les poids de départ sont-ils différents? Et si on laissait les échantillons pendant une semaine?,1,1
+102,102,fr_010103,volume de vinaigre ajouté,1,1
+235,235,fr_010236,J'ai besoin de connaître la densité.,1,1
+93,93,fr_010094,"déterminer le matériau de l'échantillon, la compatibilité des matériaux entre eux, point de fusion de chaque matériau",1,1
+182,182,fr_010183,"Déterminez quels sont les objets, voyez à quel point les objets sont poreux et pesez également le vinaigre.",1,2
+259,259,fr_010260,"Les échantillons inconnus sont-ils solides, liquides ou gazeux ?  Les échantillons inconnus sont-ils radioactifs ?  L'expérience est-elle réalisée à l'extérieur ou à l'intérieur ?",1,2
+200,200,fr_010201,Vérifiez la quantité d'échantillon de vinaigre.  Vérifier la quantité d'échantillons de matériaux.  Bien nettoyer le récipient.,1,2
+159,159,fr_010160,pourquoi cette expérience est-elle faite? quelle est notre hypothèse ? quels résultats recherchons-nous ?,1,2

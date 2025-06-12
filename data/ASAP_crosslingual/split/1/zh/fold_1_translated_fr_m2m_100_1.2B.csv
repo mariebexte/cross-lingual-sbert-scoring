@@ -1,0 +1,20 @@
+,Unnamed: 0.1,Unnamed: 0,id,text,prompt,score
+0,114,114,zh_010115,(_1) Valeur de pH de la pluie acide (2) Composition de la pluie acide (3) Composition du matériau,1,3
+1,88,88,zh_010089,(_1) Type de vinaigre (2) Qualité du vinaigre versé dans chaque récipient (3) Type et taille du récipient,1,3
+2,109,109,zh_010110,Réélectionner l'échantillon et la quantité pour remplacer l'acide acétique,1,0
+3,158,158,zh_010159,Les unités initiales sont plus petites.,1,0
+4,238,238,zh_010239,(_1) la pluie acide n'érose pas le bois (2) la plus grande pour l'érosion de marbre (3) la plus grande pour l'érosion de la roche grise,1,0
+5,266,266,zh_010267,"(_1) nettoyer à nouveau chaque tasse (2) nouveau marbre, matériau de pierre grise (3) étiquette",1,0
+6,80,80,zh_010081,(_1) Prise d'échantillons de pluies acides dans différentes régions (2) et conception d'expériences (3) et observation de l'impact des pluies acides sur l'environnement biologique environnant,1,0
+7,2,2,zh_010003,"(1) L'expérimentation doit être effectuée dans des circonstances variables, (2) l'expérimentation ne doit pas être influencée par d'autres facteurs, et (3) l'échantillon lui-même doit être pris en compte.",1,0
+8,132,132,zh_010133,(_1) Valeur de pH de papier d'essai (2) Tube d'essai (3) bouteille de capacité,1,0
+9,203,203,zh_010204,(_1) La masse du gaz (2) Si la structure de l'objet a changé (3) Dans quelle forme la masse réduite est dispersée,1,0
+10,160,160,zh_010161,Changement de concentration de la pluie acide.,1,0
+11,279,279,zh_010280,(_1) conteneur de matériaux de pluie acide (2) quantité adéquate de matières premières de pluie acide (3) quantité adéquate d'eau de distillation,1,1
+12,244,244,zh_010245,(_1) mesurer la qualité des différents échantillons (2) température de l'air (3) température,1,1
+13,69,69,zh_010070,(_1) La teneur en acide dans l'échantillon (2) La dureté avant l'expérimentation de l'échantillon de test,1,1
+14,28,28,zh_010029,(_1) La concentration de l'acide (2) La densité de chaque objet (3) Si la qualité est consommée lors de la séchage,1,1
+15,256,256,zh_010257,"(_1) La quantité de vinaigre doit être la même (2) l'environnement extérieur ne doit pas changer (par exemple, la température 3) sans endommager l'échantillon lors du lavage de l'échantillon.",1,2
+16,42,42,zh_010043,(_1) La quantité de vinaigre versée dans chaque récipient est-elle égale (2) La quantité d'acide contenue dans l'échantillon après le rinçage est-elle encore présente (3) La quantité d'acide dans l'échantillon après le rinçage,1,2
+17,98,98,zh_010099,(_1) La qualité du vinaigre (2) L'alcalinité acide du vinaigre,1,2
+18,70,70,zh_010071,(_1) La teneur en vinaigre est-elle identique L'effet est-il idéal (2) La présence de nouvelles impuretés dans le matériau (3) La présence d'autres réactions dans le processus de réaction,1,2

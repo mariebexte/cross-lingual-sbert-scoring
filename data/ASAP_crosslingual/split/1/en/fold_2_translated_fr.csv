@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+27,27,en_cw_000031,"comment les échantillons doivent être présentés, en un seul morceau ou en plusieurs petits morceaux ou morceaux moulus",1,1
+35,35,en_cw_000042,Méthode pour déterminer la masse des différents échantillons.\NLa quantité de vinaigre à verser dans les récipients.\NLa taille des récipients utilisés.,1,2
+86,86,en_cw_000097,"1. Il faudrait savoir ce que sont les quatre différents échantillons.\N 2. Les échantillons ont-ils tous la même taille et si oui, quelle est la taille de chaque échantillon ? 3. Quelle quantité de vinaigre est versée dans chaque récipient.",1,3
+91,91,en_cw_000102,"Voici quelques informations supplémentaires dont j'aurais besoin : la quantité et le type de vinaigre utilisé, la taille et le type de récipient et la durée de rinçage de chaque échantillon.",1,3
+95,95,en_cw_000108,"Masse initiale, masse finale, différence de masse",1,0
+113,113,en_cw_000128,"La taille de l'échantillon, lorsqu'on vous donne une expérience, on vous donne généralement une taille d'échantillon pour savoir quel type de récipient, de balance, etc. vous allez utiliser. \La quantité de vinaigre, si c'est juste pour changer le ph, il faut au moins en mettre quelques gouttes ou quelque chose comme ça.",1,2
+123,123,en_cw_000140,Répétez l'expérience avec chaque échantillon.,1,0
+150,150,en_cw_000171,QUANTITÉ DE MASSE POUR CHAQUE ÉCHANTILLON\n MONTANT DE VINAIGRE POUR CHAQUE ÉCHANTILLON\n TEMPÉRATURE DU MILIEU,1,1
+154,154,en_cw_000175,"Tout d'abord, j'aimerais savoir quel type de vinaigre a été utilisé pour cette expérience. \Des conditions particulières sont-elles requises dans le laboratoire ? De quoi étaient faits les récipients ? Étaient-ils grands ouverts ou avaient-ils des couvercles ?",1,1
+181,181,en_cw_000202,après _30 minutes de calcaire avec plus de changements et l'échelle des changements dans le bois n'a pas subi d'altérations d'aucune sorte,1,0
+185,185,en_cw_000207,tamiser l'échantillon,1,0
+187,187,en_cw_000209,Taille de chaque échantillon\n Volume du récipient,1,2
+196,196,en_cw_000218,- cette expérience prouvera la réaction du matériau à l'eau acide\n - la dose d'eau acide doit être écrite. Par exemple _50 ml / litre\n - déterminer les possibilités qui découlent de la réaction,1,0
+217,217,en_cw_000240,Déterminez quelle surface extérieure doit avoir chaque échantillon ?,1,1
+236,236,en_cw_000264,1) Balance pour peser les échantillons avant et après l'expérience.\n 2) Temporaire.\n 3) Filtre à eau.,1,0
+239,239,en_cw_000267,"Dans le cas du double, la masse est très faible",1,0
+266,266,en_cw_000294,"Marbre _9,00 8,5 -0,5\n Calcaire 300 308 +8\n Bois 12 12 0,0\n Plastique 500 490 -10",1,0
+271,271,en_cw_000299,"""Le volume de vinaigre utilisé ; la température de l'environnement extérieur ; le type de récipients utilisés.""",1,2
+273,273,en_cw_000301,"J'aurais peut-être besoin de connaître la température de la pièce, l'exposition à la lumière naturelle/artificielle et le matériau des quatre récipients.",1,0

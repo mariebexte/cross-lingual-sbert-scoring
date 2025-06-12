@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+19,19,zh_010020,(_1) tamaño del pH del vinagre (2) estado de la muestra (3) densidad de la muestra,1,1
+21,21,zh_010022,(_1) Si hay otras sustancias adheridas al mármol (2) Si el vinagre reacciona completamente con los reactivos (3) Si hay algún sesgo en la medición,1,0
+23,23,zh_010024,Si la muestra seguirá acidificándose después del experimento,1,0
+32,32,zh_010033,(_1) Diferentes tamaños de volumen de las cuatro muestras diferentes (2) La misma concentración de contenido de vinagre en los cuatro contenedores (3) Sellado de los contenedores,1,2
+77,77,zh_010078,PH del vinagre Masa de vinagre vertida en el recipiente Concentración de vinagre vertida en el recipiente,1,2
+86,86,zh_010087,(_1) Se obtuvo un papel blanco sin manchas (2) Se calculó la masa del papel (3) Se dejó caer el vinagre sobre el papel y se determinó la masa después de 24 horas,1,0
+93,93,zh_010094,(_1) el papel del vinagre (2) la forma inicial (3) el papel del agua destilada (4) si el agua destilada tuvo efecto sobre el material (5) si el material reaccionó con el vinagre,1,0
+95,95,zh_010096,(_1) contenido de vinagre en cada recipiente (2) superficie de contacto de cada muestra con el vinagre (3) si la masa original de cada muestra era una masa seca (4) densidad de cada muestra,1,3
+128,128,zh_010129,(_1) Cantidad de lluvia ácida añadida (2) Grado de corrosión del material (3) Tiempo de corrosión por lluvia ácida,1,1
+143,143,zh_010144,(_1) La concentración de ácido acético reacciona igual (2) Establecer el efecto de diferentes concentraciones de ácido acético en la misma masa de material mismo tipo de material,1,0
+175,175,zh_010176,(_1) Más materiales para elegir (2) Vinagre para añadir impurezas (3) Acidez del vinagre,1,1
+230,230,zh_010231,(_1) concentración de vinagre (2) proporción de ingredientes principales en la muestra (3) material fácil,1,2
+234,234,zh_010235,(_1) Medir la cantidad de vinagre añadida a cada recipiente (2) Dejar que las muestras se sequen al aire libremente sin ser utilizadas para el lavado (3) Medir los cambios que se producen cuando los materiales se colocan en vinagre,1,1
+248,248,zh_010249,(_1) Determine la masa de 4 muestras diferentes (2) Vierta vinagre en 4 recipientes idénticos separados (3) Determine el efecto de la lluvia ácida en diferentes materiales,1,0
+258,258,zh_010259,(_1) La cantidad adecuada de producto de la reacción de la muestra con la lluvia ácida (2) El efecto de la prueba de composición en el aire (3) La cantidad de cambio de PH en la lluvia ácida después de la reacción.,1,0
+268,268,zh_010269,(_1)Volumen de vinagre en cuatro recipientes (2)Hora exacta en que se extrajo cada muestra (3)Tiempo de frotado con agua destilada,1,2
+280,280,zh_010281,(_1) el valor del pH del vinagre (2) la forma del volumen de la muestra y el área de contacto del vinagre (3) si está influenciado por factores externos,1,3
+291,291,zh_010292,(_1) Si se redujo la pérdida de la muestra durante el proceso de cepillado (2) Si se perdió piedra caliza durante el tiempo de secado (3) Si el pH del ácido cumplió la norma de pH de lluvia ácida,1,0
+292,292,zh_010293,(_1) Repite el experimento con diferentes masas de mármol piedra caliza madera plástico (2) Repite el experimento con la misma masa de material (3) Repite el experimento con diferentes concentraciones de vinagre,1,0

@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+21,21,zh_100022,Blanco:: como color de pintura para perreras la luz afecta menos al blanco y su temperatura es óptima para la vida del perro,10,1
+45,45,zh_100046,"Blanco:: Cuando el sol incide en el techo de la perrera, el color blanco absorbe suficiente calor y la temperatura aumenta lentamente. Cuando el sol se pone, sigue habiendo calor en la perrera porque el blanco tarda en disipar el calor.",10,2
+54,54,zh_100055,Blanco:: la temperatura es más suave,10,0
+62,62,zh_100063,"Gris oscuro:: provoca un aumento constante de la temperatura interna de la perrera más moderado Confirmado: el negro, el gris claro, el blanco, etc. no absorben la temperatura de forma constante, por lo que los investigadores no están completamente seguros de que sea bueno para la perrera El gris oscuro no es necesariamente el mejor, pero es más convincente, ya que permanece relativamente estable",10,1
+71,71,zh_100072,"Blanco:: Debido a que está pintado en el interior de la perrera, la perrera es menos capaz de disipar el calor y utiliza el blanco para absorber menos calor y el propio perro irradia calor por lo que el blanco es mejor",10,0
+78,78,zh_100079,"Blanco::La temperatura en el interior de la perrera es menor porque el blanco absorbe menos calor Confirmación: Comparando los cuatro colores, se comprueba que el blanco es el que menos calor absorbe",10,2
+104,104,zh_100105,Negro:: la temperatura más alta dentro de la perrera El negro tiene la mayor capacidad de absorción de calor,10,1
+108,108,zh_100109,"Gris oscuro:: la diferencia de temperatura al cuadrado es pequeña Cuanto más oscuro es el color, mayor es la temperatura",10,0
+110,110,zh_100111,"Gris oscuro:: mantiene la temperatura en el interior de la jaula casi constante, como demuestran los _3 experimentos anteriores en los que el gris oscuro mantuvo la temperatura en el interior de la jaula a 48°.",10,0
+139,139,zh_100140,Blanco:: la temperatura del aire en el interior del vidrio aumenta menos en el mismo periodo de tiempo,10,1
+162,162,zh_100163,Gris oscuro:: mantiene la temperatura en el interior de la caseta a un valor constante para garantizar una temperatura constante El frasco de la tapa gris oscuro tiene una temperatura de _48°C y se mantiene ahí,10,0
+193,193,zh_100194,"Blanco::Cuando se expone a la luz, el blanco absorbe menos calor, la mayor parte se disipa y el tarro de cristal tiene un menor aumento de temperatura que las otras especies. La tapa blanca tiene el valor medio más bajo después del experimento",10,1
+211,211,zh_100212,Blanco:: evita que la temperatura de la habitación sea demasiado alta y las pruebas han demostrado que el blanco tiene el menor índice de absorción de energía de la luz,10,2
+242,242,zh_100243,Gris claro:: estabiliza la temperatura de la perrera _③ termómetro mantiene una temperatura de 45°C,10,0
+248,248,zh_100249,Blanco::El blanco tiene menos efecto en la temperatura interna de la perrera y los resultados en el experimento anterior son similares a los descritos,10,1
+256,256,zh_100257,Blanco::La temperatura interna no es demasiado alta como para interferir con las actividades normales del perro. La prueba anterior corresponde a un tapón blanco y la temperatura en el interior de la botella se mantiene estable en torno a los _45°C.,10,1
+259,259,zh_100260,Black::Black tuvo el mayor número de pruebas y la mayor temperatura,10,1
+272,272,zh_100273,Blanco:: El blanco refleja toda la luz,10,0
+293,293,zh_100294,Negro:: el negro se calienta más rápido y mantiene al perro caliente cuando hace frío porque el negro absorbe el calor rápidamente,10,1

@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+8,8,zh_010009,(_1) ob es mit Essig aufgelöst wurde (2) ob es erwärmt wurde (3) ob es einen Niederschlag gab,1,0
+13,13,zh_010014,(_1) Ausreichende Alkalipulver-Säure-Konzentration im Inneren des zu polymerisierenden Materials,1,0
+16,16,zh_010017,"(_1) die Masse des Essigs nach dem Versuch (2) die Menge des Essigs, die von jeder Masse aufgenommen wurde (3) das Vorhandensein von Verunreinigungen",1,1
+55,55,zh_010056,(_1) Ob Verunreinigungen erzeugt werden,1,0
+66,66,zh_010067,(_1) Essigkonzentration (2) Bestimmung der in jeden Behälter eingefüllten Essigmenge (3) Lufttemperatur der Testumgebung,1,3
+76,76,zh_010077,(_1) Der pH-Wert des Essigs (2) Die in jeden Behälter eingefüllte Menge (3) Die Konzentration des in den Behälter eingefüllten Essigs,1,2
+110,110,zh_010111,(_1) Der Grad der Beschädigung der Oberfläche (2) Die Veränderung der Farbe der Oberfläche des Stoffes,1,1
+151,151,zh_010152,Originalmasse aus Marmor Originalmasse aus Kalkstein Originalmasse aus Holz,1,0
+189,189,zh_010190,(_1) Konstante Essigkonzentration (2) Gleiche Kontaktfläche mit dem Objekt (3) Kriterien für einen sauberen Abwasch mit destilliertem Wasser,1,3
+191,191,zh_010192,(_1) pH-Wert von Essig (2) pH-Wert von saurem Regen (3) Schlechte Qualität des Materials Qualitätskontrolle ,1,1
+200,200,zh_010201,(_1) Menge des erzeugten Gases (2) Gleiche Masse der Proben (3) Marmor und Kalkstein sind beide Gesteinsarten und können durch eine ersetzt werden,1,0
+205,205,zh_010206,(_1) Die Masse des einzufüllenden Essigs sollte gleich sein (2) Die Dichtigkeit ist zu prüfen (3) Die Probe ist mit bestimmten Mitteln zu waschen,1,2
+210,210,zh_010211,(_1) Die Qualität des Essigs (2) Der pH-Wert des Essigs (3) Ob es aus anderen Gründen zu einem Qualitätsverlust gekommen ist,1,2
+216,216,zh_010217,Chemische Eigenschaften der Probe Menge des Essigs Ob das Behältnis verschlossen ist,1,1
+226,226,zh_010227,(_1) Temperaturveränderung (2) konstanter Druck (3) Verfärbung des Gegenstandes,1,0
+229,229,zh_010230,"(_1) Sicherstellung, dass die vier Materialien vor dem Test gleichmäßig trocken und nass sind (2) Vermeidung von Qualitätseinbußen der Probe während des Waschprozesses (3) Sicherstellung, dass die Materialien während des Trocknungsprozesses ausreichend trocken sind",1,2
+246,246,zh_010247,Saurer Regen hat fast keine Auswirkungen auf hölzerne Materialien und eine erhebliche Auswirkung auf steinige Materialien. Es hat weniger Auswirkungen auf Kunststoffe.,1,0
+251,251,zh_010252,"Ob der Stoff löslich ist, ob er sich mit der Zeit zersetzt und ob er mit anderen Bestandteilen des Essigs reagiert.",1,0
+308,308,zh_010309,"(_1) Messung des pH-Wertes der Flüssigkeit in jedem der vier Behälter nach dem Experiment; (2) Vergleich des Unterschieds im pH-Wert der Flüssigkeit in den vier Behältern nach dem Experiment; (3) Sicherstellung, dass beim Schwenken der Probe mit destilliertem Wasser kein Niederschlag entsteht.",1,0

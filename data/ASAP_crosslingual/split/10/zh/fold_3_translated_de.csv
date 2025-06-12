@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+18,18,zh_100019,"Hellgrau:: je dunkler die Farbe, desto stärker der Temperaturanstieg Schwarz hat die höchste Durchschnittstemperatur und den höchsten Temperaturanstieg in jeder Kontrollgruppe",10,1
+63,63,zh_100064,"Hellgrau:: Helle Farben nehmen die Temperatur nur langsam an, helle Grautöne sind weniger anfällig für einen dramatischen Temperaturanstieg.",10,0
+65,65,zh_100066,Schwarz:: Schwarz absorbiert Wärme und ist gleichzeitig stabil.,10,1
+77,77,zh_100078,Weiß:: Weiß macht den Zwinger viel kühler als die anderen Farben und ist somit der kühlste Zwinger. Die durchschnittliche Temperatur in einem weißen Zwinger ist niedriger als die Lufttemperatur in einem Zwinger einer anderen Farbe.,10,1
+87,87,zh_100088,"Weiß :: Weiß hat eine geringere Auswirkung auf die Innentemperatur des Zwingers und ändert sich nicht zu abrupt. Die Versuche ergaben, dass nach insgesamt _3 Versuchen die Zwinger, die von 24°C auf 10 Minuten nach dem Temperaturwechsel umgestellt wurden, alle kleiner und heller waren",10,1
+89,89,zh_100090,"Schwarz::Schwarz absorbiert alle Farben des Lichts und die Temperatur im Inneren des Zwingers steigt schnell an Schwarzer Farbdeckel, durchschnittliche Temperatur im Inneren des Zwingers _53°C, ist die höchste",10,2
+113,113,zh_100114,Dunkelgrau:: Sorgt für eine konstantere Temperatur im Zwinger Dunkelgrau weist die geringsten Abweichungen bei den Versuchsergebnissen auf Die Temperatur ist konstant und für den Hund geeignet,10,0
+119,119,zh_100120,Weiß :: Die Temperatur im Inneren des Zwingers wird tagsüber nicht zu hoch Die durchschnittliche Temperatur im Inneren der weißen Flasche ist am niedrigsten,10,2
+124,124,zh_100125,"Schwarz :: Die obigen Daten zeigen, dass Schwarz am wärmsten ist  ",10,1
+135,135,zh_100136,"Dunkelgrau:: stabilisiert die Lufttemperatur und absorbiert mehr Energie, um den Zwinger komfortabler zu machen",10,0
+153,153,zh_100154,Schwarz :: Erhöht die Temperatur Die Temperatur in Schwarz ist immer höher,10,1
+166,166,zh_100167,Schwarz:: hebt die Temperatur an Schwarz hat die höchste Durchschnittstemperatur,10,2
+179,179,zh_100180,"Dunkelgrau:: Die Menge der absorbierten Wärme wirkt sich auf die Temperatur im Inneren des Zwingers aus. Dunkelgrau absorbiert die Wärme, so dass die Temperatur im Inneren des Zwingers gleichmäßiger ist und nicht schwankt.",10,0
+182,182,zh_100183,Dunkelgrau:: stabile Lufttemperatur,10,0
+186,186,zh_100187,Weiß:: Reflektiert alles farbige Licht Temperaturmittelwerte bei _42°C,10,1
+212,212,zh_100213,Weiß::weiß gestrichen Die Temperatur im Inneren des Zwingers ist relativ stabil und moderat Die Testergebnisse: Der Hund fühlt sich wohl und der Besitzer fühlt sich wohl,10,0
+227,227,zh_100228,"Weiß::: macht die Innentemperatur des Zwingers nicht zu hoch, können beide absorbieren Lichtenergie Erhaltung und nicht zu hoch, ist die Temperatur zu hoch Hund wird sehr heiß sein",10,1
+229,229,zh_100230,Dunkelgrau:: Die von Dunkelgrau absorbierte Wärme ist über die drei Versuche hinweg relativ konstant und wird daher nicht so stark von der Außenwelt beeinflusst.,10,0
+312,312,zh_100313,"Weiß::Da Weiß eine helle Farbe ist, ist die Wärmeabsorption im Vergleich zu anderen dunklen Farben geringer. Andere Farben sind im Vergleich zu Weiß zu dunkel.",10,1

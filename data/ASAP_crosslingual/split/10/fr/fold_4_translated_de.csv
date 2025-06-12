@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+12,12,fr_100013,"Weiß::Niedrigere Temperatur aufgrund der helleren Farbe, wie in den Informationen angegeben.",10,1
+13,13,fr_100014,"""Schwarz::Wenn man sich die Ergebnisse des Experiments ansieht und die Durchschnittswerte der einzelnen Farben vergleicht, wird deutlich, dass die Farbe ""Schwarz"" die höchste Temperatur absorbiert.""",10,2
+53,53,fr_100054,Weiß::Weiß absorbiert Feuchtigkeit und wirkt sich daher auf Innenräume aus.,10,0
+58,58,fr_100059,Schwarz::Die Geburtstemperatur des Hundes wird bei _24 Grad CELCIUS gehalten.,10,1
+70,70,fr_100071,Dunkelgrau::GRAU IST RICHTIG.,10,0
+71,71,fr_100072,Schwarz::Ich weiß nicht,10,0
+79,79,fr_100080,"Weiß::Die Hundehütte wird sich in Weiß weniger aufheizen, da die Farbe weniger Energie absorbiert.",10,1
+84,84,fr_100085,Dunkelgrau::Der Hund wird anziehen.,10,0
+110,110,fr_100111,"Weiß::Ausgehend von den Ergebnissen des Experiments haben wir uns für die Farbe Weiß entschieden, weil in der Hundehütte, die Brandi und Jerry entwerfen wollen, weniger Temperatur herrscht, da es sich um eine weniger dunkle Farbe handelt. Die Wahl der Farbe Weiß ermöglicht es ihnen daher, eine Hundehütte zu entwerfen, die weniger Wärme absorbiert als eine dunkle Farbe, z. B. eine schwarze Farbe für die Hundehütte, die im Gegensatz dazu viel Wärme absorbieren würde.",10,2
+133,133,fr_100134,"Weiß::Die weiße Farbe sorgt dafür, dass sich das Innere der Hütte bei Sonneneinstrahlung nicht so stark aufheizt. Eine dunklere Farbe hätte zu einem unerwünscht hohen Temperaturanstieg geführt.",10,1
+135,135,fr_100136,Weiß::Es kann die Temperatur in der Hundehütte erhöhen.,10,0
+139,139,fr_100140,"Dunkelgrau::Ich glaube, dass Hellgrau die ideale Temperatur ist, da es sehr warm und nicht einmal zu kalt ist.",10,0
+141,141,fr_100142,Weiß::Diese Farbe sollte sie ein paar Grad kühler halten als die anderen Farben. Den Daten zufolge absorbiert Weiß nicht so viel Wärme wie dunklere Farben.,10,1
+155,155,fr_100156,Schwarz::Schwarz hält länger bei Hitze.,10,1
+158,158,fr_100159,"""Weiß::Weiß ist die beste Farbe zum Streichen von Innenräumen, da es die reflektierendste Farbe ist und das Innere des Hauses daher ""kühler"" macht, während die anderen Farben (Schwarz, Dunkelgrau und Hellgrau) das Innere des Hauses wärmer machen.""",10,1
+181,181,fr_100182,"Weiß::Meiner Meinung nach liegt die beste Temperatur im Bereich von _41 bis 45 Grad.  Wir können in der Tabelle sehen, dass die Farbe Weiß nach 10 Minuten die Temperatur im Inneren der Hundehütte in diesen Bereich anhebt. Das deutet darauf hin, dass die Energieabsorption gleichmäßig ist - weder zu niedrig noch zu hoch.",10,2
+182,182,fr_100183,"Dunkelgrau::Laut der Studie ist dies die Farbe, die die gleiche Konsistenz beibehalten hat.",10,1
+196,196,fr_100197,"Weiß::Diese Farbe absorbiert weniger Wärme, so dass es im Haus nicht so heiß wird.",10,1
+210,210,fr_100211,"Weiß::Ich mag diese Erfahrung und finde das Ergebnis besser. Jeder Schüler gibt sein Bestes. Diese Tabelle dient dazu, das beste Ergebnis auszuwählen.",10,0

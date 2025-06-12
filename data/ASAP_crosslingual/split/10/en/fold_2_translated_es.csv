@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+41,41,en_cw_000705,blanco :: La caseta del perro no contendrá tanto calor porque los colores claros no son buenos contenedores para contener el calor,10,1
+45,45,en_cw_000709,"blanco :: Depende del tipo de clima si quieres que no sea tan caluroso, la mejor opción será el color blanco, pero si es en verano lo mejor será el negro ya que genera más calor.",10,1
+50,50,en_cw_000718,negro :: El negro en el interior de la casa de los perros hará que la casa sea más cálida porque la temperatura corporal de los perros es de alrededor de 37 grados Celsius y calentará la casa más que el color más claro.,10,1
+51,51,en_cw_000719,"negro :: El color negro afectó significativamente la temperatura de la casa porque los colores más oscuros lo determinan, alcanzando un promedio de 53 ° C.",10,0
+63,63,en_cw_000732,dark_gray :: Elijo este color porque según los resultados se ha mantenido más estable sin cambios.,10,0
+90,90,en_cw_000759,"blanco :: Si el color blanco mantiene el experimento más fresco, entonces debe hacer lo mismo para la casa del perro",10,2
+98,98,en_cw_000768,"blanco :: para el blanco, la temperatura cambia ligeramente. por lo tanto, el mejor color para la casa del perro es el blanco.",10,0
+116,116,en_cw_000787,blanco :: El color blanco refleja la mayor parte de la energía por lo que la temperatura del aire en la caseta del perro disminuirá,10,1
+142,142,en_cw_000817,light_gray :: el color varía dependiendo de los elementos que se utilicen en este caso varía con el blanco y el gris claro,10,0
+152,152,en_cw_000828,"dark_gray :: si el color es más oscuro, mantiene la luz y la enfoca en una determinada dirección",10,0
+180,180,en_cw_000856,blanco :: el blanco por ser un color claro haría que la cabina mantuviera una temperatura más agradable para el perro.,10,0
+187,187,en_cw_000863,negro :: El negro y otros colores oscuros atraerán y absorberán el calor del sol y mantendrán a su perro caliente.,10,1
+201,201,en_cw_000879,"blanco :: Según los resultados, el blanco sería el más fresco, por lo que quizá sea el mejor color para pintar una caseta de perro. Sin embargo, sólo midieron un área pequeña de la lámpara, y no un área de tamaño grande de la casa del perro. También creo que deberían haber probado más colores. Y también, el clima donde se encuentran podría ayudar a determinar qué elección sería la mejor para la seguridad del perro.",10,2
+202,202,en_cw_000880,dark_gray :: negro,10,0
+208,208,en_cw_000886,"blanco :: Teniendo en cuenta que los colores más oscuros absorben más energía, por lo tanto, absorben más energía térmica, la mejor opción sería hacer una caseta de perro blanca para que el perro se mantenga a una temperatura baja",10,1
+251,251,en_cw_000933,"negro :: Cuanto más oscuro sea el color de la superficie exterior, más cálido será el espacio interior. Las tapas negras mostraron una temperatura más alta en todas las pruebas, mientras que las blancas estaban en el lado más bajo del espectro.",10,1
+261,261,en_cw_000943,"blanco :: La tabla muestra que el color blanco es el que menos se calienta. Para que un perro viva cómodamente, es necesario que la temperatura dentro de la caseta suba lo menos posible. Por lo tanto, el mejor color es el blanco",10,2
+275,275,en_cw_000957,"blanco :: Cuanto más claro sea el color, más fresca será la casa del perro.",10,1
+295,295,en_cw_000978,"blanco :: El menor calentamiento mostró el color blanco, otros colores llevaron a un mayor calentamiento.",10,1

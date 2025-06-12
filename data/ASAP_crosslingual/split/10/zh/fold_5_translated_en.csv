@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+4,4,zh_100005,"White:: The temperature inside the kennel will be maintained between _41-43℃, the average temperature of white on the kennel is 42℃ in experiment 1 - experiment 3",10,1
+53,53,zh_100054,"White:: compared to other colors white will reduce the air temperature of the kennel, white is less able to reflect light and absorb light, i.e. it absorbs less energy",10,1
+70,70,zh_100071,"Dark gray:: keep the air temperature constant The darker the color, the better the insulation effect Five experiments with constant temperature",10,0
+72,72,zh_100073,"The darker the color, the hotter the kennel. The average temperature of black was _53°C, much higher than dark gray, light gray, and white.",10,2
+76,76,zh_100077,"White:: White absorbs energy and makes the temperature inside the kennel rise, but compared to other colors, the temperature rises more slowly Black average temperature is _53 ℃, dark gray 48, light gray 45, white 42, so, in comparison white absorbs energy most slowly.",10,2
+83,83,zh_100084,"Black:: can make the kennel warm, also increase the brightness of the kennel",10,1
+88,88,zh_100089,White:: so that the average temperature change of the air in the kennel is not large. The average temperature inside the glass bottle after _10min of white plugging is 42℃,10,1
+121,121,zh_100122,Black :: Black is more heat-absorbing and the temperature inside the kennel will increase,10,1
+141,141,zh_100142,White:: White keeps the temperature inside the kennel from getting too high,10,1
+154,154,zh_100155,"White :: The lighter the color, the smaller the difference in temperature rise, and the opposite is not true",10,0
+164,164,zh_100165,Black:: Black increases the temperature,10,1
+176,176,zh_100177,Black:: Darker color absorbs more energy Warmer inside the kennel Highest average temperature in _3 experiments,10,2
+191,191,zh_100192,Light gray:: keeps the interior of the kennel balanced,10,0
+194,194,zh_100195,Black::It will affect the temperature change Black is the most suitable to keep warm the best effect,10,1
+228,228,zh_100229,"White:: the color in the light when the temperature rises and maintain the relative stability of the interior of the kennel, test _1 in its light when the temperature rises test 2 temperature rises and small test 3 temperature falls. Keep its temperature relatively appropriate",10,0
+244,244,zh_100245,Light gray:: kennel turns gray,10,0
+251,251,zh_100252,White::White changes the temperature the least.,10,0
+267,267,zh_100268,"Black::raises the temperature, the temperature of black are high",10,1
+302,302,zh_100303,Blue:: Use light to shine this blue.,10,0

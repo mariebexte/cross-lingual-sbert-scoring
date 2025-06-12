@@ -1,0 +1,20 @@
+,Unnamed: 0,id,text,prompt,score
+24,24,zh_100025,Blanco:: el blanco refleja la luz para que la temperatura en el interior de la botella no sea demasiado elevada y el aumento de temperatura en la botella blanca sea el menor,10,1
+32,32,zh_100033,"Blanco:: El blanco absorbe menos calor y no provoca molestias en la perrera, el blanco es el que menos calor absorbe de los cuatro colores",10,1
+59,59,zh_100060,"Blanco:: el color más claro del blanco tiene una menor capacidad de absorción de la luz, lo que hace que la temperatura dentro de la caseta sea más suave y menos sofocante para el sueño del perro. Los datos anteriores muestran que el blanco tiene la temperatura media más baja y es el más adecuado para el perro.",10,1
+61,61,zh_100062,Blanco:: hace que el interior de la perrera sea más fresco El blanco tiene una temperatura media de _42°C,10,2
+67,67,zh_100068,Gris claro:: la perrera se calienta durante el día en verano pero la temperatura no sube mucho El interior de la perrera no es demasiado caliente Durante el invierno la perrera se calienta durante el día La temperatura no sube mucho La perrera es más cálida en _3 experimentos Gris claro se calienta moderadamente,10,2
+74,74,zh_100075,Blanco:: El blanco absorbe menos calor y es reflectante y estético. La tabla anterior muestra que la temperatura del blanco es más baja y cercana a la temperatura del cuerpo humano y no causa demasiadas molestias al perro.,10,1
+86,86,zh_100087,"Blanco :: El blanco fue bueno para la supervivencia del perro en los tres experimentos por debajo de _45°C Las perreras blancas no absorben el calor y la temperatura interna de la perrera no es alta Las tres temperaturas temporales fueron 42°C, 43°C y 41°C La temperatura media fue de 42°C Por debajo de 45°C el blanco fue mejor",10,1
+93,93,zh_100094,"Blanco:: la luz incide sobre la cubierta blanca, ésta absorbe la luz para calentar el interior y el reflejo lo enfría.  La temperatura media del blanco es la más baja y no fluctúa mucho, y está en el rango biológico.",10,1
+133,133,zh_100134,Gris oscuro:: estabiliza la temperatura del aire y absorbe más energía para que la perrera sea más confortable,10,0
+155,155,zh_100156,Blanco:: hace que el cambio de temperatura sea suave y pequeño,10,0
+178,178,zh_100179,Blanco:: el blanco no sobrecalienta la habitación cuando hace calor y puede hacer que el perro tenga menos calor. Pinta la caseta de blanco y pon la temperatura de la habitación a _24°C. Enciende las luces de la habitación y mide la temperatura después de 10 minutos y anótala.,10,1
+202,202,zh_100203,Blanco:: Este color se aplica al interior de la perrera y la temperatura tiende a nivelarse. Mantiene la perrera seca y fresca.,10,0
+208,208,zh_100209,"Gris oscuro:: la temperatura del aire afectado por este color se mantiene constante a partir de una determinada temperatura, cuanto más oscuro es el color, mayor es la temperatura, cuanto más claro es el gris, menor es la tasa de cambio de temperatura.",10,0
+216,216,zh_100217,Gris oscuro:: cambia la temperatura en el interior de la jaula y la mantiene a la misma temperatura Gris oscuro: la temperatura aumenta en _24°C y se mantiene en 48°C durante toda la prueba 123,10,0
+237,237,zh_100238,"Elija el negro::El negro hace que la perrera sea más cálida en invierno en el lado más alto, la temperatura media en negro fue de _53°C.",10,2
+254,254,zh_100255,Negro::Coloque la tapa negra con el termómetro fijado en la botella de vidrio para asegurarse de que la temperatura dentro de la botella es realmente de _24°C.,10,0
+275,275,zh_100276,Gris claro::Lo mejor para los perros,10,0
+286,286,zh_100287,Blanco:: El blanco es el color más claro y absorbe la menor cantidad de energía y transmite la menor cantidad de energía a la perrera. El blanco proporciona el menor calentamiento medio dentro de la perrera.,10,1
+291,291,zh_100292,"Blanco:: El blanco mantiene la temperatura de la caseta a aproximadamente _42°C. Los perros son termostatos y si la temperatura es demasiado alta, el perro estará incómodo, por lo que 42°C es la temperatura óptima.",10,1
