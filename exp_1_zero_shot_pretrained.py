@@ -39,7 +39,7 @@ def run_pretrained(dataset_path, dataset_name, id_column, answer_column, target_
                 # Load model
                 model = SentenceTransformer(SBERT_BASE_MODEL)
                 model.max_seq_length=ANSWER_LENGTH
-                df_ref = pd.concat([df_train, df_val])
+                df_ref = deepcopy(df_train)
                 df_ref['embedding'] = df_ref[answer_column].apply(model.encode)
                 
                 # Zero-shot evaluation of model on all languages
@@ -98,8 +98,13 @@ def run_pretrained_cross_validated(dataset_path, dataset_name, id_column, answer
 
                 print(prompt, language, test_fold)
 
+                val_fold = test_fold+1
+                if val_fold > num_folds:
+                    val_fold=1
+
                 ref_folds = list(range(1, num_folds+1))
                 ref_folds.remove(test_fold)
+                ref_folds.remove(val_fold)
 
                 df_ref_list = []
 

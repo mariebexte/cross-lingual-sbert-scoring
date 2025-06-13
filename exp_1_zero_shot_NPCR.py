@@ -51,7 +51,7 @@ def run_dataset(dataset_path, dataset_name, prompt_column, answer_column, target
 
                 if not os.path.exists(os.path.join(run_path, 'preds.csv')):
                     
-                    gold, pred = train_npcr(target_path=run_path, df_train=df_train, df_val=df_val, df_test=df_test, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=base_model, max_num=ANSWER_LENGTH, batch_size=NPCR_BATCH_SIZE, num_epochs=NPCR_NUM_EPOCHS, training_with_same_score=True, save_model=True)
+                    gold, pred = train_npcr(target_path=run_path, df_train=df_train, df_val=df_val, df_test=df_test, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=base_model, max_num=ANSWER_LENGTH, batch_size=NPCR_BATCH_SIZE, num_epochs=NPCR_NUM_EPOCHS, save_model=True)
                     write_classification_statistics(filepath=run_path, y_true=gold, y_pred=pred)
 
                     # Zero-shot evaluation of finetuned model on all **other** languages
@@ -154,7 +154,7 @@ def run_dataset_folds(dataset_path, dataset_name, prompt_column, answer_column, 
 
                     if not os.path.exists(os.path.join(run_path, 'preds.csv')):
                         
-                        gold, pred = train_npcr(target_path=run_path, df_train=df_train, df_val=df_val, df_test=df_test, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=base_model, max_num=ANSWER_LENGTH, num_epochs=NPCR_NUM_EPOCHS, batch_size=NPCR_BATCH_SIZE, training_with_same_score=True, save_model=True)
+                        gold, pred = train_npcr(target_path=run_path, df_train=df_train, df_val=df_val, df_test=df_test, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=base_model, max_num=ANSWER_LENGTH, num_epochs=NPCR_NUM_EPOCHS, batch_size=NPCR_BATCH_SIZE, save_model=True)
                         write_classification_statistics(filepath=run_path, y_true=gold, y_pred=pred)
 
                         # Zero-shot evaluation of finetuned model on all **other** languages

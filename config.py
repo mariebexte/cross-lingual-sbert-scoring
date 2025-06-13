@@ -47,20 +47,18 @@ ANSWER_LENGTH = 128
 SBERT_BASE_MODEL = 'paraphrase-multilingual-MiniLM-L12-v2'
 XLMR_BASE_MODEL = 'xlm-roberta-base'
 
-RESULT_PATH_EXP_1 = '/results/new/exp_1_zero_shot'
-RESULT_PATH_EXP_2 = '/results/new/exp_2_tradeoff'
-RESULT_PATH_EXP_3 = '/results/new/exp_3_lolo'
+RESULT_PATH_EXP_1 = '/results/fair/exp_1_zero_shot'
+RESULT_PATH_EXP_2 = '/results/fair/exp_2_tradeoff'
+RESULT_PATH_EXP_3 = '/results/fair/exp_3_lolo'
 
-SBERT_NUM_EPOCHS = 15
-NPCR_NUM_EPOCHS = 15
-BERT_NUM_EPOCHS = 15
+SBERT_NUM_EPOCHS = 25
+NPCR_NUM_EPOCHS = 25
+BERT_NUM_EPOCHS = 25
 
 SBERT_BATCH_SIZE = 32
 NPCR_BATCH_SIZE = 32
 BERT_BATCH_SIZE = 32
 
-SBERT_NUM_PAIRS = None
-SBERT_NUM_VAL_PAIRS = 1000
-
-NPCR_NUM_VAL = 10
-NPCR_NUM_TEST = 25
+SBERT_NUM_VAL_PAIRS = 20
+NPCR_NUM_VAL_PAIRS = 20
+NPCR_NUM_TEST_PAIRS = None

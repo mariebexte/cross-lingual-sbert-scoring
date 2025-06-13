@@ -189,7 +189,7 @@ def eval_sbert(run_path, df_test, df_ref, id_column, answer_column, target_colum
 
     test_answers, test_true_scores, test_predictions, test_predictions_max = get_preds_from_pairs(df=df_inference, id_column=id_column+'_1', pred_column='sim', ref_label_column=target_column+'_2', true_label_column=target_column+'_1')
 
-    return test_true_scores, test_predictions, test_predictions_max
+    return test_true_scores, test_predictions_max, test_predictions
 
 
 class Dataset(torch.utils.data.Dataset):

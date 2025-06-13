@@ -187,7 +187,7 @@ def get_training_pairs(df_train, col_prompt, col_score, num_training_pairs=None,
     return features_train, masks_train, y_train
 
 
-def get_inference_pairs(df, df_ref, col_prompt, col_score, example_size, force_cross_prompt=False, col_embedding='input_ids', col_mask='attention_mask', random_state=3254, min_label=None, max_label=None):
+def get_inference_pairs(df, df_ref, col_prompt, col_score, example_size=None, col_embedding='input_ids', col_mask='attention_mask', random_state=3456478, min_label=None, max_label=None):
 
     # Build pairs
     features = []
@@ -199,43 +199,19 @@ def get_inference_pairs(df, df_ref, col_prompt, col_score, example_size, force_c
     col_scaled_score = 'holistic_score_scaled'
     df_ref[col_scaled_score] = reader.get_model_friendly_scores_adversarial(df_ref[col_score], min_label=min_label, max_label=max_label, prompts_array=df_ref[col_prompt])
 
-    without_partner = 0
+    # Build cross-product of df and reference instances
+    df_cartesian = df.merge(df_ref, how='cross', suffixes=('', '_ref'))
 
-    # Process in batches of answers from the same prompt
-    for current_prompt, df_prompt in df.groupby(col_prompt):
+    if example_size is not None:
+        df_cartesian = df_cartesian.sample(example_size * len(df), random_state=random_state)
+    
+    features = features + list(df_cartesian.apply(lambda row: (row[col_embedding], row[col_embedding+'_ref']), axis='columns'))
+    masks = masks + list(df_cartesian.apply(lambda row: (row[col_mask], row[col_mask+'_ref']), axis='columns'))
+    y_goal = y_goal + list(df_prompt[col_score])
 
-        # Check if there are answers from the same prompt in the reference data
-        df_ref_prompt = df_ref[df_ref[col_prompt] == current_prompt]
-
-        # We should take examples from the same prompt!
-        if len(df_ref_prompt) > 0 and (not force_cross_prompt):
-
-            logging.info('Pairing prompt ' + str(current_prompt) + ' with examples from same prompt for inference!')
-
-            if len(df_ref_prompt) < example_size:
-                
-                logging.info('Not enough samples of target prompt in training data!')
-                sys.exit(0)
-
-            df_ref_sample = df_ref_prompt.sample(example_size, random_state=random_state)
-
-        # Prompt not shared with training, take randomly from other prompts
-        else:
-
-            logging.info('Pairing prompt ' + str(current_prompt) + ' with examples from other prompts for inference!')
-            df_ref_without_current = df_ref[df_ref[col_prompt] != current_prompt]
-            df_ref_sample = df_ref_without_current.sample(example_size, random_state=random_state)
-
-        # Build cross-product of df and reference instances
-        df_cartesian = df_prompt.merge(df_ref_sample, how='cross', suffixes=('', '_ref'))
-        
-        features = features + list(df_cartesian.apply(lambda row: (row[col_embedding], row[col_embedding+'_ref']), axis='columns'))
-        masks = masks + list(df_cartesian.apply(lambda row: (row[col_mask], row[col_mask+'_ref']), axis='columns'))
-        y_goal = y_goal + list(df_prompt[col_score])
-
-        # Rescale reference labels to label range of test/val instance
-        y_example_prompt = utils.rescale_tointscore_adversarial(df_cartesian[col_scaled_score], min_label=min_label, max_label=max_label, prompts_array=df_cartesian[col_prompt])
-        y_example = y_example + list(y_example_prompt)
+    # Rescale reference labels to label range of test/val instance
+    y_example_prompt = utils.rescale_tointscore_adversarial(df_cartesian[col_scaled_score], min_label=min_label, max_label=max_label, prompts_array=df_cartesian[col_prompt])
+    y_example = y_example + list(y_example_prompt)
 
     # Restructure for compatibility
     y_goal = [[value] for value in y_goal]
@@ -247,3 +223,4 @@ def get_inference_pairs(df, df_ref, col_prompt, col_score, example_size, force_c
     y_goal = np.array(y_goal)
 
     return features, masks, y_example, y_goal
+

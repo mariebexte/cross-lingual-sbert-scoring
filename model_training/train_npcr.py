@@ -23,7 +23,7 @@ np.random.seed(100)
 logger = get_logger("Train...")
         
 
-def train_npcr(target_path, base_model, df_train, df_val, df_test, col_prompt, col_answer, col_score, max_num, batch_size, num_epochs, val_example_size=NPCR_NUM_VAL, example_size=NPCR_NUM_TEST, min_label=None, max_label=None, learning_rate=0.00005, model_name='best_model', training_within_prompt=True, training_with_same_score=False, num_training_pairs=None, finetuned_model=None, save_model=False):
+def train_npcr(target_path, base_model, df_train, df_val, df_test, col_prompt, col_answer, col_score, max_num, batch_size, num_epochs, val_example_size=NPCR_NUM_VAL_PAIRS, example_size=NPCR_NUM_TEST_PAIRS, min_label=None, max_label=None, learning_rate=0.00005, model_name='best_model', training_within_prompt=True, training_with_same_score=True, num_training_pairs=None, finetuned_model=None, save_model=False):
 
     # Clear logger from previous runs
     log = logging.getLogger()
@@ -99,8 +99,8 @@ def train_npcr(target_path, base_model, df_train, df_val, df_test, col_prompt, c
         num_workers=2,
     )
 
-    eval_steps=int(len(df_train)/batch_size)
-    max_steps=int((len(df_train)/batch_size)*num_epochs)
+    eval_steps = int(len(df_train)/batch_size)
+    max_steps = eval_steps*num_epochs
 
     batches = iter(loader)
 
@@ -165,7 +165,7 @@ def train_npcr(target_path, base_model, df_train, df_val, df_test, col_prompt, c
 
     if df_test is not None:
 
-        gold, pred = evaluate_finetuned_model(base_model=base_model, model_path=os.path.join(target_path, model_name), df_ref=df_train, df_test=df_test, col_prompt=col_prompt, col_answer=col_answer, col_score=col_score, min_label=min_label, max_label=max_label, target_path=target_path, max_num=max_num)
+        gold, pred = evaluate_finetuned_model(base_model=base_model, model_path=os.path.join(target_path, model_name), df_ref=df_train, df_test=df_test, col_prompt=col_prompt, col_answer=col_answer, col_score=col_score, example_size=example_size, min_label=min_label, max_label=max_label, target_path=target_path, max_num=max_num)
         
     # Delete model to save space
     if os.path.exists(os.path.join(target_path, model_name)) and save_model==False:

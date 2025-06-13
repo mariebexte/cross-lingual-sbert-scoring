@@ -58,7 +58,7 @@ def process_dataset(data_folder, dataset_name, languages, answer_column, target_
         for lang, df_lang in df_results.groupby('lang'):
 
             print(lang, df_lang['avg_len'].mean(), df_lang['ratio_unique'].mean(), len(df_lang))
-            out_file.write(lang+'\t'+str(df_lang['avg_len'].mean())+'\t'+str(df_lang['ratio_unique'].mean())+'\t'+str(len(df_lang)))
+            out_file.write(lang+'\t'+str(df_lang['avg_len'].mean())+'\t'+str(df_lang['ratio_unique'].mean())+'\t'+str(len(df_lang))+'\n')
 
     df_frequencies = pd.DataFrame(frequencies).T
     cols = df_frequencies.columns

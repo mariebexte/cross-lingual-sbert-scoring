@@ -19,7 +19,7 @@ random_state = 3456478
 from copy import deepcopy
 import datasets
 from sentence_transformers import SentenceTransformer, losses, evaluation, SentenceTransformerTrainer, SentenceTransformerTrainingArguments
-from config import ANSWER_LENGTH
+from config import ANSWER_LENGTH, SBERT_NUM_VAL_PAIRS
 
 
 
@@ -37,7 +37,7 @@ def get_paired_data_from_dataframes(df_train, df_val, df_test, target_column, id
 
 
 
-def train_sbert(run_path, df_train, df_val, df_test, answer_column, target_column, id_column, base_model, batch_size, num_epochs, num_pairs_per_example=None, save_model=False, num_val_pairs=None):
+def train_sbert(run_path, df_train, df_val, df_test, answer_column, target_column, id_column, base_model, batch_size, num_epochs, num_training_pairs_per_example=None, save_model=False, num_val_pairs_per_example=SBERT_NUM_VAL_PAIRS):
     
     # Clear logger from previous runs
     log = logging.getLogger()
@@ -98,15 +98,15 @@ def train_sbert(run_path, df_train, df_val, df_test, answer_column, target_colum
     print(len(df_train_paired))
 
     # Downsample training
-    if num_pairs_per_example is not None:
+    if num_training_pairs_per_example is not None:
         
-        if len(df_train) * num_pairs_per_example * num_epochs < len(df_train_paired):
+        if len(df_train) * num_training_pairs_per_example * num_epochs < len(df_train_paired):
 
-            df_train_paired = df_train_paired.sample(len(df_train) * num_epochs * num_pairs_per_example, random_state=random_state) 
+            df_train_paired = df_train_paired.sample(len(df_train) * num_epochs * num_training_pairs_per_example, random_state=random_state) 
 
-    if num_val_pairs is not None:
+    if num_val_pairs_per_example is not None:
 
-        df_val_paired = df_val_paired.sample(num_val_pairs, random_state=random_state)
+        df_val_paired = df_val_paired.sample(num_val_pairs_per_example * len(df_val), random_state=random_state)
 
     train_dataset = datasets.Dataset.from_dict({
         'text1': list(df_train_paired[answer_column + '_1']),
@@ -137,7 +137,7 @@ def train_sbert(run_path, df_train, df_val, df_test, answer_column, target_colum
         # num_train_epochs=num_epochs,
         # eval_strategy='epoch',
         # save_strategy='epoch',
-        metric_for_best_model='spearman_max'
+        # metric_for_best_model='spearman_cosine'
     )
 
     dev_evaluator = evaluation.EmbeddingSimilarityEvaluator(df_val_paired[answer_column + "_1"].tolist(), df_val_paired[answer_column + "_2"].tolist(), df_val_paired[target_column].tolist(), write_csv=True)

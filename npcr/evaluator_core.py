@@ -228,7 +228,7 @@ class Evaluator_opti_adversarial():
         return dev_loader
 
 
-def evaluate_finetuned_model(df_test, df_ref, col_prompt, col_answer, col_score, model_path, base_model, target_path, example_size=25, max_num=1024, min_label=None, max_label=None, suffix=''):
+def evaluate_finetuned_model(df_test, df_ref, col_prompt, col_answer, col_score, model_path, base_model, target_path, example_size, max_num, min_label=None, max_label=None, suffix=''):
 
     logging.info('Evaluation: min score is:\t' + str(min_label))
     logging.info('Evaluation: max score is:\t' + str(max_label))
