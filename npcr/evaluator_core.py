@@ -13,6 +13,8 @@ from tqdm import tqdm
 from copy import deepcopy
 from npcr.utils import rescale_tointscore_adversarial, get_logger, write_classification_stats, SCORES
 
+from config import NPCR_NUM_TEST_PAIRS
+
 
 logger = get_logger("Evaluate stats")
 
@@ -228,19 +230,22 @@ class Evaluator_opti_adversarial():
         return dev_loader
 
 
-def evaluate_finetuned_model(df_test, df_ref, col_prompt, col_answer, col_score, model_path, base_model, target_path, example_size, max_num, min_label=None, max_label=None, suffix=''):
+def evaluate_finetuned_model(df_test, df_ref, col_id, col_prompt, col_answer, col_score, model_path, base_model, target_path, max_num, example_size=NPCR_NUM_TEST_PAIRS, min_label=None, max_label=None, suffix=''):
 
     logging.info('Evaluation: min score is:\t' + str(min_label))
     logging.info('Evaluation: max score is:\t' + str(max_label))
+
+    if example_size is None:
+        example_size = len(df_ref)
 
     if not os.path.exists(target_path):
 
         os.mkdir(target_path)
 
     df_ref, df_val, df_test = data_prepare.prepare_sentence_data_adversarial(df_train=df_ref, df_val=None, df_test=df_test, col_answer=col_answer, col_score=col_score, max_num=max_num, base_model=base_model)
-    features_test, masks_test, y_test_example, y_test_goal = data_prepare.get_inference_pairs(df=df_test, df_ref=df_ref, col_prompt=col_prompt, col_score=col_score, example_size=example_size, min_label=min_label, max_label=max_label)
+    features_test, masks_test, y_test_example, y_test_goal = data_prepare.get_inference_pairs(df=df_test, df_ref=df_ref, col_id=col_id, col_prompt=col_prompt, col_score=col_score, example_size=example_size, min_label=min_label, max_label=max_label)
 
-    model = torch.load(model_path)
+    model = torch.load(model_path, weights_only=False)
     model.cuda()
 
     evl = Evaluator_opti_adversarial(out_dir=target_path, model_name=None, features_dev=features_test, masks_dev=masks_test,\

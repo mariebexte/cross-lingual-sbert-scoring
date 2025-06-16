@@ -65,21 +65,13 @@ def train_sbert(run_path, df_train, df_val, df_test, answer_column, target_colum
     logging.info('num train:\t' + str(len(df_train)))
     logging.info('num val:\t' + str(len(df_val)))
     logging.info('num test:\t' + str(len(df_test)))
-    logging.info('num pairs per training example:\t' + str(num_pairs_per_example))
-    logging.info('num validation pairs:\t' + str(num_val_pairs))
+    logging.info('num training pairs per example:\t' + str(num_training_pairs_per_example))
+    logging.info('num validation pairs per example:\t' + str(num_val_pairs_per_example))
 
     start_time = datetime.now()
 
     # Where to store finetuned model
     model_path = os.path.join(run_path, "finetuned_model")
-
-    num_batches_per_round = None
-
-    if num_pairs_per_example is not None:
-
-        num_samples = len(df_train) * num_pairs_per_example
-        num_batches_per_round = int(num_samples/batch_size)
-        logging.info("LIMITING SBERT TRAINING PAIRS: "+str(num_pairs_per_example)+" pairs per sample!")
 
     try:
 

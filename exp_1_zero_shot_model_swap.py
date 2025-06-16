@@ -100,11 +100,16 @@ def run_model_swap(dataset_path, dataset_name, languages, id_column, answer_colu
                     
                     write_classification_statistics(filepath=run_path_bert, y_true=gold, y_pred=xlmr_pred)
                     
-                    config = AutoConfig.from_pretrained('/models/'+SBERT_BASE_MODEL)
-                    config.sbert_path = '/models/'+SBERT_BASE_MODEL
-                    config.num_labels = len(df_train[target_column].unique())
-                    bert_model = SbertForSequenceClassification(config).to(device)
-                    bert_model.load_state_dict(torch.load(os.path.join(run_path_bert, 'best_model', 'pytorch_model.bin')))
+                    # config = AutoConfig.from_pretrained('/models/'+SBERT_BASE_MODEL)
+                    # config.sbert_path = '/models/'+SBERT_BASE_MODEL
+                    # config.num_labels = len(df_train[target_column].unique())
+                    # bert_model = SbertForSequenceClassification(config).to(device)
+
+                    # print(run_path_bert)
+                    # bert_model.load_state_dict(torch.load(os.path.join(run_path_bert, 'best_model', 'model.safetensors'), weights_only=False))
+                    # bert_model.load_state_dict(torch.load(os.path.join(run_path_bert, 'best_model', 'pytorch_model.bin')))
+
+                    bert_model = torch.load(os.path.join(run_path_bert, 'best_model'), weights_only=False)
 
                     # Zero-shot evaluation of finetuned model on all **other** languages
                     for test_lang in languages:
@@ -141,7 +146,7 @@ def run_model_swap(dataset_path, dataset_name, languages, id_column, answer_colu
 
                             write_classification_statistics(filepath=run_path_test_bert_translated, y_true=gold, y_pred=xlmr_pred_translated, suffix='')
                     
-                    shutil.rmtree(os.path.join(run_path_bert, 'best_model'))
+                    os.remove(os.path.join(run_path_bert, 'best_model'))
 
 
 
@@ -288,11 +293,13 @@ def run_model_swap_cross_validated(dataset_path, dataset_name, languages, id_col
                         
                         write_classification_statistics(filepath=run_path_bert, y_true=gold, y_pred=xlmr_pred)
                         
-                        config = AutoConfig.from_pretrained('/models/'+SBERT_BASE_MODEL)
-                        config.sbert_path = '/models/'+SBERT_BASE_MODEL
-                        config.num_labels = len(df_train[target_column].unique())
-                        bert_model = SbertForSequenceClassification(config).to(device)
-                        bert_model.load_state_dict(torch.load(os.path.join(run_path_bert, 'best_model', 'pytorch_model.bin')))
+                        # config = AutoConfig.from_pretrained('/models/'+SBERT_BASE_MODEL)
+                        # config.sbert_path = '/models/'+SBERT_BASE_MODEL
+                        # config.num_labels = len(df_train[target_column].unique())
+                        # bert_model = SbertForSequenceClassification(config).to(device)
+                        # bert_model.load_state_dict(torch.load(os.path.join(run_path_bert, 'best_model', 'pytorch_model.bin')))
+
+                        bert_model = torch.load(os.path.join(run_path_bert, 'best_model'), weights_only=False)
 
                         # Zero-shot evaluation of finetuned model on all **other** languages
                         for test_lang in languages:
@@ -348,12 +355,12 @@ def run_model_swap_cross_validated(dataset_path, dataset_name, languages, id_col
 
                                 write_classification_statistics(filepath=run_path_test_bert_translated, y_true=gold, y_pred=xlmr_pred_translated, suffix='')
                         
-                        shutil.rmtree(os.path.join(run_path_bert, 'best_model'))
+                        os.remove(os.path.join(run_path_bert, 'best_model'))
         
 
 for run in ['_RUN1']:
 
-    for dataset in [EPIRLS, ASAP_T]:
+    for dataset in [ASAP_T, EPIRLS]:
 
         run_model_swap(
             dataset_path=dataset['dataset_path'], 

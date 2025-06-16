@@ -5,6 +5,7 @@ import random
 import logging
 
 import numpy as np
+import pandas as pd
 
 from copy import deepcopy
 
@@ -187,7 +188,7 @@ def get_training_pairs(df_train, col_prompt, col_score, num_training_pairs=None,
     return features_train, masks_train, y_train
 
 
-def get_inference_pairs(df, df_ref, col_prompt, col_score, example_size=None, col_embedding='input_ids', col_mask='attention_mask', random_state=3456478, min_label=None, max_label=None):
+def get_inference_pairs(df, df_ref, col_prompt, col_score, col_id, example_size=None, col_embedding='input_ids', col_mask='attention_mask', random_state=3456478, min_label=None, max_label=None):
 
     # Build pairs
     features = []
@@ -200,14 +201,20 @@ def get_inference_pairs(df, df_ref, col_prompt, col_score, example_size=None, co
     df_ref[col_scaled_score] = reader.get_model_friendly_scores_adversarial(df_ref[col_score], min_label=min_label, max_label=max_label, prompts_array=df_ref[col_prompt])
 
     # Build cross-product of df and reference instances
-    df_cartesian = df.merge(df_ref, how='cross', suffixes=('', '_ref'))
+    df_cartesian_full = df.merge(df_ref, how='cross', suffixes=('', '_ref'))
+    cartesians = []
 
     if example_size is not None:
-        df_cartesian = df_cartesian.sample(example_size * len(df), random_state=random_state)
+
+        for item in df[col_id]:
+            df_cartesian_item = df_cartesian_full[df_cartesian_full[col_id] == item]
+            cartesians.append(df_cartesian_item.sample(example_size))
+
+    df_cartesian = pd.concat(cartesians).reset_index()
     
     features = features + list(df_cartesian.apply(lambda row: (row[col_embedding], row[col_embedding+'_ref']), axis='columns'))
     masks = masks + list(df_cartesian.apply(lambda row: (row[col_mask], row[col_mask+'_ref']), axis='columns'))
-    y_goal = y_goal + list(df_prompt[col_score])
+    y_goal = y_goal + list(df[col_score])
 
     # Rescale reference labels to label range of test/val instance
     y_example_prompt = utils.rescale_tointscore_adversarial(df_cartesian[col_scaled_score], min_label=min_label, max_label=max_label, prompts_array=df_cartesian[col_prompt])
@@ -223,4 +230,3 @@ def get_inference_pairs(df, df_ref, col_prompt, col_score, example_size=None, co
     y_goal = np.array(y_goal)
 
     return features, masks, y_example, y_goal
-

@@ -5,7 +5,6 @@ import numpy as np
 
 from sklearn.metrics import classification_report, accuracy_score, cohen_kappa_score, f1_score
 from transformers import TrainerCallback, Trainer
-from scipy import spatial
 
 from config import ANSWER_LENGTH
 
@@ -131,11 +130,6 @@ def eval_sbert_classification(model, df_test, answer_column, target_column):
     predictions = preds.predictions.argmax(axis=1)
 
     return test_labels, predictions
-
-
-def calculate_sim(row):
-
-    return (1 - spatial.distance.cosine(row['embedding_test'], row['embedding_ref']))
 
 
 # _2 is ref!

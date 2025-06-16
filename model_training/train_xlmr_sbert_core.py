@@ -39,7 +39,6 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column
     logging.info('base_model:\t' + base_model)
     logging.info('number of epochs:\t' + str(num_epochs))
     logging.info('batch size:\t' + str(batch_size))
-    logging.info('warmup:\t' + str(do_warmup))
 
     logging.info('num train:\t' + str(len(df_train)))
     logging.info('num val:\t' + str(len(df_val)))
@@ -137,7 +136,7 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column
             per_device_train_batch_size=batch_size,
             per_device_eval_batch_size=batch_size,  
             load_best_model_at_end=True,
-            evaluation_strategy="epoch",
+            eval_strategy="epoch",
             logging_strategy="epoch",
             save_strategy="epoch",
             save_total_limit=5,
@@ -182,7 +181,9 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column
 
     if save_model == True:
 
-        trainer.save_model(os.path.join(run_path, "best_model"))
+        # trainer.save_model(os.path.join(run_path, "best_model"))
+        # model.save_pretrained(os.path.join(run_path, 'best_model'))
+        torch.save(model, os.path.join(run_path, 'best_model'))
 
     # Delete model checkpoints to save space
     if os.path.exists(os.path.join(run_path, "checkpoints")):
