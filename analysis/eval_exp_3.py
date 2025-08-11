@@ -30,7 +30,7 @@ def aggregate_results(result_dir, prompts, target_column, languages):
                 for test_lang in languages:
 
                     # for model in os.listdir(os.path.join(result_dir, prompt, train_lang))
-                    for model in [('XLMR', ''), ('SBERT', '_avg'), ('SBERT', '_max'), ('XLMR_SBERTcore', ''), ('SBERT_XLMRcore', '_avg'), ('SBERT_XLMRcore', '_max'), ('NPCR_XLMR', ''), ('NPCR_SBERT', ''), ('pretrained', '_avg'), ('pretrained', '_max')]:
+                    for model in [('XLMR', ''), ('SBERT', ''), ('SBERT', '_max'), ('SBERT', '_hybrid'), ('XLMR_SBERTcore', ''), ('SBERT_XLMRcore', ''), ('SBERT_XLMRcore', '_max'), ('SBERT_XLMRcore', '_hybrid'), ('NPCR_XLMR', ''), ('NPCR_SBERT', ''), ('pretrained', ''), ('pretrained', '_max'), ('pretrained', '_hybrid')]:
 
                         try:
 
@@ -90,7 +90,7 @@ def aggregate_results_cv(result_dir, prompts, target_column, languages, num_fold
                 for test_lang in languages:
 
                     # for model in os.listdir(os.path.join(result_dir, prompt, train_lang))
-                    for model in [('XLMR', ''), ('SBERT', '_avg'), ('SBERT', '_max'), ('XLMR_SBERTcore', ''), ('SBERT_XLMRcore', '_avg'), ('SBERT_XLMRcore', '_max'), ('NPCR_XLMR', ''), ('NPCR_SBERT', ''), ('pretrained', '_avg'), ('pretrained', '_max')]:
+                    for model in [('XLMR', ''), ('SBERT', ''), ('SBERT', '_max'), ('SBERT', '_hybrid'), ('XLMR_SBERTcore', ''), ('SBERT_XLMRcore', ''), ('SBERT_XLMRcore', '_max'), ('SBERT_XLMRcore', '_hybrid'), ('NPCR_XLMR', ''), ('NPCR_SBERT', ''), ('pretrained', ''), ('pretrained', '_max'), ('pretrained', '_hybrid')]:
 
                         try:
 
@@ -180,36 +180,40 @@ def get_translated_avg(row):
 
 
 
-res_name = '/results/FINAL_PAPER/exp_3_lolo'
+res_name = '/results/fair/exp_3_lolo'
 
 for dataset in [EPIRLS, ASAP_T]:
 
-    for condition in ['combine_all_other', 'combine_downsampled']:
+    for condition in ['combine_downsampled']:
+    # for condition in ['combine_all_other', 'combine_downsampled']:
         
-        for run in ['_RUN1', '_RUN2', '_RUN3']:
+        for run in ['_RUN1']:
+        # for run in ['_RUN1', '_RUN2', '_RUN3']:
 
             aggregate_results(result_dir=os.path.join(res_name + run, condition, dataset['dataset_name']), prompts=dataset['prompts'], target_column=dataset['target_column'], languages=dataset['languages'])
             if os.path.exists(os.path.join(res_name + run, condition, dataset['dataset_name'], 'overall.csv')):
                 split_results(os.path.join(res_name + run, condition, dataset['dataset_name'], 'overall.csv'))
 
-        average_runs_exp3(result_file_list=[os.path.join(res_name+'_RUN1', condition, dataset['dataset_name'], 'overall.csv'),
-        os.path.join(res_name+'_RUN2', condition, dataset['dataset_name'], 'overall.csv'),
-        os.path.join(res_name+'_RUN3', condition, dataset['dataset_name'], 'overall.csv')],
-        target_folder=os.path.join(res_name+'_AVG', condition, dataset['dataset_name']))
-        split_results(os.path.join(res_name + '_AVG', condition, dataset['dataset_name'], 'overall.csv'))
+        # average_runs_exp3(result_file_list=[os.path.join(res_name+'_RUN1', condition, dataset['dataset_name'], 'overall.csv'),
+        # os.path.join(res_name+'_RUN2', condition, dataset['dataset_name'], 'overall.csv'),
+        # os.path.join(res_name+'_RUN3', condition, dataset['dataset_name'], 'overall.csv')],
+        # target_folder=os.path.join(res_name+'_AVG', condition, dataset['dataset_name']))
+        # split_results(os.path.join(res_name + '_AVG', condition, dataset['dataset_name'], 'overall.csv'))
 
 
 for dataset in [ASAP_M]:
 
-    for condition in ['combine_all_other', 'combine_all_other_translated', 'combine_downsampled', 'combine_downsampled_translated']:
+    for condition in ['combine_downsampled', 'combine_downsampled_translated']:
+    # for condition in ['combine_all_other', 'combine_all_other_translated', 'combine_downsampled', 'combine_downsampled_translated']:
 
-        for run in ['_RUN1', '_RUN2', '_RUN3']:
+        for run in ['_RUN1']:
+        # for run in ['_RUN1', '_RUN2', '_RUN3']:
 
             aggregate_results_cv(result_dir=os.path.join(res_name + run, condition, dataset['dataset_name']), prompts=dataset['prompts'], target_column=dataset['target_column'], languages=dataset['languages'], num_folds=dataset['num_folds'])
             if os.path.exists(os.path.join(res_name + run, condition, dataset['dataset_name'], 'overall.csv')):
                 split_results(os.path.join(res_name + run, condition, dataset['dataset_name'], 'overall.csv'))
             
-        average_runs_exp3(result_file_list=[os.path.join(res_name+'_RUN1', condition, dataset['dataset_name'], 'overall.csv'),
-        os.path.join(res_name+'_RUN2', condition, dataset['dataset_name'], 'overall.csv'),
-        os.path.join(res_name+'_RUN3', condition, dataset['dataset_name'], 'overall.csv')], target_folder=os.path.join(res_name+'_AVG',  condition, dataset['dataset_name']))
-        split_results(os.path.join(res_name + '_AVG', condition, dataset['dataset_name'], 'overall.csv'))
+        # average_runs_exp3(result_file_list=[os.path.join(res_name+'_RUN1', condition, dataset['dataset_name'], 'overall.csv'),
+        # os.path.join(res_name+'_RUN2', condition, dataset['dataset_name'], 'overall.csv'),
+        # os.path.join(res_name+'_RUN3', condition, dataset['dataset_name'], 'overall.csv')], target_folder=os.path.join(res_name+'_AVG',  condition, dataset['dataset_name']))
+        # split_results(os.path.join(res_name + '_AVG', condition, dataset['dataset_name'], 'overall.csv'))

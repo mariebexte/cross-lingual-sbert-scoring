@@ -6,6 +6,8 @@ import numpy as np
 from sklearn.metrics import classification_report, accuracy_score, cohen_kappa_score, f1_score
 from transformers import TrainerCallback, Trainer
 
+from scipy import spatial
+
 from config import ANSWER_LENGTH
 
 
@@ -138,11 +140,12 @@ def cross_dataframes(df, df_ref):
     return pd.merge(left=df, right=df_ref, how='cross', suffixes=('_1', '_2'))
 
 
-def get_preds_from_pairs(df, id_column, pred_column, ref_label_column, true_label_column):
+def get_preds_from_pairs(df, id_column, pred_column, ref_label_column, true_label_column, threshold=0.9):
 
     answer_ids = []
     pred_labels = []
     pred_labels_max = []
+    pred_labels_hybrid = []
     true_labels = []
 
     # For each test instance
@@ -173,17 +176,34 @@ def get_preds_from_pairs(df, id_column, pred_column, ref_label_column, true_labe
         pred_labels_max.append(pred_label_max)
         true_labels.append(true_label)
 
-    return answer_ids, true_labels, pred_labels, pred_labels_max
+        if df_answer.loc[max_idx][pred_column] >= threshold:
+
+            pred_labels_hybrid.append(pred_label_max)
+        
+        else:
+
+            pred_labels_hybrid.append(pred_label)
+
+    return answer_ids, true_labels, pred_labels, pred_labels_max, pred_labels_hybrid
+
+
+def calculate_sim(row):
+
+    return (1 - spatial.distance.cosine(row['embedding_1'], row['embedding_2']))
 
 
 def eval_sbert(run_path, df_test, df_ref, id_column, answer_column, target_column):
 
     df_inference = cross_dataframes(df=df_test, df_ref=df_ref)
-    df_inference['sim'] = df_inference.apply(lambda row: row['embedding_1'] @ row['embedding_2'], axis=1)
 
-    test_answers, test_true_scores, test_predictions, test_predictions_max = get_preds_from_pairs(df=df_inference, id_column=id_column+'_1', pred_column='sim', ref_label_column=target_column+'_2', true_label_column=target_column+'_1')
+    df_inference['sim'] = df_inference.apply(calculate_sim, axis=1)
 
-    return test_true_scores, test_predictions_max, test_predictions
+    test_answers, test_true_scores, test_predictions, test_predictions_max, test_predictions_hybrid = get_preds_from_pairs(df=df_inference, id_column=id_column+'_1', pred_column='sim', ref_label_column=target_column+'_2', true_label_column=target_column+'_1')
+
+    df_test_aggregated = pd.DataFrame({id_column: test_answers, 'pred': test_predictions, target_column: test_true_scores, 'pred_max': test_predictions_max, 'pred_hybrid': test_predictions_hybrid})
+    df_test_aggregated.to_csv(os.path.join(run_path, 'preds.csv'))
+
+    return test_true_scores, test_predictions_max, test_predictions, test_predictions_hybrid
 
 
 class Dataset(torch.utils.data.Dataset):

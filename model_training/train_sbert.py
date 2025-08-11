@@ -9,7 +9,7 @@ import glob
 import pandas as pd
 
 from datetime import datetime
-from model_training.utils import encode_labels, eval_sbert, get_device, cross_dataframes, get_preds_from_pairs
+from model_training.utils import encode_labels, eval_sbert, get_device, cross_dataframes, get_preds_from_pairs, calculate_sim
 from sentence_transformers.evaluation import SimilarityFunction
 from torch.utils.data import DataLoader
 from transformers import EarlyStoppingCallback
@@ -18,14 +18,26 @@ from tqdm import tqdm
 random_state = 3456478
 from copy import deepcopy
 import datasets
-from sentence_transformers import SentenceTransformer, losses, evaluation, SentenceTransformerTrainer, SentenceTransformerTrainingArguments
-from config import ANSWER_LENGTH, SBERT_NUM_VAL_PAIRS
+from sentence_transformers import SentenceTransformer, losses, evaluation, SentenceTransformerTrainer, SentenceTransformerTrainingArguments, models
+from config import ANSWER_LENGTH, SBERT_NUM_VAL_PAIRS, PATIENCE
 
 
 
-def get_paired_data_from_dataframes(df_train, df_val, df_test, target_column, id_column='submission_id', answer_column='text'):
+def get_paired_data_from_dataframes(df_train, df_val, df_test, target_column, num_pairs_per_training=None, id_column='submission_id', answer_column='text'):
     
+
     df_train_pairs = cross_dataframes(df=df_train, df_ref=df_train)
+    
+    if num_pairs_per_training is not None:
+
+        samples = []
+
+        for _, df_train_ex in df_train_pairs.groupby(id_column+'_1'):
+
+            samples.append(df_train_ex.sample(num_pairs_per_training))
+
+        df_train_pairs = pd.concat(samples)
+
     df_val_pairs = cross_dataframes(df=df_val, df_ref=df_train)
     df_test_pairs = cross_dataframes(df=df_test, df_ref=df_train)
 
@@ -33,11 +45,13 @@ def get_paired_data_from_dataframes(df_train, df_val, df_test, target_column, id
     
         df_split[target_column] = (df_split[target_column+'_1'] == df_split[target_column+'_2']).astype(int)
 
+    df_train_pairs = df_train_pairs.sample(frac=1)
+
     return df_train_pairs, df_val_pairs, df_test_pairs
 
 
 
-def train_sbert(run_path, df_train, df_val, df_test, answer_column, target_column, id_column, base_model, batch_size, num_epochs, num_training_pairs_per_example=None, save_model=False, num_val_pairs_per_example=SBERT_NUM_VAL_PAIRS):
+def train_sbert(run_path, df_train, df_val, df_test, answer_column, target_column, id_column, base_model, batch_size, num_epochs, num_training_pairs_per_example=None, save_model=False, patience=PATIENCE, num_val_pairs_per_example=SBERT_NUM_VAL_PAIRS):
     
     # Clear logger from previous runs
     log = logging.getLogger()
@@ -73,28 +87,27 @@ def train_sbert(run_path, df_train, df_val, df_test, answer_column, target_colum
     # Where to store finetuned model
     model_path = os.path.join(run_path, "finetuned_model")
 
-    try:
+    # if 'xlm' in base_model:
 
-        model = SentenceTransformer(base_model, device=device)
-
-    except:
-
-        # Above sometimes crashes, but this gives equivalent result
-        transformer = models.Transformer(base_model)
-        pooling = models.Pooling(transformer.get_word_embedding_dimension(), pooling_mode="mean")
-        model = SentenceTransformer(modules=[transformer, pooling], device=device)
+    transformer = models.Transformer(base_model, max_seq_length=ANSWER_LENGTH)
+    pooling = models.Pooling(transformer.get_word_embedding_dimension(), pooling_mode="mean")
+    model = SentenceTransformer(modules=[transformer, pooling], device=device)
     
-    model.max_seq_length=ANSWER_LENGTH
+    # else:
 
-    df_train_paired, df_val_paired, df_test_paired = get_paired_data_from_dataframes(df_train=df_train, df_val=df_val, df_test=df_test, target_column=target_column)
+    #     model = SentenceTransformer(base_model, device=device)
+    #     model.max_seq_length=ANSWER_LENGTH
+
+    # model = SentenceTransformer(base_model, device=device)
+    df_train_paired, df_val_paired, df_test_paired = get_paired_data_from_dataframes(df_train=df_train, df_val=df_val, df_test=df_test, target_column=target_column, num_pairs_per_training=num_epochs, id_column=id_column)
     print(len(df_train_paired))
 
     # Downsample training
-    if num_training_pairs_per_example is not None:
+    # if num_training_pairs_per_example is not None:
         
-        if len(df_train) * num_training_pairs_per_example * num_epochs < len(df_train_paired):
+    #     if len(df_train) * num_training_pairs_per_example * num_epochs < len(df_train_paired):
 
-            df_train_paired = df_train_paired.sample(len(df_train) * num_epochs * num_training_pairs_per_example, random_state=random_state) 
+    #         df_train_paired = df_train_paired.sample(len(df_train) * num_epochs * num_training_pairs_per_example, random_state=random_state) 
 
     if num_val_pairs_per_example is not None:
 
@@ -114,7 +127,10 @@ def train_sbert(run_path, df_train, df_val, df_test, answer_column, target_colum
 
     loss = losses.OnlineContrastiveLoss(model)
 
-    early_stop = EarlyStoppingCallback(early_stopping_patience=3)
+    early_stop = EarlyStoppingCallback(early_stopping_patience=patience)
+
+    dev_evaluator = evaluation.EmbeddingSimilarityEvaluator(df_val_paired[answer_column + "_1"].tolist(), df_val_paired[answer_column + "_2"].tolist(), df_val_paired[target_column].tolist(), write_csv=True)
+    dev_evaluator(model)
 
     args = SentenceTransformerTrainingArguments(
         output_dir=run_path,
@@ -132,9 +148,6 @@ def train_sbert(run_path, df_train, df_val, df_test, answer_column, target_colum
         # metric_for_best_model='spearman_cosine'
     )
 
-    dev_evaluator = evaluation.EmbeddingSimilarityEvaluator(df_val_paired[answer_column + "_1"].tolist(), df_val_paired[answer_column + "_2"].tolist(), df_val_paired[target_column].tolist(), write_csv=True)
-    dev_evaluator(model)
-
     trainer = SentenceTransformerTrainer(
         model=model,
         args=args,
@@ -142,7 +155,7 @@ def train_sbert(run_path, df_train, df_val, df_test, answer_column, target_colum
         eval_dataset=eval_dataset,
         loss=loss,
         evaluator=dev_evaluator,
-        callbacks=[early_stop]
+        # callbacks=[early_stop]
     )
 
     trainer.train()
@@ -164,8 +177,8 @@ def train_sbert(run_path, df_train, df_val, df_test, answer_column, target_colum
         df_test_copy['embedding'] = df_test_copy[answer_column].apply(model.encode)
 
     df_inference = cross_dataframes(df=df_test_copy, df_ref=df_train_copy)
-    df_inference['sim'] = df_inference.apply(lambda row: row['embedding_1'] @ row['embedding_2'], axis=1)
-    test_answers, test_true_scores, test_predictions, test_predictions_max = get_preds_from_pairs(df=df_inference, id_column=id_column+'_1', pred_column='sim', ref_label_column=target_column+'_2', true_label_column=target_column+'_1')
+    df_inference['sim'] = df_inference.apply(calculate_sim, axis=1)
+    test_answers, test_true_scores, test_predictions, test_predictions_max, _ = get_preds_from_pairs(df=df_inference, id_column=id_column+'_1', pred_column='sim', ref_label_column=target_column+'_2', true_label_column=target_column+'_1')
 
     df_test_aggregated = pd.DataFrame({id_column: test_answers, 'pred': test_predictions, target_column: test_true_scores, 'pred_max': test_predictions_max})
     df_test_aggregated.to_csv(os.path.join(run_path, 'preds.csv'))
@@ -175,6 +188,8 @@ def train_sbert(run_path, df_train, df_val, df_test, answer_column, target_colum
 
     logging.info('Training duration:\t' + str(datetime.now() - start_time))
 
-    model.save_pretrained(model_path)
+    if save_model:
+
+        model.save_pretrained(model_path)
 
     return test_true_scores, test_predictions_max, test_predictions

@@ -12,10 +12,10 @@ from datetime import datetime
 from model_training.utils import encode_labels, get_device, Dataset, compute_metrics, WriteCsvCallback, GetTestPredictionsCallback, eval_bert
 from transformers import XLMRobertaTokenizer, XLMRobertaForSequenceClassification, Trainer, TrainingArguments, EarlyStoppingCallback
 
-from config import ANSWER_LENGTH
+from config import ANSWER_LENGTH, PATIENCE
 
 
-def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column, base_model, num_epochs, batch_size, save_model=False):
+def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column, base_model, num_epochs, batch_size, patience=PATIENCE, save_model=False):
 
     gc.collect()
 
@@ -129,7 +129,7 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column
             eval_strategy="epoch",
             logging_strategy="epoch",
             save_strategy="epoch",
-            save_total_limit=5,
+            save_total_limit=5
         )
     else:
 
@@ -138,8 +138,9 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column
             num_train_epochs=num_epochs,             
             per_device_train_batch_size=batch_size,
             per_device_eval_batch_size=batch_size,  
-            evaluation_strategy="epoch",
+            eval_strategy="epoch",
             logging_strategy="epoch",
+            metric_for_best_model='loss'
         )
 
     trainer = Trainer(
@@ -155,7 +156,7 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column
 
     trainer.add_callback(WriteCsvCallback(csv_train=os.path.join(run_path, "train_stats.csv"), csv_eval=os.path.join(run_path, "eval_stats.csv"), dict_val_loss=dict_val_loss))
     trainer.add_callback(GetTestPredictionsCallback(dict_test_preds=dict_test_preds, save_path=os.path.join(run_path, "test_stats.csv"), trainer=trainer, test_data=test_dataset))
-    trainer.add_callback(EarlyStoppingCallback(early_stopping_patience=3))
+    trainer.add_callback(EarlyStoppingCallback(early_stopping_patience=patience))
     trainer.train()
 
     # Determine epoch with lowest validation loss

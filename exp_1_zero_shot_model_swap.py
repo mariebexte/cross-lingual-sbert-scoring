@@ -5,17 +5,18 @@ import torch
 
 import pandas as pd
 
-from config import EPIRLS, ASAP_M, ASAP_T, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, SBERT_BATCH_SIZE, BERT_BATCH_SIZE, RESULT_PATH_EXP_1
+from config import EPIRLS, ASAP_M, ASAP_T, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, SBERT_BATCH_SIZE, BERT_BATCH_SIZE, RESULT_PATH_EXP_1, SBERT_BATCH_SIZE_ASAP_M, BERT_BATCH_SIZE_ASAP_M
 from copy import deepcopy
 from model_training.sbert_for_classification import SbertForSequenceClassification
 from model_training.train_xlmr_sbert_core import train_xlmr
-from model_training.train_sbert import train_sbert
+# from model_training.train_sbert import train_sbert
+from model_training.train_sbert_old import train_sbert
 from model_training.utils import read_data, get_device, eval_sbert_classification, eval_sbert, write_classification_statistics
 from sentence_transformers import SentenceTransformer
 from transformers import AutoConfig
 
 
-def run_model_swap(dataset_path, dataset_name, languages, id_column, answer_column, target_column, translate_test, run_sbert=True, run_xlmr=True, run_suffix=''):
+def run_model_swap(dataset_path, dataset_name, languages, id_column, answer_column, target_column, translate_test, bert_bs, sbert_bs, run_sbert=True, run_xlmr=True, run_suffix=''):
 
     device = get_device()
 
@@ -40,7 +41,7 @@ def run_model_swap(dataset_path, dataset_name, languages, id_column, answer_colu
 
                 if not os.path.exists(os.path.join(run_path_sbert, 'preds.csv')):
 
-                    gold, pred_max, pred_avg = train_sbert(run_path_sbert, answer_column=answer_column, id_column=id_column, target_column=target_column, df_train=df_train, df_val=df_val, df_test=df_test, base_model=XLMR_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, save_model=True)
+                    gold, pred_max, pred_avg = train_sbert(run_path_sbert, answer_column=answer_column, id_column=id_column, target_column=target_column, df_train=df_train, df_val=df_val, df_test=df_test, base_model=XLMR_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=sbert_bs, save_model=True)
                     
                     # Eval trained model on within-language data
                     write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_avg, suffix='')
@@ -63,7 +64,7 @@ def run_model_swap(dataset_path, dataset_name, languages, id_column, answer_colu
                         
                         df_test_sbert = read_data(os.path.join(dataset_path, prompt, test_lang, 'test.csv'), answer_column=answer_column, target_column=target_column)
                         df_test_sbert['embedding'] = df_test_sbert[answer_column].apply(model.encode)
-                        gold, pred_max_test, pred_avg_test = eval_sbert(run_path_test_sbert, df_test=df_test_sbert, df_ref=df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
+                        gold, pred_max_test, pred_avg_test, _ = eval_sbert(run_path_test_sbert, df_test=df_test_sbert, df_ref=df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
 
                         write_classification_statistics(filepath=run_path_test_sbert, y_true=gold, y_pred=pred_avg_test, suffix='')
                         write_classification_statistics(filepath=run_path_test_sbert, y_true=gold, y_pred=pred_max_test, suffix='_max')
@@ -78,7 +79,7 @@ def run_model_swap(dataset_path, dataset_name, languages, id_column, answer_colu
                             
                             df_test_sbert_translated = read_data(os.path.join(dataset_path, prompt, test_lang, 'test_translated_m2m_100_1.2B_' + language + '.csv'), answer_column=answer_column, target_column=target_column)
                             df_test_sbert_translated['embedding'] = df_test_sbert_translated[answer_column].apply(model.encode)
-                            gold, pred_max_translated, pred_avg_translated = eval_sbert(run_path_test_sbert_translated, df_test=df_test_sbert_translated, df_ref=df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
+                            gold, pred_max_translated, pred_avg_translated, _ = eval_sbert(run_path_test_sbert_translated, df_test=df_test_sbert_translated, df_ref=df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
 
                             write_classification_statistics(filepath=run_path_test_sbert_translated, y_true=gold, y_pred=pred_avg_translated, suffix='')
                             write_classification_statistics(filepath=run_path_test_sbert_translated, y_true=gold, y_pred=pred_max_translated, suffix='_max')
@@ -96,7 +97,7 @@ def run_model_swap(dataset_path, dataset_name, languages, id_column, answer_colu
 
                 if not os.path.exists(os.path.join(run_path_bert, 'preds.csv')):
 
-                    gold, xlmr_pred = train_xlmr(run_path_bert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=BERT_BATCH_SIZE, save_model=True, base_model='/models/'+SBERT_BASE_MODEL)
+                    gold, xlmr_pred = train_xlmr(run_path_bert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=bert_bs, save_model=True, base_model='/models/'+SBERT_BASE_MODEL)
                     
                     write_classification_statistics(filepath=run_path_bert, y_true=gold, y_pred=xlmr_pred)
                     
@@ -150,7 +151,7 @@ def run_model_swap(dataset_path, dataset_name, languages, id_column, answer_colu
 
 
 
-def run_model_swap_cross_validated(dataset_path, dataset_name, languages, id_column, answer_column, target_column, translate_test, num_folds, run_sbert=True, run_xlmr=True, run_suffix=''):
+def run_model_swap_cross_validated(dataset_path, dataset_name, languages, id_column, answer_column, target_column, translate_test, num_folds, sbert_bs, bert_bs, run_sbert=True, run_xlmr=True, run_suffix=''):
 
     device = get_device()
     
@@ -193,7 +194,7 @@ def run_model_swap_cross_validated(dataset_path, dataset_name, languages, id_col
 
                     if not os.path.exists(os.path.join(run_path_sbert, 'preds.csv')):
 
-                        gold, pred_max, pred_avg = train_sbert(run_path_sbert, answer_column=answer_column, id_column=id_column, target_column=target_column, df_train=df_train, df_val=df_val, df_test=df_test, base_model=XLMR_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, save_model=True)
+                        gold, pred_max, pred_avg = train_sbert(run_path_sbert, answer_column=answer_column, id_column=id_column, target_column=target_column, df_train=df_train, df_val=df_val, df_test=df_test, base_model=XLMR_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=sbert_bs, save_model=True)
                         
                         # Eval trained model on within-language data
                         write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_avg, suffix='')
@@ -289,7 +290,7 @@ def run_model_swap_cross_validated(dataset_path, dataset_name, languages, id_col
 
                     if not os.path.exists(os.path.join(run_path_bert, 'preds.csv')):
 
-                        gold, xlmr_pred = train_xlmr(run_path_bert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=BERT_BATCH_SIZE, save_model=True, base_model='/models/'+SBERT_BASE_MODEL)
+                        gold, xlmr_pred = train_xlmr(run_path_bert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=bert_bs, save_model=True, base_model='/models/'+SBERT_BASE_MODEL)
                         
                         write_classification_statistics(filepath=run_path_bert, y_true=gold, y_pred=xlmr_pred)
                         
@@ -373,6 +374,8 @@ for run in ['_RUN1']:
             run_xlmr=True, 
             run_suffix=run, 
             translate_test=dataset['translate_test'],
+            bert_bs=BERT_BATCH_SIZE,
+            sbert_bs=SBERT_BATCH_SIZE
             )
 
 
@@ -392,4 +395,6 @@ for run in ['_RUN1']:
             run_suffix=run, 
             translate_test=dataset['translate_test'],
             num_folds=dataset['num_folds'],
+            bert_bs=BERT_BATCH_SIZE_ASAP_M,
+            sbert_bs=SBERT_BATCH_SIZE_ASAP_M
             )

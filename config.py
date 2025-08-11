@@ -42,23 +42,30 @@ ASAP_M = {
 
 
 ANSWER_LENGTH = 128
+# PATIENCE = 3
+PATIENCE = 20
 
 # SBERT_BASE_MODEL = 'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2'
 SBERT_BASE_MODEL = 'paraphrase-multilingual-MiniLM-L12-v2'
+# SBERT_BASE_MODEL = 'paraphrase-multilingual-mpnet-base-v2'
 XLMR_BASE_MODEL = 'xlm-roberta-base'
 
 RESULT_PATH_EXP_1 = '/results/fair/exp_1_zero_shot'
 RESULT_PATH_EXP_2 = '/results/fair/exp_2_tradeoff'
 RESULT_PATH_EXP_3 = '/results/fair/exp_3_lolo'
 
-SBERT_NUM_EPOCHS = 25
-NPCR_NUM_EPOCHS = 25
-BERT_NUM_EPOCHS = 25
+SBERT_NUM_EPOCHS = 50
+NPCR_NUM_EPOCHS = 50
+BERT_NUM_EPOCHS = 50
 
 SBERT_BATCH_SIZE = 32
 NPCR_BATCH_SIZE = 32
 BERT_BATCH_SIZE = 32
 
-SBERT_NUM_VAL_PAIRS = 20
-NPCR_NUM_VAL_PAIRS = 20
-NPCR_NUM_TEST_PAIRS = None
+SBERT_BATCH_SIZE_ASAP_M = 16
+NPCR_BATCH_SIZE_ASAP_M = 16
+BERT_BATCH_SIZE_ASAP_M = 16
+
+SBERT_NUM_VAL_PAIRS = 10
+NPCR_NUM_VAL_PAIRS = 10
+NPCR_NUM_TEST_PAIRS = 50

@@ -246,7 +246,7 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
 
                 if model == 'SBERT' or model == 'pretrained' or model == 'SBERT_XLMRcore':
 
-                    pred_avg = df_preds['pred_avg']
+                    pred_avg = df_preds['pred']
                     pred_max = df_preds['pred_max']
 
                     write_classification_statistics(filepath=os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, test_language, model), y_true=gold, y_pred=pred_avg, suffix='')
@@ -492,7 +492,7 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
 
                 if model == 'SBERT' or model == 'pretrained' or model == 'SBERT_XLMRcore':
 
-                    pred_avg = df_preds['pred_avg']
+                    pred_avg = df_preds['pred']
                     pred_max = df_preds['pred_max']
 
                     write_classification_statistics(filepath=os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, test_language, model), y_true=gold, y_pred=pred_avg, suffix='')

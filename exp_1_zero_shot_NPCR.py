@@ -4,14 +4,14 @@ import torch
 
 import pandas as pd
 
-from config import EPIRLS, ASAP_T, ASAP_M, SBERT_BASE_MODEL, XLMR_BASE_MODEL, RESULT_PATH_EXP_1, ANSWER_LENGTH, NPCR_BATCH_SIZE, NPCR_NUM_EPOCHS
+from config import EPIRLS, ASAP_T, ASAP_M, SBERT_BASE_MODEL, XLMR_BASE_MODEL, RESULT_PATH_EXP_1, ANSWER_LENGTH, NPCR_BATCH_SIZE, NPCR_NUM_EPOCHS, NPCR_BATCH_SIZE_ASAP_M
 from copy import deepcopy
 from model_training.train_npcr import train_npcr
 from model_training.utils import read_data, get_device, write_classification_statistics
 from npcr.evaluator_core import evaluate_finetuned_model
 
 
-def run_dataset(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, translate_test, run_suffix='', run_xlmr=True, run_sbert=True):
+def run_dataset(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, translate_test, batch_size, run_suffix='', run_xlmr=True, run_sbert=True):
 
     device = get_device()
 
@@ -51,7 +51,7 @@ def run_dataset(dataset_path, dataset_name, id_column, prompt_column, answer_col
 
                 if not os.path.exists(os.path.join(run_path, 'preds.csv')):
                     
-                    gold, pred = train_npcr(target_path=run_path, df_train=df_train, df_val=df_val, df_test=df_test, col_id=id_column, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=base_model, max_num=ANSWER_LENGTH, batch_size=NPCR_BATCH_SIZE, num_epochs=NPCR_NUM_EPOCHS, save_model=True)
+                    gold, pred = train_npcr(target_path=run_path, df_train=df_train, df_val=df_val, df_test=df_test, col_id=id_column, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=base_model, max_num=ANSWER_LENGTH, batch_size=batch_size, num_epochs=NPCR_NUM_EPOCHS, save_model=True)
                     write_classification_statistics(filepath=run_path, y_true=gold, y_pred=pred)
 
                     # Zero-shot evaluation of finetuned model on all **other** languages
@@ -99,7 +99,7 @@ def run_dataset(dataset_path, dataset_name, id_column, prompt_column, answer_col
 
 
 
-def run_dataset_folds(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, translate_test, num_folds, run_suffix='', run_xlmr=True, run_sbert=True):
+def run_dataset_folds(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, translate_test, num_folds, batch_size, run_suffix='', run_xlmr=True, run_sbert=True):
 
     device = get_device()
 
@@ -137,6 +137,8 @@ def run_dataset_folds(dataset_path, dataset_name, id_column, prompt_column, answ
                 df_val = read_data(os.path.join(dataset_path, prompt, language, 'fold_' + str(val_fold) + '.csv'), answer_column=answer_column, target_column=target_column)
                 df_test = read_data(os.path.join(dataset_path, prompt, language, 'fold_' + str(test_fold) + '.csv'), answer_column=answer_column, target_column=target_column)
 
+                models = []
+
                 if run_xlmr:
 
                     models.append((XLMR_BASE_MODEL, 'NPCR_XLMR'))
@@ -154,7 +156,7 @@ def run_dataset_folds(dataset_path, dataset_name, id_column, prompt_column, answ
 
                     if not os.path.exists(os.path.join(run_path, 'preds.csv')):
                         
-                        gold, pred = train_npcr(target_path=run_path, df_train=df_train, df_val=df_val, df_test=df_test, col_id=id_column, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=base_model, max_num=ANSWER_LENGTH, num_epochs=NPCR_NUM_EPOCHS, batch_size=NPCR_BATCH_SIZE, save_model=True)
+                        gold, pred = train_npcr(target_path=run_path, df_train=df_train, df_val=df_val, df_test=df_test, col_id=id_column, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=base_model, max_num=ANSWER_LENGTH, num_epochs=NPCR_NUM_EPOCHS, batch_size=batch_size, save_model=True)
                         write_classification_statistics(filepath=run_path, y_true=gold, y_pred=pred)
 
                         # Zero-shot evaluation of finetuned model on all **other** languages
@@ -240,7 +242,8 @@ for run in ['_RUN1']:
             run_suffix=run, 
             run_xlmr=True,
             run_sbert=True,
-            translate_test=dataset['translate_test']
+            translate_test=dataset['translate_test'],
+            batch_size=NPCR_BATCH_SIZE
             )
 
 
@@ -260,5 +263,6 @@ for run in ['_RUN1']:
             run_xlmr=True,
             run_sbert=True,
             translate_test=dataset['translate_test'], 
-            num_folds=dataset['num_folds']
+            num_folds=dataset['num_folds'],
+            batch_size=NPCR_BATCH_SIZE_ASAP_M
             )
