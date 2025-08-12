@@ -16,7 +16,7 @@ from datetime import datetime
 from npcr.model import npcr_model
 from npcr.evaluator_core import Evaluator_opti_adversarial, evaluate_finetuned_model
 
-from config import NPCR_NUM_VAL_PAIRS, NPCR_NUM_TEST_PAIRS, PATIENCE
+from config import NPCR_NUM_VAL_PAIRS, NPCR_NUM_TEST_PAIRS
 
 import nltk
 nltk.download('punkt')
@@ -26,7 +26,7 @@ np.random.seed(100)
 logger = get_logger("Train...")
         
 
-def train_npcr(target_path, base_model, df_train, df_val, df_test, col_id, col_prompt, col_answer, col_score, max_num, batch_size, num_epochs, val_example_size=NPCR_NUM_VAL_PAIRS, example_size=NPCR_NUM_TEST_PAIRS, min_label=None, max_label=None, learning_rate=0.00005, model_name='best_model', training_within_prompt=True, training_with_same_score=True, num_training_pairs=None, finetuned_model=None, save_model=False, patience=PATIENCE):
+def train_npcr(target_path, base_model, df_train, df_val, df_test, col_id, col_prompt, col_answer, col_score, max_num, batch_size, num_epochs, val_example_size=NPCR_NUM_VAL_PAIRS, example_size=NPCR_NUM_TEST_PAIRS, min_label=None, max_label=None, learning_rate=0.00005, model_name='best_model', training_within_prompt=True, training_with_same_score=True, num_training_pairs=None, finetuned_model=None, save_model=False):
 
     if example_size is None:
         example_size=len(df_train)
@@ -78,7 +78,7 @@ def train_npcr(target_path, base_model, df_train, df_val, df_test, col_id, col_p
     model.cuda()
 
     evl = Evaluator_opti_adversarial(out_dir=target_path, model_name=model_name, features_dev=features_dev, masks_dev=masks_dev,\
-        dev_y_example=y_dev_example, dev_y_goal=y_dev_goal, min_label=min_label, max_label=max_label, prompts_array=df_val[col_prompt], example_size=val_example_size, patience=patience)
+        dev_y_example=y_dev_example, dev_y_goal=y_dev_goal, min_label=min_label, max_label=max_label, prompts_array=df_val[col_prompt], example_size=val_example_size, patience=num_epochs)
 
     logger.info("Train model")
     loss_fn = nn.MSELoss()

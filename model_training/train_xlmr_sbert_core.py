@@ -13,10 +13,8 @@ from transformers import Trainer, TrainingArguments, AutoConfig, EarlyStoppingCa
 from model_training.sbert_for_classification import SbertForSequenceClassification
 from model_training.utils import encode_labels, get_device, Dataset, compute_metrics, WriteCsvCallback, GetTestPredictionsCallback
 
-from config import PATIENCE
 
-
-def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column, base_model, num_epochs, batch_size, save_model=False, from_pretrained=False, patience=PATIENCE):
+def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column, base_model, num_epochs, batch_size, save_model=False, from_pretrained=False):
 
     gc.collect()
 
@@ -142,6 +140,7 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column
             logging_strategy="epoch",
             save_strategy="epoch",
             save_total_limit=5,
+            fp16=True
         )
 
     else:
@@ -153,7 +152,7 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column
             per_device_eval_batch_size=batch_size,  
             eval_strategy="epoch",
             logging_strategy="epoch",
-            metric_for_best_model='loss'
+            fp16=True
         )
 
     trainer = Trainer(
@@ -169,7 +168,6 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column
 
     trainer.add_callback(WriteCsvCallback(csv_train=os.path.join(run_path, "train_stats.csv"), csv_eval=os.path.join(run_path, "eval_stats.csv"), dict_val_loss=dict_val_loss))
     trainer.add_callback(GetTestPredictionsCallback(dict_test_preds=dict_test_preds, save_path=os.path.join(run_path, "test_stats.csv"), trainer=trainer, test_data=test_dataset))
-    trainer.add_callback(EarlyStoppingCallback(early_stopping_patience=patience))
     trainer.train()
 
     # Determine epoch with lowest validation loss

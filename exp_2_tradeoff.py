@@ -5,7 +5,7 @@ import torch
 
 import pandas as pd
 
-from config import EPIRLS, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, NPCR_NUM_EPOCHS, SBERT_BATCH_SIZE, BERT_BATCH_SIZE, NPCR_BATCH_SIZE, ANSWER_LENGTH, RESULT_PATH_EXP_2
+from config import EPIRLS, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, NPCR_NUM_EPOCHS, SBERT_BATCH_SIZE, BERT_BATCH_SIZE, NPCR_BATCH_SIZE, ANSWER_LENGTH, RESULT_PATH_EXP_2, RANDOM_SEED
 from copy import deepcopy
 from model_training.train_xlmr import train_xlmr
 from model_training.train_xlmr_sbert_core import train_xlmr as train_xlmr_sbert_core
@@ -14,11 +14,10 @@ from model_training.train_npcr import train_npcr
 from model_training.utils import read_data, get_device, write_classification_statistics
 
 
-random_state = 56398
 amounts = [15, 35, 75, 150, 300]
 
 
-def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, run_xlmr=True, run_sbert=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, run_npcr_xlmr=True, run_npcr_sbert=True):
+def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, run_xlmr=False, run_sbert=False, run_xlmr_swap_sbert=False, run_sbert_swap_xlmr=False, run_npcr_xlmr=False, run_npcr_sbert=False):
 
     device = get_device()
 
@@ -37,6 +36,8 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
 
             # This will be copied and downsampled multiple times
             df_train_base = read_data(os.path.join(dataset_path, prompt, base_language, 'train.csv'), answer_column=answer_column, target_column=target_column)
+            # Shuffling for NPCR
+            df_train_base = df_train_base.sample(frac=1, random_state=RANDOM_SEED).reset_index(drop=True)
             
             # The distribution based on which answer counts will be calculated
             label_dist = dict(df_train_base[target_column].value_counts())
@@ -55,7 +56,7 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
                     amount = int(round(sample_ratio*amount, 0))
 
                     # Remove this amount of foreign language
-                    df_train_remove = df_train_base[df_train_base[target_column] == label].sample(amount, random_state=random_state)
+                    df_train_remove = df_train_base[df_train_base[target_column] == label].sample(amount, random_state=RANDOM_SEED)
                     df_train_base_reduced = df_train_base_reduced.drop(df_train_remove.index)
                 
                 df_train_base_reduced.reset_index(inplace=True)
@@ -82,10 +83,11 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
                     
                     if not os.path.exists(os.path.join(run_path_sbert, 'preds.csv')):
 
-                        gold, pred_max, pred_avg = train_sbert(run_path_sbert, df_train=df_train_base_reduced, df_val=df_val_base, df_test=df_test_base, answer_column=answer_column, target_column=target_column, base_model=SBERT_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, save_model=True)
+                        gold, pred_max, pred_avg, pred_hybrid = train_sbert(run_path_sbert, df_train=df_train_base_reduced, df_val=df_val_base, df_test=df_test_base, answer_column=answer_column, target_column=target_column, base_model=SBERT_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, save_model=True)
 
                         write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_avg, suffix='')
                         write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_max, suffix='_max')
+                        write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_hybrid, suffix='_hybrid')
 
                         df_train_base_reduced.to_csv(os.path.join(run_path_sbert, 'train.csv'))
                         df_val_base.to_csv(os.path.join(run_path_sbert, 'val.csv'))
@@ -113,10 +115,11 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
                     
                     if not os.path.exists(os.path.join(run_path_sbert_swap_xlmr, 'preds.csv')):
 
-                        gold, pred_max_xlmr_core, pred_avg_xlmr_core = train_sbert(run_path_sbert_swap_xlmr, answer_column=answer_column, id_column=id_column, target_column=target_column, df_train=df_train_base_reduced, df_val=df_val_base, df_test=df_test_base, base_model=XLMR_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, save_model=True)
+                        gold, pred_max_xlmr_core, pred_avg_xlmr_core, pred_hybrid_xlmr_core = train_sbert(run_path_sbert_swap_xlmr, answer_column=answer_column, id_column=id_column, target_column=target_column, df_train=df_train_base_reduced, df_val=df_val_base, df_test=df_test_base, base_model=XLMR_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, save_model=True)
                         
                         write_classification_statistics(filepath=run_path_sbert_swap_xlmr, y_true=gold, y_pred=pred_avg_xlmr_core, suffix='')
                         write_classification_statistics(filepath=run_path_sbert_swap_xlmr, y_true=gold, y_pred=pred_max_xlmr_core, suffix='_max')
+                        write_classification_statistics(filepath=run_path_sbert_swap_xlmr, y_true=gold, y_pred=pred_hybrid_xlmr_core, suffix='_hybrid')
 
                         df_train_base_reduced.to_csv(os.path.join(run_path_sbert_swap_xlmr, 'train.csv'))
                         df_val_base.to_csv(os.path.join(run_path_sbert_swap_xlmr, 'val.csv'))
@@ -175,7 +178,10 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
                         df_train_target_sample_label = df_train_target[df_train_target[target_column] == label].sample(amount, random_state=random_state)
                         df_train_target_sample = pd.concat([df_train_target_sample, df_train_target_sample_label])
                         df_train_target_sample.reset_index(inplace=True)
+                    
 
+                    # Shuffle for NPCR
+                    df_train_target_sample = df_train_target_sample.sample(frac=1, random_state=23563).reset_index(drop=True)
 
                     if run_xlmr:
 
@@ -202,10 +208,11 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
 
                             finetuned_model_sbert = os.path.join(run_path_sbert, 'finetuned_model')
 
-                            gold, pred_max_finetune, pred_avg_finetune = train_sbert(run_path_sbert_finetune, df_train=df_train_target_sample, df_val=df_val_target, df_test=df_test_target, answer_column=answer_column, target_column=target_column, base_model=finetuned_model_sbert, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, save_model=False)
+                            gold, pred_max_finetune, pred_avg_finetune, pred_hybrid_finetune = train_sbert(run_path_sbert_finetune, df_train=df_train_target_sample, df_val=df_val_target, df_test=df_test_target, answer_column=answer_column, target_column=target_column, base_model=finetuned_model_sbert, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, save_model=False)
 
                             write_classification_statistics(filepath=run_path_sbert_finetune, y_true=gold, y_pred=pred_avg_finetune, suffix='')
                             write_classification_statistics(filepath=run_path_sbert_finetune, y_true=gold, y_pred=pred_max_finetune, suffix='_max')
+                            write_classification_statistics(filepath=run_path_sbert_finetune, y_true=gold, y_pred=pred_hybrid_finetune, suffix='_hybrid')
 
                             df_train_target_sample.to_csv(os.path.join(run_path_sbert_finetune, 'train.csv'))
                             df_val_target.to_csv(os.path.join(run_path_sbert_finetune, 'val.csv'))
@@ -237,10 +244,11 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
 
                             finetuned_model_sbert_swap_xlmr = os.path.join(run_path_sbert_swap_xlmr, 'finetuned_model')
 
-                            gold, pred_max_xlmr_core, pred_avg_xlmr_core = train_sbert(run_path_sbert_swap_xlmr_finetune, df_train=df_train_target_sample, df_val=df_val_target, df_test=df_test_target, answer_column=answer_column, target_column=target_column, base_model=finetuned_model_sbert_swap_xlmr, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, save_model=False)
+                            gold, pred_max_xlmr_core, pred_avg_xlmr_core, pred_hybrid_xlmr_core = train_sbert(run_path_sbert_swap_xlmr_finetune, df_train=df_train_target_sample, df_val=df_val_target, df_test=df_test_target, answer_column=answer_column, target_column=target_column, base_model=finetuned_model_sbert_swap_xlmr, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, save_model=False)
 
                             write_classification_statistics(filepath=run_path_sbert_swap_xlmr_finetune, y_true=gold, y_pred=pred_avg_xlmr_core, suffix='')
                             write_classification_statistics(filepath=run_path_sbert_swap_xlmr_finetune, y_true=gold, y_pred=pred_max_xlmr_core, suffix='_max')
+                            write_classification_statistics(filepath=run_path_sbert_swap_xlmr_finetune, y_true=gold, y_pred=pred_hybrid_xlmr_core, suffix='_hybrid')
 
                             df_train_target_sample.to_csv(os.path.join(run_path_sbert_swap_xlmr_finetune, 'train.csv'))
                             df_val_target.to_csv(os.path.join(run_path_sbert_swap_xlmr_finetune, 'val.csv'))
@@ -306,10 +314,10 @@ run_exp(
     answer_column=EPIRLS['answer_column'],
     target_column=EPIRLS['target_column'],
     languages=EPIRLS['languages'],
-    run_xlmr=True,
-    run_sbert=True,
-    run_xlmr_swap_sbert=True,
-    run_sbert_swap_xlmr=True,
-    run_npcr_xlmr=True,
-    run_npcr_sbert=True,
+    run_xlmr=False,
+    run_sbert=False,
+    run_xlmr_swap_sbert=False,
+    run_sbert_swap_xlmr=False,
+    run_npcr_xlmr=False,
+    run_npcr_sbert=False,
     )

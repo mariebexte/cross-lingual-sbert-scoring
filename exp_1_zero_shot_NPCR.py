@@ -4,14 +4,14 @@ import torch
 
 import pandas as pd
 
-from config import EPIRLS, ASAP_T, ASAP_M, SBERT_BASE_MODEL, XLMR_BASE_MODEL, RESULT_PATH_EXP_1, ANSWER_LENGTH, NPCR_BATCH_SIZE, NPCR_NUM_EPOCHS, NPCR_BATCH_SIZE_ASAP_M
+from config import EPIRLS, ASAP_T, ASAP_M, SBERT_BASE_MODEL, XLMR_BASE_MODEL, RESULT_PATH_EXP_1, ANSWER_LENGTH, NPCR_BATCH_SIZE, NPCR_NUM_EPOCHS, NPCR_BATCH_SIZE_ASAP_M, RANDOM_SEED
 from copy import deepcopy
 from model_training.train_npcr import train_npcr
 from model_training.utils import read_data, get_device, write_classification_statistics
 from npcr.evaluator_core import evaluate_finetuned_model
 
 
-def run_dataset(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, translate_test, batch_size, run_suffix='', run_xlmr=True, run_sbert=True):
+def run_dataset(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, translate_test, batch_size, run_suffix='', run_xlmr=False, run_sbert=False):
 
     device = get_device()
 
@@ -40,7 +40,7 @@ def run_dataset(dataset_path, dataset_name, id_column, prompt_column, answer_col
 
                 df_train = read_data(os.path.join(dataset_path, prompt, language, 'train.csv'), answer_column=answer_column, target_column=target_column)
                 # Must shuffle! Otherwise training pairs are built to form almost exclusively with similarity label 0
-                df_train = df_train.sample(frac=1, random_state=7542).reset_index(drop=True)
+                df_train = df_train.sample(frac=1).reset_index(drop=True)
                 df_val = read_data(os.path.join(dataset_path, prompt, language, 'val.csv'), answer_column=answer_column, target_column=target_column)
                 df_test = read_data(os.path.join(dataset_path, prompt, language, 'test.csv'), answer_column=answer_column, target_column=target_column)
 
@@ -133,7 +133,7 @@ def run_dataset_folds(dataset_path, dataset_name, id_column, prompt_column, answ
                 
                 df_train = pd.concat(df_train_list)
                 # Must shuffle! Otherwise training pairs are built to form almost exclusively with similarity label 0
-                df_train = df_train.sample(frac=1, random_state=7542).reset_index(drop=True)
+                df_train = df_train.sample(frac=1, random_state=RANDOM_SEED).reset_index(drop=True)
                 df_val = read_data(os.path.join(dataset_path, prompt, language, 'fold_' + str(val_fold) + '.csv'), answer_column=answer_column, target_column=target_column)
                 df_test = read_data(os.path.join(dataset_path, prompt, language, 'fold_' + str(test_fold) + '.csv'), answer_column=answer_column, target_column=target_column)
 
@@ -240,8 +240,8 @@ for run in ['_RUN1']:
             target_column=dataset['target_column'], 
             languages=dataset['languages'], 
             run_suffix=run, 
-            run_xlmr=True,
-            run_sbert=True,
+            run_xlmr=False,
+            run_sbert=False,
             translate_test=dataset['translate_test'],
             batch_size=NPCR_BATCH_SIZE
             )
@@ -260,8 +260,8 @@ for run in ['_RUN1']:
             target_column=dataset['target_column'],
             languages=dataset['languages'], 
             run_suffix=run, 
-            run_xlmr=True,
-            run_sbert=True,
+            run_xlmr=False,
+            run_sbert=False,
             translate_test=dataset['translate_test'], 
             num_folds=dataset['num_folds'],
             batch_size=NPCR_BATCH_SIZE_ASAP_M

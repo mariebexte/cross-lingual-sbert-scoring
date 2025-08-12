@@ -5,7 +5,7 @@ import torch
 
 import pandas as pd
 
-from config import EPIRLS, ASAP_T, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, NPCR_NUM_EPOCHS, SBERT_BATCH_SIZE, BERT_BATCH_SIZE, NPCR_BATCH_SIZE, BERT_BATCH_SIZE_ASAP_M, SBERT_BATCH_SIZE_ASAP_M, NPCR_BATCH_SIZE_ASAP_M, RESULT_PATH_EXP_3, ANSWER_LENGTH
+from config import EPIRLS, ASAP_T, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, NPCR_NUM_EPOCHS, SBERT_BATCH_SIZE, BERT_BATCH_SIZE, NPCR_BATCH_SIZE, RESULT_PATH_EXP_3, ANSWER_LENGTH, RANDOM_SEED
 from copy import deepcopy
 from model_training.train_xlmr import train_xlmr
 from model_training.train_xlmr_sbert_core import train_xlmr as train_xlmr_sbert_core
@@ -16,10 +16,7 @@ from sentence_transformers import SentenceTransformer
 
 
 
-random_state = 3456786544
-
-
-def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, bert_batch_size, sbert_batch_size, npcr_batch_size, run_suffix='', run_xlmr=True, run_sbert=True, run_pretrained=True, run_npcr_sbert=True, run_npcr_xlmr=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True):
+def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, bert_batch_size, sbert_batch_size, npcr_batch_size, run_suffix='', run_xlmr=False, run_sbert=False, run_pretrained=False, run_npcr_sbert=False, run_npcr_xlmr=False, run_xlmr_swap_sbert=False, run_sbert_swap_xlmr=False):
 
     device = get_device()
 
@@ -48,8 +45,8 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
                 df_other = read_data(os.path.join(dataset_path, prompt, other_language, 'train.csv'), answer_column=answer_column, target_column=target_column)
                 df_train = pd.concat([df_train, df_other])
             
-            df_train.reset_index(inplace=True)
-
+            # Shuffle for NPCR
+            df_train = df_train.sample(frac=1, random_state=RANDOM_SEED).reset_index(drop=True)
 
             if run_xlmr:
 
@@ -164,7 +161,7 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
 
 
 
-def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, bert_batch_size, sbert_batch_size, npcr_batch_size, run_suffix='', run_xlmr=True, run_sbert=True, run_pretrained=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, run_npcr_xlmr=True, run_npcr_sbert=True):
+def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, bert_batch_size, sbert_batch_size, npcr_batch_size, run_suffix='', run_xlmr=False, run_sbert=False, run_pretrained=False, run_xlmr_swap_sbert=False, run_sbert_swap_xlmr=False, run_npcr_xlmr=False, run_npcr_sbert=False):
 
     condition = 'combine_downsampled'
 
@@ -204,10 +201,11 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
                     amount = int(round(amount*proportion_to_sample, 0))
 
                     df_label = df_other[df_other[target_column] == label]
-                    df_sample = df_label.sample(amount, random_state=random_state)
+                    df_sample = df_label.sample(amount, random_state=RANDOM_SEED)
                     df_train = pd.concat([df_train, df_sample])
 
-            df_train.reset_index(inplace=True)
+            # Shuffle for NPCR
+            df_train = df_train.sample(frac=1, random_state=RANDOM_SEED).reset_index(drop=True)
 
             if run_xlmr:
 
@@ -335,13 +333,13 @@ for run in ['_RUN1']:
             target_column=dataset['target_column'], 
             languages=dataset['languages'], 
             run_suffix=run,
-            run_xlmr=True, 
-            run_sbert=True, 
-            run_pretrained=True, 
-            run_npcr_sbert=True, 
-            run_npcr_xlmr=True, 
-            run_xlmr_swap_sbert=True, 
-            run_sbert_swap_xlmr=True,
+            run_xlmr=False, 
+            run_sbert=False, 
+            run_pretrained=False, 
+            run_npcr_sbert=False, 
+            run_npcr_xlmr=False, 
+            run_xlmr_swap_sbert=False, 
+            run_sbert_swap_xlmr=False,
             bert_batch_size=BERT_BATCH_SIZE,
             sbert_batch_size=SBERT_BATCH_SIZE,
             npcr_batch_size=NPCR_BATCH_SIZE
@@ -362,14 +360,14 @@ for run in ['_RUN1']:
             target_column=dataset['target_column'], 
             languages=dataset['languages'], 
             run_suffix=run, 
-            run_xlmr=True,
-            run_sbert=True,
-            run_pretrained=True,
-            run_npcr_xlmr=True,
-            run_npcr_sbert=True,
-            run_xlmr_swap_sbert=True,
-            run_sbert_swap_xlmr=True,
-            bert_batch_size=BERT_BATCH_SIZE_ASAP_M,
-            sbert_batch_size=SBERT_BATCH_SIZE_ASAP_M,
-            npcr_batch_size=NPCR_BATCH_SIZE_ASAP_M
+            run_xlmr=False,
+            run_sbert=False,
+            run_pretrained=False,
+            run_npcr_xlmr=False,
+            run_npcr_sbert=False,
+            run_xlmr_swap_sbert=False,
+            run_sbert_swap_xlmr=False,
+            bert_batch_size=BERT_BATCH_SIZE,
+            sbert_batch_size=SBERT_BATCH_SIZE,
+            npcr_batch_size=NPCR_BATCH_SIZE
             )

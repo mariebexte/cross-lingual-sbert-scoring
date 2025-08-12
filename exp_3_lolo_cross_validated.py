@@ -5,7 +5,7 @@ import torch
 
 import pandas as pd
 
-from config import ANSWER_LENGTH, ASAP_M, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, NPCR_NUM_EPOCHS, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_BATCH_SIZE, BERT_BATCH_SIZE, NPCR_BATCH_SIZE, RESULT_PATH_EXP_3
+from config import ANSWER_LENGTH, ASAP_M, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, NPCR_NUM_EPOCHS, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_BATCH_SIZE_ASAP_M, BERT_BATCH_SIZE_ASAP_M, NPCR_BATCH_SIZE_ASAP_M, RESULT_PATH_EXP_3, RANDOM_SEED
 from copy import deepcopy
 from model_training.train_xlmr import train_xlmr
 from model_training.train_xlmr_sbert_core import train_xlmr as train_xlmr_sbert_core
@@ -15,10 +15,7 @@ from model_training.utils import read_data, get_device, eval_sbert, write_classi
 from sentence_transformers import SentenceTransformer
 
 
-random_state = 3456786544
-
-
-def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, translate_train, num_folds, run_suffix='', run_xlmr=True, run_sbert=True, run_npcr_xlmr=True, run_npcr_sbert=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, run_pretrained=True):
+def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, translate_train, num_folds, run_suffix='', run_xlmr=False, run_sbert=False, run_npcr_xlmr=False, run_npcr_sbert=False, run_xlmr_swap_sbert=False, run_sbert_swap_xlmr=False, run_pretrained=False):
 
     device = get_device()
 
@@ -85,7 +82,8 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
 
                         df_train = pd.concat([df_train, df_other])
                 
-                df_train.reset_index(inplace=True)
+                # Shuffle for NPCR
+                df_train = df_train.sample(frac=1).reset_index(drop=True)
 
                 if run_xlmr:
 
@@ -97,7 +95,7 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
 
                             os.makedirs(run_path_bert)
 
-                        gold, xlmr_pred = train_xlmr(run_path_bert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, base_model=XLMR_BASE_MODEL, num_epochs=BERT_NUM_EPOCHS, batch_size=BERT_BATCH_SIZE, save_model=False)
+                        gold, xlmr_pred = train_xlmr(run_path_bert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, base_model=XLMR_BASE_MODEL, num_epochs=BERT_NUM_EPOCHS, batch_size=BERT_BATCH_SIZE_ASAP_M, save_model=False)
                         write_classification_statistics(filepath=run_path_bert, y_true=gold, y_pred=xlmr_pred)
                         df_train.to_csv(os.path.join(run_path_bert, 'train.csv'))
                         df_val.to_csv(os.path.join(run_path_bert, 'val.csv'))
@@ -118,9 +116,10 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
 
                             os.makedirs(run_path_sbert)
 
-                        gold, pred_max, pred_avg = train_sbert(run_path_sbert, df_train=df_train, df_val=df_val, df_test=df_test, id_column=id_column, answer_column=answer_column, target_column=target_column, base_model=SBERT_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, save_model=False)
+                        gold, pred_max, pred_avg, pred_hybrid = train_sbert(run_path_sbert, df_train=df_train, df_val=df_val, df_test=df_test, id_column=id_column, answer_column=answer_column, target_column=target_column, base_model=SBERT_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE_ASAP_M, save_model=False)
                         write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_avg, suffix='')
                         write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_max, suffix='_max')
+                        write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_hybrid, suffix='_hybrid')
                         df_train.to_csv(os.path.join(run_path_sbert, 'train.csv'))
                         df_val.to_csv(os.path.join(run_path_sbert, 'val.csv'))
                         df_test.to_csv(os.path.join(run_path_sbert, 'test.csv'))
@@ -136,7 +135,7 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
 
                     if not os.path.exists(os.path.join(run_path_bert_swap_sbert, 'preds.csv')):
 
-                        gold, xlmr_swap_sbert_pred = train_xlmr_sbert_core(run_path_bert_swap_sbert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=BERT_BATCH_SIZE, save_model=False, base_model='/models/'+SBERT_BASE_MODEL)
+                        gold, xlmr_swap_sbert_pred = train_xlmr_sbert_core(run_path_bert_swap_sbert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=BERT_BATCH_SIZE_ASAP_M, save_model=False, base_model='/models/'+SBERT_BASE_MODEL)
 
                         write_classification_statistics(filepath=run_path_bert_swap_sbert, y_true=gold, y_pred=xlmr_swap_sbert_pred)
                         df_train.to_csv(os.path.join(run_path_bert_swap_sbert, 'train.csv'))
@@ -154,9 +153,10 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
 
                     if not os.path.exists(os.path.join(run_path_sbert_swap_xlmr, 'preds.csv')):
 
-                        gold, pred_max_xlmr_core, pred_avg_xlmr_core = train_sbert(run_path_sbert_swap_xlmr, answer_column=answer_column, id_column=id_column, target_column=target_column, df_train=df_train, df_val=df_val, df_test=df_test, base_model=XLMR_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, save_model=False)
+                        gold, pred_max_xlmr_core, pred_avg_xlmr_core, pred_hybrid_xlmr_core = train_sbert(run_path_sbert_swap_xlmr, answer_column=answer_column, id_column=id_column, target_column=target_column, df_train=df_train, df_val=df_val, df_test=df_test, base_model=XLMR_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE_ASAP_M, save_model=False)
                         write_classification_statistics(filepath=run_path_sbert_swap_xlmr, y_true=gold, y_pred=pred_avg_xlmr_core, suffix='')
                         write_classification_statistics(filepath=run_path_sbert_swap_xlmr, y_true=gold, y_pred=pred_max_xlmr_core, suffix='_max')
+                        write_classification_statistics(filepath=run_path_sbert_swap_xlmr, y_true=gold, y_pred=pred_hybrid_xlmr_core, suffix='_hybrid')
                         df_train.to_csv(os.path.join(run_path_sbert_swap_xlmr, 'train.csv'))
                         df_val.to_csv(os.path.join(run_path_sbert_swap_xlmr, 'val.csv'))
                         df_test.to_csv(os.path.join(run_path_sbert_swap_xlmr, 'test.csv'))
@@ -176,7 +176,7 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
 
                             os.makedirs(run_path_npcr_xlmr)
 
-                        gold, npcr_xlmr_pred = train_npcr(target_path=run_path_npcr_xlmr, df_train=df_train, df_val=df_val, df_test=df_test, col_id=id_column, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=XLMR_BASE_MODEL, max_num=ANSWER_LENGTH, num_epochs=NPCR_NUM_EPOCHS, batch_size=NPCR_BATCH_SIZE, save_model=False)
+                        gold, npcr_xlmr_pred = train_npcr(target_path=run_path_npcr_xlmr, df_train=df_train, df_val=df_val, df_test=df_test, col_id=id_column, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=XLMR_BASE_MODEL, max_num=ANSWER_LENGTH, num_epochs=NPCR_NUM_EPOCHS, batch_size=NPCR_BATCH_SIZE_ASAP_M, save_model=False)
                         write_classification_statistics(filepath=run_path_npcr_xlmr, y_true=gold, y_pred=npcr_xlmr_pred)
                         df_train.to_csv(os.path.join(run_path_npcr_xlmr, 'train.csv'))
                         df_val.to_csv(os.path.join(run_path_npcr_xlmr, 'val.csv'))
@@ -197,7 +197,7 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
 
                             os.makedirs(run_path_npcr_sbert)
 
-                        gold, npcr_sbert_pred = train_npcr(target_path=run_path_npcr_sbert, df_train=df_train, df_val=df_val, df_test=df_test, col_id=id_column, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=SBERT_BASE_MODEL, max_num=ANSWER_LENGTH, num_epochs=NPCR_NUM_EPOCHS, batch_size=NPCR_BATCH_SIZE, save_model=False)
+                        gold, npcr_sbert_pred = train_npcr(target_path=run_path_npcr_sbert, df_train=df_train, df_val=df_val, df_test=df_test, col_id=id_column, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=SBERT_BASE_MODEL, max_num=ANSWER_LENGTH, num_epochs=NPCR_NUM_EPOCHS, batch_size=NPCR_BATCH_SIZE_ASAP_M, save_model=False)
                         write_classification_statistics(filepath=run_path_npcr_sbert, y_true=gold, y_pred=npcr_sbert_pred)
                         df_train.to_csv(os.path.join(run_path_npcr_sbert, 'train.csv'))
                         df_val.to_csv(os.path.join(run_path_npcr_sbert, 'val.csv'))
@@ -226,9 +226,10 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
                         df_test['embedding'] = df_test[answer_column].apply(model.encode)
 
                         # Predict on within-test data
-                        gold, pred_max_pretrained, pred_avg_pretrained = eval_sbert(run_path_pretrained, df_test=df_test, df_ref=df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
+                        gold, pred_max_pretrained, pred_avg_pretrained, pred_hybrid_pretrained = eval_sbert(run_path_pretrained, df_test=df_test, df_ref=df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
                         write_classification_statistics(filepath=run_path_pretrained, y_true=gold, y_pred=pred_avg_pretrained, suffix='')
                         write_classification_statistics(filepath=run_path_pretrained, y_true=gold, y_pred=pred_max_pretrained, suffix='_max')
+                        write_classification_statistics(filepath=run_path_pretrained, y_true=gold, y_pred=pred_hybrid_pretrained, suffix='_hybrid')
                         df_train.to_csv(os.path.join(run_path_pretrained, 'train.csv'))
                         df_val.to_csv(os.path.join(run_path_pretrained, 'val.csv'))
                         df_test.to_csv(os.path.join(run_path_pretrained, 'test.csv'))
@@ -248,9 +249,11 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
 
                     pred_avg = df_preds['pred']
                     pred_max = df_preds['pred_max']
+                    pred_hybrid = df_preds['pred_hybrid']
 
                     write_classification_statistics(filepath=os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, test_language, model), y_true=gold, y_pred=pred_avg, suffix='')
                     write_classification_statistics(filepath=os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, test_language, model), y_true=gold, y_pred=pred_max, suffix='_max')
+                    write_classification_statistics(filepath=os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, test_language, model), y_true=gold, y_pred=pred_hybrid, suffix='_hybrid')
                 
                 else:
 
@@ -258,7 +261,7 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
                     write_classification_statistics(filepath=os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, test_language, model), y_true=gold, y_pred=pred, suffix='')
 
 
-def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, translate_train, num_folds, run_suffix='', run_xlmr=True, run_sbert=True, run_npcr_xlmr=True, run_npcr_sbert=True, run_xlmr_swap_sbert=True, run_sbert_swap_xlmr=True, run_pretrained=True):
+def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer_column, target_column, languages, translate_train, num_folds, run_suffix='', run_xlmr=False, run_sbert=False, run_npcr_xlmr=False, run_npcr_sbert=False, run_xlmr_swap_sbert=False, run_sbert_swap_xlmr=False, run_pretrained=False):
 
     device = get_device()
     condition = 'combine_downsampled'
@@ -326,12 +329,13 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
                         df_rest = read_data(os.path.join(dataset_path, prompt, other_language, 'fold_' + str(train_folds[1]) + '.csv'), answer_column=answer_column, target_column=target_column)
                     
                     num_to_sample = len(df_other)/len(other_languages)
-                    df_sample = df_rest.sample(int(num_to_sample), random_state=random_state)
+                    df_sample = df_rest.sample(int(num_to_sample), random_state=RANDOM_SEED)
                     dfs.append(df_other)
                     dfs.append(df_sample)
                     
                 df_train = pd.concat(dfs)
-                df_train.reset_index(inplace=True)
+                # Shuffle for NPCR
+                df_train = df_train.sample(frac=1).reset_index(drop=True)
 
                 if run_xlmr:
 
@@ -343,7 +347,7 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
 
                             os.makedirs(run_path_bert)
 
-                        gold, xlmr_pred = train_xlmr(run_path_bert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, base_model=XLMR_BASE_MODEL, num_epochs=BERT_NUM_EPOCHS, batch_size=BERT_BATCH_SIZE, save_model=False)
+                        gold, xlmr_pred = train_xlmr(run_path_bert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, base_model=XLMR_BASE_MODEL, num_epochs=BERT_NUM_EPOCHS, batch_size=BERT_BATCH_SIZE_ASAP_M, save_model=False)
                         write_classification_statistics(filepath=run_path_bert, y_true=gold, y_pred=xlmr_pred)
                         df_train.to_csv(os.path.join(run_path_bert, 'train.csv'))
                         df_val.to_csv(os.path.join(run_path_bert, 'val.csv'))
@@ -364,9 +368,10 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
 
                             os.makedirs(run_path_sbert)
 
-                        gold, pred_max, pred_avg = train_sbert(run_path_sbert, df_train=df_train, df_val=df_val, df_test=df_test, id_column=id_column, answer_column=answer_column, target_column=target_column, base_model=SBERT_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, save_model=False)
+                        gold, pred_max, pred_avg, pred_hybrid = train_sbert(run_path_sbert, df_train=df_train, df_val=df_val, df_test=df_test, id_column=id_column, answer_column=answer_column, target_column=target_column, base_model=SBERT_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE_ASAP_M, save_model=False)
                         write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_avg, suffix='')
                         write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_max, suffix='_max')
+                        write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_hybrid, suffix='_hybrid')
                         df_train.to_csv(os.path.join(run_path_sbert, 'train.csv'))
                         df_val.to_csv(os.path.join(run_path_sbert, 'val.csv'))
                         df_test.to_csv(os.path.join(run_path_sbert, 'test.csv'))
@@ -382,7 +387,7 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
 
                     if not os.path.exists(os.path.join(run_path_bert_swap_sbert, 'preds.csv')):
 
-                        gold, xlmr_swap_sbert_pred = train_xlmr_sbert_core(run_path_bert_swap_sbert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=BERT_BATCH_SIZE, save_model=False, base_model='/models/'+SBERT_BASE_MODEL)
+                        gold, xlmr_swap_sbert_pred = train_xlmr_sbert_core(run_path_bert_swap_sbert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=BERT_BATCH_SIZE_ASAP_M, save_model=False, base_model='/models/'+SBERT_BASE_MODEL)
 
                         write_classification_statistics(filepath=run_path_bert_swap_sbert, y_true=gold, y_pred=xlmr_swap_sbert_pred)
                         df_train.to_csv(os.path.join(run_path_bert_swap_sbert, 'train.csv'))
@@ -400,9 +405,10 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
 
                     if not os.path.exists(os.path.join(run_path_sbert_swap_xlmr, 'preds.csv')):
 
-                        gold, pred_max_xlmr_core, pred_avg_xlmr_core = train_sbert(run_path_sbert_swap_xlmr, answer_column=answer_column, id_column=id_column, target_column=target_column, df_train=df_train, df_val=df_val, df_test=df_test, base_model=XLMR_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, save_model=False)
+                        gold, pred_max_xlmr_core, pred_avg_xlmr_core, pred_hybrid_xlmr_core = train_sbert(run_path_sbert_swap_xlmr, answer_column=answer_column, id_column=id_column, target_column=target_column, df_train=df_train, df_val=df_val, df_test=df_test, base_model=XLMR_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE_ASAP_M, save_model=False)
                         write_classification_statistics(filepath=run_path_sbert_swap_xlmr, y_true=gold, y_pred=pred_avg_xlmr_core, suffix='')
                         write_classification_statistics(filepath=run_path_sbert_swap_xlmr, y_true=gold, y_pred=pred_max_xlmr_core, suffix='_max')
+                        write_classification_statistics(filepath=run_path_sbert_swap_xlmr, y_true=gold, y_pred=pred_hybrid_xlmr_core, suffix='_hybrid')
                         df_train.to_csv(os.path.join(run_path_sbert_swap_xlmr, 'train.csv'))
                         df_val.to_csv(os.path.join(run_path_sbert_swap_xlmr, 'val.csv'))
                         df_test.to_csv(os.path.join(run_path_sbert_swap_xlmr, 'test.csv'))
@@ -422,7 +428,7 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
 
                             os.makedirs(run_path_npcr_xlmr)
 
-                        gold, npcr_xlmr_pred = train_npcr(target_path=run_path_npcr_xlmr, df_train=df_train, df_val=df_val, df_test=df_test, col_id=id_column, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=XLMR_BASE_MODEL, max_num=ANSWER_LENGTH, num_epochs=NPCR_NUM_EPOCHS, batch_size=NPCR_BATCH_SIZE, save_model=False)
+                        gold, npcr_xlmr_pred = train_npcr(target_path=run_path_npcr_xlmr, df_train=df_train, df_val=df_val, df_test=df_test, col_id=id_column, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=XLMR_BASE_MODEL, max_num=ANSWER_LENGTH, num_epochs=NPCR_NUM_EPOCHS, batch_size=NPCR_BATCH_SIZE_ASAP_M, save_model=False)
                         write_classification_statistics(filepath=run_path_npcr_xlmr, y_true=gold, y_pred=npcr_xlmr_pred)
                         df_train.to_csv(os.path.join(run_path_npcr_xlmr, 'train.csv'))
                         df_val.to_csv(os.path.join(run_path_npcr_xlmr, 'val.csv'))
@@ -443,7 +449,7 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
 
                             os.makedirs(run_path_npcr_sbert)
 
-                        gold, npcr_sbert_pred = train_npcr(target_path=run_path_npcr_sbert, df_train=df_train, df_val=df_val, df_test=df_test, col_id=id_column, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=SBERT_BASE_MODEL, max_num=ANSWER_LENGTH, num_epochs=NPCR_NUM_EPOCHS, batch_size=NPCR_BATCH_SIZE, save_model=False)
+                        gold, npcr_sbert_pred = train_npcr(target_path=run_path_npcr_sbert, df_train=df_train, df_val=df_val, df_test=df_test, col_id=id_column, col_prompt=prompt_column, col_answer=answer_column, col_score=target_column, base_model=SBERT_BASE_MODEL, max_num=ANSWER_LENGTH, num_epochs=NPCR_NUM_EPOCHS, batch_size=NPCR_BATCH_SIZE_ASAP_M, save_model=False)
                         write_classification_statistics(filepath=run_path_npcr_sbert, y_true=gold, y_pred=npcr_sbert_pred)
                         df_train.to_csv(os.path.join(run_path_npcr_sbert, 'train.csv'))
                         df_val.to_csv(os.path.join(run_path_npcr_sbert, 'val.csv'))
@@ -472,9 +478,10 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
                         df_test['embedding'] = df_test[answer_column].apply(model.encode)
 
                         # Predict on within-test data
-                        gold, pred_max_pretrained, pred_avg_pretrained = eval_sbert(run_path_pretrained, df_test=df_test, df_ref=df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
+                        gold, pred_max_pretrained, pred_avg_pretrained, pred_hybrid_pretrained = eval_sbert(run_path_pretrained, df_test=df_test, df_ref=df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
                         write_classification_statistics(filepath=run_path_pretrained, y_true=gold, y_pred=pred_avg_pretrained, suffix='')
                         write_classification_statistics(filepath=run_path_pretrained, y_true=gold, y_pred=pred_max_pretrained, suffix='_max')
+                        write_classification_statistics(filepath=run_path_pretrained, y_true=gold, y_pred=pred_hybrid_pretrained, suffix='_hybrid')
                         df_train.to_csv(os.path.join(run_path_pretrained, 'train.csv'))
                         df_val.to_csv(os.path.join(run_path_pretrained, 'val.csv'))
                         df_test.to_csv(os.path.join(run_path_pretrained, 'test.csv'))
@@ -494,9 +501,11 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
 
                     pred_avg = df_preds['pred']
                     pred_max = df_preds['pred_max']
+                    pred_hybrid = df_preds['pred_hybrid']
 
                     write_classification_statistics(filepath=os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, test_language, model), y_true=gold, y_pred=pred_avg, suffix='')
                     write_classification_statistics(filepath=os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, test_language, model), y_true=gold, y_pred=pred_max, suffix='_max')
+                    write_classification_statistics(filepath=os.path.join(RESULT_PATH_EXP_3 + run_suffix, condition, dataset_name, prompt, test_language, model), y_true=gold, y_pred=pred_hybrid, suffix='_hybrid')
                 
                 else:
                     pred = df_preds['pred']
@@ -521,13 +530,13 @@ for run in ['_RUN1']:
                 run_suffix=run, 
                 num_folds=dataset['num_folds'],
                 translate_train=translate_train,
-                run_xlmr=True,
-                run_sbert=True,
-                run_npcr_xlmr=True,
-                run_npcr_sbert=True,
-                run_xlmr_swap_sbert=True,
-                run_sbert_swap_xlmr=True,
-                run_pretrained=True
+                run_xlmr=False,
+                run_sbert=False,
+                run_npcr_xlmr=False,
+                run_npcr_sbert=False,
+                run_xlmr_swap_sbert=False,
+                run_sbert_swap_xlmr=False,
+                run_pretrained=False
                 )
 
 
@@ -549,11 +558,11 @@ for run in ['_RUN1']:
                 run_suffix=run, 
                 num_folds=dataset['num_folds'],
                 translate_train=translate_train,
-                run_xlmr=True,
-                run_sbert=True,
-                run_npcr_xlmr=True,
-                run_npcr_sbert=True,
-                run_xlmr_swap_sbert=True,
-                run_sbert_swap_xlmr=True,
-                run_pretrained=True,
+                run_xlmr=False,
+                run_sbert=False,
+                run_npcr_xlmr=False,
+                run_npcr_sbert=False,
+                run_xlmr_swap_sbert=False,
+                run_sbert_swap_xlmr=False,
+                run_pretrained=False,
                 )

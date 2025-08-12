@@ -140,7 +140,7 @@ def cross_dataframes(df, df_ref):
     return pd.merge(left=df, right=df_ref, how='cross', suffixes=('_1', '_2'))
 
 
-def get_preds_from_pairs(df, id_column, pred_column, ref_label_column, true_label_column, threshold=0.9):
+def get_preds_from_pairs(df, id_column, pred_column, ref_label_column, true_label_column, threshold=0.8):
 
     answer_ids = []
     pred_labels = []

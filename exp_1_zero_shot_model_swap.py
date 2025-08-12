@@ -9,14 +9,13 @@ from config import EPIRLS, ASAP_M, ASAP_T, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SB
 from copy import deepcopy
 from model_training.sbert_for_classification import SbertForSequenceClassification
 from model_training.train_xlmr_sbert_core import train_xlmr
-# from model_training.train_sbert import train_sbert
-from model_training.train_sbert_old import train_sbert
+from model_training.train_sbert import train_sbert
 from model_training.utils import read_data, get_device, eval_sbert_classification, eval_sbert, write_classification_statistics
 from sentence_transformers import SentenceTransformer
 from transformers import AutoConfig
 
 
-def run_model_swap(dataset_path, dataset_name, languages, id_column, answer_column, target_column, translate_test, bert_bs, sbert_bs, run_sbert=True, run_xlmr=True, run_suffix=''):
+def run_model_swap(dataset_path, dataset_name, languages, id_column, answer_column, target_column, translate_test, bert_bs, sbert_bs, run_sbert=False, run_xlmr=False, run_suffix=''):
 
     device = get_device()
 
@@ -41,11 +40,12 @@ def run_model_swap(dataset_path, dataset_name, languages, id_column, answer_colu
 
                 if not os.path.exists(os.path.join(run_path_sbert, 'preds.csv')):
 
-                    gold, pred_max, pred_avg = train_sbert(run_path_sbert, answer_column=answer_column, id_column=id_column, target_column=target_column, df_train=df_train, df_val=df_val, df_test=df_test, base_model=XLMR_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=sbert_bs, save_model=True)
+                    gold, pred_max, pred_avg, pred_hybrid = train_sbert(run_path_sbert, answer_column=answer_column, id_column=id_column, target_column=target_column, df_train=df_train, df_val=df_val, df_test=df_test, base_model=XLMR_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=sbert_bs, save_model=True)
                     
                     # Eval trained model on within-language data
                     write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_avg, suffix='')
                     write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_max, suffix='_max')
+                    write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_hybrid, suffix='_hybrid')
 
                     # Load model that was just trained 
                     model = SentenceTransformer(os.path.join(run_path_sbert, 'finetuned_model'))
@@ -64,10 +64,11 @@ def run_model_swap(dataset_path, dataset_name, languages, id_column, answer_colu
                         
                         df_test_sbert = read_data(os.path.join(dataset_path, prompt, test_lang, 'test.csv'), answer_column=answer_column, target_column=target_column)
                         df_test_sbert['embedding'] = df_test_sbert[answer_column].apply(model.encode)
-                        gold, pred_max_test, pred_avg_test, _ = eval_sbert(run_path_test_sbert, df_test=df_test_sbert, df_ref=df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
+                        gold, pred_max_test, pred_avg_test, pred_hybrid_test = eval_sbert(run_path_test_sbert, df_test=df_test_sbert, df_ref=df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
 
                         write_classification_statistics(filepath=run_path_test_sbert, y_true=gold, y_pred=pred_avg_test, suffix='')
                         write_classification_statistics(filepath=run_path_test_sbert, y_true=gold, y_pred=pred_max_test, suffix='_max')
+                        write_classification_statistics(filepath=run_path_test_sbert, y_true=gold, y_pred=pred_hybrid_test, suffix='_hybrid')
 
                         if translate_test and test_lang != language:
 
@@ -79,10 +80,11 @@ def run_model_swap(dataset_path, dataset_name, languages, id_column, answer_colu
                             
                             df_test_sbert_translated = read_data(os.path.join(dataset_path, prompt, test_lang, 'test_translated_m2m_100_1.2B_' + language + '.csv'), answer_column=answer_column, target_column=target_column)
                             df_test_sbert_translated['embedding'] = df_test_sbert_translated[answer_column].apply(model.encode)
-                            gold, pred_max_translated, pred_avg_translated, _ = eval_sbert(run_path_test_sbert_translated, df_test=df_test_sbert_translated, df_ref=df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
+                            gold, pred_max_translated, pred_avg_translated, pred_hybrid_translated = eval_sbert(run_path_test_sbert_translated, df_test=df_test_sbert_translated, df_ref=df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
 
                             write_classification_statistics(filepath=run_path_test_sbert_translated, y_true=gold, y_pred=pred_avg_translated, suffix='')
                             write_classification_statistics(filepath=run_path_test_sbert_translated, y_true=gold, y_pred=pred_max_translated, suffix='_max')
+                            write_classification_statistics(filepath=run_path_test_sbert_translated, y_true=gold, y_pred=pred_hybrid_translated, suffix='_hybrid')
 
                     shutil.rmtree(os.path.join(run_path_sbert, 'finetuned_model'))
 
@@ -100,15 +102,6 @@ def run_model_swap(dataset_path, dataset_name, languages, id_column, answer_colu
                     gold, xlmr_pred = train_xlmr(run_path_bert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=bert_bs, save_model=True, base_model='/models/'+SBERT_BASE_MODEL)
                     
                     write_classification_statistics(filepath=run_path_bert, y_true=gold, y_pred=xlmr_pred)
-                    
-                    # config = AutoConfig.from_pretrained('/models/'+SBERT_BASE_MODEL)
-                    # config.sbert_path = '/models/'+SBERT_BASE_MODEL
-                    # config.num_labels = len(df_train[target_column].unique())
-                    # bert_model = SbertForSequenceClassification(config).to(device)
-
-                    # print(run_path_bert)
-                    # bert_model.load_state_dict(torch.load(os.path.join(run_path_bert, 'best_model', 'model.safetensors'), weights_only=False))
-                    # bert_model.load_state_dict(torch.load(os.path.join(run_path_bert, 'best_model', 'pytorch_model.bin')))
 
                     bert_model = torch.load(os.path.join(run_path_bert, 'best_model'), weights_only=False)
 
@@ -151,7 +144,7 @@ def run_model_swap(dataset_path, dataset_name, languages, id_column, answer_colu
 
 
 
-def run_model_swap_cross_validated(dataset_path, dataset_name, languages, id_column, answer_column, target_column, translate_test, num_folds, sbert_bs, bert_bs, run_sbert=True, run_xlmr=True, run_suffix=''):
+def run_model_swap_cross_validated(dataset_path, dataset_name, languages, id_column, answer_column, target_column, translate_test, num_folds, sbert_bs, bert_bs, run_sbert=False, run_xlmr=False, run_suffix=''):
 
     device = get_device()
     
@@ -194,11 +187,12 @@ def run_model_swap_cross_validated(dataset_path, dataset_name, languages, id_col
 
                     if not os.path.exists(os.path.join(run_path_sbert, 'preds.csv')):
 
-                        gold, pred_max, pred_avg = train_sbert(run_path_sbert, answer_column=answer_column, id_column=id_column, target_column=target_column, df_train=df_train, df_val=df_val, df_test=df_test, base_model=XLMR_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=sbert_bs, save_model=True)
+                        gold, pred_max, pred_avg, pred_hybrid = train_sbert(run_path_sbert, answer_column=answer_column, id_column=id_column, target_column=target_column, df_train=df_train, df_val=df_val, df_test=df_test, base_model=XLMR_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=sbert_bs, save_model=True)
                         
                         # Eval trained model on within-language data
                         write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_avg, suffix='')
                         write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_max, suffix='_max')
+                        write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_hybrid, suffix='_hybrid')
 
                         # Load model that was just trained 
                         model = SentenceTransformer(os.path.join(run_path_sbert, 'finetuned_model'))
@@ -230,10 +224,11 @@ def run_model_swap_cross_validated(dataset_path, dataset_name, languages, id_col
                             df_test_sbert = pd.concat(df_test_sbert_list)
                             df_test_sbert.reset_index(inplace=True)
                             df_test_sbert['embedding'] = df_test_sbert[answer_column].apply(model.encode)
-                            gold, pred_max, pred_avg = eval_sbert(run_path_test_sbert, df_test=df_test_sbert, df_ref=df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
+                            gold, pred_max, pred_avg, pred_hybrid = eval_sbert(run_path_test_sbert, df_test=df_test_sbert, df_ref=df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
 
                             write_classification_statistics(filepath=run_path_test_sbert, y_true=gold, y_pred=pred_avg, suffix='')
                             write_classification_statistics(filepath=run_path_test_sbert, y_true=gold, y_pred=pred_max, suffix='_max')
+                            write_classification_statistics(filepath=run_path_test_sbert, y_true=gold, y_pred=pred_hybrid, suffix='_hybrid')
 
                             if translate_test and test_lang != language:
 
@@ -252,10 +247,11 @@ def run_model_swap_cross_validated(dataset_path, dataset_name, languages, id_col
                                 df_test_sbert_translated = pd.concat(df_test_sbert_translated_list)
                                 df_test_sbert_translated.reset_index(inplace=True)
                                 df_test_sbert_translated['embedding'] = df_test_sbert_translated[answer_column].apply(model.encode)
-                                gold, pred_max_translated, pred_avg_translated = eval_sbert(run_path_test_sbert_translated, df_test=df_test_sbert_translated, df_ref=df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
+                                gold, pred_max_translated, pred_avg_translated, pred_hybrid_translated = eval_sbert(run_path_test_sbert_translated, df_test=df_test_sbert_translated, df_ref=df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
 
                                 write_classification_statistics(filepath=run_path_test_sbert_translated, y_true=gold, y_pred=pred_avg_translated, suffix='')
                                 write_classification_statistics(filepath=run_path_test_sbert_translated, y_true=gold, y_pred=pred_max_translated, suffix='_max')
+                                write_classification_statistics(filepath=run_path_test_sbert_translated, y_true=gold, y_pred=pred_hybrid_translated, suffix='_hybrid')
 
                         shutil.rmtree(os.path.join(run_path_sbert, 'finetuned_model'))
 
@@ -293,12 +289,6 @@ def run_model_swap_cross_validated(dataset_path, dataset_name, languages, id_col
                         gold, xlmr_pred = train_xlmr(run_path_bert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=bert_bs, save_model=True, base_model='/models/'+SBERT_BASE_MODEL)
                         
                         write_classification_statistics(filepath=run_path_bert, y_true=gold, y_pred=xlmr_pred)
-                        
-                        # config = AutoConfig.from_pretrained('/models/'+SBERT_BASE_MODEL)
-                        # config.sbert_path = '/models/'+SBERT_BASE_MODEL
-                        # config.num_labels = len(df_train[target_column].unique())
-                        # bert_model = SbertForSequenceClassification(config).to(device)
-                        # bert_model.load_state_dict(torch.load(os.path.join(run_path_bert, 'best_model', 'pytorch_model.bin')))
 
                         bert_model = torch.load(os.path.join(run_path_bert, 'best_model'), weights_only=False)
 
@@ -370,8 +360,8 @@ for run in ['_RUN1']:
             answer_column=dataset['answer_column'], 
             target_column=dataset['target_column'], 
             languages=dataset['languages'], 
-            run_sbert=True, 
-            run_xlmr=True, 
+            run_sbert=False, 
+            run_xlmr=False, 
             run_suffix=run, 
             translate_test=dataset['translate_test'],
             bert_bs=BERT_BATCH_SIZE,
@@ -390,8 +380,8 @@ for run in ['_RUN1']:
             answer_column=dataset['answer_column'], 
             target_column=dataset['target_column'], 
             languages=dataset['languages'], 
-            run_sbert=True, 
-            run_xlmr=True, 
+            run_sbert=False, 
+            run_xlmr=False, 
             run_suffix=run, 
             translate_test=dataset['translate_test'],
             num_folds=dataset['num_folds'],

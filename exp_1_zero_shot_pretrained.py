@@ -54,7 +54,7 @@ def run_pretrained(dataset_path, dataset_name, id_column, answer_column, target_
                     
                     df_test_sbert = read_data(os.path.join(dataset_path, prompt, test_lang, 'test.csv'), target_column=target_column, answer_column=answer_column)
                     df_test_sbert['embedding'] = df_test_sbert[answer_column].apply(model.encode)
-                    gold, pred_max, pred_avg = eval_sbert(run_path_test_sbert, df_test=df_test_sbert, df_ref=df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
+                    gold, pred_max, pred_avg, pred_hybrid = eval_sbert(run_path_test_sbert, df_test=df_test_sbert, df_ref=df_ref, id_column=id_column, answer_column=answer_column, target_column=target_column)
 
                     write_classification_statistics(filepath=run_path_test_sbert, y_true=gold, y_pred=pred_avg, suffix='')
                     write_classification_statistics(filepath=run_path_test_sbert, y_true=gold, y_pred=pred_max, suffix='_max')
