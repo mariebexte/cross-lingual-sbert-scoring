@@ -5,7 +5,7 @@ import torch
 
 import pandas as pd
 
-from config import EPIRLS, ASAP_T, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, NPCR_NUM_EPOCHS, SBERT_BATCH_SIZE, BERT_BATCH_SIZE, NPCR_BATCH_SIZE, RESULT_PATH_EXP_3, ANSWER_LENGTH, RANDOM_SEED
+from config import EPIRLS, ASAP_T, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, NPCR_NUM_EPOCHS, SBERT_BATCH_SIZE, BERT_BATCH_SIZE, NPCR_BATCH_SIZE, RESULT_PATH_EXP_3, ANSWER_LENGTH, RANDOM_SEED, MODEL_PATH
 from copy import deepcopy
 from model_training.train_xlmr import train_xlmr
 from model_training.train_xlmr_sbert_core import train_xlmr as train_xlmr_sbert_core
@@ -45,7 +45,7 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
                 df_other = read_data(os.path.join(dataset_path, prompt, other_language, 'train.csv'), answer_column=answer_column, target_column=target_column)
                 df_train = pd.concat([df_train, df_other])
             
-            # Shuffle for NPCR
+            # Shuffle (necessary for NPCR)
             df_train = df_train.sample(frac=1, random_state=RANDOM_SEED).reset_index(drop=True)
 
             if run_xlmr:
@@ -82,7 +82,7 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
 
                 if not os.path.exists(os.path.join(run_path_bert_swap_sbert, 'preds.csv')):
 
-                    gold, xlmr_swap_sbert_pred = train_xlmr_sbert_core(run_path_bert_swap_sbert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=bert_batch_size, save_model=False, base_model='/models/'+SBERT_BASE_MODEL)
+                    gold, xlmr_swap_sbert_pred = train_xlmr_sbert_core(run_path_bert_swap_sbert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=bert_batch_size, save_model=False, base_model=os.path.join(MODEL_PATH, SBERT_BASE_MODEL))
 
                     write_classification_statistics(filepath=run_path_bert_swap_sbert, y_true=gold, y_pred=xlmr_swap_sbert_pred)
                     df_train.to_csv(os.path.join(run_path_bert_swap_sbert, 'train.csv'))
@@ -204,7 +204,7 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
                     df_sample = df_label.sample(amount, random_state=RANDOM_SEED)
                     df_train = pd.concat([df_train, df_sample])
 
-            # Shuffle for NPCR
+            # Shuffle (necessary for NPCR)
             df_train = df_train.sample(frac=1, random_state=RANDOM_SEED).reset_index(drop=True)
 
             if run_xlmr:
@@ -241,7 +241,7 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
 
                 if not os.path.exists(os.path.join(run_path_bert_swap_sbert, 'preds.csv')):
 
-                    gold, xlmr_swap_sbert_pred = train_xlmr_sbert_core(run_path_bert_swap_sbert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=bert_batch_size, save_model=False, base_model='/models/'+SBERT_BASE_MODEL)
+                    gold, xlmr_swap_sbert_pred = train_xlmr_sbert_core(run_path_bert_swap_sbert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=bert_batch_size, save_model=False, base_model=os.path.join(MODEL_PATH, SBERT_BASE_MODEL))
 
                     write_classification_statistics(filepath=run_path_bert_swap_sbert, y_true=gold, y_pred=xlmr_swap_sbert_pred)
                     df_train.to_csv(os.path.join(run_path_bert_swap_sbert, 'train.csv'))
@@ -334,19 +334,19 @@ for run in ['_RUN1']:
             languages=dataset['languages'], 
             run_suffix=run,
             run_xlmr=False, 
-            run_sbert=False, 
-            run_pretrained=True, 
-            run_npcr_sbert=False, 
-            run_npcr_xlmr=False, 
             run_xlmr_swap_sbert=False, 
+            run_sbert=False, 
             run_sbert_swap_xlmr=False,
+            run_pretrained=True, 
+            run_npcr_xlmr=False, 
+            run_npcr_sbert=False, 
             bert_batch_size=BERT_BATCH_SIZE,
             sbert_batch_size=SBERT_BATCH_SIZE,
             npcr_batch_size=NPCR_BATCH_SIZE
             )
 
 
-# # Full
+# Full
 for run in ['_RUN1']:
     
     for dataset in [EPIRLS, ASAP_T]:
@@ -361,12 +361,12 @@ for run in ['_RUN1']:
             languages=dataset['languages'], 
             run_suffix=run, 
             run_xlmr=False,
+            run_xlmr_swap_sbert=False,
             run_sbert=False,
+            run_sbert_swap_xlmr=False,
             run_pretrained=True,
             run_npcr_xlmr=False,
             run_npcr_sbert=False,
-            run_xlmr_swap_sbert=False,
-            run_sbert_swap_xlmr=False,
             bert_batch_size=BERT_BATCH_SIZE,
             sbert_batch_size=SBERT_BATCH_SIZE,
             npcr_batch_size=NPCR_BATCH_SIZE

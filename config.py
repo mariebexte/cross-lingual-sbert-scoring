@@ -45,6 +45,7 @@ RANDOM_SEED=8742341
 ANSWER_LENGTH = 128
 PATIENCE = None
 
+MODEL_PATH = '/models'
 SBERT_BASE_MODEL = 'paraphrase-multilingual-MiniLM-L12-v2'
 XLMR_BASE_MODEL = 'xlm-roberta-base'
 

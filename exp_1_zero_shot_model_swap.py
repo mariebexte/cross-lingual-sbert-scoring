@@ -5,7 +5,7 @@ import torch
 
 import pandas as pd
 
-from config import EPIRLS, ASAP_M, ASAP_T, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, SBERT_BATCH_SIZE, BERT_BATCH_SIZE, RESULT_PATH_EXP_1, SBERT_BATCH_SIZE_ASAP_M, BERT_BATCH_SIZE_ASAP_M
+from config import EPIRLS, ASAP_M, ASAP_T, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, SBERT_BATCH_SIZE, BERT_BATCH_SIZE, RESULT_PATH_EXP_1, SBERT_BATCH_SIZE_ASAP_M, BERT_BATCH_SIZE_ASAP_M, MODEL_PATH
 from copy import deepcopy
 from model_training.sbert_for_classification import SbertForSequenceClassification
 from model_training.train_xlmr_sbert_core import train_xlmr
@@ -99,7 +99,7 @@ def run_model_swap(dataset_path, dataset_name, languages, id_column, answer_colu
 
                 if not os.path.exists(os.path.join(run_path_bert, 'preds.csv')):
 
-                    gold, xlmr_pred = train_xlmr(run_path_bert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=bert_bs, save_model=True, base_model='/models/'+SBERT_BASE_MODEL)
+                    gold, xlmr_pred = train_xlmr(run_path_bert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=bert_bs, save_model=True, base_model=os.path.join(MODEL_PATH, SBERT_BASE_MODEL))
                     
                     write_classification_statistics(filepath=run_path_bert, y_true=gold, y_pred=xlmr_pred)
 
@@ -286,7 +286,7 @@ def run_model_swap_cross_validated(dataset_path, dataset_name, languages, id_col
 
                     if not os.path.exists(os.path.join(run_path_bert, 'preds.csv')):
 
-                        gold, xlmr_pred = train_xlmr(run_path_bert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=bert_bs, save_model=True, base_model='/models/'+SBERT_BASE_MODEL)
+                        gold, xlmr_pred = train_xlmr(run_path_bert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=bert_bs, save_model=True, base_model=os.path.join(MODEL_PATH, SBERT_BASE_MODEL))
                         
                         write_classification_statistics(filepath=run_path_bert, y_true=gold, y_pred=xlmr_pred)
 

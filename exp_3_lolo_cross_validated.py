@@ -5,7 +5,7 @@ import torch
 
 import pandas as pd
 
-from config import ANSWER_LENGTH, ASAP_M, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, NPCR_NUM_EPOCHS, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_BATCH_SIZE_ASAP_M, BERT_BATCH_SIZE_ASAP_M, NPCR_BATCH_SIZE_ASAP_M, RESULT_PATH_EXP_3, RANDOM_SEED
+from config import ANSWER_LENGTH, ASAP_M, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, NPCR_NUM_EPOCHS, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_BATCH_SIZE_ASAP_M, BERT_BATCH_SIZE_ASAP_M, NPCR_BATCH_SIZE_ASAP_M, RESULT_PATH_EXP_3, RANDOM_SEED, MODEL_PATH
 from copy import deepcopy
 from model_training.train_xlmr import train_xlmr
 from model_training.train_xlmr_sbert_core import train_xlmr as train_xlmr_sbert_core
@@ -60,6 +60,7 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
                     train_folds = list(range(1, num_folds + 1))
                     train_folds.remove(val_fold)
 
+                    # Remove one more fold to represent the amount of answers spent on test data
                     if val_fold + 1 > num_folds:
 
                         train_folds.remove(1)
@@ -135,7 +136,7 @@ def run_full(dataset_path, dataset_name, id_column, prompt_column, answer_column
 
                     if not os.path.exists(os.path.join(run_path_bert_swap_sbert, 'preds.csv')):
 
-                        gold, xlmr_swap_sbert_pred = train_xlmr_sbert_core(run_path_bert_swap_sbert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=BERT_BATCH_SIZE_ASAP_M, save_model=False, base_model='/models/'+SBERT_BASE_MODEL)
+                        gold, xlmr_swap_sbert_pred = train_xlmr_sbert_core(run_path_bert_swap_sbert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=BERT_BATCH_SIZE_ASAP_M, save_model=False, base_model=os.path.join(MODEL_PATH, SBERT_BASE_MODEL))
 
                         write_classification_statistics(filepath=run_path_bert_swap_sbert, y_true=gold, y_pred=xlmr_swap_sbert_pred)
                         df_train.to_csv(os.path.join(run_path_bert_swap_sbert, 'train.csv'))
@@ -387,7 +388,7 @@ def run_downsampled(dataset_path, dataset_name, id_column, prompt_column, answer
 
                     if not os.path.exists(os.path.join(run_path_bert_swap_sbert, 'preds.csv')):
 
-                        gold, xlmr_swap_sbert_pred = train_xlmr_sbert_core(run_path_bert_swap_sbert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=BERT_BATCH_SIZE_ASAP_M, save_model=False, base_model='/models/'+SBERT_BASE_MODEL)
+                        gold, xlmr_swap_sbert_pred = train_xlmr_sbert_core(run_path_bert_swap_sbert, df_train=df_train, df_val=df_val, df_test=df_test, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=BERT_BATCH_SIZE_ASAP_M, save_model=False, base_model=os.path.join(MODEL_PATH, SBERT_BASE_MODEL))
 
                         write_classification_statistics(filepath=run_path_bert_swap_sbert, y_true=gold, y_pred=xlmr_swap_sbert_pred)
                         df_train.to_csv(os.path.join(run_path_bert_swap_sbert, 'train.csv'))
@@ -531,12 +532,12 @@ for run in ['_RUN1']:
                 num_folds=dataset['num_folds'],
                 translate_train=translate_train,
                 run_xlmr=False,
-                run_sbert=False,
-                run_npcr_xlmr=False,
-                run_npcr_sbert=False,
                 run_xlmr_swap_sbert=False,
+                run_sbert=False,
                 run_sbert_swap_xlmr=False,
                 run_pretrained=True
+                run_npcr_xlmr=False,
+                run_npcr_sbert=False,
                 )
 
 
@@ -559,10 +560,10 @@ for run in ['_RUN1']:
                 num_folds=dataset['num_folds'],
                 translate_train=translate_train,
                 run_xlmr=False,
-                run_sbert=False,
-                run_npcr_xlmr=False,
-                run_npcr_sbert=False,
                 run_xlmr_swap_sbert=False,
+                run_sbert=False,
                 run_sbert_swap_xlmr=False,
                 run_pretrained=True,
+                run_npcr_xlmr=False,
+                run_npcr_sbert=False,
                 )

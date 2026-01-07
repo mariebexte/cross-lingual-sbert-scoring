@@ -5,7 +5,7 @@ import torch
 
 import pandas as pd
 
-from config import EPIRLS, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, NPCR_NUM_EPOCHS, SBERT_BATCH_SIZE, BERT_BATCH_SIZE, NPCR_BATCH_SIZE, ANSWER_LENGTH, RESULT_PATH_EXP_2, RANDOM_SEED
+from config import EPIRLS, SBERT_BASE_MODEL, XLMR_BASE_MODEL, SBERT_NUM_EPOCHS, BERT_NUM_EPOCHS, NPCR_NUM_EPOCHS, SBERT_BATCH_SIZE, BERT_BATCH_SIZE, NPCR_BATCH_SIZE, ANSWER_LENGTH, RESULT_PATH_EXP_2, RANDOM_SEED, MODEL_PATH
 from copy import deepcopy
 from model_training.train_xlmr import train_xlmr
 from model_training.train_xlmr_sbert_core import train_xlmr as train_xlmr_sbert_core
@@ -100,7 +100,7 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
 
                     if not os.path.exists(os.path.join(run_path_bert_swap_sbert, 'preds.csv')):
 
-                        gold, xlmr_swap_sbert_pred = train_xlmr_sbert_core(run_path_bert_swap_sbert, df_train=df_train_base_reduced, df_val=df_val_base, df_test=df_test_base, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=BERT_BATCH_SIZE, save_model=True, base_model='/models/'+SBERT_BASE_MODEL)
+                        gold, xlmr_swap_sbert_pred = train_xlmr_sbert_core(run_path_bert_swap_sbert, df_train=df_train_base_reduced, df_val=df_val_base, df_test=df_test_base, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=BERT_BATCH_SIZE, save_model=True, base_model=os.path.join(MODEL_PATH, SBERT_BASE_MODEL))
                                                 
                         write_classification_statistics(filepath=run_path_bert_swap_sbert, y_true=gold, y_pred=xlmr_swap_sbert_pred)
                         
@@ -315,8 +315,8 @@ run_exp(
     target_column=EPIRLS['target_column'],
     languages=EPIRLS['languages'],
     run_xlmr=False,
-    run_sbert=True,
     run_xlmr_swap_sbert=False,
+    run_sbert=True,
     run_sbert_swap_xlmr=False,
     run_npcr_xlmr=False,
     run_npcr_sbert=False,
