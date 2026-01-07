@@ -240,7 +240,7 @@ for run in ['_RUN1']:
             target_column=dataset['target_column'], 
             languages=dataset['languages'], 
             run_suffix=run, 
-            run_xlmr=False,
+            run_xlmr=True,
             run_sbert=False,
             translate_test=dataset['translate_test'],
             batch_size=NPCR_BATCH_SIZE
@@ -260,7 +260,7 @@ for run in ['_RUN1']:
             target_column=dataset['target_column'],
             languages=dataset['languages'], 
             run_suffix=run, 
-            run_xlmr=False,
+            run_xlmr=True,
             run_sbert=False,
             translate_test=dataset['translate_test'], 
             num_folds=dataset['num_folds'],

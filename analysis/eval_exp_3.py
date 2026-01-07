@@ -141,7 +141,7 @@ def aggregate_results_cv(result_dir, prompts, target_column, languages, num_fold
 
 
 
-def split_results(overall_results_path):
+def split_results(overall_results_path, languages):
 
     df_overall = pd.read_csv(overall_results_path)
 
@@ -157,7 +157,12 @@ def split_results(overall_results_path):
         dict_averaged['avg'] = {'qwk': average_qwk(df_averaged[['qwk']]), 'acc': df_averaged['acc'].mean(), 'support': df_averaged['support'].mean()}
 
         df_averaged = pd.DataFrame.from_dict(dict_averaged, orient='index')
-        df_averaged.index.name = 'test_lang'
+        # df_averaged.index.name = 'test_lang'
+        df_averaged['test_lang'] = df_averaged.index
+        df_averaged['test_lang'] = pd.Categorical(df_averaged["test_lang"], categories=languages, ordered=True)
+        print(languages + ['avg'])
+        df_averaged['test_lang'].cat.set_categories(languages + ['avg'] )
+        df_averaged = df_averaged.sort_values(['test_lang'])
         df_averaged.to_csv(os.path.join(Path(overall_results_path).parent.absolute(), model + '.csv'))
 
 
@@ -180,19 +185,18 @@ def get_translated_avg(row):
 
 
 
-res_name = '/results/fair/exp_3_lolo'
+res_name = '/results/final/exp_3_lolo'
 
 for dataset in [EPIRLS, ASAP_T]:
 
-    for condition in ['combine_downsampled']:
-    # for condition in ['combine_all_other', 'combine_downsampled']:
+    for condition in ['combine_all_other', 'combine_downsampled']:
         
         for run in ['_RUN1']:
         # for run in ['_RUN1', '_RUN2', '_RUN3']:
 
             aggregate_results(result_dir=os.path.join(res_name + run, condition, dataset['dataset_name']), prompts=dataset['prompts'], target_column=dataset['target_column'], languages=dataset['languages'])
             if os.path.exists(os.path.join(res_name + run, condition, dataset['dataset_name'], 'overall.csv')):
-                split_results(os.path.join(res_name + run, condition, dataset['dataset_name'], 'overall.csv'))
+                split_results(os.path.join(res_name + run, condition, dataset['dataset_name'], 'overall.csv'), languages=dataset['languages'])
 
         # average_runs_exp3(result_file_list=[os.path.join(res_name+'_RUN1', condition, dataset['dataset_name'], 'overall.csv'),
         # os.path.join(res_name+'_RUN2', condition, dataset['dataset_name'], 'overall.csv'),
@@ -203,15 +207,14 @@ for dataset in [EPIRLS, ASAP_T]:
 
 for dataset in [ASAP_M]:
 
-    for condition in ['combine_downsampled', 'combine_downsampled_translated']:
-    # for condition in ['combine_all_other', 'combine_all_other_translated', 'combine_downsampled', 'combine_downsampled_translated']:
+    for condition in ['combine_all_other', 'combine_all_other_translated', 'combine_downsampled', 'combine_downsampled_translated']:
 
         for run in ['_RUN1']:
         # for run in ['_RUN1', '_RUN2', '_RUN3']:
 
             aggregate_results_cv(result_dir=os.path.join(res_name + run, condition, dataset['dataset_name']), prompts=dataset['prompts'], target_column=dataset['target_column'], languages=dataset['languages'], num_folds=dataset['num_folds'])
             if os.path.exists(os.path.join(res_name + run, condition, dataset['dataset_name'], 'overall.csv')):
-                split_results(os.path.join(res_name + run, condition, dataset['dataset_name'], 'overall.csv'))
+                split_results(os.path.join(res_name + run, condition, dataset['dataset_name'], 'overall.csv'), languages=dataset['languages'])
             
         # average_runs_exp3(result_file_list=[os.path.join(res_name+'_RUN1', condition, dataset['dataset_name'], 'overall.csv'),
         # os.path.join(res_name+'_RUN2', condition, dataset['dataset_name'], 'overall.csv'),

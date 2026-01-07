@@ -76,7 +76,10 @@ def train_sbert(run_path, df_train, df_val, df_test, answer_column, target_colum
     for idx_1, example_1 in tqdm(df_train.iterrows(), total=len(df_train)):
 
         # For each epoch, sample one example answer to pair with the current one
-        df_subsample = df_train.sample(num_epochs, random_state=seeds[idx_1])
+        try:
+            df_subsample = df_train.sample(num_epochs, random_state=seeds[idx_1])
+        except:
+            df_subsample = df_train.sample(num_epochs, random_state=seeds[idx_1], replace=True)
 
         for _, example_2 in df_subsample.iterrows():
 
@@ -126,7 +129,7 @@ def train_sbert(run_path, df_train, df_val, df_test, answer_column, target_colum
     num_warm_steps = 0
 
     # Tune the model
-    model.fit(train_objectives=[(train_dataloader, train_loss)], use_amp=True, epochs=num_epochs, warmup_steps=0, evaluator=evaluator, output_path=model_path, save_best_model=True, show_progress_bar=True, steps_per_epoch=num_batches_per_round)
+    model.fit(train_objectives=[(train_dataloader, train_loss)], use_amp=False, epochs=num_epochs, warmup_steps=0, evaluator=evaluator, output_path=model_path, save_best_model=True, show_progress_bar=True, steps_per_epoch=num_batches_per_round)
     
     logging.info("SBERT number of epochs: "+str(num_epochs))
     logging.info("SBERT batch size: "+str(batch_size))

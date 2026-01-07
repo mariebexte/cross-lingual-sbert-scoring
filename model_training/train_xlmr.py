@@ -130,7 +130,7 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column
             logging_strategy="epoch",
             save_strategy="epoch",
             save_total_limit=5,
-            fp16=True
+            fp16=False
         )
     else:
 
@@ -141,7 +141,7 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column
             per_device_eval_batch_size=batch_size,  
             eval_strategy="epoch",
             logging_strategy="epoch",
-            fp16=True
+            fp16=False
         )
 
     trainer = Trainer(

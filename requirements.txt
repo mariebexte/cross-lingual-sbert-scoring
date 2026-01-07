@@ -1,8 +1,8 @@
 pandas
 sentence-transformers==2.5.1
-transformers==4.45.0
+transformers==4.46.3
 torch==2.0.1
-torchtext==0.15.2
 accelerate
 sentencepiece
 seaborn
+nltk

@@ -44,8 +44,8 @@ def plot_heat(df_matrix, target_path, model, metric, lang_order, show_cbar=True,
 
     plt.yticks(rotation=0, ha='right')
 
-    model_names = {'SBERT_avg': 'SBERT (Bexte et al.)', 'XLMR': 'XLMR (classification head)',
-    'NPCR_SBERT': 'SBERT (NPCR)', 'NPCR_XLMR': 'XLMR (NPCR)', 'XLMR_SBERTcore': 'SBERT (classification head)', 'SBERT_XLMRcore_avg': 'XLMR (Bexte et al.)'}
+    model_names = {'SBERT': 'SBERT (Bexte et al.)', 'SBERT_avg': 'SBERT (Bexte et al.)', 'XLMR': 'XLMR (classification head)',
+    'NPCR_SBERT': 'SBERT (NPCR)', 'NPCR_XLMR': 'XLMR (NPCR)', 'XLMR_SBERTcore': 'SBERT (classification head)', 'SBERT_XLMRcore_avg': 'XLMR (Bexte et al.)', 'SBERT_XLMRcore': 'XLMR (Bexte et al.)'}
 
     model_name = model_names.get(model, model)
         

@@ -83,7 +83,7 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
                     
                     if not os.path.exists(os.path.join(run_path_sbert, 'preds.csv')):
 
-                        gold, pred_max, pred_avg, pred_hybrid = train_sbert(run_path_sbert, df_train=df_train_base_reduced, df_val=df_val_base, df_test=df_test_base, answer_column=answer_column, target_column=target_column, base_model=SBERT_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, save_model=True)
+                        gold, pred_max, pred_avg, pred_hybrid = train_sbert(run_path_sbert, df_train=df_train_base_reduced, df_val=df_val_base, df_test=df_test_base, answer_column=answer_column, target_column=target_column, id_column=id_column, base_model=SBERT_BASE_MODEL, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, save_model=True)
 
                         write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_avg, suffix='')
                         write_classification_statistics(filepath=run_path_sbert, y_true=gold, y_pred=pred_max, suffix='_max')
@@ -175,9 +175,9 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
                         amount = int(round(sample_ratio*amount, 0))
 
                         # Collect this amount of target language
-                        df_train_target_sample_label = df_train_target[df_train_target[target_column] == label].sample(amount, random_state=random_state)
+                        df_train_target_sample_label = df_train_target[df_train_target[target_column] == label].sample(amount, random_state=RANDOM_SEED)
                         df_train_target_sample = pd.concat([df_train_target_sample, df_train_target_sample_label])
-                        df_train_target_sample.reset_index(inplace=True)
+                        df_train_target_sample.reset_index(inplace=True, drop=True)
                     
 
                     # Shuffle for NPCR
@@ -193,7 +193,7 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
 
                             gold, xlmr_pred_finetune = train_xlmr(run_path_bert_finetune, df_train=df_train_target_sample, df_val=df_val_target, df_test=df_test_target, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=BERT_BATCH_SIZE, base_model=finetuned_model_xlmr, save_model=False)
                             
-                            write_classification_statistics(filepath=run_path_bert_finetune, y_true=gold, y_pred=xlmr_pred_fineteune)
+                            write_classification_statistics(filepath=run_path_bert_finetune, y_true=gold, y_pred=xlmr_pred_finetune)
                             
                             df_train_target_sample.to_csv(os.path.join(run_path_bert_finetune, 'train.csv'))
                             df_val_target.to_csv(os.path.join(run_path_bert_finetune, 'val.csv'))
@@ -208,7 +208,7 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
 
                             finetuned_model_sbert = os.path.join(run_path_sbert, 'finetuned_model')
 
-                            gold, pred_max_finetune, pred_avg_finetune, pred_hybrid_finetune = train_sbert(run_path_sbert_finetune, df_train=df_train_target_sample, df_val=df_val_target, df_test=df_test_target, answer_column=answer_column, target_column=target_column, base_model=finetuned_model_sbert, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, save_model=False)
+                            gold, pred_max_finetune, pred_avg_finetune, pred_hybrid_finetune = train_sbert(run_path_sbert_finetune, df_train=df_train_target_sample, df_val=df_val_target, df_test=df_test_target, answer_column=answer_column, target_column=target_column, base_model=finetuned_model_sbert, id_column=id_column, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, save_model=False)
 
                             write_classification_statistics(filepath=run_path_sbert_finetune, y_true=gold, y_pred=pred_avg_finetune, suffix='')
                             write_classification_statistics(filepath=run_path_sbert_finetune, y_true=gold, y_pred=pred_max_finetune, suffix='_max')
@@ -225,7 +225,7 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
 
                         if not os.path.exists(os.path.join(run_path_bert_swap_sbert_finetune, 'preds.csv')):
                         
-                            finetuned_model_xlmr_swap_sbert = os.path.join(run_path_bert_swap_sbert, 'best_model', 'pytorch_model.bin')
+                            finetuned_model_xlmr_swap_sbert = os.path.join(run_path_bert_swap_sbert, 'best_model')
 
                             gold, xlmr_swap_sbert_pred = train_xlmr_sbert_core(run_path_bert_swap_sbert_finetune, df_train=df_train_target_sample, df_val=df_val_target, df_test=df_test_target, answer_column=answer_column, target_column=target_column, num_epochs=BERT_NUM_EPOCHS, batch_size=BERT_BATCH_SIZE, base_model=finetuned_model_xlmr_swap_sbert, save_model=False, from_pretrained=True)
                             
@@ -244,7 +244,7 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
 
                             finetuned_model_sbert_swap_xlmr = os.path.join(run_path_sbert_swap_xlmr, 'finetuned_model')
 
-                            gold, pred_max_xlmr_core, pred_avg_xlmr_core, pred_hybrid_xlmr_core = train_sbert(run_path_sbert_swap_xlmr_finetune, df_train=df_train_target_sample, df_val=df_val_target, df_test=df_test_target, answer_column=answer_column, target_column=target_column, base_model=finetuned_model_sbert_swap_xlmr, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, save_model=False)
+                            gold, pred_max_xlmr_core, pred_avg_xlmr_core, pred_hybrid_xlmr_core = train_sbert(run_path_sbert_swap_xlmr_finetune, df_train=df_train_target_sample, df_val=df_val_target, df_test=df_test_target, answer_column=answer_column, target_column=target_column, base_model=finetuned_model_sbert_swap_xlmr, id_column=id_column, num_epochs=SBERT_NUM_EPOCHS, batch_size=SBERT_BATCH_SIZE, save_model=False)
 
                             write_classification_statistics(filepath=run_path_sbert_swap_xlmr_finetune, y_true=gold, y_pred=pred_avg_xlmr_core, suffix='')
                             write_classification_statistics(filepath=run_path_sbert_swap_xlmr_finetune, y_true=gold, y_pred=pred_max_xlmr_core, suffix='_max')
@@ -287,22 +287,22 @@ def run_exp(dataset_path, dataset_name, id_column, prompt_column, answer_column,
                             df_test_target.to_csv(os.path.join(run_path_npcr_sbert_finetune, 'test.csv'))
                      
                             
-                if os.path.exists(os.path.join(run_path_bert, 'best_model')):
+                if run_xlmr and os.path.exists(os.path.join(run_path_bert, 'best_model')):
                     shutil.rmtree(os.path.join(run_path_bert, 'best_model'))
 
-                if os.path.exists(os.path.join(run_path_sbert, 'finetuned_model')):
+                if run_sbert and os.path.exists(os.path.join(run_path_sbert, 'finetuned_model')):
                     shutil.rmtree(os.path.join(run_path_sbert, 'finetuned_model'))
 
-                if os.path.exists(os.path.join(run_path_bert_swap_sbert, 'best_model')):
-                    shutil.rmtree(os.path.join(run_path_bert_swap_sbert, 'best_model'))
+                if run_xlmr_swap_sbert and os.path.exists(os.path.join(run_path_bert_swap_sbert, 'best_model')):
+                    os.remove(os.path.join(run_path_bert_swap_sbert, 'best_model'))
 
-                if os.path.exists(os.path.join(run_path_sbert_swap_xlmr, 'finetuned_model')):
+                if run_sbert_swap_xlmr and os.path.exists(os.path.join(run_path_sbert_swap_xlmr, 'finetuned_model')):
                     shutil.rmtree(os.path.join(run_path_sbert_swap_xlmr, 'finetuned_model'))
 
-                if os.path.exists(os.path.join(run_path_npcr_xlmr, 'best_model')):
+                if run_npcr_xlmr and os.path.exists(os.path.join(run_path_npcr_xlmr, 'best_model')):
                     shutil.rmtree(os.path.join(run_path_npcr_xlmr, 'best_model'))
 
-                if os.path.exists(os.path.join(run_path_npcr_sbert, 'best_model')):
+                if run_npcr_sbert and os.path.exists(os.path.join(run_path_npcr_sbert, 'best_model')):
                     shutil.rmtree(os.path.join(run_path_npcr_sbert, 'best_model'))
 
 
@@ -310,12 +310,12 @@ run_exp(
     dataset_path=EPIRLS['dataset_path'],
     dataset_name=EPIRLS['dataset_name'],
     id_column=EPIRLS['id_column'],
-    prompt_column=EPIRLS['prompt_column']
+    prompt_column=EPIRLS['prompt_column'],
     answer_column=EPIRLS['answer_column'],
     target_column=EPIRLS['target_column'],
     languages=EPIRLS['languages'],
     run_xlmr=False,
-    run_sbert=False,
+    run_sbert=True,
     run_xlmr_swap_sbert=False,
     run_sbert_swap_xlmr=False,
     run_npcr_xlmr=False,

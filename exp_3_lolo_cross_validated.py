@@ -536,7 +536,7 @@ for run in ['_RUN1']:
                 run_npcr_sbert=False,
                 run_xlmr_swap_sbert=False,
                 run_sbert_swap_xlmr=False,
-                run_pretrained=False
+                run_pretrained=True
                 )
 
 
@@ -564,5 +564,5 @@ for run in ['_RUN1']:
                 run_npcr_sbert=False,
                 run_xlmr_swap_sbert=False,
                 run_sbert_swap_xlmr=False,
-                run_pretrained=False,
+                run_pretrained=True,
                 )

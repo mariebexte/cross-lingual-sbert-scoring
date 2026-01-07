@@ -5,7 +5,7 @@ EPIRLS = {
     'prompt_column': 'Variable',
     'answer_column': 'Value',
     'target_column': 'score',
-    'languages': ['ar', 'da', 'en', 'he', 'it', 'ka', 'nb', 'pt', 'sl', 'sv', 'zh'],
+    'languages': ['da', 'nb', 'sv', 'en', 'it', 'pt', 'ar', 'he', 'ka', 'sl', 'zh'],
     'translate_test': True,
     'language_column': 'Language',
     'prompts': ['E011B03C', 'E011B08C', 'E011B12C', 'E011B14C', 'E011M03C', 'E011M08C', 'E011M11C', 'E011M15C', 'E011R05C', 'E011R09C', 'E011R14C',
@@ -20,7 +20,7 @@ ASAP_T = {
     'prompt_column': 'PromptId',
     'answer_column': 'AnswerText',
     'target_column': 'Score1',
-    'languages': ['ar', 'da', 'en', 'he', 'it', 'ka', 'nb', 'pt', 'sl', 'sv', 'zh'],
+    'languages': ['da', 'nb', 'sv', 'en', 'it', 'pt', 'ar', 'he', 'ka', 'sl', 'zh'],
     'translate_test': False,
     'language_column': None,
     'prompts': ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
@@ -33,7 +33,7 @@ ASAP_M = {
     'prompt_column': 'prompt',
     'answer_column': 'text',
     'target_column': 'score',
-    'languages': ['de', 'en', 'es', 'fr', 'zh'],
+    'languages': ['de', 'es', 'fr', 'en', 'zh'],
     'translate_test': True,
     'num_folds': 7,
     'language_column': None,
@@ -48,9 +48,9 @@ PATIENCE = None
 SBERT_BASE_MODEL = 'paraphrase-multilingual-MiniLM-L12-v2'
 XLMR_BASE_MODEL = 'xlm-roberta-base'
 
-RESULT_PATH_EXP_1 = '/results/fair_final/exp_1_zero_shot'
-RESULT_PATH_EXP_2 = '/results/fair_final/exp_2_tradeoff'
-RESULT_PATH_EXP_3 = '/results/fair_final/exp_3_lolo'
+RESULT_PATH_EXP_1 = '/results/final/exp_1_zero_shot'
+RESULT_PATH_EXP_2 = '/results/final/exp_2_tradeoff'
+RESULT_PATH_EXP_3 = '/results/final/exp_3_lolo'
 
 SBERT_NUM_EPOCHS = 50
 NPCR_NUM_EPOCHS = 50

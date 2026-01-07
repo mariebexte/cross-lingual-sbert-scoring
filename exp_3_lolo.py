@@ -335,7 +335,7 @@ for run in ['_RUN1']:
             run_suffix=run,
             run_xlmr=False, 
             run_sbert=False, 
-            run_pretrained=False, 
+            run_pretrained=True, 
             run_npcr_sbert=False, 
             run_npcr_xlmr=False, 
             run_xlmr_swap_sbert=False, 
@@ -346,7 +346,7 @@ for run in ['_RUN1']:
             )
 
 
-# Full
+# # Full
 for run in ['_RUN1']:
     
     for dataset in [EPIRLS, ASAP_T]:
@@ -362,7 +362,7 @@ for run in ['_RUN1']:
             run_suffix=run, 
             run_xlmr=False,
             run_sbert=False,
-            run_pretrained=False,
+            run_pretrained=True,
             run_npcr_xlmr=False,
             run_npcr_sbert=False,
             run_xlmr_swap_sbert=False,

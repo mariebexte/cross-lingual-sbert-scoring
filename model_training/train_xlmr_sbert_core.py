@@ -13,6 +13,8 @@ from transformers import Trainer, TrainingArguments, AutoConfig, EarlyStoppingCa
 from model_training.sbert_for_classification import SbertForSequenceClassification
 from model_training.utils import encode_labels, get_device, Dataset, compute_metrics, WriteCsvCallback, GetTestPredictionsCallback
 
+from config import SBERT_BASE_MODEL
+
 
 def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column, base_model, num_epochs, batch_size, save_model=False, from_pretrained=False):
 
@@ -101,11 +103,12 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column
     # Load model and pass to device
     if from_pretrained:
 
-        config = AutoConfig.from_pretrained('/models/'+SBERT_BASE_MODEL)
-        config.sbert_path = '/models/'+SBERT_BASE_MODEL
-        config.num_labels = len(df_train[target_column].unique())
-        model = SbertForSequenceClassification(config).to(device)
-        model.load_state_dict(torch.load(base_model))
+        # config = AutoConfig.from_pretrained('/models/'+SBERT_BASE_MODEL)
+        # config.sbert_path = '/models/'+SBERT_BASE_MODEL
+        # config.num_labels = len(df_train[target_column].unique())
+        # model = SbertForSequenceClassification(config).to(device)
+        # model.load_state_dict(torch.load(base_model))
+        model = torch.load(base_model, weights_only=False)
     
     else:
 
@@ -140,7 +143,7 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column
             logging_strategy="epoch",
             save_strategy="epoch",
             save_total_limit=5,
-            fp16=True
+            fp16=False
         )
 
     else:
@@ -152,7 +155,7 @@ def train_xlmr(run_path, df_train, df_val, df_test, answer_column, target_column
             per_device_eval_batch_size=batch_size,  
             eval_strategy="epoch",
             logging_strategy="epoch",
-            fp16=True
+            fp16=False
         )
 
     trainer = Trainer(

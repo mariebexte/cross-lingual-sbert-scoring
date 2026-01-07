@@ -318,8 +318,24 @@ def calculate_model_matrixes(result_df_path, lang_order, translate_test=False):
                     model_dict[condition + '_best'] = df_condition['qwk_fisher'].max()
 
         dict_averaged[model] = model_dict
+
+    final_within = ['within_' + lang for lang in lang_order]
+    final_cross = ['cross_' + lang + '_avg' for lang in lang_order]
+    final_cross_best = ['cross_' + lang + '_best' for lang in lang_order]
+    final_cross_translated = ['cross_' + lang + '_translated_avg' for lang in lang_order]
+
+    if translate_test:
+
+        final_cols = final_within + final_cross + final_cross_best + final_cross_translated
     
+    else:
+
+        final_cols = final_within + final_cross + final_cross_best
+    
+
+    final_cols.append('within_avg')
     df_averaged = pd.DataFrame.from_dict(dict_averaged, orient='index')
+    df_averaged = df_averaged[final_cols]
     df_averaged['cross_avg'] = df_averaged.apply(get_cross_avg, axis=1, args=(lang_order,))
     df_averaged['best_cross_avg'] = df_averaged.apply(get_best_cross_avg, axis=1, args=(lang_order,))
     
@@ -338,21 +354,21 @@ def calculate_model_matrixes(result_df_path, lang_order, translate_test=False):
     df_averaged.to_csv(os.path.join(dir_for_results, 'averages.csv'))
 
 
-res_name = '/results/fair/exp_1_zero_shot'
+res_name = '/results/final/exp_1_zero_shot_v2'
 
-for dataset in [EPIRLS, ASAP_T]:
+# for dataset in [ASAP_T, EPIRLS]:
 
-    for run in ['_RUN1']:
-    # for run in ['_RUN1', '_RUN2', '_RUN3']:
+#     for run in ['_RUN1']:
+#     # for run in ['_RUN1', '_RUN2', '_RUN3']:
 
-         aggregate_results(result_dir=os.path.join(res_name + run, dataset['dataset_name']), target_column=dataset['target_column'], languages=dataset['languages'], translate_test=dataset['translate_test'])
-         calculate_model_matrixes(os.path.join(res_name + run, dataset['dataset_name'], 'overall.csv'), lang_order=dataset['languages'])
+#         #  aggregate_results(result_dir=os.path.join(res_name + run, dataset['dataset_name']), target_column=dataset['target_column'], languages=dataset['languages'], translate_test=dataset['translate_test'])
+#          calculate_model_matrixes(os.path.join(res_name + run, dataset['dataset_name'], 'overall.csv'), lang_order=dataset['languages'], translate_test=dataset['translate_test'])
 
-    # average_runs_exp1(result_file_list=[os.path.join(res_name+'_RUN1', dataset['dataset_name'], 'overall.csv'),
-    # os.path.join(res_name+'_RUN2', dataset['dataset_name'], 'overall.csv'),
-    # os.path.join(res_name+'_RUN3', dataset['dataset_name'], 'overall.csv')], target_folder=os.path.join(res_name+'_AVG', dataset['dataset_name']))
+#     # average_runs_exp1(result_file_list=[os.path.join(res_name+'_RUN1', dataset['dataset_name'], 'overall.csv'),
+#     # os.path.join(res_name+'_RUN2', dataset['dataset_name'], 'overall.csv'),
+#     # os.path.join(res_name+'_RUN3', dataset['dataset_name'], 'overall.csv')], target_folder=os.path.join(res_name+'_AVG', dataset['dataset_name']))
 
-    # calculate_model_matrixes(os.path.join(res_name+'_AVG', dataset['dataset_name'], 'overall.csv'), lang_order=dataset['languages'], translate_test=dataset['translate_test'])
+#     # calculate_model_matrixes(os.path.join(res_name+'_AVG', dataset['dataset_name'], 'overall.csv'), lang_order=dataset['languages'], translate_test=dataset['translate_test'])
 
 
 for dataset in [ASAP_M]:
@@ -361,7 +377,7 @@ for dataset in [ASAP_M]:
     # for run in ['_RUN1', '_RUN2', '_RUN3']:
 
          aggregate_results_cv(result_dir=os.path.join(res_name + run, dataset['dataset_name']), target_column=dataset['target_column'], languages=dataset['languages'], num_folds=dataset['num_folds'], translate_test=dataset['translate_test'])
-         calculate_model_matrixes(os.path.join(res_name + run, dataset['dataset_name'], 'overall.csv'), lang_order=dataset['languages'])
+         calculate_model_matrixes(os.path.join(res_name + run, dataset['dataset_name'], 'overall.csv'), lang_order=dataset['languages'], translate_test=dataset['translate_test'])
 
     # average_runs_exp1(result_file_list=[os.path.join(res_name+'_RUN1', dataset['dataset_name'], 'overall.csv'),
     # os.path.join(res_name+'_RUN2', dataset['dataset_name'], 'overall.csv'),
