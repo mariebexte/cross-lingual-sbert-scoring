@@ -4,7 +4,7 @@ import sys
 import numpy as np
 import pandas as pd
 
-from config import EPIRLS, ASAP_T, ASAP_M
+from config import EPIRLS, ASAP_T, ASAP_M, RESULT_PATH_EXP_3
 from heatmap import plot_heat
 from sklearn.metrics import accuracy_score, cohen_kappa_score
 from utils import average_qwk, average_runs_exp3
@@ -185,7 +185,7 @@ def get_translated_avg(row):
 
 
 
-res_name = '/results/final/exp_3_lolo'
+res_name = RESULT_PATH_EXP_3
 
 for dataset in [EPIRLS, ASAP_T]:
 

@@ -4,7 +4,7 @@ from sklearn.metrics import cohen_kappa_score
 import sys
 from utils import average_qwk
 from copy import deepcopy
-
+from config import RESULT_PATH_EXP_1, RESULT_PATH_EXP_2
 
 ## Plot curves for tradeoff between base and target language
 
@@ -205,6 +205,4 @@ def eval(cross_results_path, results_path, update_results=True):
     df_support.to_csv(os.path.join(results_path, target_folder, 'support.csv'))
 
 
-
-eval(cross_results_path='/results/final/exp_1_zero_shot_RUN1/ePIRLS', results_path='/results/final/exp_2_tradeoff/ePIRLS', update_results=True)
-# eval(cross_results_path='/results/final/exp_1_zero_shot_RUN1/ePIRLS', results_path='/results/final/exp_2_tradeoff/ePIRLS', update_results=True)
+eval(cross_results_path=os.path.join(RESULT_PATH_EXP_1,'ePIRLS'), results_path=os.path.join(RESULT_PATH_EXP_2,'ePIRLS'), update_results=True)
