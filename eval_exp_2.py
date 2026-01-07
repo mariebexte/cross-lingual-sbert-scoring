@@ -1,8 +1,8 @@
 import os
+import sys
 import pandas as pd
 from sklearn.metrics import cohen_kappa_score
-import sys
-from utils import average_qwk
+from analysis.utils import average_qwk
 from copy import deepcopy
 from config import RESULT_PATH_EXP_1, RESULT_PATH_EXP_2
 

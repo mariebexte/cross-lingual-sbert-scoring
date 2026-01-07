@@ -5,9 +5,8 @@ import numpy as np
 import pandas as pd
 
 from config import EPIRLS, ASAP_T, ASAP_M, RESULT_PATH_EXP_3
-from heatmap import plot_heat
+from analysis.utils import average_qwk, average_runs_exp3
 from sklearn.metrics import accuracy_score, cohen_kappa_score
-from utils import average_qwk, average_runs_exp3
 from pathlib import Path
 
 import matplotlib.pyplot as plt
